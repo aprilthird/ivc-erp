@@ -1,0 +1,57 @@
+﻿@model FoldingFor05ViewModel
+
+<input asp-for="Id" hidden />
+
+<input asp-for="SewerManifoldFor05Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="FillingLaboratoryTestId" class="label">PROCTOR</label>
+        <input asp-for="FillingLaboratoryTestId" hidden />
+        <select name="select_filling_laboratory_test" class="form-control kt-select select2-filling-laboratory-tests"></select>
+    </div>
+    <div class="col-lg-4">
+        <button id="SearchFillingLaboratoryTest" type="button" class="search-filling-laboratory-test btn btn-secondary">Buscar</button>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="FillingLaboratoryTest.MaxDensity" class="label"></label>
+        <input id="FLT_MaxDensity" type="number" step="any" class="form-control" disabled="disabled" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="FillingLaboratoryTest.OptimumMoisture" class="label"></label>
+        <input id="FLT_OptimumMoisture" type="number" step="any" class="form-control" disabled="disabled" />
+    </div>
+</div>
+
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="LayerNumber" class="label"></label>
+        <input asp-for="LayerNumber" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="TestDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="TestDate" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="WetDensity" class="label"></label>
+        <input asp-for="WetDensity" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="MoisturePercentage" class="label"></label>
+        <input asp-for="MoisturePercentage" class="form-control" />
+    </div>
+</div>

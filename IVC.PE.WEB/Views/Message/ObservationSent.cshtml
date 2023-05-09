@@ -1,0 +1,25 @@
+﻿@model (string title, string message, string icon)
+@{
+    ViewBag.Title = "Mensaje";
+    Layout = "_MessageLayout";
+}
+
+@section Styles {
+    <link href="~/css/message.css" rel="stylesheet" />
+}
+
+<div class="container">
+    <a href="@Url.Action("Login", "Account")">
+        <img class="logo" src="~/media/logo-ivc.png">
+    </a>
+    <div class="message-container jumbotron">
+        <h1 class="message-title">La observación al pre-requerimiento ha sido registrada exitosamente</h1>
+        <hr />
+        <img src="~/media/file_approved.png" class="message-icon" style="width:100px;height:auto" />
+    </div>
+
+</div>
+
+@{
+
+}

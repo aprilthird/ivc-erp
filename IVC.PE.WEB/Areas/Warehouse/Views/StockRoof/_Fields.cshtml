@@ -1,0 +1,39 @@
+﻿@model StockRoofViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12 row">
+        <div class="col-lg-12">
+            <label asp-for="StockId" class="label"></label>
+            <input asp-for="StockId" hidden />
+            <select name="select_stock" class="form-control kt-select select2-stocks" data-placeholder="Material"></select>
+        </div>
+    </div>
+    <div class="col-lg-12 row">
+        <div class="col-lg-12">
+            <label class="label">Jefe de Frente</label>
+            <select name="select_workfronthead" class="form-control kt-select select2-workfrontheads" data-placeholder="Jefe de Frente"></select>
+        </div>
+    </div>
+    <div class="col-lg-12 row">
+        <div class="col-lg-12">
+            <label asp-for="SewerGroupId" class="label"></label>
+            <input asp-for="SewerGroupId" hidden />
+            <select name="select_sewergroup" class="form-control kt-select select2-sewergroups" data-placeholder="Cuadrilla"></select>
+        </div>
+    </div>
+    <div class="col-lg-12 row">
+        <div class="col-lg-12">
+            <label asp-for="ProjectPhaseId" class="label"></label>
+            <input asp-for="ProjectPhaseId" hidden />
+            <select name="select_projectphase" class="form-control kt-select select2-projectphases" data-placeholder="Fase"></select>
+        </div>
+    </div>
+    <div class="col-lg-12 row">
+        <div class="col-lg-5">
+            <label asp-for="RoofQuantity" class="label"></label>
+            <input asp-for="RoofQuantity" class="form-control" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,115 @@
+﻿@model EquipmentMachineryOperatorViewModel
+
+<input asp-for="Id" hidden />
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="HiringType" class="label"></label>
+        <input asp-for="HiringType" hidden />
+        <select name="select_hiring" class="form-control kt-select select2-hirings" data-placeholder="Tipo de contratación">
+            @foreach (var item in ConstantHelpers.EquipmentMachinery.EquipmentMachineryOperator.HIRING_TYPE)
+            {
+                if (item.Key != 0 && item.Key != 9999)
+                {<option value="@item.Key">@item.Value</option>
+                }
+            }
+        </select>
+    </div>
+</div>
+
+<div class="form-group row is-from-another" hidden>
+
+    @*<div class="col-lg-6">
+            <label asp-for="ProviderId" class="label"></label>
+            <input asp-for="ProviderId" hidden />
+            <select name="select_provider" class="form-control kt-select select2-providers"></select>
+        </div>*@
+    <div class="col-lg-6">
+        <label asp-for="FromOtherName" class="label"></label>
+        <input asp-for="FromOtherName" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="FromOtherPhone" class="label"></label>
+        <input asp-for="FromOtherPhone" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="FromOtherDNI" class="label"></label>
+        <input asp-for="FromOtherDNI" class="form-control" />
+    </div>
+
+</div>
+<div class="form-group row is-from-ivc">
+
+
+    <div class="col-lg-6 ">
+        <label asp-for="OperatorName" class="label"></label>
+        <input asp-for="OperatorName" class="form-control" />
+    </div>
+    <div class="col-lg-6 ">
+        <label asp-for="PhoneOperator" class="label"></label>
+        <input asp-for="PhoneOperator" class="form-control" />
+    </div>
+    <div class="col-lg-6 ">
+        <label asp-for="DNIOperator" class="label"></label>
+        <input asp-for="DNIOperator" class="form-control" />
+    </div>
+
+</div>
+
+
+
+<div class="form-group row is-from-worker" hidden>
+    <div class="col-lg-4 " >
+        <label asp-for="WorkerId" class="label"></label>
+        <input asp-for="WorkerId" hidden />
+        <select name="select_worker" class="form-control kt-select select2-workers"></select>
+    </div>
+</div>
+
+    <div class="form-group row">
+        <div class="col-lg-6">
+            <label asp-for="EquipmentMachineryTypeId" class="label"></label>
+            <input asp-for="EquipmentMachineryTypeId" hidden />
+            <select name="select_machinery" class="form-control kt-select select2-machinerys" data-placeholder="Tipo de maquinaria">
+            </select>
+        </div>
+        <div class="col-lg-4 soft_group">
+            <label asp-for="EquipmentMachineryTypeSoftId" class="label"></label>
+            <input asp-for="EquipmentMachineryTypeSoftId" hidden />
+            <select name="select_machinery_type_soft" class="form-control kt-select select2-softs" data-placeholder="Equipo Menor">
+            </select>
+        </div>
+        <div class="col-lg-4 type_group" hidden>
+            <label asp-for="EquipmentMachineryTypeTypeId" class="label"></label>
+            <input asp-for="EquipmentMachineryTypeTypeId" hidden />
+            <select name="select_machinery_type_type" class="form-control kt-select select2-machineries" data-placeholder="Tipo de Maquinaria">
+            </select>
+        </div>
+        <div class="col-lg-4 transport_group" hidden>
+            <label asp-for="EquipmentMachineryTypeTransportId" class="label"></label>
+            <input asp-for="EquipmentMachineryTypeTransportId" hidden />
+            <select name="select_machinery_type_transport" class="form-control kt-select select2-transports" data-placeholder="Tipo de Transporte">
+            </select>
+        </div>
+
+    </div>
+    <div class="form-group row">
+        <div class="col-lg-6">
+            <label asp-for="StartDate" class="label"></label>
+            <div class="input-group">
+                <input asp-for="StartDate" class="form-control datepicker" />
+                <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2">
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="File" class="label">CV:</label>
+        <div class="custom-file">
+            <input asp-for="File" type="file" class="custom-file-input" />
+            <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+        </div>
+    </div>

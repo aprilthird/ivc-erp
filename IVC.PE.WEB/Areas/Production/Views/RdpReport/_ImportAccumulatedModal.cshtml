@@ -1,0 +1,33 @@
+﻿<div class="modal fade" id="import_accumulated_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-modal="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Importar Acumulados Iniciales</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <form id="import_accumulated_form" class="form form-horizontal" role="form" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <p>Esta carga se debe hacer solo una vez!! De lo contrario se borraría la información hasta la fecha indicada.</p>
+                    <div id="import_accumulated_alert" class="alert alert-danger alert-dismissible fade d-none" role="alert">
+                        <span id="import_accumulated_alert_text"></span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <partial name="_ImportAccumulatedFields" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <i class="la la-close"></i>
+                        Cerrar
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="la la-save"></i>
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,131 @@
+﻿@model EquipmentCertificateRenewalViewModel
+<input asp-for="Id" hidden />
+<input asp-for="EquipmentCertificateId" hidden />
+<input asp-for="RenewalId" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="Responsibles" class="label" hidden></label>
+        <input asp-for="Responsibles" hidden />
+        @*<select name="select_users" class="form-control kt-select select2-users" multiple data-placeholder="Encargado(s)"></select>*@
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="StartDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="StartDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="EndDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="EndDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="EquipmentCertificateNumber" class="label"></label>
+        <input asp-for="EquipmentCertificateNumber" class="form-control" />
+
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="InspectionType" class="label"></label>
+        <input asp-for="InspectionType" hidden />
+        <select name="select_inspection" class="form-control kt-select select2-inspections" data-placeholder="Estado">
+            @foreach (var item in ConstantHelpers.Quality.EquimentCertificate.INSPECTION_TYPE)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="CalibrationMethod" class="label"></label>
+        <input asp-for="CalibrationMethod" hidden />
+        <select name="select_method" class="form-control kt-select select2-methods" data-placeholder="Estado">
+            @foreach (var item in ConstantHelpers.Quality.EquimentCertificate.CALIBRATION_METHOD)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="CalibrationFrecuency" class="label"></label>
+        <input asp-for="CalibrationFrecuency" hidden />
+        <select name="select_frecuency" class="form-control kt-select select2-frecuencies" data-placeholder="Estado">
+            @foreach (var item in ConstantHelpers.Quality.EquimentCertificate.CALIBRATION_FRECUENCY)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    @*<div class="col-lg-4">
+            <label asp-for="CertifyingEntity" class="label"></label>
+            <input asp-for="CertifyingEntity" class="form-control" />
+        </div>*@
+
+    <div class="col-lg-4">
+        <label asp-for="OperationalStatus" class="label"></label>
+        <input asp-for="OperationalStatus" hidden />
+        <select name="select_operational" class="form-control kt-select select2-operationals" data-placeholder="Estado">
+            @foreach (var item in ConstantHelpers.Quality.EquimentCertificate.OPERATIONAL_STATUS)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="SituationStatus" class="label"></label>
+        <input asp-for="SituationStatus" hidden />
+        <select name="select_situational" class="form-control kt-select select2-situtionals" data-placeholder="Situación">
+            @foreach (var item in ConstantHelpers.Quality.EquimentCertificate.SITUATIONAL_STATUS)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-12">
+        <label asp-for="EquipmentCertificateUserOperatorId" class="label"></label>
+        <input asp-for="EquipmentCertificateUserOperatorId" hidden />
+        <select name="select_operator" class="form-control kt-select select2-operators" data-placeholder="Operador"></select>
+    </div>
+    <div class="col-lg-12">
+        <label asp-for="EquipmentCertifyingEntityId" class="label"></label>
+        <input asp-for="EquipmentCertifyingEntityId" hidden />
+        <select name="select_entity" class="form-control kt-select select2-entities" data-placeholder="Entidad Certificadora"></select>
+    </div>
+    <div class="col-lg-12">
+        <label asp-for="PatternCalibrationRenewalId" class="label"></label>
+        <input asp-for="PatternCalibrationRenewalId" hidden />
+        <select name="select_pattern" class="form-control kt-select select2-patterns" data-placeholder="Patrón de calibración"></select>
+    </div>
+    <div class="col-lg-12">
+        <label asp-for="Observation" class="label"></label>
+        <input asp-for="Observation" class="form-control" />
+
+    </div>
+    <div class="col-lg-12">
+        <label asp-for="QualityFrontId" class="label"></label>
+        <input asp-for="QualityFrontId" hidden />
+        <select name="select_front" class="form-control kt-select select2-fronts" data-placeholder="Frente"></select>
+    </div>
+    <div class="col-lg-12">
+        <label asp-for="File" class="label"></label>
+        <div class="custom-file">
+            <input asp-for="File" type="file" class="custom-file-input" />
+            <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+        </div>
+    </div>
+</div>

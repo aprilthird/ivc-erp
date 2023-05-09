@@ -1,0 +1,35 @@
+﻿@model FuelProviderPriceFoldingViewModel
+
+<input asp-for="Id" hidden />
+
+<input asp-for="FuelProviderId" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="Price" class="label"></label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="PublicationDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="PublicationDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="File" class="label"></label>
+        <div class="custom-file">
+            <input asp-for="File" type="file" class="custom-file-input" />
+            <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+        </div>
+    </div>
+
+
+
+</div>

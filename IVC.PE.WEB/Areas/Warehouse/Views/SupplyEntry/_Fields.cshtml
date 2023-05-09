@@ -1,0 +1,55 @@
+﻿@model SupplyEntryViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="OrderId" class="label"></label>
+        <input asp-for="OrderId" hidden />
+        <select name="select_order" class="form-control kt-select select2-orders"></select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-5">
+        <label asp-for="WarehouseId" class="label"></label>
+        <input asp-for="WarehouseId" hidden />
+        <select name="select_warehouse" class="form-control kt-select select2-warehouses"></select>
+    </div>
+    <div class="col-lg-2">
+        <label asp-for="DeliveryDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="DeliveryDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <label class="label">Proveedor</label>
+        <input name="provider_name" class="form-control" disabled />
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="RemissionGuideName" class="label"></label>
+        <input asp-for="RemissionGuideName" class="form-control" />
+    </div>
+</div>
+
+<div class="form-group">
+    <label asp-for="RemissionGuide" class="label">Archivo:</label>
+    <div class="custom-file">
+        <input asp-for="RemissionGuide" type="file" class="custom-file-input" />
+        <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+    </div>
+</div>
+
+<div class="form-group">
+    <label asp-for="InvoiceId" class="label">Factura:</label>
+    <input asp-for="InvoiceId" hidden />
+    <select name="select_invoice" class="form-control kt-select select2-invoices"></select>
+</div>

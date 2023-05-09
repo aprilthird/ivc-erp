@@ -1,0 +1,79 @@
+﻿@model OCBudgetViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="BudgetTypeId" class="label"></label>
+        <input asp-for="BudgetTypeId" hidden />
+        <select name="select_types" class="form-control kt-select select2-types"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="BudgetTitleId" class="label"></label>
+        <input asp-for="BudgetTitleId" hidden />
+        <select name="select_titles" class="form-control kt-select select2-titles"></select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="Group" class="label"></label>
+        <input asp-for="Group" hidden />
+        <select name="select_groups" class="form-control kt-select select2-groups">
+            @foreach (var item in ConstantHelpers.Budget.Group.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="ProjectFormulaId" class="label"></label>
+        <input asp-for="ProjectFormulaId" hidden />
+        <select name="select_formulas" class="form-control kt-select select2-formulas"></select>
+    </div>
+</div>
+
+<div class=" form-group row">
+    <div class="col-lg-6">
+        <label asp-for="NumberItem" class="label"></label>
+        <input asp-for="NumberItem" class="form-control" />
+    </div>
+</div>
+
+<div class=" form-group row">
+    <div class="col-lg-6">
+        <label asp-for="Description" class="label"></label>
+        <br>
+        <textarea asp-for="Description" rows="5" cols="120"></textarea>
+    </div>
+</div>
+
+<div class=" form-group row">
+    <div class="col-lg-4">
+        <label asp-for="Unit" class="label"></label>
+        <input asp-for="Unit" hidden />
+        <select name="select_units" class="form-control kt-select select2-units">
+            <option value="">Sin Unidad</option>
+            <option value="km">km</option>
+            <option value="m">m</option>
+            <option value="h">h</option>
+            <option value="und">und</option>
+            <option value="m2">m2</option>
+            <option value="m3">m3</option>
+            <option value="dia">día</option>
+            <option value="Glb">Glb</option>
+        </select>
+    </div>
+    <div class="col-lg-2">
+        <label asp-for="Metered" class="label"></label>
+        <input asp-for="Metered" class="form-control" />
+    </div>
+    <div class="col-lg-2">
+        <label asp-for="UnitPrice" class="label"></label>
+        <input asp-for="UnitPrice" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="TotalPrice" class="label"></label>
+        <input asp-for="TotalPrice" class="form-control" />
+    </div>
+</div>

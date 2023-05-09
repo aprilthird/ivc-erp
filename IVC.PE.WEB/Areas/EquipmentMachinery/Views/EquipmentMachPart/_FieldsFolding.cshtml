@@ -1,0 +1,76 @@
+﻿@model EquipmentMachPartFoldingViewModel
+
+<input asp-for="Id" hidden />
+
+<input asp-for="EquipmentMachPartId" hidden/>
+
+<div class="form-group row">
+
+    <div class="col-lg-4">
+        <label asp-for="EquipmentMachineryOperatorId" class="label"></label>
+        <input asp-for="EquipmentMachineryOperatorId" hidden />
+        <select name="select_operator" class="form-control kt-select select2-operators" data-placeholder="Operador">
+        </select>
+    </div>
+
+    <div class="col-lg-4 worker_group">
+        <label asp-for="UserId" class="label"></label>
+        <input asp-for="UserId" hidden />
+        <select name="select_user" class="form-control kt-select select2-users">
+        </select>
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="PartNumber" class="label"></label>
+        <input asp-for="PartNumber" class="form-control"/>
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="PartDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="PartDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="SewerGroupId" class="label"></label>
+        <input asp-for="SewerGroupId" hidden />
+        <select name="select_sewer" class="form-control kt-select select2-sewers" data-placeholder="Cuadrilla">
+        </select>
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="MachineryPhaseId" class="label"></label>
+        <input asp-for="MachineryPhaseId" hidden />
+        <select name="select_phase" class="form-control kt-select select2-phases" data-placeholder="Fase">
+        </select>
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="EquipmentMachineryTypeTypeActivityId" class="label"></label>
+        <input asp-for="EquipmentMachineryTypeTypeActivityId" hidden />
+        <select name="select_activity" class="form-control kt-select select2-activities" data-placeholder="Actividad">
+        </select>
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="Specific" class="label"></label>
+        <input asp-for="Specific" class="form-control" />
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="InitHorometer" class="label"></label>
+        <input asp-for="InitHorometer" class="form-control" required />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="EndHorometer" class="label"></label>
+        <input asp-for="EndHorometer" class="form-control" required />
+    </div>
+</div>
+
+
+

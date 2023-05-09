@@ -1,0 +1,34 @@
+﻿@model PensionFundAdministratorViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-9">
+        <label asp-for="Name" class="label"></label>
+        <input asp-for="Name" class="form-control" disabled="disabled"/>
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="Code" class="label"></label>
+        <input asp-for="Code" class="form-control" disabled="disabled"/>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="FundRate" class="label"></label>
+        <input asp-for="FundRate" class="form-control" required />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="FlowComissionRate" class="label"></label>
+        <input asp-for="FlowComissionRate" class="form-control" required />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="MixedComissionRate" class="label"></label>
+        <input asp-for="MixedComissionRate" class="form-control" required />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="DisabilityInsuranceRate" class="label"></label>
+        <input asp-for="DisabilityInsuranceRate" class="form-control" required />
+    </div>
+</div>

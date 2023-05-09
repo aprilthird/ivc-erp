@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infra="clr-namespace:IVC.PE.APP.Infraestructure"
+             x:Class="IVC.PE.APP.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Locator -->
+            <infra:InstanceLocator x:Key="Locator"/>
+
+            <!-- Parameters -->
+            <x:String x:Key="UrlAPI">https://erp-ivc.azurewebsites.net</x:String>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

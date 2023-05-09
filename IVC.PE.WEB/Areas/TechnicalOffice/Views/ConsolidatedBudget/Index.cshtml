@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "Presupuestos ";
+    ViewBag.SubTitle = "Presupuestos Consolidado Venta";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.Quality.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    @if (canEdit)
+                    {
+                        <div class="btn-group" role="group" airal-label="Button group with nested dropdown">
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" id="btn-refresh">
+                                <span>
+                                    <i class="la la-refresh"></i>
+                                    <span>Actualizar</span>
+                                </span>
+                            </button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_project" role="tabpanel">
+                <table class="table table-striped table-bordered table-hover table-chekable dataTable" id="consolidateds_datatable" role="grid">
+                    <thead>
+                        <tr>
+                            <th rowspan="3" style="text-align:center;">ITEM</th>
+                            <th rowspan="3" style="text-align:center;">DESCRIPCIÓN</th>
+                            <th rowspan="2" style="text-align:center;">CONTRACTUAL</th>
+                            <th colspan="4" style="text-align:center;">DEDUCTIVOS</th>
+                            <th rowspan="3" style="text-align:center;">DEDUCTIVOS</th>
+                            <th rowspan="3" style="text-align:center;">CONTRACTUAL NETO</th>
+                            <th colspan="4" style="text-align:center;">ADICIONALES</th>
+                            <th rowspan="3" style="text-align:center;">ADICIONALES</th>
+                            <th rowspan="2" style="text-align:center;">ACUMULADO</th>
+                        </tr>
+                        <tr>
+                            <th style="text-align:center;">Deductivo N° 01 (RRP-19)</th>
+                            <th style="text-align:center;">Deductivo N° 02 (Colector de Descarga)</th>
+                            <th style="text-align:center;">Deductivo N° 03 (Anclajes Líneas HD)</th>
+                            <th style="text-align:center;">Deductivo N° 04 (Cámaras)</th>
+                            <th style="text-align:center;">Adicional N° 01 (RRP-19)</th>
+                            <th style="text-align:center;">Adicional N° 02 (Colector de Descarga)</th>
+                            <th style="text-align:center;">Adicional N° 03 (Anclajes Líneas HD)</th>
+                            <th style="text-align:center;">Adicional N° 04 (Cámaras)</th>
+                        </tr>
+                        <tr>
+                            <th>MONTO (S/)</th>
+                            <th>MONTO (S/)</th>
+                            <th>MONTO (S/)</th>
+                            <th>MONTO (S/)</th>
+                            <th>MONTO (S/)</th>
+                            <th>MONTO (S/)</th>
+                            <th>MONTO (S/)</th>
+                            <th>MONTO (S/)</th>
+                            <th>MONTO (S/)</th>
+                            <th>MONTO (S/)</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/technical-office/consolidated-budget/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/technical-office/consolidated-budget/index.js"></script>
+    }
+}

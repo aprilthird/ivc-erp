@@ -1,0 +1,16 @@
+﻿@model ProjectFormulaActivityViewModel
+
+<input asp-for="Id" hidden />
+<input asp-for="ProjectFormulaId" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-8">
+        <label asp-for="Description" class="label"></label>
+        <input asp-for="Description" class="form-control" required />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="MeasurementUnitId" class="label"></label>
+        <input asp-for="MeasurementUnitId" hidden />
+        <select name="select_unit" class="form-control kt-select select2-units" data-placeholder="Unidad"></select>
+    </div>
+</div>

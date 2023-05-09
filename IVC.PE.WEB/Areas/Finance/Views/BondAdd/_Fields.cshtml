@@ -1,0 +1,128 @@
+﻿@model BondAddViewModel
+<input asp-for="Id" hidden />
+<input asp-for="BondRenovation.Id" hidden />
+
+<div class="form-group row">
+
+    @*<div class="col-lg-12">
+        <label asp-for="ProjectId" class="label"></label>
+        <input asp-for="ProjectId" hidden />
+        <select name="select_project" class="form-control kt-select select2-projects" data-placeholder="Garantes"></select>
+    </div>*@
+
+    <div class="col-lg-12">
+        <label asp-for="BondGuarantorId" class="label"></label>
+        <input asp-for="BondGuarantorId" hidden />
+        <select name="select_bondguarantor" class="form-control kt-select select2-guarantors" data-placeholder="Garantes"></select>
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="BudgetTitleId" class="label"></label>
+        <input asp-for="BudgetTitleId" hidden />
+        <select name="select_budgettype" class="form-control kt-select select2-budgetType" data-placeholder="Tipo de Presupuesto"></select>
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="BondTypeId" class="label"></label>
+        <input asp-for="BondTypeId" hidden />
+        <select name="select_bondtype" class="form-control kt-select select2-bondType" data-placeholder="Tipo de Fianza"></select>
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="BankId" class="label"></label>
+        <input asp-for="BankId" hidden />
+        <select name="select_bank" class="form-control kt-select select2-banks" data-placeholder="Entidad Financiera"></select>
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="BondNumber" class="label"></label>
+        <input asp-for="BondNumber" class="form-control" required />
+    </div>
+ </div>
+
+<div class="form-group row">
+
+    <div class="col-lg-12">
+        <label asp-for="BondRenovation.Responsibles" class="label" hidden></label>
+        <input asp-for="BondRenovation.Responsibles" hidden />
+        @*<select name="select_users" class="form-control kt-select select2-users" multiple data-placeholder="Encargado"></select>*@
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="BondRenovation.BondName" class="label"></label>
+        <input asp-for="BondRenovation.BondName" class="form-control" required />
+        @*<select name="select_users" class="form-control kt-select select2-users" multiple data-placeholder="Encargado" ></select>*@
+    </div>
+
+    <div class="col-lg-8">
+        <label asp-for="BondRenovation.PenAmmount" class="label"></label>
+        <input asp-for="BondRenovation.PenAmmount" class="form-control" required />
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="BondRenovation.currencyType" class="label"></label>
+        <input asp-for="BondRenovation.currencyType" hidden />
+        <select name="select_currencytype" class="form-control kt-select select2-currencies" data-placeholder="Tipo de Moneda" required></select>
+    </div>
+    <div class="col-lg-8">
+        <label asp-for="BondRenovation.IssueCost" class="label"></label>
+        <input asp-for="BondRenovation.IssueCost" class="form-control"/>
+    </div>
+    <div class="col-lg-12">
+        <label asp-for="BondRenovation.IssueFile" class="label"></label>
+        <div class="custom-file">
+            <input asp-for="BondRenovation.IssueFile" type="file" class="custom-file-input" />
+            <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="BondRenovation.CreateDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="BondRenovation.CreateDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="BondRenovation.EndDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="BondRenovation.EndDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-8">
+        <label asp-for="BondRenovation.guaranteeDesc" class="label"></label>
+        <input asp-for="BondRenovation.guaranteeDesc" class="form-control" />
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="BondRenovation.IsTheLast" class="label"></label>
+        <input asp-for="BondRenovation.IsTheLast" hidden />
+        <select name="select_isthelast" class="form-control kt-select select2-isthelast" required>
+            <option value="false" selected>No</option>
+            <option value="true">Sí</option>
+        </select>
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="BondRenovation.File" class="label"></label>
+        <div class="custom-file">
+            <input asp-for="BondRenovation.File" type="file" class="custom-file-input" />
+            <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+        </div>
+    </div>
+
+</div>
+
+
+
+

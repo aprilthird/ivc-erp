@@ -1,0 +1,896 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.Security.Racs.RacsAddPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Reporte RACS">
+    <ContentPage.Content>
+        <AbsoluteLayout 
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding RacsAddViewModel}"
+            Padding="8">
+            <ScrollView
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional"
+                Padding="0,0,0,80">
+                <StackLayout>
+                    <Label Text="Proyecto"/>
+                    <Picker
+                        ItemsSource="{Binding Projects}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedProject}"
+                        IsEnabled="{Binding IsEnabled}">
+                    </Picker>
+
+                    <Label Text="Fecha"/>
+                    <DatePicker 
+                        Date="{Binding SelectedDate}"
+                        IsEnabled="{Binding IsEnabled}"
+                        Format="dd/MM/yyyy"/>
+
+                    <Label Text="Frente"/>
+                    <StackLayout>
+                        <Entry
+                            Text="{Binding WorkFront}"
+                            InputTransparent="true"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding SelectWorkFrontCommand}"
+                                NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <Label Text="Cuadrilla"/>
+                    <StackLayout>
+                        <Entry
+                            Text="{Binding SewerGroup}"
+                            InputTransparent="true"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding SelectSewerGroupCommand}"
+                                NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <!--Picker
+                        SelectedItem="{Binding SelectedSewerGroup}"
+                        ItemsSource="{Binding SewerGroups}"
+                        ItemDisplayBinding="{Binding Text}"
+                        IsEnabled="{Binding IsEnabled}"/-->
+
+                    <Label Text="Responsable de Levantar Observaciones"/>
+                    <StackLayout>
+                        <Entry
+                            Text="{Binding LiftUser}"
+                            InputTransparent="true"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding SelectLiftUserCommand}"
+                                NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <!--Picker
+                        SelectedItem="{Binding SelectedUser}"
+                        ItemsSource="{Binding Users}"
+                        ItemDisplayBinding="{Binding Text}"
+                        IsEnabled="{Binding IsEnabled}"/-->
+
+                    <Label Text="Firma" />
+                    <Button
+                        Command="{Binding AddSignatureCommand}"
+                        HorizontalOptions="EndAndExpand"
+                        BackgroundColor="#00284A"
+                        Text="&#xf5b7;"
+                        FontFamily="FontAwesome"
+                        TextColor="White"
+                        IsEnabled="{Binding IsEnabled}">
+                    </Button>
+                    <Image
+                        Source="{Binding SignatureStream}"
+                        HeightRequest="150"
+                        BackgroundColor="LightGray" />
+
+                    <!-- Grupo: Condición Subestandar -->
+                    <Label 
+                        Text="Condición Subestandar"
+                        HorizontalTextAlignment="Center" 
+                        FontAttributes="Bold" 
+                        FontSize="Title"
+                        Padding="0,20,0,0"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                            Text="¿Identifica condición Subestandar?"
+                            FontSize="Medium"/>
+                        <Switch 
+                            VerticalOptions="Start" 
+                            HorizontalOptions="EndAndExpand"
+                            IsToggled="{Binding Racs.IdentifiesSC}"
+                        IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <Editor
+                        Placeholder="Descripción de la Condición Subestandar"
+                        AutoSize="TextChanges"
+                        Text="{Binding Racs.DescriptionIdentifiesSC}"
+                        IsEnabled="{Binding IsEnabled}"/>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="01." FontSize="Medium" MinimumWidthRequest="40"/>
+                        <Label
+                            Text="Falta Orden y Limpieza en áreas de trabajo y almacén."
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                            IsToggled="{Binding Racs.SCQ01}"
+                            IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="02." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Falta señalización (cintas, carteles) en las áreas o delimitación deficiente."
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ02}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="03." FontSize="Medium" MinimumWidthRequest="40"/>
+                        <Label
+                            Text="EPPs NO recomendados al área y al trabajo, no hay stock."
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ03}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="04." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Documentación MASS desactualizados, sin archivar, no impresos, sin firmar y no están publicados." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ04}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="05." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Derrame de Hidrocarburo y/o concreto." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ05}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="06." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Escaleras (sin inspección, mal almacenadas, mal posicionada)" 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ06}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="07." FontSize="Medium" MinimumWidthRequest="40"/>
+                        <Label
+                            Text="Instalaciones eléctricas mal instaladas o inadecuadas." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ07}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="08." FontSize="Medium" MinimumWidthRequest="40"/>
+                        <Label
+                            Text="Maderas con clavos, presencia de elementos punzantes." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ08}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="09." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Mal Manejo y disposición de RRSS." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ09}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="10." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Accesos inadecuados (sin baranda, berma en mal estado, presencia de obstáculos)." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ10}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="11." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="No se evidencia SCTR vigente e impreso y publicado en obra." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ11}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="12." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Falta agua para el personal." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ12}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="13." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Ausencia del Residente." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ13}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="14." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Ausencia del jefe y/o Supervisor SSI." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ14}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="15." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Equipos de emergencias en mal estado, sin inspección, materiales incompletos o ausencia o mal ubicados." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ15}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="16." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Mal manejo de producto químico (mal almacenamiento, mala disposición, falta hoja MSDS, sin rotulado)" 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ16}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="17." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Andamios (sin tarjeta, sin barandas, rodapiés, sin inspección, plataforma incompleta, inestables)" 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ17}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="18." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Falta o deficiente colocación de dispositivos de seguridad (guardas u otros)" 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ18}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="19." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Diseño inadecuado del equipo o del trabajo." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ19}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="20." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Falta o deficiente Iluminación en la zona de trabajo." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ20}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="21." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Materiales inflamables cerca de trabajos en caliente." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ21}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="22." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Mantenimiento inadecuado de equipos o herramientas." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ22}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="23." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Deficiente estados de los sistemas de cierre (Cerraduras, pestillos, candados, otros)" 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ23}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="24." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Escaleras, andamios, plataformas en mal estado." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ24}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="25." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Condiciones climáticas adversas (tormenta eléctrica, granizada, etc.)" 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ25}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="26." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Presencia de agentes nocivos en la atmósfera." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ26}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="27." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Material cerca al borde de la zanja." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ27}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="28." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Falta de coordinación o ausencia de vigías/ Excesiva velocidad de vehículos particulares/ Tolva de volquete sin asegurar/ Incumplimiento de Manejo Defensivo/ Trabajador dentro de radio de trabajo." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ28}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="29." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Otras condiciones subestándares" 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SCQ29}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <Editor
+                        Placeholder="Especificar condición..."
+                        AutoSize="TextChanges"
+                        Text="{Binding Racs.SpecifyConditions}"
+                        IsEnabled="{Binding IsEnabled}"/>
+
+                    <!-- Grupo: Acto Subestandar -->
+                    <Label 
+                        Text="Acto Subestandar"
+                        HorizontalTextAlignment="Center" 
+                        FontAttributes="Bold" 
+                        FontSize="Title"
+                        Padding="0,20,0,0"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                            Text="¿Identifica acto Subestandar?"
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.IdentifiesSA}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <Editor
+                        Placeholder="Descripción del acto Subestandar"
+                        AutoSize="TextChanges"
+                        Text="{Binding Racs.DescriptionIdentifiesSA}"
+                        IsEnabled="{Binding IsEnabled}"/>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="01." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Malas posturas, riesgo ergonómico." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SAQ01}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="02." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Trabajador sobre plataformas inestables." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SAQ02}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="03." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="EPP´s son utilizados inadecuadamente o no los usan." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SAQ03}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="04." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Sin tarjetas de entrenamiento o desactualizadas o sin dictado de cursos." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.SAQ04}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="05." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="No utilizar lentes de seguridad o en mal estado." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ05}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="06." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Personal sin protección de manos o guantes en mal estado." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ06}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="07." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="No utilizar arnés, mala utilización de línea de anclaje y línea de vida, mal almacenamiento, falta de inspección." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ07}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="08." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="No se generan permisos para trabajos de alto riesgo, firmas incompletas, no está en el área de trabajo." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ08}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="09." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="No utilizar protector respiratorio según la actividad (polvos, gases, vapores, etc.)" 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ09}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="10." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Mala utilización de herramientas manuales (sin inspección, malas condiciones) o hechizas." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ10}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="11." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="No se generó el ATS o Evaluación deficiente o firmas incompletas." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ11}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="12." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="No se generó la charla diaria o no firman el registro." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ12}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="13." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="No cumplir con los procedimientos de trabajo establecidos." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ13}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="14." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Interferir o retirar dispositivos de Seguridad o de control Ambiental." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ14}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="15." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Trabajar sobre equipos en movimiento o riesgosos." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ15}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="16." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Operar o conducir a velocidad inadecuada o distraído." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ16}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="17." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Adoptar posiciones o posturas peligrosas." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ17}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="18." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Falta de atención en la tarea." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ18}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="19." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Distraer, molestar, insultar, reñir, sorprender a otros colaboradores." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ19}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="20." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="No asegurar las herramientas o materiales en trabajos en altura." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ20}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="21." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="No respetar el área de seguridad en las maniobras." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ21}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="22." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Realizar trabajos sin bloquear energías al intervenir maquinas o equipos." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ22}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="23." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Ingresar a áreas restringidas sin autorización." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ23}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="24." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="No utilizar equipos de contención de derrames." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ24}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="25." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="No realizar la segregación adecuada de los residuos." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ25}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="26." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Manipulación o traslado inadecuado de materiales peligrosos." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ26}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="27." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Dejar material, equipos, otros, abandonados/expuestos." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ27}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="28." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Dejar puertas y ventanas abiertas al término de sus labores." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ28}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="29." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Retirar material, equipos, otros, sin autorización escrita" 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ29}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="30." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="No realizar el Check list de Pre Uso." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ30}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="31." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Fumar en zonas no autorizadas o cerca combustibles." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ31}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="32." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Levantar objetos de forma inadecuada." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ32}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="33." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Realizar trabajos sin estar capacitado." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ33}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="34." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Trabajar bajo influencia de alcohol y/o drogas." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ34}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="35." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Realizar trabajos de alto riesgo (altura, caliente, etc.) sin autorización." 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ35}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="36." FontSize="Medium" MinimumWidthRequest="40" />
+                        <Label
+                            Text="Otros actos subestándares" 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                  IsToggled="{Binding Racs.SAQ36}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <Editor
+                        Placeholder="Especificar actos..."
+                        AutoSize="TextChanges"/>
+
+                    <!-- Grupo: Corrección Inmediata -->
+                    <Label 
+                        Text="Corrección Inmediata"
+                        HorizontalTextAlignment="Center" 
+                        FontAttributes="Bold" 
+                        FontSize="Title"
+                        Padding="0,20,0,0"/>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                            Text="Dar a conocer con anticipación el estados y las condiciones del sitio de trabajo" 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.ICQ01}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                            Text="Realizar los reportes correspondientes para seguir los conductos regulares de los ajustes" 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.ICQ02}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                            Text="Organizar los elementos de trabajo en el sitio correspondiente" 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.ICQ03}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                            Text="Solicitar el cambio de EPP o de herramientas que estén en mal estado" 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.ICQ04}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                            Text="¿Otras alternativas?" 
+                            FontSize="Medium"/>
+                        <Switch VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                                IsToggled="{Binding Racs.ICQ05}"
+                                IsEnabled="{Binding IsEnabled}"/>
+                    </StackLayout>
+
+                    <Editor
+                        Placeholder="Otras alternativas..."
+                        AutoSize="TextChanges"
+                        Text="{Binding Racs.SpecifyAppliedCorrections}"
+                        IsEnabled="{Binding IsEnabled}"/>
+
+                    <Editor
+                        Placeholder="Acciones correctivas aplicadas..."
+                        AutoSize="TextChanges"
+                        Text="{Binding Racs.SpecifyAnotherAlternative}"
+                        IsEnabled="{Binding IsEnabled}"/>
+
+                    <Label
+                            Text="Foto de la Observación" 
+                            FontSize="Medium"
+                            VerticalOptions="Center"/>
+                    <Button
+                            Command="{Binding AddPhotoCommand}"
+                            HorizontalOptions="EndAndExpand"
+                            BackgroundColor="#00284A"
+                            Text="&#xf030;"
+                            FontFamily="FontAwesome"
+                            TextColor="White"
+                        IsEnabled="{Binding IsEnabled}"/>
+                    <Image
+                        Source="{Binding PhotoStream}"
+                        MinimumHeightRequest="250"
+                        BackgroundColor="LightGray"/>
+                </StackLayout>
+            </ScrollView>
+            <Button
+                Command="{Binding SaveRacsCommand}"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds=".98,.98,50,50"
+                BackgroundColor="#00284A"
+                CornerRadius="30"
+                Text="&#xf0c7;"
+                FontFamily="FontAwesome"
+                FontSize="30"
+                TextColor="White"
+                IsEnabled="{Binding IsEnabled}">
+            </Button>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

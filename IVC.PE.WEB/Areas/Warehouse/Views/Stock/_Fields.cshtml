@@ -1,0 +1,68 @@
+﻿@model StockViewModel
+
+<input asp-for="Id" hidden />
+
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="Supply.Description" class="label"></label>
+        <input asp-for="Supply.Description" class="form-control" />
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="Supply.MeasurementUnit.Abbreviation" class="label"></label>
+        <input asp-for="Supply.MeasurementUnit.Abbreviation" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="MinimumMeasure" class="label"></label>
+        <input asp-for="MinimumMeasure" class="form-control" />
+    </div>
+</div>
+
+<!--
+<div class="form-group row">
+    <div class="col-lg-12 row">
+        <div class="col-lg-2">
+            <label asp-for="Code" class="label"></label>
+            <input asp-for="Code" class="form-control" />
+        </div>
+        <div class="col-lg-8">
+            <label asp-for="Description" class="label"></label>
+            <input asp-for="Description" class="form-control" />
+        </div>
+        <div class="col-lg-2">
+            <label asp-for="Unit" class="label"></label>
+            <input asp-for="Unit" class="form-control" />
+        </div>
+    </div>
+    <div class="col-lg-12 row">
+        <div class="col-lg-12">
+            <label asp-for="Responsibles" class="label"></label>
+            <input asp-for="Responsibles" hidden />
+            <select name="select_users" class="form-control kt-select select2-users" multiple data-placeholder="Encargado"></select>
+        </div>
+    </div>
+    <div class="col-lg-12 row">
+        <div class="col-lg-3">
+            <label asp-for="CurrencyType" class="label"></label>
+            <input asp-for="CurrencyType" hidden />
+            <select name="select_currency" class="form-control kt-select select2-currencies" data-placeholder="Moneda">
+                @foreach (var item in ConstantHelpers.Currency.VALUES)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </select>
+        </div>
+        <div class="col-lg-4">
+            <label asp-for="SalePriceUnit" class="label"></label>
+            <input asp-for="SalePriceUnit" class="form-control" />
+        </div>
+        <div class="col-lg-5">
+            <label asp-for="QuantityMinimum" class="label"></label>
+            <input asp-for="QuantityMinimum" class="form-control" />
+        </div>
+    </div>
+</div>
+-->

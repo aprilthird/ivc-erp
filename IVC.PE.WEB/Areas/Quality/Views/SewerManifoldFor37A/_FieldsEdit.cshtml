@@ -1,0 +1,31 @@
+﻿@model SewerManifoldFor37AViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="For01ProtocolNumber" class="label"></label>
+        <input asp-for="For01ProtocolNumber" class="form-control" disabled="disabled" />
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="SewerManifold.ProductionDailyPart.SewerGroup.Code" class="label"></label>
+        <input asp-for="SewerManifold.ProductionDailyPart.SewerGroup.Code" class="form-control" disabled="disabled" />
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="SewerManifold.Name" class="label">Tramo</label>
+        <input asp-for="SewerManifold.Name" class="form-control" disabled="disabled" />
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="SewerManifold.Address" class="label"></label>
+        <input asp-for="SewerManifold.Address" class="form-control" disabled="disabled" />
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="SewerManifold.LengthOfPipeInstalled" class="label"></label>
+        <input asp-for="SewerManifold.LengthOfPipeInstalled" class="form-control" disabled="disabled" />
+    </div>
+
+</div>

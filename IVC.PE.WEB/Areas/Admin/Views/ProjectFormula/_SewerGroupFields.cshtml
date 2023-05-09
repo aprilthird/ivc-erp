@@ -1,0 +1,13 @@
+﻿@model ProjectFormulaSewerGroupViewModel
+
+<input asp-for="Id" hidden />
+<input asp-for="ProjectFormulaId" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="SewerGroupIds" class="label"></label>
+        <select asp-for="SewerGroupIds" class="select2-sewergroups" multiple style="visibility: hidden;"/>
+        <select name="select_sewergroup" class="form-control kt-select select2-sewergroups" multiple data-placeholder="Cuadrillas"></select>
+    </div>
+</div>
+    

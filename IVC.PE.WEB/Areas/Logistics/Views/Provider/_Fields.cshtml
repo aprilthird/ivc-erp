@@ -1,0 +1,148 @@
+﻿@model ProviderViewModel
+
+<input asp-for="Id" hidden />
+
+<h6 class="text-primary font-weight-bold text-uppercase">Datos Generales</h6>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="BusinessName" class="label"></label>
+        <input asp-for="BusinessName" class="form-control" required />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="Tradename" class="label"></label>
+        <input asp-for="Tradename" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="RUC" class="label"></label>
+        <input asp-for="RUC" class="form-control" required />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="LegalAgent" class="label"></label>
+        <input asp-for="LegalAgent" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="Address" class="label"></label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="PhoneNumber" class="label"></label>
+        <input asp-for="PhoneNumber" class="form-control" />
+    </div>
+</div>
+<h6 class="text-primary font-weight-bold text-uppercase">Contacto</h6>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="CollectionAreaContactName" class="label"></label>
+        <input asp-for="CollectionAreaContactName" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="CollectionAreaEmail" class="label"></label>
+        <input asp-for="CollectionAreaEmail" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="CollectionAreaPhoneNumber" class="label"></label>
+        <input asp-for="CollectionAreaPhoneNumber" class="form-control" />
+    </div>
+</div>
+<h6 class="text-primary font-weight-bold text-uppercase">Datos Bancarios (Moneda Local)</h6>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="BankId" class="label"></label>
+        <select asp-for="BankId" class="form-control kt-select2 select2-banks" data-placeholder="Banco"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="BankAccountType" class="label"></label>
+        <select asp-for="BankAccountType" class="form-control kt-select2 select2-account-types" data-placeholder="Tipo de Cuenta">
+            @foreach (var item in ConstantHelpers.Bank.AccountType.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="BankAccountNumber" class="label"></label>
+        <input asp-for="BankAccountNumber" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="BankAccountCCI" class="label"></label>
+        <input asp-for="BankAccountCCI" class="form-control" />
+    </div>
+</div>
+<h6 class="text-primary font-weight-bold text-uppercase">Datos Bancarios (Moneda Extranjera)</h6>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="ForeignBankId" class="label"></label>
+        <select asp-for="ForeignBankId" class="form-control kt-select2 select2-banks" data-placeholder="Banco"></select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="ForeignBankAccountType" class="label"></label>
+        <select asp-for="ForeignBankAccountType" class="form-control kt-select2 select2-account-types" data-placeholder="Tipo de Cuenta">
+            @foreach (var item in ConstantHelpers.Bank.AccountType.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="ForeignBankAccountCurrency" class="label"></label>
+        <select asp-for="ForeignBankAccountCurrency" class="form-control kt-select2 select2-currencies" data-placeholder="Moneda">
+            @foreach (var item in ConstantHelpers.Currency.FOREIGN_VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="ForeignBankAccountNumber" class="label"></label>
+        <input asp-for="ForeignBankAccountNumber" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="ForeignBankAccountCCI" class="label"></label>
+        <input asp-for="ForeignBankAccountCCI" class="form-control" />
+    </div>
+</div>
+<h6 class="text-primary font-weight-bold text-uppercase">Sistema de Pago de Obligaciones Tributarias (SPOT)</h6>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="TaxBankId" class="label"></label>
+        <select asp-for="TaxBankId" class="form-control kt-select2 select2-banks" required data-placeholder="Banco"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="TaxBankAccountNumber" class="label"></label>
+        <input asp-for="TaxBankAccountNumber" class="form-control" />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="PropertyServiceType" class="label"></label>
+        <select asp-for="PropertyServiceType" class="form-control kt-select2 select2-property-services" data-placeholder="Bien o Servicio">
+            @foreach (var item in ConstantHelpers.Provider.PropertyServiceType.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="PropertyServiceCode" class="label"></label>
+        <input asp-for="PropertyServiceCode" class="form-control" />
+    </div>
+</div>
+<h6 class="text-primary font-weight-bold text-uppercase">Datos para el Sistema</h6>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="SupplyFamilyIds" class="label"></label>
+        <select asp-for="SupplyFamilyIds" class="select2-supply-families" multiple style="visibility: hidden;" />
+        <select name="select_families" class="form-control kt-select2 select2-supply-families" multiple data-placeholder="Familia"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="SupplyGroupIds" class="label"></label>
+        <select asp-for="SupplyGroupIds" class="select2-supply-groups" multiple style="visibility: hidden;" />
+        <select name="select_groups" class="form-control kt-select2 select2-supply-groups" multiple data-placeholder="Grupo"></select>
+    </div>
+</div>

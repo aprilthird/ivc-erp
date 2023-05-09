@@ -1,0 +1,759 @@
+﻿@model UspRacs
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style scoped>
+        body {
+            font-family: Poppins, Helvetica, sans-serif;
+            font-size: 12px;
+            background-color: #fff;
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .row {
+            width: 100%;
+        }
+
+        .col-lg-12 {
+            width: 100%;
+        }
+
+        .col-lg-11 {
+            width: 91.63%;
+        }
+
+        .col-lg-10 {
+            width: 83.33%;
+        }
+
+        .col-lg-8 {
+            width: 66.64%;
+        }
+
+        .col-lg-6 {
+            width: 49.48%;
+        }
+
+        .col-lg-5 {
+            width: 41.65%;
+        }
+
+        .col-lg-3 {
+            width: 24.99%;
+        }
+
+        .col-lg-4 {
+            width: 33.32%;
+        }
+
+        .col-lg-2 {
+            width: 16.66%;
+        }
+
+        .col-lg-1 {
+            width: 8.33%;
+        }
+    </style>
+</head>
+<body>
+    <table border="1" class="center" style="width:100%; max-width: 205mm; border-collapse: collapse; margin-top:25px;">
+        @*Cabecera del Reporte*@
+        <tr>
+            <td colspan="3" class="col-lg-3">
+                <img src="@Model.ProjectLogoUrl" style="width: 100%;"/>
+            </td>
+            <td colspan="6" class="col-lg-6" style="text-align:center;">
+                <label><b>GESTIÓN DEL SIG - SSO EN OBRA</b></label><br />
+                <label>REPORTE DE ACTOS Y CONDICIONES SUB ESTANDARES</label>
+            </td>
+            <td colspan="3" class="col-lg-3">
+                <table>
+                    <tr>
+                        <td>
+                            <label>Código</label>
+                        </td>
+                        <td>
+                            <label>@Model.VersionCode</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Versión</label>
+                        </td>
+                        <td>
+                            <label>-</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Fecha</label>
+                        </td>
+                        <td>
+                            <label>-</label>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        @* Cabecera del RACS *@
+        <tr>
+            <td colspan="12" class="col-lg-12">
+                <label><b>Proyecto: @Model.ProjectAbbreviation</b></label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="col-lg-12">
+                <label><b>Código de RACS: @Model.Code</b></label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="col-lg-12">
+                <label><b>Estado: @ConstantHelpers.RacsReports.STATUS[Model.Status]</b></label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="9" class="col-lg-9" valign="top">
+                <table width="100%">
+                    <tr>
+                        <td colspan="4" class="col-lg-4">
+                            <label><b>Fecha de Reporte: </b></label>
+                        </td>
+                        <td colspan="8" class="col-lg-8">
+                            <label>@Model.ReportDateStr</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="col-lg-4">
+                            <label><b>Reporta: </b></label>
+                        </td>
+                        <td colspan="8" class="col-lg-8">
+                            <label>@Model.ApplicationUserName</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="col-lg-4">
+                            <label><b>Frente de Trabajo: </b></label>
+                        </td>
+                        <td colspan="8" class="col-lg-8">
+                            <label>@Model.WorkFrontCode</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="col-lg-4">
+                            <label><b>Cuadrilla: </b></label>
+                        </td>
+                        <td colspan="8" class="col-lg-8">
+                            <label>@Model.SewerGroupCode</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="col-lg-4">
+                            <label><b>Responsable de Levantar Observaciones: </b></label>
+                        </td>
+                        <td colspan="8" class="col-lg-8">
+                            <label>@Model.LiftResponsibleName</label>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td colspan="3" class="col-lg-3" valign="top">
+                <table width="100%">
+                    <tr>
+                        <td colspan="12" class="col-lg-12">
+                            <label><b>Firma: </b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="12" class="col-lg-12">
+                            <img src="@Model.SignatureUrl" style="width:150px; height:50px;" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        @* Condicion Subestandar *@
+        <tr style="text-align:center;">
+            <td colspan="10" class="col-lg-10">
+                <label asp-for="DescriptionIdentifiesSC"></label>
+            </td>
+            <td colspan="2" class="col-lg-2">
+                <label><b>@(Model.IdentifiesSC ? "X" : "--")</b></label>
+            </td>
+        </tr>
+        <tr style="text-align:center;">
+            <td colspan="12" class="col-lg-12">
+                <label>@Model.DescriptionIdentifiesSC</label>
+            </td>
+        </tr>
+        <tr style="text-align:center;">
+            <td colspan="12" class="col-lg-12">
+                <label>CARACTERÍSTICAS DE LA CONDICIÓN SUB-ESTÁNDAR (marque con una x)</label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="col-lg-12">
+                <table width="100%">
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ01"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ01 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ15"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ15 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ02"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ02 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ16"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ16 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ03"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ03 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ17"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ17 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ04"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ04 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ18"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ18 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ05"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ05 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ19"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ19 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ06"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ06 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ20"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ20 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ07"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ07 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ21"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ21 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ08"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ08 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ22"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ22 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ09"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ09 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ23"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ23 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ10"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ10 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ24"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ24 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ11"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ11 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ25"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ25 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ12"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ12 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ26"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ26 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ13"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ13 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ27"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ27 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ14"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ14 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SCQ28"></label>
+                        </td>
+                        <td colspan="1" valign="top" class="col-lg-1">
+                            <label><b>@(Model.SCQ28 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="12" class="col-lg-12">
+                            <label>Especificar:</label>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        @* Actos Subestandar *@
+        <tr style="text-align:center;">
+            <td colspan="10" class="col-lg-10">
+                <label asp-for="DescriptionIdentifiesSA"></label>
+            </td>
+            <td colspan="2" class="col-lg-2">
+                <label><b>@(Model.IdentifiesSA ? "X" : "--")</b></label>
+            </td>
+        </tr>
+        <tr style="text-align:center;">
+            <td colspan="12" class="col-lg-12">
+                @Model.DescriptionIdentifiesSA
+            </td>
+        </tr>
+        <tr style="text-align:center;">
+            <td colspan="12" class="col-lg-12">
+                <label>CARACTERÍSTICAS DEL ACTO SUBESTÁNDAR (marque con una x)</label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="col-lg-12">
+                <table width="100%">
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ01"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ01 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ17"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ17 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ02"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ02 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ18"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ18 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ03"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ03 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ19"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ19 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ04"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ04 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ20"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ20 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ05"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ05 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ21"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ21 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ06"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ06 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ22"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ22 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ07"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ07 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ23"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ23 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ08"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ08 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ24"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ24 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ09"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ09 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ25"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ25 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ10"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ10 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ26"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ26 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ11"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ11 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ27"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ27 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ12"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ12 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ28"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ28 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ13"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ13 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ29"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ29 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ14"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ14 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ30"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ30 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ15"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ15 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ31"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ31 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ16"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ16 ? "X" : "--")</b></label>
+                        </td>
+                        <td colspan="5" class="col-lg-5">
+                            <label asp-for="SAQ32"></label>
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                            <label><b>@(Model.SAQ32 ? "X" : "--")</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="12" class="col-lg-12">
+                            <label>Especificar:</label>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        @* Alternativas de Solución *@
+        <tr style="text-align:center;">
+            <td colspan="12" class="col-lg-12">
+                <label>ALTERNATIVAS DE SOLUCIÓN (marque con una x)</label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" class="col-lg-11">
+                <label asp-for="ICQ01"></label>
+            </td>
+            <td colspan="1" class="col-lg-1">
+                <label><b>@(Model.ICQ01 ? "X" : "--")</b></label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" class="col-lg-11">
+                <label asp-for="ICQ02"></label>
+            </td>
+            <td colspan="1" class="col-lg-1">
+                <label><b>@(Model.ICQ02 ? "X" : "--")</b></label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" class="col-lg-11">
+                <label asp-for="ICQ03"></label>
+            </td>
+            <td colspan="1" class="col-lg-1">
+                <label><b>@(Model.ICQ03 ? "X" : "--")</b></label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" class="col-lg-11">
+                <label asp-for="ICQ04"></label>
+            </td>
+            <td colspan="1" class="col-lg-1">
+                <label><b>@(Model.ICQ04 ? "X" : "--")</b></label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11" class="col-lg-11">
+                <label asp-for="ICQ05"></label>
+            </td>
+            <td colspan="1" class="col-lg-1">
+                <label><b>@(Model.ICQ05 ? "X" : "--")</b></label>
+            </td>
+        </tr>
+    </table>
+
+    <p style="page-break-before: always;"></p>
+    <div style="height:25px;"></div>
+    <table border="1" class="center" style="width: 100%; max-width: 205mm; border-collapse: collapse;">
+        @* Acciones Correctivas Aplicadas *@
+        <tr style="text-align:center;">
+            <td colspan="12" class="col-lg-12">
+                <label>ACCIONES CORRECTIVAS APLICADAS</label>
+            </td>
+        </tr>
+        <tr style="text-align:center;">
+            <td colspan="12" class="col-lg-12">
+                <label>@Model.SpecifyAppliedCorrections</label>
+            </td>
+        </tr>
+        <tr style="text-align:center;">
+            <td colspan="12" class="col-lg-12">
+                <label>REGISTRO FOTOGRÁFICO</label>
+            </td>
+        </tr>
+        <tr style="text-align:center;">
+            <td colspan="12" class="col-lg-12">
+                <img src="@Model.ObservationImageUrl" style="height:30%; width:70%; max-height:15cm;" />
+            </td>
+        </tr>
+    </table>
+
+    <p style="page-break-before: always"></p>
+    <div style="height:25px;"></div>
+    <table border="1" class="center" style="width: 100%; max-width: 205mm; border-collapse: collapse;">
+        <tr style="text-align:center;">
+            <td colspan="12" class="col-lg-12">
+                <label>LEVANTAMIENTO DE OBSERVACIÓN ACCIONES TOMADAS</label>
+            </td>
+        </tr>
+        <tr style="text-align:center;">
+            <td colspan="12" class="col-lg-12">
+                <label>@Model.LiftingObservations</label>
+            </td>
+        </tr>
+        <tr style="text-align:center;">
+            <td colspan="12" class="col-lg-12">
+                <img src="@Model.LiftingImageUrl" style="height:30%; width:70%; max-height:15cm;" />
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

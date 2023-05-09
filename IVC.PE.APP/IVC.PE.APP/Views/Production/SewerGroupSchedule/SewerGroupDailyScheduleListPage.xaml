@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.Production.SewerGroupSchedule.SewerGroupDailyScheduleListPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Programaciones Diarias">
+    <ContentPage.Content>
+        <AbsoluteLayout
+            x:Name="layout"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext=""
+            Padding="8">
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional">
+                <Label
+                        Text="Proyecto "></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Projects}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedProject}" />
+                </StackLayout>
+
+                <Label
+                        Text="Cuadrilla "></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Projects}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedProject}" />
+                </StackLayout>
+
+                <Label
+                        Text="Fecha "></Label>
+                <StackLayout Orientation="Horizontal">
+                    <DatePicker 
+                    Date="{Binding SelectedDate}"
+                    Format="dd/MM/yyyy"/>
+                    <Button
+                        Command="{Binding DailyScheduleCommand}"
+                        Text="Buscar"/>
+                </StackLayout>
+            </StackLayout>
+            <Button
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds=".98,.98,50,50"
+                BackgroundColor="#00284A"
+                Command="{Binding AddDailyScheduleCommand}"
+                CornerRadius="30"
+                Text="&#xf067;"
+                FontFamily="FontAwesome"
+                FontSize="30"
+                TextColor="White">
+            </Button>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

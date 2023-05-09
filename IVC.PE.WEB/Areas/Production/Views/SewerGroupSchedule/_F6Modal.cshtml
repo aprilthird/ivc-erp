@@ -1,0 +1,29 @@
+﻿<div class="modal fade" id="f6_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nueva Programación Semanal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <form id="f6_form" class="form form-horizontal" role="form">
+                <div class="modal-body">
+                    <div id="f6_alert" class="alert alert-danger alert-dismissible fade d-none" role="alert">
+                        <span id="f6_alert_text"></span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <partial name="_ScheduleFields" />
+                    <table class="table table-striped table-bordered table-hover table-checkable datatable" id="f6s_datatable" role="grid"></table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <i class="la la-close"></i>
+                        Cerrar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

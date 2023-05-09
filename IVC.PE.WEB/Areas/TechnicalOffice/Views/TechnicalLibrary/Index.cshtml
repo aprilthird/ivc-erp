@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Biblioteca Técnica";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.LegalTechnicalLibrary.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title" id="datatable_portlet_title">
+                Listado de Biblioteca Técnica
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                    
+                    @if (canEdit)
+                    {
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add_modal">
+                            <span>
+                                <i class="la la-plus"></i><span>
+                                    Nuevo
+                                </span>
+                            </span>
+                        </button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+
+        <div class="form-group row">
+            
+            <div class="col-md-3">
+                <label class="col-form-label">Especialidad</label>
+                <select id="spec_filter" class="form-control kt-select2 select2-specs">
+                    <option>Todos</option>
+                </select>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped table-bordered table-hover table-checkable datatable" id="iso_standard_datatable" role="grid"></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (canEdit)
+{
+    <partial name="_CreateModal" />
+    <partial name="_EditModal" />
+}
+
+<partial name="_PdfModal" />
+
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/technical-office/technical-library/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/technical-office/technical-library/index.js"></script>
+    }
+}

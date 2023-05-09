@@ -1,0 +1,45 @@
+﻿@model CementVariableViewModel
+
+<input asp-for="Id" hidden />
+
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label class="label">Familia</label>
+        <select id="select_supply_families_filter" class="form-control kt-select2 select2-supply-families-filter"></select>
+    </div>
+    <div class="col-lg-6">
+        <label class="label">Grupo</label>
+        <select id="select_supply_groups_filter" class="form-control kt-select2 select2-supply-groups-filter"></select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <button id="SearchSelectSupply" type="button" class="search-supply btn btn-secondary">Buscar</button>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="SupplyId" class="label"></label>
+        <input asp-for="SupplyId" hidden />
+        <select name="select_supplies" class="form-control kt-select select2-supplies"></select>
+    </div>
+</div>
+
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="BudgetInputId" class="label"></label>
+        <input asp-for="BudgetInputId" hidden />
+        <select name="select_budget_inputs" class="form-control kt-select select2-budget-inputs"></select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="UnitPrice" class="label"></label>
+        <input asp-for="UnitPrice" class="form-control" />
+    </div>
+</div>

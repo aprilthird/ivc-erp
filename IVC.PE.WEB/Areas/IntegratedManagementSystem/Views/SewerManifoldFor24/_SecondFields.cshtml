@@ -1,0 +1,103 @@
+﻿@model SewerManifoldFor24SecondPartViewModel
+
+<input asp-for="Id" hidden />
+<input asp-for="SewerManifoldFor24FirstPartId" hidden />
+<input asp-for="LaborerTotalHoursMan" hidden />
+<input asp-for="OfficialTotalHoursMan" hidden />
+<input asp-for="OperatorTotalHoursMan" hidden />
+
+<h5>DECISIONES SOBRE EL P/S NO CONFORME</h5>
+&nbsp;
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="Decision" class="label"></label>
+        <input asp-for="Decision" hidden />
+        <select name="select_decision" class="form-control kt-select select2-decision">
+            @foreach (var item in ConstantHelpers.SewerManifoldFor24.Decision.NAMES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-6 otro">
+        <label asp-for="Other" class="label"></label>
+        <input asp-for="Other" class="form-control" />
+    </div>
+</div>
+
+
+<h5>CUANTIFICACION DE HORAS DE RETRABAJOS</h5>
+&nbsp;
+<h6>Peon</h6>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="LaborerQuantity" class="label"></label>
+        <input asp-for="LaborerQuantity" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="LaborerHoursMan" class="label"></label>
+        <input asp-for="LaborerHoursMan" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="LaborerTotalHoursMan" class="label"></label>
+        <input id="LaTotalH" class="form-control" disabled="disabled" />
+    </div>
+</div>
+&nbsp;
+<h6>Oficial</h6>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="OfficialQuantity" class="label"></label>
+        <input asp-for="OfficialQuantity" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="OfficialHoursMan" class="label"></label>
+        <input asp-for="OfficialHoursMan" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="OfficialTotalHoursMan" class="label"></label>
+        <input id="OfTotalH" class="form-control" disabled="disabled" />
+    </div>
+</div>
+&nbsp;
+<h6>Operario</h6>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="OperatorQuantity" class="label"></label>
+        <input asp-for="OperatorQuantity" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="OperatorHoursMan" class="label"></label>
+        <input asp-for="OperatorHoursMan" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="OperatorTotalHoursMan" class="label"></label>
+        <input id="OpTotalH" class="form-control" disabled="disabled" />
+    </div>
+</div>
+
+<h5>REGISTRO FOTOGRÁFICO, VIDEOS, PDF</h5>
+&nbsp;
+<div class="form-group">
+    <label asp-for="File" class="label">Archivo:</label>
+    <div class="custom-file">
+        <input asp-for="File" type="file" class="custom-file-input" />
+        <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+    </div>
+</div>
+
+<div class="form-group">
+    <label asp-for="Video" class="label">Video Cámara Zoom:</label>
+    <div class="custom-file custom-video-zoom">
+        <input asp-for="Video" type="file" class="custom-file-input" />
+        <label class="custom-file-label" for="customFile">Escoge un video</label>
+    </div>
+</div>
+
+<div class="form-group">
+    <label asp-for="GalleryFiles" class="control-label"></label>
+    <div class="custom-file">
+        <input asp-for="GalleryFiles" class="custom-file-input" id="customFile">
+        <label class="custom-file-label" for="customFile">Escoge las imágenes</label>
+    </div>
+</div>

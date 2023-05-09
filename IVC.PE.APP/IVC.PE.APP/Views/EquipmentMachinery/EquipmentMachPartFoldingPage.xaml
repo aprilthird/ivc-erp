@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.EquipmentMachinery.EquipmentMachPartFoldingPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Parte Diario Equipo Maquinaria">
+    <ContentPage.Content>
+        <AbsoluteLayout
+            x:Name="layout"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding EquipmentMachPartFoldingViewModel}"
+            Padding="8">
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional">
+
+                <Label
+                        Text="Operador"></Label>
+                <Label
+                FontSize="Medium"
+                FontAttributes="Bold"
+                Text="{Binding OperatorName}">
+                </Label>
+                
+                <Label
+                        Text="Cuadrillas "></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding SewerGroups}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedSewerGroup}" />
+                </StackLayout>
+
+                <Label
+                        Text="Encargados "></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Users}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedUser}" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Entry
+                         HorizontalOptions="FillAndExpand"
+                       Placeholder = "# de Parte"
+                        Text="{Binding PartNumber , Mode=TwoWay}"
+                        />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Button
+                        Command="{Binding ToFoldingVariableCommand}"
+                        Text="Buscar"/>
+                </StackLayout>
+
+                <!--<Label
+                    Text="Lista de Planos"
+                    FontSize="Medium"
+                    FontAttributes="Bold"></Label>
+
+                <ScrollView
+                    Padding="0,0,0,80">
+                    <ListView
+                        SelectionMode="None"
+                        IsRefreshing="{Binding IsRefreshing}"
+                        HasUnevenRows="True"
+                        ItemsSource="{Binding BPList}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        -->
+                <!--<MenuItem Text="Ver" 
+                                                  Command="{Binding Path=BindingContext.ViewBluePrintsCommand, Source={x:Reference layout}}"
+                                                  CommandParameter="{Binding .}"/>-->
+                <!--
+                                        
+                                        <MenuItem Text="Plano Adjunto" 
+                                                  Command="{Binding Path=BindingContext.PdfBluePrintsCommand, Source={x:Reference layout}}"
+                                                  CommandParameter="{Binding .}"/>
+
+                                        <MenuItem Text="Carta Adjunto" 
+                                                  Command="{Binding Path=BindingContext.PdfLetterCommand, Source={x:Reference layout}}"
+                                                  CommandParameter="{Binding .}"/>
+                                        -->
+                <!--<MenuItem Text="Editar" />-->
+                <!--
+                                    </ViewCell.ContextActions>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout
+                                            Grid.Column="0"
+                                            VerticalOptions="Center"
+                                            Orientation="Vertical">
+                                            <Label
+                                                FontSize="Medium"
+                                                FontAttributes="Bold"
+                                                Text="{Binding Code}">
+                                            </Label>
+                                            <Label
+                                                FontSize="Large"
+                                                FontAttributes="Bold"
+                                                Text="{Binding TechnicalVersionDescription}">
+                                            </Label>
+                                        </StackLayout>
+                                        
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>-->
+
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

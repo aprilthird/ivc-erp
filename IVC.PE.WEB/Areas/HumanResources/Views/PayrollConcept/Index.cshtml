@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "RRHH";
+    ViewBag.SubTitle = "Conceptos de Planilla";
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add_modal"><span><i class="la la-plus"></i><span>Nuevo</span></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="add_alert" class="alert alert-danger alert-dismissible fade d-none" role="alert">
+        <span id="add_alert_text"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="kt-portlet__body">
+        <table class="table table-striped table-bordered table-hover table-checkable datatable" id="payroll_concepts_datatable" role="grid"></table>
+    </div>
+</div>
+
+<partial name="_CreateModal" />
+<partial name="_FormulaModal" />
+<partial name="_FormulaCreateModal" />
+<partial name="_FormulaEditModal" />
+<partial name="_EditModal" />
+
+@section Scripts {
+    <script src="~/js/areas/human-resources/payroll-concept/index.js"></script>
+}

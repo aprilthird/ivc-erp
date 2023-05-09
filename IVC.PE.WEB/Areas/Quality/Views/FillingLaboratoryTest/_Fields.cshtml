@@ -1,0 +1,87 @@
+﻿@model FillingLaboratoryTestViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="SerialNumber" class="label"></label>
+        <input asp-for="SerialNumber" class="form-control" required />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="RecordNumber" class="label"></label>
+        <input asp-for="RecordNumber" class="form-control" required />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-5">
+        <label asp-for="OriginTypeFillingLaboratoryId" class="label">Procedencia</label>
+        <input asp-for="OriginTypeFillingLaboratoryId" hidden />
+        <select name="select_origin_type" class="form-control kt-select select2-origins" data-placeholder="Procedencia"></select>
+    </div>
+    <div class="col-lg-7">
+        <label asp-for="Ubication" class="label"></label>
+        <input asp-for="Ubication" class="form-control" required />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="SamplingDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="SamplingDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="TestDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="TestDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="MaterialType" class="label"></label>
+        <select asp-for="MaterialType" class="form-control kt-select2 select2-material-types" required>
+            @foreach (var item in ConstantHelpers.Certificate.FillingLaboratory.MaterialType.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="CertificateIssuerId" class="label"></label>
+        <select asp-for="CertificateIssuerId" class="form-control kt-select2 select2-certificate-issuers" required></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="MaterialMoisture" class="label"></label>
+        <input asp-for="MaterialMoisture" class="form-control" required />
+    </div>
+</div>
+<div class="form-group row"> 
+    <div class="col-lg-6">
+        <label asp-for="MaxDensity" class="label"></label>
+        <input asp-for="MaxDensity" class="form-control" required />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="OptimumMoisture" class="label"></label>
+        <input asp-for="OptimumMoisture" class="form-control" required />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="File" class="label"></label>
+        <div class="custom-file">
+            <input asp-for="File" type="file" class="custom-file-input">
+            <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+        </div>
+    </div>
+</div>

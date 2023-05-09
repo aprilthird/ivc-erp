@@ -1,0 +1,28 @@
+﻿@model SupplyViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-9">
+        <label asp-for="Description" class="label"></label>
+        <input asp-for="Description" class="form-control" required />
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="MeasurementUnitId" class="label"></label>
+        <select asp-for="MeasurementUnitId" class="form-control kt-select2 select2-measurement-units" required data-placeholder="Unidad de Medida"></select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="SupplyFamilyId" class="label"></label>
+        <select asp-for="SupplyFamilyId" class="form-control kt-select2 select2-supply-families" required data-placeholder="Familia"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="SupplyGroupId" class="label"></label>
+        <select asp-for="SupplyGroupId" class="form-control kt-select2 select2-supply-groups" required data-placeholder="Grupo"></select>
+    </div>
+    <!--<div class="col-lg-2">
+        <label asp-for="CorrelativeCode" class="label"></label>
+        <input asp-for="CorrelativeCode" class="form-control" required />
+    </div>-->
+</div>

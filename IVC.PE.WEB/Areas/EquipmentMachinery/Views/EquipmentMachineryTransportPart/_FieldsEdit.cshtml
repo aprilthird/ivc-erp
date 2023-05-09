@@ -1,0 +1,26 @@
+﻿@model EquipmentMachineryTransportPartViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-6 worker_group">
+        <label asp-for="EquipmentProviderId" class="label"></label>
+        <input asp-for="EquipmentProviderId" hidden />
+        <select name="select_provider" class="form-control kt-select select2-providers"></select>
+    </div>
+    <div class="col-lg-6 worker_group">
+        <label asp-for="EquipmentMachineryTypeTransportId" class="label"></label>
+        <input asp-for="EquipmentMachineryTypeTransportId" hidden />
+        <select name="select_soft" class="form-control kt-select select2-softs"></select>
+    </div>
+    <div class="col-lg-6 worker_group">
+        <label asp-for="EquipmentMachineryTransportId" class="label"></label>
+        <input asp-for="EquipmentMachineryTransportId" hidden />
+        <select name="select_eqsoft" class="form-control kt-select select2-eqsofts"></select>
+    </div>
+    @*<div class="col-lg-6 worker_group">
+        <label asp-for="UserId" class="label"></label>
+        <input asp-for="UserId" hidden />
+        <select name="select_user" class="form-control kt-select select2-users"></select>
+    </div>*@
+</div>

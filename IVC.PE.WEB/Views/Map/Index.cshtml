@@ -1,0 +1,153 @@
+﻿@{
+    ViewBag.Title = "Prueba mapa";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="https://js.arcgis.com/4.22/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.22/esri/css/esri.css">
+    <style>
+        #map {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #FFF;
+            overflow: hidden;
+            font-family: "Trebuchet MS";
+        }
+    </style>
+}
+
+<div id="map" style="height:600px;"></div>
+
+@section Scripts {
+    <script src="https://js.arcgis.com/4.22/"></script>
+    <script>
+        var map;
+
+        require(["esri/Basemap", "esri/Map", "esri/Graphic", "esri/views/MapView", "esri/layers/TileLayer", "esri/layers/WebTileLayer", "esri/layers/MapImageLayer", "esri/layers/ImageryLayer", "esri/symbols/PictureMarkerSymbol", "esri/geometry/Extent", "esri/layers/support/ImageParameters", "esri/layers/WMSLayer", "esri/config", "dojo/domReady", "dojo/global", "dojo/has"],
+            function (Basemap, Map, Graphic, MapView, TileLayer, WebTileLayer, MapImageLayer, ImageryLayer, PictureMarkerSymbol, Extent, ImageParameters, WMSLayer, esriConfig, domReady, global, has) {
+                //map = new Map("map", {
+                //    basemap: "streets-vector",
+                //    center: [-78.153370, -10.064592],
+                //    zoom: 14
+                //});   
+
+                //var extent = new esri.geometry.Extent({
+                //    "xmin": -8717416.60217381, "ymin": -1131788.4574638382, "xmax": -8682924.39316017, "ymax": -1122233.8289282038,
+                //    "spatialReference": { "wkid": 4326 }
+                //});
+
+
+                //var imageParameters = new esri.layers.ImageParameters();
+                //imageParameters.format = "image/png";
+                //imageParameters.height = 1805;
+                //imageParameters.width = 500;
+                //imageParameters.layerIds = [7]; // Only Roads !
+                ////imageParameters.layerOption = esri.layers.ImageParameters.LAYER_OPTION_SHOW;
+                //imageParameters.layerOption = "SIGOGL:ap_valvula_z17";
+                //imageParameters.bbox = `${-8717416.60217381},${-1131788.4574638382},${-8682924.39316017},${-1122233.8289282038}`;
+                //imageParameters.version = "1.3.0";
+                //imageParameters.layerDefinitions = ["SIGOGL:ap_valvula_z17"]
+                //imageParameters.transparent = true;
+
+                var url = new URL("http://ivc-agregados.dynalias.com:8080/geoserver/SIGOGL/ows");
+                var params = new URLSearchParams({
+                    bbox: `${-8717416.60217381},${-1131788.4574638382},${-8682924.39316017},${-1122233.8289282038}`,
+                    crs: 'EPSG:3857',
+                    request: 'GetMap',
+                    service: 'WMS',
+                    version: '1.3.0',
+                    layers: 'SIGOGL:ap_valvula_z17',
+                    format: 'image/png',
+                    width: 1805,
+                    height: 500,
+                });
+                url.search = params;
+
+                //let basemap = new Basemap({
+                //    baseLayers: [
+                //        //new WebTileLayer({
+                //        //    urlTemplate: 'https://mts1.google.com/vt/lyrs=m@186112443,traficc&hl=x-local&src=app&x={col}&y={row}&z={level}&s=Galile',
+                //        //    copyright: 'Google Maps',
+                //        //}),
+                //        Basemap.fromId("topo-vector"),
+                //        //new MapImageLayer({
+                //        //    url: url,
+                //        //    title: "Basemap"
+                //        //})
+                //    ],
+                //    title: "basemap",
+                //    id: "basemap"
+                //});
+
+                //let map = new Map({
+                //    basemap: basemap
+                //});
+
+                //let basemap = new Basemap({
+                //    portalItem: {
+                //        id: "8dda0e7b5e2d4fafa80132d59122268c"  // WGS84 Streets Vector webmap
+                //    }
+                //});
+
+
+                const map = new Map({
+                    basemap: "topo-vector",
+                    ground: "world-elevation"
+                });
+
+                const layer = new MapImageLayer({
+                    fullExtent: { 'xmin': -8717416.60217381, 'ymin': -1131788.4574638382, 'xmax': 8682924.39316017, 'ymax': -1122233.8289282038 },
+                    format: "png",
+                    url: url
+                });
+
+                // create a TileInfo instance using the default settings and
+                // pass its resulting LOD's to a MapView's constraints
+                let view = new MapView({
+                    container: "map",
+                    map: map,
+                    center: [-78.153370, -10.064592],
+                    zoom: 14,
+                    layers: [layer]
+                });
+
+                //var pms = new PictureMarkerSymbol({
+                //    url: url,
+                //    width: "22px",
+                //    height: "22px"
+                //});
+
+                //view.when(function () {
+                //    var gra = new Graphic({
+                //        geometry: view.center,
+                //        symbol: pms
+                //    });
+                //    view.graphics.add(gra);
+                //});
+
+
+                //$.ajax({
+                //    url: url
+                //}).done(function (result) {
+                //    alert("done!");
+                //});
+
+                //var entrmap = new esri.layers.ArcGISDynamicMapServiceLayer("http://ivc-agregados.dynalias.com:8080/geoserver/SIGOGL/ows",
+                //    { "imageParameters": imageParameters });
+
+                //var entrmap2 = new esri.layers.ArcGISDynamicMapServiceLayer(url);
+
+                //let layer = new ImageryLayer({
+                //    // URL to the imagery service
+                //    url: url
+                //});
+
+                //map.layers.push(layer);
+            });
+    </script>
+}

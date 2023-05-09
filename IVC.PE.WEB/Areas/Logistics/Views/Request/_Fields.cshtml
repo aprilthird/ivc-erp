@@ -1,0 +1,70 @@
+﻿@model RequestViewModel
+
+<input asp-for="Id" hidden />
+
+@*<div class="form-group row">
+    <div class="col-lg-3">
+        <label asp-for="Type" class="label"></label>
+        <select asp-for="Type" class="form-control kt-select2 select2-types">
+            @foreach (var item in ConstantHelpers.Logistics.RequestOrder.Type.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="BudgetType" class="label"></label>
+        <select asp-for="BudgetType" class="form-control kt-select2 select2-budget-types">
+            @foreach (var item in ConstantHelpers.Budget.Type.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="SupplyFamilyId" class="label"></label>
+        <select asp-for="SupplyFamilyId" class="form-control kt-select2 select2-supply-families"></select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="DeliveryDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="DeliveryDate" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="DeliveryPlace" class="label"></label>
+        <input asp-for="DeliveryPlace" class="form-control" />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="Observations" class="label"></label>
+        <textarea asp-for="Observations" class="form-control"></textarea>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label class="label">Elementos</label>
+        <div class="repeater-items">
+            <div class="form-group form-group-last row" id="kt_repeater_1">
+                <div data-repeater-list="RequestItems" class="col-lg-12">
+                    <partial name="_ItemFields" />
+                </div>
+            </div>
+            <div class="form-group form-group-last row">
+                <div class="col-lg-4">
+                    <a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
+                        <i class="la la-plus"></i> Agregar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@

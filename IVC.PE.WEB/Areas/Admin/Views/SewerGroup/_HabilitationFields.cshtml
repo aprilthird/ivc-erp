@@ -1,0 +1,12 @@
+﻿@model SewerGroupProjectHabilitationViewModel
+
+<input asp-for="Id" hidden />
+<input asp-for="SewerGroupId" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="ProjectHabilitationIds" class="label"></label>
+        <select asp-for="ProjectHabilitationIds" class="select2-habilitations" multiple style="visibility: hidden;" />
+        <select name="select_habilitation" class="form-control kt-select select2-habilitations" multiple data-placeholder="Habilitaciones"></select>
+    </div>
+</div>

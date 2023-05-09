@@ -1,0 +1,34 @@
+﻿.container {
+    position: absolute;
+    margin: auto;
+    height: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 60%;
+    text-align: center;
+}
+
+.logo {
+    width: 300px;
+}
+
+.message-container {
+    border-radius: 1rem;
+}
+
+.message-title {
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+.message-content {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.message-icon {
+    width: 256px;
+    height: 256px;
+}

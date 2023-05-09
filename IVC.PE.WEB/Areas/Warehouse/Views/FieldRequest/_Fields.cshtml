@@ -1,0 +1,72 @@
+﻿@model FieldRequestViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="BudgetTitleId" class="label"></label>
+        <input asp-for="BudgetTitleId" hidden />
+        <select name="select_budget_title" class="form-control kt-select select2-budget-titles"></select>
+    </div>
+    <!--
+    <div class="col-lg-6">
+        <label asp-for="ProjectFormulaId" class="label"></label>
+        <input asp-for="ProjectFormulaId" hidden />
+        <select name="select_project_formula" class="form-control kt-select select2-project-formulas"></select>
+    </div>
+        -->
+
+    <div class="col-lg-6">
+        <label asp-for="ProjectFormulaIds" class="label"></label>
+        <select asp-for="ProjectFormulaIds" class="form-control kt-select2 select2-project-formulas" required></select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="WorkFrontId" class="label"></label>
+        <input asp-for="WorkFrontId" hidden />
+        <select name="select_work_front" class="form-control kt-select select2-work-fronts"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="SewerGroupId" class="label"></label>
+        <input asp-for="SewerGroupId" hidden />
+        <select name="select_sewer_group" class="form-control kt-select select2-sewer-groups"></select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <!--
+    <div class="col-lg-6">
+        <label asp-for="WarehouseId" class="label"></label>
+        <input asp-for="WarehouseId" hidden />
+        <select name="select_warehouse" class="form-control kt-select select2-warehouses"></select>
+    </div>-->
+    <div class="col-lg-6">
+        <label asp-for="WorkOrder" class="label"></label>
+        <input asp-for="WorkOrder" class="form-control" />
+    </div>
+    @*<div class="col-lg-6">
+        <label asp-for="SupplyFamilyId" class="label"></label>
+        <input asp-for="SupplyFamilyId" hidden />
+        <select name="select_supply_family" class="form-control kt-select select2-supply-families"></select>
+    </div>*@
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-3">
+        <label asp-for="DeliveryDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="DeliveryDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <label asp-for="Observation" class="label"></label>
+        <input asp-for="Observation" class="form-control" />
+    </div>
+</div>

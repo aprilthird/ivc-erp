@@ -1,0 +1,29 @@
+﻿@model StockInputVoucherViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12 row">
+        <div class="col-lg-12">
+            <label asp-for="VoucherDate" class="label"></label>
+            <div class="input-group">
+                <input asp-for="VoucherDate" class="form-control datepicker" required />
+                <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2">
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 row">
+        <div class="col-lg-6">
+            <label asp-for="Supplier" class="label"></label>
+            <input asp-for="Supplier" class="form-control" />
+        </div>
+        <div class="col-lg-6">
+            <label asp-for="ReferencePurchaseOrder" class="label"></label>
+            <input asp-for="ReferencePurchaseOrder" class="form-control" />
+        </div>
+    </div>
+</div>

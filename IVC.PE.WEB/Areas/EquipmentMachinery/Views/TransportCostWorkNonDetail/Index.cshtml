@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "Reportes de Costo de Obra Equipos Transporte";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.EquipmentMachinery.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title" id="datatable_portlet_title">
+                Listado de Reportes de Costo de Obra Equipos Transporte
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+
+            <div class="col-md-2">
+                <label class="col-form-label">Año</label>
+                <select id="year_param" name="select_year_param" class="form-control kt-select select2-years" data-placeholder="Mes Folding">
+                    <option>Todos</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Mes</label>
+                <select id="month_param" name="select_month_param" class="form-control kt-select select2-month_params" data-placeholder="Mes">
+                    @foreach (var item in ConstantHelpers.EquipmentMachinery.EquipmentMachineryOperator.MONTH_VALUE)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label class="col-form-label">Proveedor</label>
+                <select id="provider_param" class="form-control kt-select2 select2-providers">
+                    <option> Seleccione un Proveedor </option>
+                </select>
+            </div>
+
+
+            <div class="col-md-3">
+                <label class="col-form-label">Fase</label>
+                <select id="phase_param" class="form-control kt-select2 select2-phases">
+                    <option> Seleccione una Fase </option>
+                </select>
+            </div>
+
+            @*<div class="col-md-3">
+            <label class="col-form-label">Proyecto</label>
+            <select id="project_filter" class="form-control kt-select2 select2-projects">
+                <option>Todos</option>
+            </select>
+        </div>*@
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label class="col-form-label" style="float:left;">Monto (S/)</label>
+                <input id="total_installed_header" class="form-control" style="text-align:right" disabled="disabled" />
+            </div>
+
+            <div class="col-md-4">
+                <label class="col-form-label" style="float:left;">Igv (S/)</label>
+                <input id="total_installed_header2" class="form-control" style="text-align:right" disabled="disabled" />
+            </div>
+
+            <div class="col-md-4">
+                <label class="col-form-label" style="float:left;">Monto Total (S/)</label>
+                <input id="total_installed_header3" class="form-control" style="text-align:right" disabled="disabled" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped table-bordered table-hover table-checkable datatable" id="main_datatable" role="grid"></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<partial name="_DetailModal" />
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/equipment-machinery/detail-transport/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/equipment-machinery/detail-transport/index.js"></script>
+    }
+}

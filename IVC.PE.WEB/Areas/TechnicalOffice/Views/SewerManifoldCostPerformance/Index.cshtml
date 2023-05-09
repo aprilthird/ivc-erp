@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "Coletor de Descarga - Analisis Costos y Rendimiento";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.TechnicalOffice.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.Title
+            </h3>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <ul class="nav nav-tabs nav-fill" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#tab_cps">
+                    <i class="la la-folder-open"></i>
+                    Proyecto
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab_sewer_groups">
+                    <i class="la la-hard-hat"></i>
+                    Cuadrillas
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_cps" role="tabpanel">
+                <table class="table table-striped table-bordered table-hover table-checkable datatable" id="cps_datatable" role="grid">
+                </table>
+            </div>
+            <div class="tab-pane" id="tab_sewer_groups" role="tabpanel">
+                <div class="form-group row">
+                    <div class="col-lg-2">
+                        <label class="col-form-label">Año</label>
+                        <input id="year_filter" class="form-control" value="@DateTime.Now.Year" required />
+                    </div>
+                    <div class="col-lg-3">
+                        <label class="col-form-label">Categor&iacute;a</label>
+                        <select id="week_filter" class="form-control kt-select select2-weeks">
+                        </select>
+                    </div>
+                </div>
+                <table class="table table-striped table-bordered table-hover table-checkable datatable" id="sgs_datatable" role="grid">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (canEdit)
+{
+    <partial name="_LoadModal" />
+    <partial name="_LoadSewerGroupModal" />
+}
+
+@section Scripts {
+    <script src="~/js/areas/technical-office/sewer-manifold_cyr/index.js"></script>
+}

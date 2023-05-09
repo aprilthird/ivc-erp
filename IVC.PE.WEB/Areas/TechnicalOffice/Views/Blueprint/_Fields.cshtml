@@ -1,0 +1,60 @@
+﻿@model BlueprintViewModel
+
+<input asp-for="Id" hidden/>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="BudgetTitleId" class="label"></label>
+        <input asp-for="BudgetTitleId" hidden />
+        <select name="select_budget" class="form-control kt-select select2-budgets"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="ProjectPhaseId" class="label"></label>
+        <input asp-for="ProjectPhaseId" hidden />
+        <select name="select_phase" class="form-control kt-select select2-phases">
+            <option>Ninguno</option>
+        </select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="ProjectFormulaId" class="label"></label>
+        <input asp-for="ProjectFormulaId" hidden />
+        <select name="select_formula" class="form-control kt-select select2-formulas"></select>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="BlueprintTypeId" class="label"></label>
+        <input asp-for="BlueprintTypeId" hidden />
+        <select name="select_type" class="form-control kt-select select2-types">
+
+            <option value="">Ninguno</option>
+
+        </select>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="WorkFrontId" class="label"></label>
+        <input asp-for="WorkFrontId" hidden />
+        <select name="select_front" class="form-control kt-select select2-fronts"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="SpecialityId" class="label"></label>
+        <input asp-for="SpecialityId" hidden />
+        <select name="select_spec" class="form-control kt-select select2-specs"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="Name" class="label"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="Description" class="label"></label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="Sheet" class="label"></label>
+        <input asp-for="Sheet" class="form-control" />
+    </div>
+
+
+
+</div>
+

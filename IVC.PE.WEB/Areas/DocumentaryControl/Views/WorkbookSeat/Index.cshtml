@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "Cuadernos de Obra";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.DocumentaryControl.FULL_ACCESS);
+}
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title">
+                Cuadernos de Obra
+            </h3>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="kt-scroll ps ps--active-x ps--active-y" data-scroll="true" data-scroll-x="true" data-scrollbar-shown="true">
+            <ul class="kt-nav d-flex flex-row" id="workbook_menu_nav">
+                <li class="kt-nav__item kt-nav__item--active kt-grid__item col-2" data-name="TODOS">
+                    <a href="#" class="kt-nav__link" style="height: 100%;">
+                        <i class="kt-nav__link-icon flaticon2-new-email"></i>
+                        <span class="kt-nav__link-text">TODOS</span>
+                        <span class="kt-nav__link-badge">
+                            <span id="total_workbooks" class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded"></span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title" id="datatable_portlet_title">
+                Listado de Cuadernos de Obra para TODOS
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                    <button type="button" class="btn btn-secondary btn-exportar"><span><i class="la la-download"></i><span>Exportar</span></span></button>
+                    @if (canEdit)
+                    {
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Importar
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
+                                <a class="dropdown-item" href="javascript;" data-toggle="modal" data-target="#import_data_modal">Datos</a>
+                                <a class="dropdown-item" href="javascript;" data-toggle="modal" data-target="#import_files_modal">Archivos</a>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add_modal"><span><i class="la la-plus"></i><span>Nuevo</span></span></button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label class="col-form-label">Cuaderno de Obra</label>
+                <select id="workbook_filter" class="form-control kt-select select2-workbooks">
+                    <option>Todos</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Tipo de Documento</label>
+                <select id="type_filter" class="form-control kt-select select2-types">
+                    <option>Todos</option>
+                    @foreach (var item in ConstantHelpers.Workbook.Type.VALUES)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Estado</label>
+                <select id="status_filter" class="form-control kt-select select2-status">
+                    <option>Todos</option>
+                    @foreach (var item in ConstantHelpers.Workbook.Status.VALUES)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <table class="table table-striped table-bordered table-hover table-checkable datatable" id="workbook_datatable" role="grid"></table>
+    </div>
+</div>
+
+@if (canEdit)
+{
+    <partial name="_CreateModal" />
+    <partial name="_EditModal" />
+    <partial name="_ImportDataModal" />
+    <partial name="_ImportFilesModal" />
+}
+<partial name="_DetailModal" />
+<partial name="_PdfModal" />
+
+@section Scripts {
+    <script src="~/lib/jquery-file-download/jquery.fileDownload.min.js"></script>
+    @if (canEdit)
+    {
+        <script src="~/js/areas/documentary-control/workbook-seat/index.js"></script>
+    }
+    else 
+    {
+        <script src="~/js/areas/documentary-control/workbook-seat/readonly-index.js"></script>
+    }
+}
+

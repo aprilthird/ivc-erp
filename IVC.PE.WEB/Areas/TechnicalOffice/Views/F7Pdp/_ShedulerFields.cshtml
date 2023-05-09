@@ -1,0 +1,32 @@
+﻿@model ShedulerF7ViewModel
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="SewerGroupShedulers" class="label"></label>
+        <select asp-for="SewerGroupShedulers" class="select2-sheduler-sewergroups" multiple style="visibility: hidden;" />
+        <select name="select_sheduler_sewergroups" class="form-control kt-select select2-sheduler-sewergroups" multiple>
+        </select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="StartDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="StartDate" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="EndDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="EndDate" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿@model BudgetViewModel
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="BudgetTypeId" class="label"></label>
+        <input asp-for="BudgetTypeId" hidden />
+        <select name="select_types" class="form-control kt-select select2-types"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="BudgetTitleId" class="label"></label>
+        <input asp-for="BudgetTitleId" hidden />
+        <select name="select_titles" class="form-control kt-select select2-titles"></select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="Group" class="label"></label>
+        <input asp-for="Group" hidden />
+        <select name="select_groups" class="form-control kt-select select2-groups">
+            @foreach (var item in ConstantHelpers.Budget.Group.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="ProjectFormulaId" class="label"></label>
+        <input asp-for="ProjectFormulaId" hidden />
+        <select name="select_formulas" class="form-control kt-select select2-formulas"></select>
+    </div>
+</div>

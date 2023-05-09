@@ -1,0 +1,48 @@
+﻿<div class="modal fade" id="pdf_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-modal="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Archivo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <h5>Certificado de Equipo Nro: </h5>
+                    <div class="col-lg-3">
+                        <select id="select_renewal" class="form-control kt-select select2-renewals" data-placeholder="Certificaciones de Equipo"></select>
+                    </div>
+                    <div class="col-lg-3">
+                        <a id="btn_LoadPdf" href="#" class="btn btn-icon btn-success btn-sm mr-2">
+                            <i class="flaticon-eye"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <iframe id="pdf_frame" src="" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="width: 100%; height: 600px;">
+                </iframe>
+                <div class="d-flex align-items-baseline">
+                    @*<h6 class="mr-2">Compartir Enlace</h6>
+            <a id="share_whatsapp" target="_blank" href="javascript:;" class="btn btn-success btn-icon mr-2" alt="Whatsapp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <button class="btn btn-info btn-mailto btn-icon mr-2" alt="Correo">
+                <i class="la la-inbox"></i>
+            </button>
+            <button class="btn btn-secondary btn-icon mr-2" alt="Copiar Enlace">
+                <i class="fa fa-copy"></i>
+            </button>*@
+                    @*<a id="pdf_share_download" target="_blank" href="javascript:;" class="btn btn-info btn-icon mr-2" alt="Descargar">
+                <i class="fa fa-download"></i>
+            </a>*@
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <i class="la la-close"></i>
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

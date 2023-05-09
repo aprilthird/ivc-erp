@@ -1,0 +1,54 @@
+﻿<div class="modal fade" id="prev_add_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-modal="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nuevo Grupo de Inter&eacute;s</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <form id="prev_add_form" class="form form-horizontal" role="form">
+                <div class="modal-body">
+                    <div id="prev_add_alert" class="alert alert-danger alert-dismissible fade d-none" role="alert">
+                        <span id="prev_add_alert_text"></span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <p>
+                        Seleccione los <b>par&aacute;metros</b> para jalar los usuarios que conformar&aacute;n el nuevo <b>Grupo de Inter&eacute;s</b>
+                    </p>
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <label class="label">Proyecto</label>
+                            <select id="prev_project_id" class="form-control kt-select2 select2-projects" required>
+                                <option>Todos</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <label class="label">&Aring;rea de Trabajo</label>
+                            <select id="prev_work_area" class="form-control kt-select2 select2-work-areas" required>
+                                <option>Todas</option>
+                                @foreach (var item in ConstantHelpers.Employee.WorkArea.VALUES)
+                                {
+                                    <option value="@item.Key">@item.Value</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <i class="la la-close"></i>
+                        Cerrar
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="la la-download"></i>
+                        Cargar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

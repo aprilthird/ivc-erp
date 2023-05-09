@@ -1,0 +1,29 @@
+﻿@model EquipmentMachinerySoftFoldingViewModel
+
+<input asp-for="Id" hidden />
+
+<input asp-for="EquipmentMachinerySoftId" hidden />
+
+<div class="form-group row">
+
+    <div class="col-lg-6">
+        <label asp-for="FreeText" class="label"></label>
+        <input asp-for="FreeText" class="form-control" />
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="FreeDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="FreeDate" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    
+
+    
+
+</div>

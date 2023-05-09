@@ -1,0 +1,27 @@
+﻿@model SewerManifoldLetterListViewModel
+
+<input asp-for="SewerManifoldId" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="SewerManifoldIds" class="label"></label>
+        <select asp-for="SewerManifoldIds" class="select2-sm-reviews" multiple style="visibility: hidden;" />
+        <select name="select_sm_reviews" class="form-control kt-select select2-sm-reviews" multiple data-placeholder="Cartas Solicitud"></select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="RequestLetterIds" class="label"></label>
+        <select asp-for="RequestLetterIds" class="select2-letters-sent" multiple style="visibility: hidden;" />
+        <select name="select_req_letters" class="form-control kt-select select2-letters-sent" multiple data-placeholder="Cartas Solicitud"></select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="ApprovalLetterIds" class="label"></label>
+        <select asp-for="ApprovalLetterIds" class="select2-letters-received" multiple style="visibility: hidden;" />
+        <select name="select_app_letters" class="form-control kt-select select2-letters-received" multiple data-placeholder="Cartas Aprobación"></select>
+    </div>
+</div>

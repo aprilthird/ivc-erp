@@ -1,0 +1,23 @@
+﻿@model StockInputVoucherDetailViewModel
+
+<input asp-for="Id" hidden />
+<input asp-for="StockVoucherId" hidden />
+<input asp-for="CurrencyType" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12 row">
+        <label asp-for="StockId" class="label"></label>
+        <input asp-for="StockId" hidden />
+        <select name="select_stock" class="form-control kt-select select2-stocks" data-placeholder="Material"></select>
+    </div>
+    <div class="col-lg-12 row">
+        <div class="col-lg-6">
+            <label asp-for="SalePriceUnit" class="label"></label>
+            <input asp-for="SalePriceUnit" class="form-control" />
+        </div>
+        <div class="col-lg-6">
+            <label asp-for="Quantity" class="label"></label>
+            <input asp-for="Quantity" class="form-control" />
+        </div>
+    </div>
+</div>

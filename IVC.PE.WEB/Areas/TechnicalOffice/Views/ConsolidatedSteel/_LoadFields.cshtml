@@ -1,0 +1,106 @@
+﻿@model LoadConsolidatedSteelViewModel
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label class="label">F1 - OBRAS CIVILES</label>
+    </div>
+    <div class="col-lg-6">
+        <input asp-for="AffectationF1" hidden />
+        <select name="select_affection_f1" class="form-control kt-select select2-affection-f1">
+            @foreach (var item in ConstantHelpers.Steel.Affectation.NAMES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label class="label">F2 - EQUIPAMIENTO HIDRAULICO Y ELECTROMECANICO</label>
+    </div>
+    <div class="col-lg-6">
+        <input asp-for="AffectationF2" hidden />
+        <select name="select_affection_f2" class="form-control kt-select select2-affection-f2">
+            @foreach (var item in ConstantHelpers.Steel.Affectation.NAMES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label class="label">F3 - LINEA DE HIERRO DUCTIL</label>
+    </div>
+    <div class="col-lg-6">
+        <input asp-for="AffectationF3" hidden />
+        <select name="select_affection_f3" class="form-control kt-select select2-affection-f3">
+            @foreach (var item in ConstantHelpers.Steel.Affectation.NAMES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label class="label">F4 - LINEAS DE ALCANTARILLADO</label>
+    </div>
+    <div class="col-lg-6">
+        <input asp-for="AffectationF4" hidden />
+        <select name="select_affection_f4" class="form-control kt-select select2-affection-f4">
+            @foreach (var item in ConstantHelpers.Steel.Affectation.NAMES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label class="label">F5 - RED SECUNDARIA DE AGUA POTABLE</label>
+    </div>
+    <div class="col-lg-6">
+        <input asp-for="AffectationF5" hidden />
+        <select name="select_affection_f5" class="form-control kt-select select2-affection-f5">
+            @foreach (var item in ConstantHelpers.Steel.Affectation.NAMES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label class="label">F6 - RED SECUNDARIA DE ALCANTARILLADO</label>
+    </div>
+    <div class="col-lg-6">
+        <input asp-for="AffectationF6" hidden />
+        <select name="select_affection_f6" class="form-control kt-select select2-affection-f6">
+            @foreach (var item in ConstantHelpers.Steel.Affectation.NAMES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label class="label">F7 - COLECTOR DE DESCARGA</label>
+    </div>
+    <div class="col-lg-6">
+        <input asp-for="AffectationF7" hidden />
+        <select name="select_affection_f7" class="form-control kt-select select2-affection-f7">
+            @foreach (var item in ConstantHelpers.Steel.Affectation.NAMES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>

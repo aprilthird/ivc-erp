@@ -1,0 +1,30 @@
+﻿@model F7PdpViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+
+    <div class="col-lg-6">
+        <label asp-for="WorkFrontHeadId" class="label"></label>
+        <input asp-for="WorkFrontHeadId" hidden />
+        <select name="select_workfronthead" class="form-control kt-select select2-workfrontheads" data-placeholder="Jefes de Frente"></select>
+    </div>
+
+    <div class="col-lg-6 workfront_group" hidden>
+        <label asp-for="WorkFrontId" class="label"></label>
+        <input asp-for="WorkFrontId" hidden />
+        <select name="select_workfront" class="form-control kt-select select2-workfronts" data-placeholder="Frentes de Trabajo"></select>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="SewerGroupId" class="label"></label>
+        <input asp-for="SewerGroupId" hidden />
+        <select name="select_sewergroup" class="form-control kt-select select2-sewergroups" data-placeholder="Cuadrillas"></select>
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="SewerManifoldId" class="label"></label>
+        <input asp-for="SewerManifoldId" hidden />
+        <select name="select_sewermanifold" class="form-control kt-select select2-sewermanifolds" data-placeholder="Tramos"></select>
+    </div>
+</div>

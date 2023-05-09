@@ -1,0 +1,150 @@
+﻿@model SewerManifoldViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <h6>Buzón Aguas Arriba - <span id="i-name"></span></h6>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="SewerBoxStart.Code" class="label"></label>
+        <input asp-for="SewerBoxStart.Code" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="SewerBoxStart.Thickness" class="label"></label>
+        <input asp-for="SewerBoxStart.Thickness" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="SewerBoxStart.CoverLevel" class="label"></label>
+        <input asp-for="SewerBoxStart.CoverLevel" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="SewerBoxStart.ArrivalLevel" class="label"></label>
+        <input asp-for="SewerBoxStart.ArrivalLevel" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="SewerBoxStart.BottomLevel" class="label"></label>
+        <input asp-for="SewerBoxStart.BottomLevel" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="SewerBoxStart.TerrainType" class="label"></label>
+        <select asp-for="SewerBoxStart.TerrainType" class="form-control kt-select select2-terrain-types" data-placeholder="Tipo de Terreno">
+            @foreach (var item in ConstantHelpers.Terrain.Type.NAMES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="SewerBoxStart.SewerBoxType" class="label"></label>
+        <select asp-for="SewerBoxStart.SewerBoxType" class="form-control kt-select select2-sewerbox-types" data-placeholder="Tipo de Buzón">
+            @foreach (var item in ConstantHelpers.Sewer.Box.Type.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <h6>Buzón Aguas Abajo - <span id="j-name"></span></h6>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="SewerBoxEnd.Code" class="label"></label>
+        <input asp-for="SewerBoxEnd.Code" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="SewerBoxEnd.Thickness" class="label"></label>
+        <input asp-for="SewerBoxEnd.Thickness" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="SewerBoxEnd.CoverLevel" class="label"></label>
+        <input asp-for="SewerBoxEnd.CoverLevel" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="SewerBoxEnd.ArrivalLevel" class="label"></label>
+        <input asp-for="SewerBoxEnd.ArrivalLevel" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="SewerBoxEnd.BottomLevel" class="label"></label>
+        <input asp-for="SewerBoxEnd.BottomLevel" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="SewerBoxEnd.TerrainType" class="label"></label>
+        <select asp-for="SewerBoxEnd.TerrainType" class="form-control kt-select select2-terrain-types" data-placeholder="Tipo de Terreno">
+            @foreach (var item in ConstantHelpers.Terrain.Type.NAMES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="SewerBoxEnd.SewerBoxType" class="label"></label>
+        <select asp-for="SewerBoxEnd.SewerBoxType" class="form-control kt-select select2-sewerbox-types" data-placeholder="Tipo de Buzón">
+            @foreach (var item in ConstantHelpers.Sewer.Box.Type.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <h6>Tramo - <span id="manifold_name"></span></h6>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="Name" class="label"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="Address" class="label"></label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="PipeDiameter" class="label"></label>
+        <input asp-for="PipeDiameter" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="PipeType" class="label"></label>
+        <select asp-for="PipeType" class="form-control kt-select select2-terrain-types" data-placeholder="Tipo de Terreno">
+            @foreach (var item in ConstantHelpers.Pipeline.Type.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="LengthBetweenHAxles" class="label"></label>
+        <input asp-for="LengthBetweenHAxles" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="TerrainType" class="label"></label>
+        <select asp-for="TerrainType" class="form-control kt-select select2-terrain-types" data-placeholder="Tipo de Terreno">
+            @foreach (var item in ConstantHelpers.Terrain.Type.NAMES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-3">
+        <label asp-for="Pavement2In" class="label"></label>
+        <input type="number" asp-for="Pavement2In" class="form-control" />
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="Pavement3In" class="label"></label>
+        <input type="number" asp-for="Pavement3In" class="form-control" />
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="Pavement3InMixed" class="label"></label>
+        <input type="number" asp-for="Pavement3InMixed" class="form-control" />
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="PavementWidth" class="label"></label>
+        <input type="number" asp-for="PavementWidth" class="form-control" />
+    </div>
+</div>

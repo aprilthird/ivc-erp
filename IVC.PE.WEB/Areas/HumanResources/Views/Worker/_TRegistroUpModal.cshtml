@@ -1,0 +1,55 @@
+﻿<div class="modal fade" id="treg_up_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-modal="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Generar Archivos Alta T-Registro</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <form id="treg_up_form" class="form form-horizontal" role="form" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div id="treg_up_alert" class="alert alert-danger alert-dismissible fade d-none" role="alert">
+                        <span id="treg_up_alert_text"></span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-4">
+                            <label class="label">Desde</label>
+                            <div class="input-group">
+                                <input id="tregUpSince" class="form-control datepicker" required />
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <label class="label">Hasta</label>
+                            <div class="input-group">
+                                <input id="tregUpUntil" class="form-control datepicker" required />
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <i class="la la-close"></i>
+                        Cerrar
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="la la-upload"></i>
+                        Generar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+﻿@model CompactionDensityCertificateDetailViewModel
+
+<div data-repeater-item class="form-group row align-items-center">
+    <div class="col-md-2">
+        <div class="kt-form__group--inline">
+            <div class="kt-form__label">
+                <label asp-for="Layer" class="kt-label m-label--single"></label>
+            </div>
+            <div class="kt-form__control">
+                <input asp-for="Layer" type="text" class="form-control" placeholder="" required disabled />
+            </div>
+        </div>
+        <div class="d-md-none kt-margin-b-10"></div>
+    </div>
+    <div class="col-md-3">
+        <div class="kt-form__group--inline">
+            <div class="kt-form__label">
+                <label asp-for="TestDate"></label>
+            </div>
+            <div class="kt-form__control">
+                <div class="input-group">
+                    <input asp-for="TestDate" class="form-control datepicker" required />
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-md-none kt-margin-b-10"></div>
+    </div>
+    <div class="col-md-2">
+        <div class="kt-form__group--inline">
+            <div class="kt-form__label">
+                <label asp-for="FillingLaboratoryTestId"></label>
+            </div>
+            <div class="kt-form__control">
+                <select asp-for="FillingLaboratoryTestId" class="form-control kt-select2 select2-filling-laboratory-tests" required></select>
+            </div>
+        </div>
+        <div class="d-md-none kt-margin-b-10"></div>
+    </div>
+    <div class="col-md-3">
+        <div class="kt-form__group--inline">
+            <div class="kt-form__label">
+                <label asp-for="WetDensity" class="kt-label m-label--single"></label>
+            </div>
+            <div class="kt-form__control">
+                <input asp-for="WetDensity" class="form-control" required />
+            </div>
+        </div>
+        <div class="d-md-none kt-margin-b-10"></div>
+    </div>
+    <div class="col-md-2">
+        <div class="kt-form__group--inline">
+            <div class="kt-form__label">
+                <label asp-for="Moisture" class="kt-label m-label--single"></label>
+            </div>
+            <div class="kt-form__control">
+                <input asp-for="Moisture" class="form-control" required>
+            </div>
+        </div>
+        <div class="d-md-none kt-margin-b-10"></div>
+    </div>
+    @*<div class="col-md-1">
+        <label>&emsp;</label>
+        <label>&emsp;</label>
+        <a href="javascript:;" data-repeater-delete class="btn-sm btn btn-label-danger btn-bold btn-icon">
+            <i class="la la-trash-o"></i>
+        </a>
+    </div>*@
+</div>

@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Órdenes de Compra";
+    ViewBag.SubTitle = "Generación de Órdenes de Compra";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.Logistics.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <a asp-action="Export" class="btn btn-secondary btn-export"><span><i class="la la-download"></i><span>Exportar</span></span></a>
+
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add_modal" id="addNewOrder">
+                            <span>
+                                <i class="la la-plus"></i><span>Nuevo</span>
+                            </span>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        @*<div class="form-group row">
+                <div class="col-md-3">
+                    <label class="col-form-label">Familia</label>
+                    <select id="supply_family_filter" class="form-control kt-select2 select2-supply-families">
+                        <option>Todas</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-form-label">Grupo</label>
+                    <select id="supply_group_filter" class="form-control kt-select2 select2-supply-groups">
+                        <option>Todos</option>
+                    </select>
+                </div>
+            </div>*@
+        <table class="table table-striped table-bordered table-hover table-checkable datatable" id="main_datatable" role="grid"></table>
+    </div>
+</div>
+
+<partial name="Purchase/_CreateModal" />
+<partial name="Purchase/_EditModal" />
+<partial name="Purchase/_ObservationReadModal" />
+<partial name="_PdfModal" />
+<partial name="_DiscountsModal" />
+
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/logistics/order/purchase/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/logistics/order/purchase/index.js"></script>
+    }
+}

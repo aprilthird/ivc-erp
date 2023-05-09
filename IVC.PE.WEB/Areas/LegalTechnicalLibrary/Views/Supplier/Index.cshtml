@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Catálogo de Proveedores";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.LegalTechnicalLibrary.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title" id="datatable_portlet_title">
+                Lista de Proveedores
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                @if (canEdit)
+                {
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add_modal">
+                            <span>
+                                <i class="la la-plus"></i><span>
+                                    Nuevo
+                                </span>
+                            </span>
+                        </button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="kt-section">
+            <div class="kt-section__content kt-section__content--border kt-section__content--fit">
+                <div class="kt-grid-nav kt-grid-nav--skin-light" id="result_container" onload="loadSuppliers()"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (canEdit)
+{
+    <partial name="_CreateModal" />
+}
+
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/legal-technical-library/technical-library/supplier/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/legal-technical-library/technical-library/supplier/readonly-index.js"></script>
+    }
+}

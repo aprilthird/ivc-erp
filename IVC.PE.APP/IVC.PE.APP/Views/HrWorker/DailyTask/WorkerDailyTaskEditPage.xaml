@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.HrWorker.DailyTask.WorkerDailyTaskEditPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Editar Tareo Diario">
+    <ContentPage.Content>
+        <AbsoluteLayout 
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding WorkerDailyTaskEditViewModel}"
+            Padding="8">
+            <ScrollView
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional"
+                Padding="0,0,0,80">
+                <StackLayout>
+                    <Label Text="Documento"/>
+                    <Entry
+                        Text="{Binding WorkerDt.WorkerDocument}"
+                        IsEnabled="False"/>
+
+                    <Label Text="Trabajador"/>
+                    <Entry
+                        Text="{Binding WorkerDt.WorkerFullName}"
+                        IsEnabled="False"/>
+
+                    <Label Text="Categoría"/>
+                    <Entry
+                        Text="{Binding WorkerDt.WorkerCategory}"
+                        IsEnabled="False"/>
+
+                    <Label Text="Cuadrilla"/>
+                    <Entry
+                        Text="{Binding WorkerDt.SewerGroup}"
+                        IsEnabled="False"/>
+
+                    <Label Text="Fase"/>
+                    <StackLayout>
+                        <Entry
+                            Text="{Binding Phase}"
+                            InputTransparent="true"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding SelectPhaseCommand}"
+                                NumberOfTapsRequired="1"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <Label Text="Horas Normales"/>
+                    <Entry
+                        Text="{Binding WorkerDt.HoursNormal}"/>
+
+                    <Label Text="Horas Extras 60 %"/>
+                    <Entry
+                        Text="{Binding WorkerDt.Hours60Percent}"/>
+
+                    <Label Text="Horas Extras 100%"/>
+                    <Entry
+                        Text="{Binding WorkerDt.Hours100Percent}"/>
+                </StackLayout>
+            </ScrollView>
+            <Button
+                Command="{Binding SaveEditDailyTaskCommnad}"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds=".98,.98,50,50"
+                BackgroundColor="#00284A"
+                CornerRadius="30"
+                Text="&#xf0c7;"
+                FontFamily="FontAwesome"
+                FontSize="30"
+                TextColor="White"
+                IsEnabled="{Binding IsEnabled}">
+            </Button>
+        </AbsoluteLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

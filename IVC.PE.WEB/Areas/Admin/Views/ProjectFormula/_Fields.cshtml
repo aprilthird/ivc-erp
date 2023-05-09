@@ -1,0 +1,25 @@
+﻿@model ProjectFormulaViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-2">
+        <label asp-for="Code" class="label"></label>
+        <input asp-for="Code" class="form-control" required />
+    </div>
+    <div class="col-lg-5">
+        <label asp-for="Name" class="label"></label>
+        <input asp-for="Name" class="form-control" required />
+    </div>
+    <div class="col-lg-5">
+        <label asp-for="Group" class="label"></label>
+        <input asp-for="Group" hidden />
+        <select name="select_groups" class="form-control kt-select select2-groups">
+            <option value=0>Sin Grupo</option>
+            @foreach (var item in ConstantHelpers.Budget.Group.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>

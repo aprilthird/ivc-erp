@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.EquipmentMachinery.EquipmentMachPartFoldingVariablePage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Parte Diario Equipo Maquinaria">
+    <ContentPage.Content>
+        <AbsoluteLayout
+            x:Name="layout"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding EquipmentMachPartFoldingVariableViewModel}"
+            Padding="8">
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional">
+
+                <Label
+                        Text="Actividad"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Activities}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedActivity}" />
+                </StackLayout>
+
+                <Label
+                        Text="Fase"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Phases}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedPhase}" />
+                </StackLayout>
+
+                
+
+                <StackLayout Orientation="Horizontal">
+                    <Entry
+                         HorizontalOptions="FillAndExpand"
+                       Placeholder = "Horometro Inicial"
+                        Text="{Binding InitHorometer , Mode=TwoWay}"
+                        />
+                </StackLayout>
+
+
+                <StackLayout Orientation="Horizontal">
+                    <Entry
+                         HorizontalOptions="FillAndExpand"
+                       Placeholder = "Horometro Final"
+                        Text="{Binding EndHorometer , Mode=TwoWay}"
+                        />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+
+                    <Button
+                        Command="{Binding ToSaveCommand}"
+                        Text="Buscar"/>
+                </StackLayout>
+
+                <!--<Label
+                    Text="Lista de Planos"
+                    FontSize="Medium"
+                    FontAttributes="Bold"></Label>
+
+                <ScrollView
+                    Padding="0,0,0,80">
+                    <ListView
+                        SelectionMode="None"
+                        IsRefreshing="{Binding IsRefreshing}"
+                        HasUnevenRows="True"
+                        ItemsSource="{Binding BPList}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        -->
+                <!--<MenuItem Text="Ver" 
+                                                  Command="{Binding Path=BindingContext.ViewBluePrintsCommand, Source={x:Reference layout}}"
+                                                  CommandParameter="{Binding .}"/>-->
+                <!--
+                                        
+                                        <MenuItem Text="Plano Adjunto" 
+                                                  Command="{Binding Path=BindingContext.PdfBluePrintsCommand, Source={x:Reference layout}}"
+                                                  CommandParameter="{Binding .}"/>
+
+                                        <MenuItem Text="Carta Adjunto" 
+                                                  Command="{Binding Path=BindingContext.PdfLetterCommand, Source={x:Reference layout}}"
+                                                  CommandParameter="{Binding .}"/>
+                                        -->
+                <!--<MenuItem Text="Editar" />-->
+                <!--
+                                    </ViewCell.ContextActions>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout
+                                            Grid.Column="0"
+                                            VerticalOptions="Center"
+                                            Orientation="Vertical">
+                                            <Label
+                                                FontSize="Medium"
+                                                FontAttributes="Bold"
+                                                Text="{Binding Code}">
+                                            </Label>
+                                            <Label
+                                                FontSize="Large"
+                                                FontAttributes="Bold"
+                                                Text="{Binding TechnicalVersionDescription}">
+                                            </Label>
+                                        </StackLayout>
+                                        
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>-->
+
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.HrWorker.DailyTask.WorkerDailyTaskSearchPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Tareo Diario">
+    <ContentPage.Content>
+        <StackLayout
+            x:Name="layout"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding WorkerDailyTaskSearchViewModel}"
+            Padding="8">
+            <Label
+                Text="Proyecto "></Label>
+            <StackLayout Orientation="Horizontal">
+                <Picker
+                    HorizontalOptions="FillAndExpand"
+                    ItemsSource="{Binding Projects}"
+                    ItemDisplayBinding="{Binding Text}"
+                    SelectedItem="{Binding SelectedProject}" />
+            </StackLayout>
+            <Label
+                Text="Jefe de Frente "></Label>
+            <StackLayout Orientation="Horizontal">
+                <Picker
+                    HorizontalOptions="FillAndExpand"
+                    ItemsSource="{Binding WorkFrontHeads}"
+                    ItemDisplayBinding="{Binding Text}"
+                    SelectedItem="{Binding SelectedWorkFrontHead}" />
+            </StackLayout>
+            <Label
+                Text="Cuadrillas "></Label>
+            <StackLayout Orientation="Horizontal">
+                <Picker
+                    HorizontalOptions="FillAndExpand"
+                    ItemsSource="{Binding SewerGroups}"
+                    ItemDisplayBinding="{Binding Text}"
+                    SelectedItem="{Binding SelectedSewerGroup}" />
+            </StackLayout>
+            <Label
+                Text="Fecha "></Label>
+            <DatePicker 
+                Date="{Binding SelectedDate}"
+                Format="dd/MM/yyyy"/>
+
+            <Button
+                Command="{Binding LoadAttendanceCommand}"
+                Text="Buscar tareo"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

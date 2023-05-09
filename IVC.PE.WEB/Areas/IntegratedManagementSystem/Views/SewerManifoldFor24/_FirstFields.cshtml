@@ -1,0 +1,176 @@
+﻿@model SewerManifoldFor24FirstPartViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="NewSIGProcessId" class="label"></label>
+        <input asp-for="NewSIGProcessId" hidden />
+        <select name="select_processes" class="form-control kt-select select2-processes">
+            <option selected></option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="ReportUserId" class="label"></label>
+        <input asp-for="ReportUserId" hidden />
+        <select name="select_report_user" class="form-control kt-select select2-report-users">
+            <option selected></option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="Date" class="label"></label>
+        <div class="input-group">
+            <input asp-for="Date" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h5>ORIGEN DEL P/S NC:</h5>
+&nbsp;
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="OriginType" class="label"></label>
+        <input asp-for="OriginType" hidden />
+        <select name="select_origin_Type" class="form-control kt-select select2-origin-type">
+            @foreach (var item in ConstantHelpers.SewerManifoldFor24.OriginType.NAMES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="NCOrigin" class="label"></label>
+        <input asp-for="NCOrigin" hidden />
+        <select name="select_nc_origin" class="form-control kt-select select2-nc-origin">
+            @foreach (var item in ConstantHelpers.SewerManifoldFor24.NCOrigin.NAMES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+
+<div class="form-group row internal-process">
+    <div class="col-lg-6">
+        <label asp-for="SewerGroupId" class="label"></label>
+        <input asp-for="SewerGroupId" hidden />
+        <select name="select_sewer_group" class="form-control kt-select select2-sewer-groups">
+            <option selected></option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group row provider">
+    <div class="col-lg-6">
+        <label asp-for="ProviderId" class="label"></label>
+        <input asp-for="ProviderId" hidden />
+        <select name="select_provider" class="form-control kt-select select2-providers">
+            <option selected></option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group row client">
+    <div class="col-lg-6">
+        <label asp-for="Client" class="label"></label>
+        <input asp-for="Client" class="form-control" />
+    </div>
+</div>
+
+<h5>DESCRIPCIÓN DEL HALLAZGO</h5>
+&nbsp;
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="Description" class="label"></label>
+        <br>
+        <textarea asp-for="Description" rows="10" cols="100"></textarea>
+    </div>
+</div>
+
+<h5 class="product">SI APLICA LLENE LOS SIGUIENTES DATOS</h5>
+&nbsp;
+<div class="form-group row product">
+    <div class="col-lg-6">
+        <label asp-for="ProductName" class="label"></label>
+        <input asp-for="ProductName" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="Quantity" class="label"></label>
+        <input asp-for="Quantity" class="form-control" />
+    </div>
+</div>
+
+<div class="form-group row product">
+    <div class="col-lg-4">
+        <label asp-for="BrandProvider" class="label"></label>
+        <input asp-for="BrandProvider" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="CodeReference" class="label"></label>
+        <input asp-for="CodeReference" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="ExpirationDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="ExpirationDate" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h5>REPONSABLE A LEVANTAR</h5>
+&nbsp;
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="ResponsableUserId" class="label"></label>
+        <input asp-for="ResponsableUserId" hidden />
+        <select name="select_responsable_user" class="form-control kt-select select2-reponsable-users">
+            <option selected></option>
+        </select>
+    </div>
+</div>
+
+<h5>REGISTRO FOTOGRÁFICO, VIDEOS, PDF</h5>
+&nbsp;
+
+<div class="form-group">
+    <label asp-for="File" class="label">Archivo:</label>
+    <div class="custom-file">
+        <input asp-for="File" type="file" class="custom-file-input" />
+        <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+    </div>
+</div>
+
+<div class="form-group">
+    <label asp-for="Video" class="label">Video Cámara Zoom:</label>
+    <div class="custom-file custom-video-zoom">
+        <input asp-for="Video" type="file" class="custom-file-input" />
+        <label class="custom-file-label" for="customFile">Escoge un video</label>
+    </div>
+</div>
+
+<div class="form-group">
+    <label asp-for="GalleryFiles" class="control-label"></label>
+    <div class="custom-file">
+        <input asp-for="GalleryFiles" class="custom-file-input" id="customFile">
+        <label class="custom-file-label" for="customFile">Escoge las imágenes</label>
+    </div>
+</div>

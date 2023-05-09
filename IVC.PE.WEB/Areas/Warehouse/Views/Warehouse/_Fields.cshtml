@@ -1,0 +1,27 @@
+﻿@model WarehouseViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12 row">
+        <label asp-for="WarehouseTypeId" class="label"></label>
+        <input asp-for="WarehouseTypeId" hidden />
+        <select name="select_warehouse_type" class="form-control kt-select select2-warehouse-types" data-placeholder="Material"></select>
+    </div>
+
+    <div class="col-lg-12 row">
+        <label asp-for="WorkFrontId" class="label"></label>
+        <input asp-for="WorkFrontId" hidden />
+        <select name="select_work_front" class="form-control kt-select select2-work-fronts" data-placeholder="Material"></select>
+    </div>
+
+    <div class="col-lg-12 row">
+        <label asp-for="Address" class="label"></label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+
+    <div class="col-lg-12 row">
+        <label asp-for="GoogleMapsUrl" class="label"></label>
+        <input asp-for="GoogleMapsUrl" class="form-control" />
+    </div>
+</div>

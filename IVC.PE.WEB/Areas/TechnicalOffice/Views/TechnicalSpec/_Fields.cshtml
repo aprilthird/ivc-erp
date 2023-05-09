@@ -1,0 +1,37 @@
+﻿@model TechnicalSpecViewModel
+
+<input asp-for="Id" hidden/>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="SupplyFamilyId" class="label"></label>
+        <input asp-for="SupplyFamilyId" hidden />
+        <select name="select_family" class="form-control kt-select select2-familys"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="SupplyGroupId" class="label"></label>
+        <input asp-for="SupplyGroupId" hidden />
+        <select name="select_group" class="form-control kt-select select2-groups"></select>
+    </div>
+
+    <div class="col-lg-8">
+        <label asp-for="Specialities" class="label"></label>
+        <select asp-for="Specialities" class="select2-specs" multiple style="visibility: hidden;" />
+        <select name="select_specialities" class="form-control kt-select2 select2-specs" multiple data-placeholder="Especialidades"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="Name" class="label"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+
+
+</div>
+
+<div class="form-group">
+    <label asp-for="File" class="label">Archivo:</label>
+    <div class="custom-file">
+        <input asp-for="File" type="file" class="custom-file-input" />
+        <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+    </div>
+</div>

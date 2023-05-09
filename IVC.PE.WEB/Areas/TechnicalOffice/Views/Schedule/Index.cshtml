@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "Análisis de Cronograma";
+    ViewBag.SubTitle = "Cronograma";
+}
+
+@section Styles {
+    <link href="https://taitems.github.io/jQuery.Gantt/css/style.css" rel="stylesheet" />
+    <link href="https://taitems.github.com/UX-Lab/core/css/prettify.css" rel="stylesheet" />
+    <style>
+        body {
+				font-family: Helvetica, Arial, sans-serif;
+				font-size: 13px;
+				padding: 0 0 50px 0;
+			}
+			.contain {
+				width: 800px;
+				margin: 0 auto;
+			}
+			h1 {
+				margin: 40px 0 20px 0;
+			}
+			h2 {
+				font-size: 1.5em;
+				padding-bottom: 3px;
+				border-bottom: 1px solid #DDD;
+				margin-top: 50px;
+				margin-bottom: 25px;
+			}
+			table th:first-child {
+				width: 150px;
+			}
+      /* Bootstrap 3.x re-reset */
+      .fn-gantt *,
+      .fn-gantt *:after,
+      .fn-gantt *:before {
+        -webkit-box-sizing: content-box;
+           -moz-box-sizing: content-box;
+                box-sizing: content-box;
+      }
+    </style>
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    @*<button type="button" class="btn btn-brand btn-elevate btn-icon-sm" data-toggle="modal" data-target="#add_modal">
+                            <i class="la la-plus"></i>
+                            Nuevo
+                        </button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div id="gant"></div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="https://taitems.github.io/jQuery.Gantt/js/jquery.fn.gantt.js"></script>
+    <script src="~/js/areas/technical-office/schedule/index.js"></script>
+}

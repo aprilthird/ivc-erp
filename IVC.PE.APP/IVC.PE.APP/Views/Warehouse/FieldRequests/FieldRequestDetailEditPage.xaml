@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.Warehouse.FieldRequests.FieldRequestDetailEditPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Editar Item">
+    <ContentPage.Content>
+        <AbsoluteLayout
+            x:Name="layout"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding FieldRequestDetailEditViewModel}"
+            Padding="8">
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional">
+
+                <Label
+                        Text="Insumo"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Budgets}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedBudget}" />
+                </StackLayout>
+
+                <Label
+                        Text="Unidad"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Label 
+                        Text="{Binding Abb}">
+                    </Label>
+                </StackLayout>
+
+                <Label
+                        Text="Fase"></Label>
+                <StackLayout Orientation="Horizontal">
+
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Phases}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedPhase}" />
+                </StackLayout>
+
+                <Label
+                        Text="Cantidad"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                        Text="{Binding Red}"
+                        TextColor="Red"></Label>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+
+                    <Label
+                        Text="{Binding Blue}"
+                        TextColor="Blue"></Label>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+
+                    <Label
+                        Text="{Binding Black}"></Label>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Entry
+                         HorizontalOptions="FillAndExpand"
+                       Placeholder = "Cantidad"
+                        Text="{Binding Quantity , Mode=TwoWay}"
+                        />
+                </StackLayout>
+
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Button
+                        Command="{Binding ToSaveCommand}"
+                        Text="Generar"/>
+                </StackLayout>
+
+
+
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

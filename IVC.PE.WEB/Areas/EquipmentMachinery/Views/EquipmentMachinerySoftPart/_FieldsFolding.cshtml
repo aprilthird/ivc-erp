@@ -1,0 +1,54 @@
+﻿@model EquipmentMachinerySoftPartFoldingViewModel
+
+<input asp-for="Id" hidden />
+
+<input asp-for="EquipmentMachinerySoftPartId" hidden/>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="EquipmentMachineryOperatorId" class="label"></label>
+        <input asp-for="EquipmentMachineryOperatorId" hidden />
+        <select name="select_operator" class="form-control kt-select select2-operators" data-placeholder="Tipo de Equipo">
+        </select>
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="PartNumber" class="label"></label>
+        <input asp-for="PartNumber" class="form-control" required />
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="PartDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="PartDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="InitMileage" class="label"></label>
+        <input asp-for="InitMileage" class="form-control" required />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="EndMileage" class="label"></label>
+        <input asp-for="EndMileage" class="form-control" required />
+    </div>
+    <div class="col-lg-12">
+        <label asp-for="EquipmentMachineryTypeSoftActivities" class="label"></label>
+        <select asp-for="EquipmentMachineryTypeSoftActivities" class="select2-activities" multiple style="visibility: hidden;" />
+        <select name="select_activities" class="form-control kt-select2 select2-activities" multiple data-placeholder="Actividad"></select>
+    </div>
+
+    @*<div class="col-lg-6 worker_group">
+            <label asp-for="UserId" class="label"></label>
+            <input asp-for="UserId" hidden />
+            <select name="select_user" class="form-control kt-select select2-users"></select>
+        </div>*@
+
+</div>
+
+
+

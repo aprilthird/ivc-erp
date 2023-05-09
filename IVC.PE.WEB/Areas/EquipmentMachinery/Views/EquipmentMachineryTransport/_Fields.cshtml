@@ -1,0 +1,94 @@
+﻿@model EquipmentMachineryTransportViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-8">
+        <label asp-for="EquipmentProviderId" class="label"></label>
+        <input asp-for="EquipmentProviderId" hidden />
+        <select name="select_equipprovider" class="form-control kt-select select2-equipproviders" data-placeholder="Proveedor"></select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6 soft_group">
+        <label asp-for="EquipmentProviderFoldingId" class="label"></label>
+        <input asp-for="EquipmentProviderFoldingId" hidden />
+        <select name="select_machinery_type_soft" class="form-control kt-select select2-softs" data-placeholder="Equipo Menor"></select>
+    </div>
+</div>
+
+<div class="form-group row">
+    @*<div class="col-lg-6 ">
+            <label asp-for="EquipmentName" class="label"></label>
+            <input asp-for="EquipmentName" class="form-control" />
+        </div>*@
+    <div class="col-lg-6 ">
+        <label asp-for="Model" class="label"></label>
+        <input asp-for="Model" class="form-control" required />
+    </div>
+    <div class="col-lg-6 ">
+        <label asp-for="Brand" class="label"></label>
+        <input asp-for="Brand" class="form-control" required />
+    </div>
+    <div class="col-lg-6 ">
+        <label asp-for="EquipmentYear" class="label"></label>
+        <input asp-for="EquipmentYear" class="form-control" />
+    </div>
+    <div class="col-lg-6 ">
+        <label asp-for="EquipmentPlate" class="label"></label>
+        <input asp-for="EquipmentPlate" class="form-control" required />
+    </div>
+    <div class="col-lg-6 ">
+        <label asp-for="EquipmentSerie" class="label"></label>
+        <input asp-for="EquipmentSerie" class="form-control" required />
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="StartDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="StartDate" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="Status" class="label"></label>
+        <input asp-for="Status" hidden />
+        <select name="select_status" class="form-control kt-select select2-statuss" data-placeholder="Estado">
+            @foreach (var item in ConstantHelpers.EquipmentMachinery.EquipmentMachineryOperator.MACHINERY_STATUS)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="ServiceCondition" class="label"></label>
+        <input asp-for="ServiceCondition" hidden />
+        <select name="select_service" class="form-control kt-select select2-services" data-placeholder="Estado">
+            @foreach (var item in ConstantHelpers.EquipmentMachinery.EquipmentMachineryOperator.MACHINERY_SERVICE_CONDITION)
+            {
+                if (item.Key != 4)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            }
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-4 ">
+        <label asp-for="UnitPrice" class="label"></label>
+        <input asp-for="UnitPrice" class="form-control" />
+    </div>
+</div>

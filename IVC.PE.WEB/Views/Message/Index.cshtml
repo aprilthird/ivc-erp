@@ -1,0 +1,24 @@
+﻿@model (string title, string message, string icon)
+@{
+    ViewBag.Title = "Mensaje";
+    Layout = "_MessageLayout";
+}
+
+@section Styles {
+    <link href="~/css/message.css" rel="stylesheet" />
+}
+
+<div class="container">
+    <a href="@Url.Action("Login", "Account")">
+        <img class="logo" src="~/media/logo-ivc.png">
+    </a>
+    <div class="message-container jumbotron">
+        <h1 class="message-title">@Model.title</h1>
+        <hr/>
+        <h3 class="message-content">@Model.message</h3>
+        <img src="@Model.icon" class="message-icon" />
+    </div>
+</div>
+
+@{
+}

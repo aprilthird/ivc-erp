@@ -1,0 +1,37 @@
+﻿@model EquipmentCertificateViewModel
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+
+    <div class="col-lg-12">
+        <label asp-for="Name" class="label"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="col-lg-3">
+        <label asp-for="Brand" class="label"></label>
+        <input asp-for="Brand" class="form-control" />
+    </div>
+
+    <div class="col-lg-3">
+        <label asp-for="Model" class="label"></label>
+        <input asp-for="Model" class="form-control" />
+    </div>
+
+    <div class="col-lg-3">
+        <label asp-for="Serial" class="label"></label>
+        <input asp-for="Serial" class="form-control" />
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="EquipmentCertificateOwnerId" class="label"></label>
+        <input asp-for="EquipmentCertificateOwnerId" hidden />
+        <select name="select_owner" class="form-control kt-select select2-owners" data-placeholder="Propietario"></select>
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="EquipmentCertificateTypeId" class="label"></label>
+        <input asp-for="EquipmentCertificateTypeId" hidden />
+        <select name="select_certificate" class="form-control kt-select select2-certificates" data-placeholder="Tipo de Certificado"></select>
+    </div>
+
+
+</div>

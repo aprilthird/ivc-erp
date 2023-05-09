@@ -1,0 +1,169 @@
+﻿@{
+    ViewBag.Title = "Entibado";
+    ViewBag.SubTitle = "Entibado Monto Consolidado";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.TechnicalOffice.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    @if (canEdit)
+                    {
+                    <div class="btn-group" role="group" airal-label="Button group with nested dropdown">
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" id="btn-update">
+                            <span>
+                                <i class="la la-refresh"></i>
+                                <span>Actualizar</span>
+                            </span>
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" id="btn-delete-by-filters">
+                            <span>
+                                <i class="la la la-trash-o"></i>
+                                <span>Borrar Por Filtro</span>
+                            </span>
+                        </button>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label class="col-form-label">Títulos de Presupuestos</label>
+                <select id="budget_title_filter" class="form-control kt-select2 select2-budgettitle-filter">
+                    <option>Todos</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Formulas</label>
+                <select id="project_formula_filter" class="form-control kt-select2 select2-projectformula-filter">
+                    <option>Todos</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Frente de Trabajo</label>
+                <select id="work_front_filter" class="form-control kt-select2 select2-workfront-filter">
+                    <option>Todos</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Fases</label>
+                <select id="project_phase_filter" class="form-control kt-select2 select2-projectphase-filter">
+                    <option>Todos</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-12">
+                <p style="text-align: center; font-size: 15px;"><strong>MONTO</strong></p>
+            </div>
+            <div class="col-md-2">
+                <label class="col-form-label">KS60/Minibox</label>
+                <input id="total_ks60" class="form-control" style="text-align:right" disabled="disabled" />
+            </div>
+            <div class="col-md-2">
+                <label class="col-form-label">KS100/KMC100</label>
+                <input id="total_ks100" class="form-control" style="text-align:right" disabled="disabled" />
+            </div>
+            <div class="col-md-2">
+                <label class="col-form-label">Realza/Extensión</label>
+                <input id="total_realza_extension" class="form-control" style="text-align:right" disabled="disabled" />
+            </div>
+            <div class="col-md-2">
+                <label class="col-form-label">Corredera</label>
+                <input id="total_corredera" class="form-control" style="text-align:right" disabled="disabled" />
+            </div>
+            <div class="col-md-2">
+                <label class="col-form-label">Paralelo</label>
+                <input id="total_paralelo" class="form-control" style="text-align:right" disabled="disabled" />
+            </div>
+            <div class="col-md-2">
+                <label class="col-form-label">Soles</label>
+                <input id="total_suma" class="form-control" style="text-align:right" disabled="disabled" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-12">
+                <p style="text-align: center; font-size: 15px;"><strong>P. U.</strong></p>
+            </div>
+            <div class="col-md-2">
+                <label class="col-form-label">KS60/Minibox</label>
+                <input id="total_ks60_consolidated" class="form-control" style="text-align:right" disabled="disabled" />
+            </div>
+            <div class="col-md-2">
+                <label class="col-form-label">KS100/KMC100</label>
+                <input id="total_ks100_consolidated" class="form-control" style="text-align:right" disabled="disabled" />
+            </div>
+            <div class="col-md-2">
+                <label class="col-form-label">Realza/Extensión</label>
+                <input id="total_realza_extension_consolidated" class="form-control" style="text-align:right" disabled="disabled" />
+            </div>
+            <div class="col-md-2">
+                <label class="col-form-label">Corredera</label>
+                <input id="total_corredera_consolidated" class="form-control" style="text-align:right" disabled="disabled" />
+            </div>
+            <div class="col-md-2">
+                <label class="col-form-label">Paralelo</label>
+                <input id="total_paralelo_consolidated" class="form-control" style="text-align:right" disabled="disabled" />
+            </div>
+            <div class="col-md-2">
+                <label class="col-form-label">Soles x JGO/MES</label>
+                <input id="total_suma_consolidated" class="form-control" style="text-align:right" disabled="disabled" />
+            </div>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_project" role="tabpanel">
+                <table class="table table-striped table-bordered table-hover table-chekable dataTable" id="consolidado_entibados_datatable" role="grid">
+                    <thead>
+                        <tr>
+                            <th rowspan="3" style="text-align:center;">Frente</th>
+                            <th rowspan="3" style="text-align:center;">Item</th>
+                            <th rowspan="3" style="text-align:center;">Descripción</th>
+                            <th rowspan="3" style="text-align:center;">Und.</th>
+                            <th rowspan="3" style="text-align:center;">Metrado</th>
+                            <th colspan="5" style="text-align:center;">Metrados (Soles)</th>
+                            <th rowspan="3" style="text-align:center;">Opciones</th>
+                        </tr>
+                        <tr>
+                            <th>KS60/Minibox</th>
+                            <th>KS100/KMC100</th>
+                            <th>Realza/Extensión</th>
+                            <th>Corredera</th>
+                            <th>Paralelo</th>
+                        </tr>
+                        <tr>
+                            <th>30.00</th>
+                            <th>42.00</th>
+                            <th>22.75</th>
+                            <th>97.92</th>
+                            <th>262.70</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/technical-office/consolidated-amount-entibado/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/technical-office/consolidated-amount-entibado/index.js"></script>
+    }
+}

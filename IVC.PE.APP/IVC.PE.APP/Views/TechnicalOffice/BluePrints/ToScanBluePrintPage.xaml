@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.TechnicalOffice.BluePrints.ToScanBluePrintPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Lista de Planos">
+    <ContentPage.Content>
+        <StackLayout
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding ToScanBluePrintViewModel}"
+            Padding="8">
+            <Button
+                HorizontalOptions="FillAndExpand"
+                Command="{Binding CaptureQrCodeCommand}"
+                Text="Capturar Código QR"/>
+            <WebView
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                Source="{Binding FileUrl}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

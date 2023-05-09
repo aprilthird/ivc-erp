@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "RDP - Actividades";
+    ViewBag.SubTitle = "Filtros";
+    ViewBag.TableTitle = "RDP Actividades";
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#import_modal">
+                            <span>
+                                <i class="la la-upload"></i>
+                                <span>Importar Actividades</span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <partial name="_SearchFields" />
+    </div>
+</div>
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.TableTitle
+            </h3>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <table class="table table-striped table-bordered table-hover table-checkable datatable" id="items_datatable" role="grid"></table>
+    </div>
+</div>
+
+<partial name="_ImportModal" />
+<partial name="_EditModal" />
+
+@section Scripts {
+    <script src="~/js/areas/production/rdpitem/index.js"></script>
+}

@@ -1,0 +1,40 @@
+﻿@model F7PdpViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="WorkFrontHead.User.AuxFullName" class="label"></label>
+        <input asp-for="WorkFrontHead.User.AuxFullName" class="form-control" disabled="disabled" />
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="SewerGroup.Code" class="label"></label>
+        <input asp-for="SewerGroup.Code" class="form-control" disabled="disabled" />
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="SewerManifold.Name" class="label">Tramo</label>
+        <input asp-for="SewerManifold.Name" class="form-control" disabled="disabled" />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-3">
+        <label asp-for="ExcavatedLength" class="label"></label>
+        <input asp-for="ExcavatedLength" class="form-control" disabled="disabled" />
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="InstalledLength" class="label"></label>
+        <input asp-for="InstalledLength" class="form-control" disabled="disabled" />
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="RefilledLength" class="label"></label>
+        <input asp-for="RefilledLength" class="form-control" disabled="disabled" />
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="GranularBaseLength" class="label"></label>
+        <input asp-for="GranularBaseLength" class="form-control" disabled="disabled" />
+    </div>
+</div>
+
+

@@ -1,0 +1,220 @@
+﻿@model BiddingWorkViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+
+
+    <div class="col-lg-12">
+        <label asp-for="Name" class="label"></label>
+        <textarea asp-for="Name" class="form-control" rows="3"></textarea>
+        @*<input asp-for="Name" class="form-control" />*@
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="BiddingWorkTypeId" class="label"></label>
+        <input asp-for="BiddingWorkTypeId" hidden />
+        <select name="select_profession" class="form-control kt-select select2-professions" data-placeholder="Tipo de Obra"></select>
+    </div>
+
+    <div class="col-lg-8">
+        <label asp-for="BiddingWorkComponents" class="label"></label>
+        <select asp-for="BiddingWorkComponents" class="select2-components" multiple style="visibility: hidden;" />
+        <select name="select_components" class="form-control kt-select2 select2-components" multiple data-placeholder="Componentes de obra"></select>
+    </div>
+</div>
+
+
+<div class="form-group row">
+
+    <div class="col-lg-6">
+        <label asp-for="StartDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="StartDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="EndDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="EndDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="ReceivedDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="ReceivedDate" class="form-control datepicker"/>
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="LiquidationDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="LiquidationDate" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="BusinessId" class="label"></label>
+        <input asp-for="BusinessId" hidden />
+        <select name="select_business" class="form-control kt-select select2-businesses" data-placeholder="Tipo de Obra"></select>
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="BusinessParticipationFoldingId" class="label"></label>
+        <input asp-for="BusinessParticipationFoldingId" hidden />
+        <select name="select_businessfolding" class="form-control kt-select select2-businessfoldings" data-placeholder="Participación de Ivc"></select>
+    </div>
+
+    <div class="col-lg-3">
+        <label asp-for="CurrencyType" class="label"></label>
+        <input asp-for="CurrencyType" hidden />
+        <select name="select_currency" class="form-control kt-select select2-currencies" data-placeholder="Tipo de cambio">
+            @foreach (var item in ConstantHelpers.Biddings.CURRENCY)
+            {
+
+                <option value="@item.Key">@item.Value</option>
+
+            }
+        </select>
+    </div>
+    <div class="col-lg-2 dollar-group" hidden>
+        <label asp-for="BiddingCurrencyTypeId" class="label"></label>
+        <input asp-for="BiddingCurrencyTypeId" hidden />
+        <select name="select_biddingcurrency" class="form-control kt-select select2-biddingcurrencies" data-placeholder="Tipo de cambio dolar">
+        </select>
+    </div>
+
+</div>
+
+@*<div class="form-group row">
+
+
+    <div class="col-lg-4">
+        <label asp-for="IvcParticipation" class="label"></label>
+        <input asp-for="IvcParticipation" class="form-control" />
+    </div>
+
+
+
+
+
+</div>*@
+
+<div class="form-group row pen-group">
+
+
+
+    <div class="col-lg-4">
+        <label asp-for="ContractAmmount" class="label"></label>
+        <input asp-for="ContractAmmount" class="form-control" />
+    </div>
+
+
+    <div class="col-lg-4">
+        <label asp-for="LiquidationAmmount" class="label"></label>
+        <input asp-for="LiquidationAmmount" class="form-control" />
+    </div>
+
+
+</div>
+
+<div class="form-group row dollar-group" hidden>
+
+
+
+    <div class="col-lg-4">
+        <label asp-for="ContractDollarAmmount" class="label"></label>
+        <input asp-for="ContractDollarAmmount" class="form-control" />
+    </div>
+
+
+    <div class="col-lg-4" >
+        <label asp-for="LiquidationDollarAmmount" class="label"></label>
+        <input asp-for="LiquidationDollarAmmount" class="form-control" />
+    </div>
+
+
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="FileContract" class="label"></label>
+        <div class="custom-file custom-file-title">
+            <input asp-for="FileContract" type="file" class="custom-file-input customFile" />
+            <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+        </div>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="FileReceivedAct" class="label"></label>
+        <div class="custom-file custom-file-certi">
+            <input asp-for="FileReceivedAct" type="file" class="custom-file-input customFile4" />
+            <label class="custom-file-label" for="customFile4">Escoge un archivo</label>
+        </div>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="FileLiquidation" class="label"></label>
+        <div class="custom-file custom-file-cip">
+            <input asp-for="FileLiquidation" type="file" class="custom-file-input customFile3" />
+            <label class="custom-file-label" for="customFile3">Escoge un archivo</label>
+        </div>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="FileConfirmedWork" class="label"></label>
+        <div class="custom-file custom-file-certi">
+            <input asp-for="FileConfirmedWork" type="file" class="custom-file-input customFile4" />
+            <label class="custom-file-label" for="customFile4">Escoge un archivo</label>
+        </div>
+    </div>
+</div>
+
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="FileInVoice" class="label"></label>
+        <div class="custom-file custom-file-dni">
+            <input asp-for="FileInVoice" type="file" class="custom-file-input customFile2" />
+            <label class="custom-file-label" for="customFile2">Escoge un archivo</label>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

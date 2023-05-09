@@ -1,0 +1,32 @@
+﻿@model SupplyGroupViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="Code" class="label"></label>
+        <input asp-for="Code" class="form-control" required />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="Category" class="label"></label>
+        <select asp-for="Category" class="form-control kt-select2 select2-categories" data-placeholder="Categoría">
+            @foreach(var item in ConstantHelpers.Supply.Category.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="Name" class="label"></label>
+        <input asp-for="Name" class="form-control" required />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="SupplyFamilyId" class="label"></label>
+        <input asp-for="SupplyFamilyId" class="form-control" hidden />
+        <select name="select_supply_family" class="form-control kt-select select2-supply-family"></select>
+    </div>
+</div>

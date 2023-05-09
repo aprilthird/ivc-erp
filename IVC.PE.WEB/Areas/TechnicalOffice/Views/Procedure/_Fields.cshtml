@@ -1,0 +1,51 @@
+﻿@model ProcedureViewModel
+
+<input asp-for="Id" hidden/>
+
+<div class="form-group row">
+
+
+    @*<div class="col-lg-6">
+            <label asp-for="ProcessId" class="label"></label>
+            <input asp-for="ProcessId" hidden />
+            <select name="select_process" class="form-control kt-select select2-processes"></select>
+        </div>*@
+
+    <div class="col-lg-6">
+        <label asp-for="Processes" class="label"></label>
+        <select asp-for="Processes" class="select2-processes" multiple style="visibility: hidden;" />
+        <select name="select_processes" class="form-control kt-select2 select2-processes" multiple data-placeholder="Procesos"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="DocumentTypeId" class="label"></label>
+        <input asp-for="DocumentTypeId" hidden />
+        <select name="select_document" class="form-control kt-select select2-documents">
+            <option>Ninguno</option>
+        </select>
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="Name" class="label"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="col-lg-12">
+        <label asp-for="Code" class="label"></label>
+        <input asp-for="Code" class="form-control" />
+    </div>
+</div>
+
+@*<div class="form-group">
+    <label asp-for="File" class="label">Archivo:</label>
+    <div class="custom-file">
+        <input asp-for="File" type="file" class="custom-file-input" />
+        <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+    </div>
+</div>*@
+
+<div class="form-group">
+    <label asp-for="File2" class="label">Archivo Excel:</label>
+    <div class="custom-file">
+        <input asp-for="File2" type="file" class="custom-file-input" />
+        <label class="custom-file-label" for="customFile2">Escoge un archivo</label>
+    </div>
+</div>

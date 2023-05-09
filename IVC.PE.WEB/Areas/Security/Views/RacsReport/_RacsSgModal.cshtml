@@ -1,0 +1,39 @@
+﻿<div class="modal fade" id="racs_sg_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-modal="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">RACS - Reporte Excel por Cuadrilla</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <div class="col-lg-4">
+                        <label class="label">Año</label>
+                        <input id="filter_year" class="form-control" value="@DateTime.Today.Year" />
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="label">Mes</label>
+                        <select id="filter_month" class="form-control kt-select select2-months" data-placeholder="Meses">
+                            <option selected>Todos</option>
+                            @foreach (var item in ConstantHelpers.Months.VALUES)
+                            {
+                                <option value="@item.Key">@item.Value</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="racs_sg_btn" type="button" class="btn btn-primary" data-dismiss="modal">
+                    <i class="la la-file-excel-o"></i>
+                    Generar
+                </button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <i class="la la-close"></i>
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

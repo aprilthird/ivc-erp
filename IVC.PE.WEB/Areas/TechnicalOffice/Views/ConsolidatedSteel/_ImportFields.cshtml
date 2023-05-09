@@ -1,0 +1,14 @@
+﻿@model ConsolidatedSteelViewModel
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="ProjectFormulaId" class="label"></label>
+        <input asp-for="ProjectFormulaId" hidden />
+        <select name="select_formulas" class="form-control kt-select select2-formulas"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="BudgetTitleId" class="label"></label>
+        <input asp-for="BudgetTitleId" hidden />
+        <select name="select_titles" class="form-control kt-select select2-titles"></select>
+    </div>
+</div>

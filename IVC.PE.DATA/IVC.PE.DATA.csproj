@@ -1,0 +1,199 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200219202520_AddLegalTechnicalLibraryToModel.cs" />
+    <Compile Remove="Migrations\20200219202520_AddLegalTechnicalLibraryToModel.Designer.cs" />
+    <Compile Remove="Migrations\20200219202714_AddLegalTechnicalLibraryToModel.cs" />
+    <Compile Remove="Migrations\20200219202714_AddLegalTechnicalLibraryToModel.Designer.cs" />
+    <Compile Remove="Migrations\20200220184424_AddTechnicalLibraryFileToModel.cs" />
+    <Compile Remove="Migrations\20200220184424_AddTechnicalLibraryFileToModel.Designer.cs" />
+    <Compile Remove="Migrations\20200224151201_AddSupplierToModel.cs" />
+    <Compile Remove="Migrations\20200224151201_AddSupplierToModel.Designer.cs" />
+    <Compile Remove="Migrations\20200224151755_AddSupplierFKToTechnicalLibraryFile.cs" />
+    <Compile Remove="Migrations\20200224151755_AddSupplierFKToTechnicalLibraryFile.Designer.cs" />
+    <Compile Remove="Migrations\20200303214726_UsersProject.cs" />
+    <Compile Remove="Migrations\20200303214726_UsersProject.Designer.cs" />
+    <Compile Remove="Migrations\20200303215451_UserProject.cs" />
+    <Compile Remove="Migrations\20200303215451_UserProject.Designer.cs" />
+    <Compile Remove="Migrations\20200304144317_AddProjectCalendarWeeklyAndWorkerDailyTaskToModel.cs" />
+    <Compile Remove="Migrations\20200304144317_AddProjectCalendarWeeklyAndWorkerDailyTaskToModel.Designer.cs" />
+    <Compile Remove="Migrations\20200304155532_AddProjectCalendarWeeklyAndWorkerDailyTaskToModel.cs" />
+    <Compile Remove="Migrations\20200304155532_AddProjectCalendarWeeklyAndWorkerDailyTaskToModel.Designer.cs" />
+    <Compile Remove="Migrations\20200304160036_AddPrjectCalendarWeeklyAndWorkerDailyTaskToModel.cs" />
+    <Compile Remove="Migrations\20200304160036_AddPrjectCalendarWeeklyAndWorkerDailyTaskToModel.Designer.cs" />
+    <Compile Remove="Migrations\20200304173550_AddProjectCalendarWeekMonthToModel.cs" />
+    <Compile Remove="Migrations\20200304173550_AddProjectCalendarWeekMonthToModel.Designer.cs" />
+    <Compile Remove="Migrations\20200304173853_AddProjectCalendarWeekMonthAndWorkerDailyTaskToModel.cs" />
+    <Compile Remove="Migrations\20200304173853_AddProjectCalendarWeekMonthAndWorkerDailyTaskToModel.Designer.cs" />
+    <Compile Remove="Migrations\20200304174011_AddProjectCalendarWeekMonthAndWorkerDailyTaskToModel.cs" />
+    <Compile Remove="Migrations\20200304174011_AddProjectCalendarWeekMonthAndWorkerDailyTaskToModel.Designer.cs" />
+    <Compile Remove="Migrations\20200304191458_AddProjectCalendarWeekMonthAndWorkerDailyTaskToModel.cs" />
+    <Compile Remove="Migrations\20200304191458_AddProjectCalendarWeekMonthAndWorkerDailyTaskToModel.Designer.cs" />
+    <Compile Remove="Migrations\20200310202206_UpdateWorkerDailyTaskModel.cs" />
+    <Compile Remove="Migrations\20200310202206_UpdateWorkerDailyTaskModel.Designer.cs" />
+    <Compile Remove="Migrations\20200311161708_GeneratedIdsTest.cs" />
+    <Compile Remove="Migrations\20200311161708_GeneratedIdsTest.Designer.cs" />
+    <Compile Remove="Migrations\20200311193925_AddPayrollToModel.cs" />
+    <Compile Remove="Migrations\20200311193925_AddPayrollToModel.Designer.cs" />
+    <Compile Remove="Migrations\20200311220537_AddPayrollToModel.cs" />
+    <Compile Remove="Migrations\20200311220537_AddPayrollToModel.Designer.cs" />
+    <Compile Remove="Migrations\20200312165312_AddPayrollToModel.cs" />
+    <Compile Remove="Migrations\20200312165312_AddPayrollToModel.Designer.cs" />
+    <Compile Remove="Migrations\20200312170222_AddPayrollToModel.cs" />
+    <Compile Remove="Migrations\20200312170222_AddPayrollToModel.Designer.cs" />
+    <Compile Remove="Migrations\20200312170352_AddPayrollToModel.cs" />
+    <Compile Remove="Migrations\20200312170352_AddPayrollToModel.Designer.cs" />
+    <Compile Remove="Migrations\20200312184909_AddCalendarAndPayroll.cs" />
+    <Compile Remove="Migrations\20200312184909_AddCalendarAndPayroll.Designer.cs" />
+    <Compile Remove="Migrations\20200406091221_UpdatePayroll.cs" />
+    <Compile Remove="Migrations\20200406091221_UpdatePayroll.Designer.cs" />
+    <Compile Remove="Migrations\20200406101923_UpdatePayroll.cs" />
+    <Compile Remove="Migrations\20200406101923_UpdatePayroll.Designer.cs" />
+    <Compile Remove="Migrations\20200407031607_Update2.cs" />
+    <Compile Remove="Migrations\20200407031607_Update2.Designer.cs" />
+    <Compile Remove="Migrations\20200416203452_UpdatePayrollMovementDetail.cs" />
+    <Compile Remove="Migrations\20200416203452_UpdatePayrollMovementDetail.Designer.cs" />
+    <Compile Remove="Migrations\20200423091651_AddUspListPayroll.cs" />
+    <Compile Remove="Migrations\20200423091651_AddUspListPayroll.Designer.cs" />
+    <Compile Remove="Migrations\20200425211407_UpdateSewerGroupForemanAttr.cs" />
+    <Compile Remove="Migrations\20200425211407_UpdateSewerGroupForemanAttr.Designer.cs" />
+    <Compile Remove="Migrations\20200425215010_UpdateSewerGroupForemanAttr2.cs" />
+    <Compile Remove="Migrations\20200425215010_UpdateSewerGroupForemanAttr2.Designer.cs" />
+    <Compile Remove="Migrations\20200425220700_UpdateSewerGroupForemanAttr2.cs" />
+    <Compile Remove="Migrations\20200425220700_UpdateSewerGroupForemanAttr2.Designer.cs" />
+    <Compile Remove="Migrations\20200425221041_UpdateSewerGroupWorkersAttr.cs" />
+    <Compile Remove="Migrations\20200425221041_UpdateSewerGroupWorkersAttr.Designer.cs" />
+    <Compile Remove="Migrations\20200425221530_UpdateSewerGroupForemanAttr3.cs" />
+    <Compile Remove="Migrations\20200425221530_UpdateSewerGroupForemanAttr3.Designer.cs" />
+    <Compile Remove="Migrations\20200425221858_UpdateSewerGroupForemanAttr4.cs" />
+    <Compile Remove="Migrations\20200425221858_UpdateSewerGroupForemanAttr4.Designer.cs" />
+    <Compile Remove="Migrations\20200425222015_UpdateSewerGroupForemanAttr5.cs" />
+    <Compile Remove="Migrations\20200425222015_UpdateSewerGroupForemanAttr5.Designer.cs" />
+    <Compile Remove="Migrations\20200425222240_UpdateSewerGroupForemanAttr6.cs" />
+    <Compile Remove="Migrations\20200425222240_UpdateSewerGroupForemanAttr6.Designer.cs" />
+    <Compile Remove="Migrations\20200425222339_UpdateSewerGroupForemanAttr7.cs" />
+    <Compile Remove="Migrations\20200425222339_UpdateSewerGroupForemanAttr7.Designer.cs" />
+    <Compile Remove="Migrations\20200425222428_UpdateSewerGroupForemanAttr8.cs" />
+    <Compile Remove="Migrations\20200425222428_UpdateSewerGroupForemanAttr8.Designer.cs" />
+    <Compile Remove="Migrations\20200504073659_UpdateWorkerAndWorkerDailyTask.cs" />
+    <Compile Remove="Migrations\20200504073659_UpdateWorkerAndWorkerDailyTask.Designer.cs" />
+    <Compile Remove="Migrations\20200527220523_UpdatePayrollAuthorizationRequest2.cs" />
+    <Compile Remove="Migrations\20200527220523_UpdatePayrollAuthorizationRequest2.Designer.cs" />
+    <Compile Remove="Migrations\20200529211620_UpdatePayrollWorkerCategory.cs" />
+    <Compile Remove="Migrations\20200529211620_UpdatePayrollWorkerCategory.Designer.cs" />
+    <Compile Remove="Migrations\20200529212549_UpdatePayrollWorkerCategory2.cs" />
+    <Compile Remove="Migrations\20200529212549_UpdatePayrollWorkerCategory2.Designer.cs" />
+    <Compile Remove="Migrations\20200529213155_AddProjectIdToWorkerCategory2.cs" />
+    <Compile Remove="Migrations\20200529213155_AddProjectIdToWorkerCategory2.Designer.cs" />
+    <Compile Remove="Migrations\20200529213408_AddWorkerCategoryToModel.cs" />
+    <Compile Remove="Migrations\20200529213408_AddWorkerCategoryToModel.Designer.cs" />
+    <Compile Remove="Migrations\20200530205413_UpdatePensionFundAdministrator.cs" />
+    <Compile Remove="Migrations\20200530205413_UpdatePensionFundAdministrator.Designer.cs" />
+    <Compile Remove="Migrations\20200907101056_AddWorkerMedicalRestToModel.cs" />
+    <Compile Remove="Migrations\20200907101056_AddWorkerMedicalRestToModel.Designer.cs" />
+    <Compile Remove="Migrations\20200924225456_UpdateBondsModel5.cs" />
+    <Compile Remove="Migrations\20200924225456_UpdateBondsModel5.Designer.cs" />
+    <Compile Remove="Migrations\20200924230549_UpdateBondsModel6.cs" />
+    <Compile Remove="Migrations\20200924230549_UpdateBondsModel6.Designer.cs" />
+    <Compile Remove="Migrations\20200924231117_UpdateBondsModel7.cs" />
+    <Compile Remove="Migrations\20200924231117_UpdateBondsModel7.Designer.cs" />
+    <Compile Remove="Migrations\20200924231924_UpdateBondsModel8.cs" />
+    <Compile Remove="Migrations\20200924231924_UpdateBondsModel8.Designer.cs" />
+    <Compile Remove="Migrations\20200924232117_UpdateBondsModel9.cs" />
+    <Compile Remove="Migrations\20200924232117_UpdateBondsModel9.Designer.cs" />
+    <Compile Remove="Migrations\20200924233312_UpdateBondsModel10.cs" />
+    <Compile Remove="Migrations\20200924233312_UpdateBondsModel10.Designer.cs" />
+    <Compile Remove="Migrations\20200924233657_UpdateBondsModel12.cs" />
+    <Compile Remove="Migrations\20200924233657_UpdateBondsModel12.Designer.cs" />
+    <Compile Remove="Migrations\20201005051600_AddEqCertfRenewalAppUserToModel.cs" />
+    <Compile Remove="Migrations\20201005051600_AddEqCertfRenewalAppUserToModel.Designer.cs" />
+    <Compile Remove="Migrations\20201017233816_UpdateStockVoucerModule.cs" />
+    <Compile Remove="Migrations\20201017233816_UpdateStockVoucerModule.Designer.cs" />
+    <Compile Remove="Migrations\20201022225203_UpdateRdpItemModule2.cs" />
+    <Compile Remove="Migrations\20201022225203_UpdateRdpItemModule2.Designer.cs" />
+    <Compile Remove="Migrations\20201117052532_AddProjectToLetterEntity.cs" />
+    <Compile Remove="Migrations\20201117052532_AddProjectToLetterEntity.Designer.cs" />
+    <Compile Remove="Migrations\20201120010646_UpdateWorkbookEntityAddProject.cs" />
+    <Compile Remove="Migrations\20201120010646_UpdateWorkbookEntityAddProject.Designer.cs" />
+    <Compile Remove="Migrations\20201125043828_AddLetterDocCharToLetterStatus.cs" />
+    <Compile Remove="Migrations\20201125043828_AddLetterDocCharToLetterStatus.Designer.cs" />
+    <Compile Remove="Migrations\20201125055408_AddProjectPropToIssuerTargetEntity.cs" />
+    <Compile Remove="Migrations\20201125055408_AddProjectPropToIssuerTargetEntity.Designer.cs" />
+    <Compile Remove="Migrations\20201128024215_AddLegalDocAndRenToModel.cs" />
+    <Compile Remove="Migrations\20201128024215_AddLegalDocAndRenToModel.Designer.cs" />
+    <Compile Remove="Migrations\20210310151819_CreateTable_BudgetType_AddForeignKeyBudgetTypeId_BudgetTable.cs" />
+    <Compile Remove="Migrations\20210310151819_CreateTable_BudgetType_AddForeignKeyBudgetTypeId_BudgetTable.Designer.cs" />
+    <Compile Remove="Migrations\20210315220837_Update_SupplyGroupTable_OCBudgetTable.cs" />
+    <Compile Remove="Migrations\20210315220837_Update_SupplyGroupTable_OCBudgetTable.Designer.cs" />
+    <Compile Remove="Migrations\20210329174929_AddLogiticResponsibleToModel.cs" />
+    <Compile Remove="Migrations\20210329174929_AddLogiticResponsibleToModel.Designer.cs" />
+    <Compile Remove="Migrations\20210414181402_UpdateRequestAddIssuedUserProp.cs" />
+    <Compile Remove="Migrations\20210414181402_UpdateRequestAddIssuedUserProp.Designer.cs" />
+    <Compile Remove="Migrations\20210511012647_FixExperience.cs" />
+    <Compile Remove="Migrations\20210511012647_FixExperience.Designer.cs" />
+    <Compile Remove="Migrations\20210511014548_FixExperience2.cs" />
+    <Compile Remove="Migrations\20210511014548_FixExperience2.Designer.cs" />
+    <Compile Remove="Migrations\20210602200737_Update_EntibadoVariablesTable_AddNewColumns.cs" />
+    <Compile Remove="Migrations\20210602200737_Update_EntibadoVariablesTable_AddNewColumns.Designer.cs" />
+    <Compile Remove="Migrations\20210607121352_AddSewerGroupWorkerDailyTaskRelationOtM.cs" />
+    <Compile Remove="Migrations\20210607121352_AddSewerGroupWorkerDailyTaskRelationOtM.Designer.cs" />
+    <Compile Remove="Migrations\20210621210038_AddBiddingCurrencyType.cs" />
+    <Compile Remove="Migrations\20210621210038_AddBiddingCurrencyType.Designer.cs" />
+    <Compile Remove="Migrations\20210621210507_AddNullableBiddingCurrencyType.cs" />
+    <Compile Remove="Migrations\20210621210507_AddNullableBiddingCurrencyType.Designer.cs" />
+    <Compile Remove="Migrations\20210621223730_UpdateBiddingWork.cs" />
+    <Compile Remove="Migrations\20210621223730_UpdateBiddingWork.Designer.cs" />
+    <Compile Remove="Migrations\20210622144907_FixBiddingWorkCurrency.cs" />
+    <Compile Remove="Migrations\20210622144907_FixBiddingWorkCurrency.Designer.cs" />
+    <Compile Remove="Migrations\20210622160415_testing.cs" />
+    <Compile Remove="Migrations\20210622160415_testing.Designer.cs" />
+    <Compile Remove="Migrations\20210622162038_removeDollarAmmounts.cs" />
+    <Compile Remove="Migrations\20210622162038_removeDollarAmmounts.Designer.cs" />
+    <Compile Remove="Migrations\20210626153042_ParticipationFolding.cs" />
+    <Compile Remove="Migrations\20210626153042_ParticipationFolding.Designer.cs" />
+    <Compile Remove="Migrations\20210629153647_ParticipationFoldingId.cs" />
+    <Compile Remove="Migrations\20210629153647_ParticipationFoldingId.Designer.cs" />
+    <Compile Remove="Migrations\20210702211309_ParticipationName.cs" />
+    <Compile Remove="Migrations\20210702211309_ParticipationName.Designer.cs" />
+    <Compile Remove="Migrations\20210709135053_AddTechnicalSpec.cs" />
+    <Compile Remove="Migrations\20210709135053_AddTechnicalSpec.Designer.cs" />
+    <Compile Remove="Migrations\20210715214435_Create_PreRequestItems_PreRequestUsers_Tables.cs" />
+    <Compile Remove="Migrations\20210715214435_Create_PreRequestItems_PreRequestUsers_Tables.Designer.cs" />
+    <Compile Remove="Migrations\20210715221148_Create_PreRequestItems_PreRequestUsers_Tables.cs" />
+    <Compile Remove="Migrations\20210715221148_Create_PreRequestItems_PreRequestUsers_Tables.Designer.cs" />
+    <Compile Remove="Migrations\20210720143226_ProjectNullableBusinessId.cs" />
+    <Compile Remove="Migrations\20210720143226_ProjectNullableBusinessId.Designer.cs" />
+    <Compile Remove="Migrations\20210816142518_Update_RequestsTable_AddMeasureInAttentionInItems.cs" />
+    <Compile Remove="Migrations\20210816142518_Update_RequestsTable_AddMeasureInAttentionInItems.Designer.cs" />
+    <Compile Remove="Migrations\20211019193211_removeSpecialityProjectFormulaId.cs" />
+    <Compile Remove="Migrations\20211019193211_removeSpecialityProjectFormulaId.Designer.cs" />
+    <Compile Remove="Migrations\20211221042422_BluePrintFoldingDetail.cs" />
+    <Compile Remove="Migrations\20211221042422_BluePrintFoldingDetail.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IVC.PE.CORE\IVC.PE.CORE.csproj" />
+    <ProjectReference Include="..\IVC.PE.ENTITIES\IVC.PE.ENTITIES.csproj" />
+  </ItemGroup>
+
+</Project>

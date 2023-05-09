@@ -1,0 +1,118 @@
+﻿@model PermissionViewModel
+<input asp-for="Id" hidden />
+<input asp-for="PermissionRenovation.Id" hidden />
+
+<div class="form-group row">
+
+    @*<div class="col-lg-12">
+            <label asp-for="ProjectId" class="label"></label>
+            <input asp-for="ProjectId" hidden />
+            <select name="select_project" class="form-control kt-select select2-projects" data-placeholder="Garantes"></select>
+        </div>*@
+
+    <div class="col-lg-12">
+        <label asp-for="ProjectFormulaId" class="label"></label>
+        <input asp-for="ProjectFormulaId" hidden />
+        <select name="select_formula" class="form-control kt-select select2-formulas" data-placeholder="Formula"></select>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="AuthorizingEntityId" class="label"></label>
+        <input asp-for="AuthorizingEntityId" hidden />
+        <select name="select_authentity" class="form-control kt-select select2-authentities" data-placeholder="Entidad que autoriza"></select>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="AuthorizationTypeId" class="label"></label>
+        <input asp-for="AuthorizationTypeId" hidden />
+        <select name="select_authtype" class="form-control kt-select select2-authtypes" data-placeholder="Tipo de Autorización"></select>
+    </div>
+
+
+
+    <div class="col-lg-12">
+        <label asp-for="PrincipalWay" class="label"></label>
+        <input asp-for="PrincipalWay" class="form-control" required />
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="From" class="label"></label>
+        <input asp-for="From" class="form-control" required />
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="To" class="label"></label>
+        <input asp-for="To" class="form-control" required />
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="Length" class="label"></label>
+        <input asp-for="Length" class="form-control" required />
+    </div>
+
+</div>
+
+<div class="form-group row">
+
+    <div class="col-lg-12">
+        <label asp-for="PermissionRenovation.Responsibles" class="label" hidden></label>
+        <input asp-for="PermissionRenovation.Responsibles" hidden />
+        @*<select name="select_users" class="form-control kt-select select2-users" multiple data-placeholder="Encargado"></select>*@
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="PermissionRenovation.RenovationTypeId" class="label"></label>
+        <input asp-for="PermissionRenovation.RenovationTypeId" hidden />
+        <select name="select_renovationtype" class="form-control kt-select select2-renovationtypes" data-placeholder="Tipo de Renovación"></select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="PermissionRenovation.IsTheLast" class="label"></label>
+        <input asp-for="PermissionRenovation.IsTheLast" hidden />
+        <select name="select_isthelast" class="form-control kt-select select2-isthelast" required>
+            <option value="false" selected>No</option>
+            <option value="true">Sí</option>
+        </select>
+    </div>
+    <div class="col-lg-12">
+        <label asp-for="PermissionRenovation.AuthorizationNumber" class="label"></label>
+        <input asp-for="PermissionRenovation.AuthorizationNumber" class="form-control" required />
+        @*<select name="select_users" class="form-control kt-select select2-users" multiple data-placeholder="Encargado" ></select>*@
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="PermissionRenovation.StartDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="PermissionRenovation.StartDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="PermissionRenovation.EndDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="PermissionRenovation.EndDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="PermissionRenovation.File" class="label"></label>
+        <div class="custom-file">
+            <input asp-for="PermissionRenovation.File" type="file" class="custom-file-input" />
+            <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+        </div>
+    </div>
+
+</div>
+
+
+
+

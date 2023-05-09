@@ -1,0 +1,105 @@
+﻿@model IEnumerable<SearchResultViewModel>
+
+@if (Model.Any())
+{
+    foreach (var item in Model)
+    {
+        <div class="col-md-6">
+            <div class="kt-portlet">
+                <div class="kt-portlet__head kt-portlet__head--noborder  kt-ribbon kt-ribbon--@(item.Type == 1 ? "primary" : item.Type == 2 ? "warning" : "success") kt-ribbon--shadow kt-ribbon--left kt-ribbon--round">
+                    <div class="kt-ribbon__target" style="top: 12px; right: -2px;">
+                        @(item.Type == 1 ? "Carta Enviada" : item.Type == 2 ? "Carta Recibida" : "Cuaderno de Obra")
+                    </div>
+                    <div class="kt-portlet__head-label">
+                        <span class="kt-badge kt-badge--rounded kt-badge--inline kt-badge--unified-primary">@item.DateStr</span>
+                        <h3 class="kt-portlet__head-title pl-2">
+                            @item.Title
+                        </h3>
+                    </div>
+                </div>
+                <div class="kt-portlet__body kt-portlet__body--fit-top">
+                    @item.Body
+                </div>
+                @if (item.FileUrl != null)
+                {
+                    <div class="kt-portlet__foot kt-portlet__foot--sm kt-align-right">
+                        <a href="javascript:;" data-id="@item.Id" data-url="@item.FileUrl" data-type="@item.Type" data-title="@item.Title" class="kt-link btn-view">
+                            <span><i class="fa fa-eye"></i><span> Vista Previa</span></span>
+                        </a>
+                        <a href="@item.FileUrl" target="_blank" class="kt-link p-2">Ver Archivo <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    <div class="col-md-12">
+        <div class="kt-portlet">
+            <div class="kt-portlet__head">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title pl-2">
+                        L&iacute;nea de Tiempo
+                    </h3>
+                </div>
+                <div class="kt-portlet__head-toolbar">
+                    <div class="kt-portlet__head-wrapper">
+                        <button id="btn_print" type="button" class="btn btn-secondary btn-print"><span><i class="la la-file-pdf-o"></i><span> Guardar como PDF</span></span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="kt-portlet__body kt-portlet__body--fit-top">
+                <div class="kt-scroll ps ps--active-x" data-scroll="true" data-scroll-x="true" data-scrollbar-shown="true">
+                    <div id="timeline" class="timeline" style="overflow-x: auto; min-height: 650px;">
+                        @*<div class="timeline-nav">
+                            <div class="timeline-nav-button" style="left: 0px; margin-left: 75px;"></div>
+                            <div class="timeline-nav-button" style="right: 0px; margin-right: 75px; transform: rotate(180deg) translate(-50%, 50%);"></div>
+                        </div>*@
+                        <div class="timeline-container">
+                            @foreach (var item in Model.OrderBy(x => x.Date))
+                            {
+                            <div class="timeline-card border border-@(item.Type == 1 ? "primary" : item.Type == 2 ? "warning" : "success")" style="border-width: .25rem !important;" data-id="@item.Id" data-url="@item.FileUrl" data-type="@item.Type" data-title="@item.Title">
+                                <div @*class="kt-scroll ps ps--active-y" data-scroll="true" data-scroll-y="true" data-scrollbar-shown="true"*@>
+
+                                </div>
+                                <h4>@item.Title</h4>
+                                <p>@item.Body</p>
+                                <span class="kt-badge kt-badge--rounded kt-badge--inline kt-badge--unified-@(item.Type == 1 ? "primary" : item.Type == 2 ? "warning" : "success")">
+                                    @(item.Type == 1 ? "Carta Enviada" : item.Type == 2 ? "Carta Recibida" : "Cuaderno de Obra")
+                                </span>
+                                <svg class="timeline-card-svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <path d="M5 15h3v21H5V15zm1.5-2a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13z" fill="black"></path>
+                                </svg>
+                                <h6 class="timeline-card-stamp">@item.DateStr</h6>
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="img_container">
+    </div>
+}
+else
+{
+    <!-- begin:: Section -->
+    <div class="col-lg-12">
+        <div class="kt-portlet jumbotron">
+            <div class="kt-portlet__body">
+                <div class="kt-infobox">
+                    <div class="kt-infobox__header">
+                        <h2 class="kt-infobox__title">Ning&uacute;n resultado encontrado.</h2>
+                    </div>
+                    <div class="kt-infobox__body">
+                        <div class="kt-infobox__section">
+                            <div class="kt-infobox__content">
+                                Prueba a ser m&aacute;s espec&iacute;fico con tus t&eacute;rminos de b&uacute;squeda.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end:: Section -->
+}

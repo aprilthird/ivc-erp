@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.TechnicalOffice.BluePrints.BluePrintQrCameraPage"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="QR">
+    <ContentPage.Content>
+        <StackLayout
+            x:Name="layout"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding BluePrintQrCameraViewModel}"
+            Padding="8">
+            <Grid 
+                VerticalOptions="FillAndExpand" 
+                HorizontalOptions="FillAndExpand">
+                <zxing:ZXingScannerView 
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    Result="{Binding ScanResult, Mode=TwoWay}"
+                    ScanResultCommand="{Binding HandleScanResultCommand}"
+                    IsScanning="{Binding IsScanning}"
+                    IsAnalyzing="{Binding IsAnalyzing}"/>
+                <zxing:ZXingDefaultOverlay
+                    x:Name="scannerOverlay"                                                       
+                    BottomText="Place the red line over the barcode you'd like to scan." />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

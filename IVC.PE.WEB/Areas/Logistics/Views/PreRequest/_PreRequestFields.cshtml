@@ -1,0 +1,49 @@
+﻿@model PreRequestViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="RequestType" class="label"></label>
+        <select asp-for="RequestType" class="form-control kt-select2 select2-request-order-types">
+            @foreach (var item in ConstantHelpers.Logistics.RequestOrder.Type.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="BudgetTitleId" class="label"></label>
+        <select asp-for="BudgetTitleId" class="form-control kt-select2 select2-budget-titles"></select>
+    </div>
+    @*<div class="col-lg-4">
+            <label asp-for="PreRequestUserIds" class="label"></label>
+            <select asp-for="PreRequestUserIds" multiple class="form-control kt-select2 select2-users"></select>
+        </div>*@
+    <div class="col-lg-4">
+        <label asp-for="DeliveryDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="DeliveryDate" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!--
+    <div class="col-md-4">
+        <label class="kt-label m-label--single">Familias</label>
+        <select asp-for="SupplyFamilyId" class="form-control kt-select2 select2-families">
+        </select>
+    </div>-->
+</div>
+
+
+<div class="form-group row">
+    <div class="col-md-3">
+        <label class="kt-label m-label--single">Fórmulas</label>
+        <select asp-for="ProjectFormulaId" class="form-control kt-select2 select2-project-formulas">
+        </select>
+    </div>
+</div>

@@ -1,0 +1,121 @@
+﻿@model ProjectViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="CostCenter" class="label"></label>
+        <input asp-for="CostCenter" class="form-control" required />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="Name" class="label"></label>
+        <input asp-for="Name" class="form-control" required />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="Abbreviation" class="label"></label>
+        <input asp-for="Abbreviation" class="form-control" required />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="BusinessId" class="label"></label>
+        <input asp-for="BusinessId" hidden />
+        <select name="select_business" class="form-control kt-select select2-businesses"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="EstablishmentCode" class="label"></label>
+        <input asp-for="EstablishmentCode" class="form-control"/>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="RucCompany" class="label"></label>
+        <input asp-for="RucCompany" class="form-control" />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="LogoFile" class="label"></label>
+        <div class="custom-file">
+            <input asp-for="LogoFile" type="file" class="custom-file-input" />
+            <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+        </div>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="InvoiceSignatureFile" class="label"></label>
+        <div class="custom-file">
+            <input asp-for="InvoiceSignatureFile" type="file" class="custom-file-input" />
+            <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+        </div>
+    </div>
+</div>
+
+    @*<h6 class="text-primary">Datos del Contratista</h6>
+        <div class="form-group row">
+            <div class="col-lg-4">
+                <label class="label">RUC</label>
+                <input type="text" class="form-control" placeholder="RUC" value="" />
+            </div>
+            <div class="col-lg-4">
+                <label class="label">Direcci&oacute;n Legal</label>
+                <input type="text" class="form-control" placeholder="Dirección Legal" value="" />
+            </div>
+            <div class="col-lg-4">
+                <label class="label">Residente</label>
+                <input type="text" class="form-control" placeholder="Residente" value="" />
+            </div>
+        </div>
+        <h6 class="text-primary">Datos del Cliente/Entidad</h6>
+        <div class="form-group row">
+            <div class="col-lg-4">
+                <label class="label">RUC</label>
+                <input type="text" class="form-control" placeholder="RUC" value="" />
+            </div>
+            <div class="col-lg-4">
+                <label class="label">Direcci&oacute;n Legal</label>
+                <input type="text" class="form-control" placeholder="Dirección Legal" value="" />
+            </div>
+            <div class="col-lg-4">
+                <label class="label">Coordinar de Obra</label>
+                <input type="text" class="form-control" placeholder="Coordinar de Obra" value="" />
+            </div>
+        </div>
+        <h6 class="text-primary">Datos del Contrato</h6>
+        <div class="form-group row">
+            <div class="col-lg-4">
+                <label class="label">Fecha de Convocatoria</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Fecha de Convocatoria" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">
+                            <i class="fa fa-calendar"></i>
+                         </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <label class="label">Fecha de Firma de Contrato</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Fecha de Firma de Contrato" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <label class="label">Monto del Contrato</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text">S/</span></div>
+                    <input type="text" class="form-control" placeholder="Monto">
+                </div>
+            </div>
+        </div>*@

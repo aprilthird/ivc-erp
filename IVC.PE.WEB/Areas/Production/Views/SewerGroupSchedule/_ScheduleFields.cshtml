@@ -1,0 +1,24 @@
+﻿@model SewerGroupScheduleViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="ProjectCalendarWeekId" class="label"></label>
+        <input asp-for="ProjectCalendarWeekId" hidden />
+        <select name="select_week" class="form-control kt-select select2-weeks" data-placeholder="Semanas">
+        </select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="WorkFrontHeadId" class="label"></label>
+        <input asp-for="WorkFrontHeadId" hidden />
+        <select name="select_work_front_head" class="form-control kt-select select2-work-front-heads" data-placeholder="Jefes de Frente">
+        </select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="SewerGroupId" class="label"></label>
+        <input asp-for="SewerGroupId" hidden />
+        <select name="select_sewergroups" class="form-control kt-select select2-sewergroups" data-placeholder="Cuadrillas">
+        </select>
+    </div>
+</div>

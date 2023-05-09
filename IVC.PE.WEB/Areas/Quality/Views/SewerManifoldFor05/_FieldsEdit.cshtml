@@ -1,0 +1,35 @@
+﻿@model SewerManifoldFor05ViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="CertificateNumber" class="label"></label>
+        <input asp-for="CertificateNumber" class="form-control" disabled="disabled" />
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="SewerManifold.ProductionDailyPart.SewerGroup.Code" class="label"></label>
+        <input asp-for="SewerManifold.ProductionDailyPart.SewerGroup.Code" class="form-control" disabled="disabled" />
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="SewerManifold.Name" class="label">Tramo</label>
+        <input asp-for="SewerManifold.Name" class="form-control" disabled="disabled" />
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="SewerManifold.Address" class="label"></label>
+        <input asp-for="SewerManifold.Address" class="form-control" disabled="disabled" />
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="SewerManifold.LengthOfDigging" class="label"></label>
+        <input asp-for="SewerManifold.LengthOfDigging" class="form-control" disabled="disabled" />
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="ShippingDate" class="label"></label>
+        <input asp-for="ShippingDate" class="form-control" disabled="disabled" />
+    </div>
+</div>

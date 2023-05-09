@@ -1,0 +1,28 @@
+﻿@model For24SecondPartEquipmentViewModel
+
+
+<input asp-for="Id" hidden />
+<input asp-for="SewerManifoldFor24SecondPartId" hidden />
+<input asp-for="EquipmentTotalHours" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="EquipmentName" class="label"></label>
+        <input asp-for="EquipmentName" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="EquipmentQuantity" class="label"></label>
+        <input asp-for="EquipmentQuantity" class="form-control" />
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="EquipmentHours" class="label"></label>
+        <input asp-for="EquipmentHours" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="EquipmentTotalHours" class="label"></label>
+        <input id="EqTotalH" class="form-control" disabled="disabled"/>
+    </div>
+</div>

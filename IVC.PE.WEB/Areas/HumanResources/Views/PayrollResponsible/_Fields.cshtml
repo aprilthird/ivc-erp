@@ -1,0 +1,36 @@
+﻿@model PayrollResponsibleViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-md-9">
+        <label asp-for="ProjectId" class="col-form-label"></label>
+        <select asp-for="ProjectId" class="form-control kt-select2 select2-projects" required>
+            <option>--Seleccione un Proyecto--</option>
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-md-9">
+        <label asp-for="Responsible1Id" class="col-form-label"></label>
+        <select asp-for="Responsible1Id" class="form-control kt-select2 select2-users" required>
+            <option>--Seleccione un Resposanble--</option>
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-md-9">
+        <label asp-for="Responsible2Id" class="col-form-label"></label>
+        <select asp-for="Responsible2Id" class="form-control kt-select2 select2-users" required>
+            <option>--Seleccione un Resposanble--</option>
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-md-9">
+        <label asp-for="Responsible3Id" class="col-form-label"></label>
+        <select asp-for="Responsible3Id" class="form-control kt-select2 select2-users" required>
+            <option>--Seleccione un Resposanble--</option>
+        </select>
+    </div>
+</div>

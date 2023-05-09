@@ -1,0 +1,58 @@
+﻿@model PayrollParameterViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="ProjectId" class="label"></label>
+        <input asp-for="ProjectId" class="form-control" hidden />
+        <select name="parameter_field_projectid" class="form-control kt-select2 select2-projects" required></select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="UIT" class="label"></label>
+        <input asp-for="UIT" class="form-control" required />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="MinimumWage" class="label"></label>
+        <input asp-for="MinimumWage" class="form-control" required />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="DollarExchangeRate" class="label"></label>
+        <input asp-for="DollarExchangeRate" class="form-control" required />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="MaximumInsurableRemuneration" class="label"></label>
+        <input asp-for="MaximumInsurableRemuneration" class="form-control" required />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="SCTRRate" class="label"></label>
+        <input asp-for="SCTRRate" class="form-control" required />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="EsSaludMasVidaCost" class="label"></label>
+        <input asp-for="EsSaludMasVidaCost" class="form-control" value="5.00" required />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="SCTRHealthFixed" class="label"></label>
+        <input asp-for="SCTRHealthFixed" class="form-control" required />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="SCTRPensionFixed" class="label"></label>
+        <input asp-for="SCTRPensionFixed" class="form-control" required />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="UnionFee" class="label"></label>
+        <input asp-for="UnionFee" class="form-control" required />
+    </div>
+</div>

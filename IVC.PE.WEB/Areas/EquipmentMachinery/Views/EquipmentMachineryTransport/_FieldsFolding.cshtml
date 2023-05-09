@@ -1,0 +1,58 @@
+﻿@model EquipmentMachineryTransportInsuranceFoldingViewModel
+
+<input asp-for="Id" hidden />
+
+<input asp-for="EquipmentMachineryTransportId" hidden />
+
+<div class="form-group row">
+
+    <div class="col-lg-12">
+        <label asp-for="Responsibles" class="label" hidden></label>
+        <input asp-for="Responsibles" hidden />
+        @*<select name="select_users" class="form-control kt-select select2-users" multiple data-placeholder="Encargado"></select>*@
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="InsuranceEntityId" class="label"></label>
+        <input asp-for="InsuranceEntityId" hidden />
+        <select name="select_insurance" class="form-control kt-select select2-insurances" data-placeholder="Entidad Aseguradora">
+        </select>
+    </div>
+
+
+    <div class="col-lg-6 ">
+        <label asp-for="Number" class="label"></label>
+        <input asp-for="Number" class="form-control" />
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="StartDateInsurance" class="label"></label>
+        <div class="input-group">
+            <input asp-for="StartDateInsurance" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="EndDateInsurance" class="label"></label>
+        <div class="input-group">
+            <input asp-for="EndDateInsurance" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="InsuranceFile" class="label"></label>
+        <div class="custom-file">
+            <input asp-for="InsuranceFile" type="file" class="custom-file-input" />
+            <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+        </div>
+    </div>
+
+</div>

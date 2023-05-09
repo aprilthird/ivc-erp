@@ -1,0 +1,55 @@
+﻿@model ProjectSwitchViewModel
+@{
+    ViewBag.Title = "Escoger Proyecto";
+    Layout = "_NotAuthenticatedLayout";
+}
+
+@section Styles {
+    <link href="~/assets/css/pages/login/login-2.css" rel="stylesheet" />
+}
+
+<div class="kt-login__container">
+    <div class="kt-login__logo">
+        <a href="@Url.Action("ProjectSwitch", "Account")">
+            <img src="~/media/logo-ivc.png">
+        </a>
+    </div>
+    <div class="kt-login__signin">
+        <div class="kt-login__head">
+            <h3 class="kt-login__title">@ViewBag.Title</h3>
+        </div>
+        <form id="login_form" class="kt-form" asp-route-returnurl="@ViewData["ReturnUrl"]">
+            @*<div id="signin_errors" class="alert alert-danger" style="display: @(!ViewData.ModelState.IsValid ? "block" : "none")">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                </div>*@
+            <div id="signin_errors" class="alert alert-danger @(ViewData.ModelState.IsValid ? "d-none" : string.Empty)" role="alert">
+                <div class="alert-icon">
+                    <i class="flaticon-warning-sign"></i>
+                </div>
+                <div id="signin_errors_text" class="alert-text">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                </div>
+                <div class="alert-close">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="la la-close"></i></span>
+                    </button>
+                </div>
+            </div>
+            <div class="input-group">
+                <select id="project_general_filter" class="form-control kt-select2">
+                    @foreach (var item in Model.Projects)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="kt-login__actions">
+                <button id="kt_login_signin_submit" type="submit" class="btn btn-pill kt-login__btn-primary">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/pages/project_switch.js"></script>
+}

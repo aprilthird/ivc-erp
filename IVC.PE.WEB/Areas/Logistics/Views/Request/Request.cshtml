@@ -1,0 +1,290 @@
+﻿@model RequestViewModel 
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,600,700">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="row" style="width: 98.5%; margin: 5px;">
+        <div class="col-12">
+            <div class="row" style="border-bottom:1px solid black;">
+                <div class="col-3">
+                    <img src="~/media/logo-ivc.png" />
+                </div>
+
+                <div class="col-6" style="vertical-align:central; text-align:center;">
+                    <br />
+                    <label class="label"><b>IVC CONTRATISTAS GENERALES SA</b></label><br />
+                    <label class="label">SOLICITUD DE COMPRA/SERVICIO</label>
+                </div>
+
+                <div class="col-3">
+                    <label class="label"><b>Código</b> JIC/GCO-For-05</label><br />
+                    <label class="label"><b>Versión</b> 1</label><br />
+                    <label class="label"><b>Fecha</b> 07/01/2019</label><br />
+                </div>
+            </div>
+
+            <div class="row" style="border-bottom:1px solid black;">
+                <div class="col-lg-9">
+                    <div class="col-12">
+                        <label class="label"><b>COMPRA  </b></label>
+                        @if (Model.RequestType == ConstantHelpers.Logistics.RequestOrder.Type.PURCHASE)
+                        {
+                            <label>X</label>
+                        }
+                    </div>
+                    <div class="col-12">
+                        <label class="label"><b>SERVICIO </b></label>
+                        @if (Model.RequestType == ConstantHelpers.Logistics.RequestOrder.Type.SERVICE)
+                        {
+                            <label>X</label>
+                        }
+                    </div>
+                </div>
+                <div class="col-lg-1">
+                    <label class="label"><b>Estado</b></label>
+                </div>
+                <div class="col-lg-2">
+                    @ConstantHelpers.Logistics.RequestOrder.Status.VALUES[Model.OrderStatus]
+                </div>
+            </div>
+
+            <div class="row" style="border-bottom:1px solid black;">
+                <div class="col-1">
+                    <label class="label"><b>Cod. Obra</b></label>
+                </div>
+
+                <div class="col-1">
+
+                </div>
+
+                <div class="col-1">
+                    <label class="label"><b>Obra</b></label>
+                </div>
+
+                <div class="col-7" style="vertical-align:central; text-align:center;">
+                    <label class="label">@Model.Project.Name</label>
+                </div>
+
+                <div class="col-1">
+                    <label class="label"><b>Solicitud Nº</b></label>
+                </div>
+
+                <div class="col-1">
+                    @Model.CorrelativeCodeStr
+                </div>
+            </div>
+
+            <div class="row" style="border-bottom:1px solid black;">
+                <div class="col-1">
+                    <label class="label"><b>Solicitado por</b></label>
+                </div>
+
+                <div class="col-2">
+                    <label class="label">@Model.RequestUsernames</label>
+                </div>
+
+                <div class="col-1">
+                    <label class="label"><b>Proceso Solicitante</b></label>
+                </div>
+
+                <div class="col-2">
+                    <label class="label"></label>
+                </div>
+
+                <div class="col-1">
+                    <label class="label"><b>Fecha</b></label>
+                </div>
+
+                <div class="col-1">
+
+                </div>
+
+                <div class="col-1">
+                    <label class="label"><b>Firma y Sello</b></label>
+                </div>
+
+                <div class="col-3">
+
+                </div>
+            </div>
+
+            <div class="row" style="border-bottom:1px solid black;">
+                <div class="col-1">
+                    <label class="label"><b>Generado por</b></label>
+                </div>
+
+                <div class="col-2">
+                    <label class="label">@Model.IssuedUserName</label>
+                </div>
+
+                <div class="col-1">
+                    <label class="label"><b>Proceso Solicitante</b></label>
+                </div>
+
+                <div class="col-2">
+                    <label class="label"></label>
+                </div>
+
+                <div class="col-1">
+                    <label class="label"><b>Fecha</b></label>
+                </div>
+
+                <div class="col-1">
+
+                </div>
+
+                <div class="col-1">
+                    <label class="label"><b>Firma y Sello</b></label>
+                </div>
+
+                <div class="col-3">
+
+                </div>
+            </div>
+
+            <div class="row" style="border-bottom:1px solid black;">
+                <div class="col-1">
+                    <label class="label"><b>Autorizado por</b></label>
+                </div>
+
+                <div class="col-5">
+
+                </div>
+
+                <div class="col-1">
+                    <label class="label"><b>Fecha</b></label>
+                </div>
+
+                <div class="col-1">
+
+                </div>
+
+                <div class="col-1">
+                    <label class="label"><b>Firma y Sello</b></label>
+                </div>
+
+                <div class="col-3">
+
+                </div>
+            </div>
+
+            <div class="row" style="border-bottom:1px solid black; padding-bottom: 1mm; padding-top: 1mm;">
+                <div class="col-12">
+                    <table border="1" width="100%">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center; font: bold;">ITEM</th>
+                                <th style="text-align: center; font: bold;">CANTIDAD</th>
+                                <th style="text-align: center; font: bold;">UNIDAD</th>
+                                <th style="text-align: center; font: bold;">DESCRIPCION DETALLADA DEL PRODUCTO Y/O SERVICIO</th>
+                                <th style="text-align: center; font: bold;">COSTO APROXIMADO</th>
+                                <th style="text-align: center; font: bold;">FECHA DE ENTREGA</th>
+                                <th style="text-align: center; font: bold;">STOCK EN ALMACEN</th>
+                                <th style="text-align: center; font: bold;">PARA SER USADO EN:</th>
+                                <th style="text-align: center; font: bold;">OBSERVACIONES</th>
+                            </tr>
+                            @for (int i = 0; i < Model.RequestItems.Count; i++)
+                            {
+                                <tr>
+                                    <td>@(i+1)</td>
+                                    <td>@string.Format("{0:N2}", Model.RequestItems[i].Measure)</td>
+                                    <td>@Model.RequestItems[i].MeasureUnit</td>
+                                    <td>@Model.RequestItems[i].Supply.Description</td>
+                                    @*<td>@string.Format("{0:N2}", Model.RequestItems[i].GoalBudgetInput.UnitPrice)</td>*@
+                                    <td>@Model.DeliveryDate</td>
+                                    <td>-</td>
+                                    <td>@Model.RequestItems[i].UsedFor</td>
+                                    <td>@Model.RequestItems[i].Observations</td>
+                                </tr>
+                            }
+                        </thead>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <b>Marcar la documentación requerida al proveedor, según la necesidad del proyecto:</b>
+                </div>
+                <div class="col-4">
+
+                    @if (Model.QualityCertificate)
+                    {
+                        <b>X</b>
+                    }
+                    else
+                    {
+                        <b>_</b>
+                    }
+                    <label>Certificados de Calidad</label>
+                </div>
+                <div class="col-4">
+                    @if (Model.Blueprint)
+                    {
+                        <b>X</b>
+                    }
+                    else
+                    {
+                        <b>_</b>
+                    }
+                    <label>Planos</label>
+                </div>
+                <div class="col-4">
+                    @if (Model.TechnicalInformation)
+                    {
+                        <b>X</b>
+                    }
+                    else
+                    {
+                        <b>_</b>
+                    }
+                    <label>Información Técnica</label>
+                </div>
+                <div class="col-4">
+
+                    @if (Model.CalibrationCertificate)
+                    {
+                        <b>X</b>
+                    }
+                    else
+                    {
+                        <b>_</b>
+                    }
+                    <label>Certificados de Calibración</label>
+                </div>
+                <div class="col-4">
+                    @if (Model.Catalog)
+                    {
+                        <b>X</b>
+                    }
+                    else
+                    {
+                        <b>_</b>
+                    }
+                    <label>Catálogos</label>
+                </div>
+                <div class="col-4">
+                    @if (Model.Other)
+                    {
+                        <b>X</b>
+                    }
+                    else
+                    {
+                        <b>_</b>
+                    }
+                    <label>Otros: @Model.OtherDescription</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

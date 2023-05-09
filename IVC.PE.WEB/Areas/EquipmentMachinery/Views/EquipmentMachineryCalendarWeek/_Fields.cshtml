@@ -1,0 +1,37 @@
+﻿@model EquipmentMachineryCalendarWeekViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="WeekNumber" class="label"></label>
+        <input asp-for="WeekNumber" class="form-control" required />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="Year" class="label"></label>
+        <input asp-for="Year" class="form-control" required />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="WeekStart" class="label"></label>
+        <div class="input-group">
+            <input asp-for="WeekStart" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="WeekEnd" class="label"></label>
+        <div class="input-group">
+            <input asp-for="WeekEnd" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

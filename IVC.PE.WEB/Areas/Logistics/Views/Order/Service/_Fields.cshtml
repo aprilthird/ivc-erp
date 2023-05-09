@@ -1,0 +1,197 @@
+﻿@model OrderViewModel
+
+<input asp-for="Id" hidden />
+
+
+<div class="form-group row">
+    <label class="checkbox col-lg-9">
+        <input asp-for="CorrelativeCodeManual" type="checkbox" value="false" class="correlative_code_manual" />
+        <span></span>
+        <label>Ingreso Manual de Correlativo</label>
+    </label>
+    <label class="checkbox col-lg-3">
+        <input asp-for="Liquidation" type="checkbox" value="false" class="liquidation" />
+        <span></span>
+        <label>Liquidación</label>
+    </label>
+</div>
+
+
+
+<div class="form-group row manual">
+    <div class="col-md-6">
+        <div class="kt-form__group--inline">
+            <div class="kt-form__label">
+                <label asp-for="CorrelativeCode" class="kt-label m-label--single"></label>
+            </div>
+            <div class="kt-form__control">
+                <input asp-for="CorrelativeCode" class="form-control" />
+            </div>
+        </div>
+        <div class="d-md-none kt-margin-b-10"></div>
+    </div>
+    <div class="col-md-6">
+        <div class="kt-form__group--inline">
+            <div class="kt-form__label">
+                <label asp-for="CorrelativeCodeSuffix" class="kt-label m-label--single"></label>
+            </div>
+            <div class="kt-form__control">
+                <input asp-for="CorrelativeCodeSuffix" class="form-control" />
+            </div>
+        </div>
+        <div class="d-md-none kt-margin-b-10"></div>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="RequestIds" class="label"></label>
+        <select asp-for="RequestIds" class="form-control kt-select2 select2-requests" required></select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="ProviderId" class="label"></label>
+        <select asp-for="ProviderId" class="form-control kt-select2 select2-providers" required></select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="QuotationNumber" class="label"></label>
+        <input asp-for="QuotationNumber" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="Currency" class="label"></label>
+        <select asp-for="Currency" class="form-control kt-select2 select2-currencies">
+            @foreach (var item in ConstantHelpers.Currency.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <label class="col-lg-8"></label>
+    <label class="checkbox col-lg-4">
+        <input asp-for="WarehouseCheckbox" type="checkbox" value="false" class="manual_warehouse" />
+        <span></span>
+        <label>Ingreso libre del lugar de entrega</label>
+    </label>
+</div>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="PaymentMethod" class="label"></label>
+        <input asp-for="PaymentMethod" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="Warranty" class="label"></label>
+        <input asp-for="Warranty" class="form-control" />
+    </div>
+    <div class="col-lg-4 start_warehouse">
+        <label asp-for="WarehouseId" class="label"></label>
+        <select asp-for="WarehouseId" class="form-control kt-select2 select2-warehouses" required data-placeholder="Almacenes"></select>
+    </div>
+    <div class="col-lg-4 new_warehouse">
+        <label asp-for="ManualWarehouse" class="label"></label>
+        <input asp-for="ManualWarehouse" class="form-control" />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="PriceFile" class="label"></label>
+        <div class="custom-file">
+            <input asp-for="PriceFile" type="file" class="custom-file-input" />
+            <label class="custom-file-label" for="PriceFile">Escoge un archivo</label>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="SupportFile" class="label"></label>
+        <div class="custom-file">
+            <input asp-for="SupportFile" type="file" class="custom-file-input" />
+            <label class="custom-file-label" for="SupportFile">Escoge un archivo</label>
+        </div>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="DeliveryTime" class="label"></label>
+        <textarea asp-for="DeliveryTime" class="form-control"></textarea>
+    </div>
+</div>
+<!--
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="Observations" class="label"></label>
+        <textarea asp-for="Observations" class="form-control"></textarea>
+    </div>
+</div>-->
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="Conditions" class="label"></label>
+        <textarea asp-for="Conditions" class="form-control"></textarea>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label class="label"><b>Marcar la documentación requerida al proveedor, según la necesidad del proyecto:</b></label>
+    </div>
+    <label class="col-lg-4">
+        <input asp-for="QualityCertificate" type="checkbox" value="true" checked />
+        <span></span>
+        <label asp-for="QualityCertificate"></label>
+    </label>
+    <label class="col-lg-4">
+        <input asp-for="Blueprint" type="checkbox" value="true" checked />
+        <span></span>
+        <label asp-for="Blueprint"></label>
+    </label>
+    <label class="col-lg-4">
+        <input asp-for="SecurityDocument" type="checkbox" value="true" checked />
+        <span></span>
+        <label asp-for="SecurityDocument"></label>
+    </label>
+</div>
+
+<div class="form-group row">
+    <label class="checkbox col-lg-4">
+        <input asp-for="CalibrationCertificate" type="checkbox" value="true" checked />
+        <span></span>
+        <label asp-for="CalibrationCertificate"></label>
+    </label>
+    <label class="checkbox col-lg-4">
+        <input asp-for="CatalogAndStorageCriteria" type="checkbox" value="true" checked />
+        <span></span>
+        <label asp-for="CatalogAndStorageCriteria"></label>
+    </label>
+    <label class="checkbox col-lg-4">
+        <input asp-for="Other" type="checkbox" value="true" checked />
+        <span></span>
+        <label asp-for="Other"></label>
+    </label>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="OtherDescription" class="label"></label>
+        <input asp-for="OtherDescription" class="form-control" />
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-4 manual">
+        <label asp-for="Date" class="label"></label>
+        <div class="input-group">
+            <input asp-for="Date" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="ExchangeRate" class="label"></label>
+        <input asp-for="ExchangeRate" class="form-control" required />
+    </div>
+</div>

@@ -1,0 +1,228 @@
+﻿@model DischargeManifoldViewModel 
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-8">
+        <label asp-for="ProtocolNumber" class="label"></label>
+        <input asp-for="ProtocolNumber" class="form-control" />
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-8">
+        <label asp-for="SewerManifoldId" class="label"></label>
+        <input asp-for="SewerManifoldId" hidden />
+        <select name="select_manifold" class="form-control kt-select select2-manifolds"></select>
+    </div>
+
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <button id="SearchSelectManifold" type="button" class="search-manifold btn btn-secondary">Buscar</button>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <h6>Buzón - Aguas Arriba - <span id="sewwerboxstart_code"></span></h6>
+    </div>
+    <div class="col-lg-4">
+        <label class="label">Cota Tapa</label>
+        <input asp-for="SewerManifold.SewerBoxStart.CoverLevel" class="form-control start_h_formula" required />
+    </div>
+    <div class="col-lg-4">
+        <label class="label">Cota Fondo</label>
+        <input asp-for="SewerManifold.SewerBoxStart.BottomLevel" class="form-control iaxlesformula start_h_formula length_formula" required />
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="SewerManifold.SewerBoxStart.Height" class="label"></label>
+        <input asp-for="SewerManifold.SewerBoxStart.Height" class="form-control" disabled="disabled" />
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <h6>Buzón - Aguas Abajo - <span id="sewwerboxend_code"></span></h6>
+    </div>
+    <div class="col-lg-4">
+        <label class="label">Cota Tapa</label>
+        <input asp-for="SewerManifold.SewerBoxEnd.CoverLevel" class="form-control" required />
+    </div>
+    <div class="col-lg-4">
+        <label class="label">Cota Fondo</label>
+        <input asp-for="SewerManifold.SewerBoxEnd.BottomLevel" class="form-control iaxlesformula start_h_formula length_formula" required />
+    </div>
+    <div class="col-lg-4">
+        <label class="label">Cota Llegada</label>
+        <input asp-for="SewerManifold.SewerBoxEnd.ArrivalLevel" class="form-control start_h_formula" required />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="SewerManifold.SewerBoxEnd.Height" class="label"></label>
+        <input asp-for="SewerManifold.SewerBoxEnd.Height" class="form-control" disabled="disabled" />
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label class="label">Longitud Entre ejes H</label>
+        <input asp-for="SewerManifold.LengthBetweenHAxles" class="form-control length_formula" required />
+    </div>
+    <div class="col-lg-4">
+        <label class="label">Longitud Entre ejes I</label>
+        <input asp-for="SewerManifold.LengthBetweenIAxles" class="form-control" disabled="disabled" />
+    </div>
+</div>
+
+<div class="form-group row">
+
+    <div class="col-lg-12">
+        <label asp-for="Producer" class="label"></label>
+        <input asp-for="Producer" class="form-control" />
+    </div>
+    <div class="col-lg-12">
+        <label asp-for="PipeBatch" class="label"></label>
+        <input asp-for="PipeBatch" class="form-control" />
+    </div>
+    <div class="col-lg-12">
+        <label asp-for="SecondPipeBatch" class="label"></label>
+        <input asp-for="SecondPipeBatch" class="form-control" />
+    </div>
+    <div class="col-lg-12">
+        <label asp-for="ThirdPipeBatch" class="label"></label>
+        <input asp-for="ThirdPipeBatch" class="form-control" />
+    </div>
+    <div class="col-lg-12">
+        <label asp-for="FourthPipeBatch" class="label"></label>
+        <input asp-for="FourthPipeBatch" class="form-control" />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="Leveling" class="label"></label>
+        <div class="input-group">
+            <input asp-for="Leveling" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="OpenZTest" class="label"></label>
+        <div class="input-group">
+            <input asp-for="OpenZTest" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="ClosedZTest" class="label"></label>
+        <div class="input-group">
+            <input asp-for="ClosedZTest" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="MirrorTest" class="label"></label>
+        <div class="input-group">
+            <input asp-for="MirrorTest" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="BallTest" class="label"></label>
+        <div class="input-group">
+            <input asp-for="BallTest" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-8">
+        <label asp-for="EquipmentCertificateId" class="label"></label>
+        <input asp-for="EquipmentCertificateId" hidden />
+        <select name="select_equipment" class="form-control kt-select select2-equipments"></select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-8">
+        <label asp-for="EquipmentCertificate2Id" class="label"></label>
+        <input asp-for="EquipmentCertificate2Id" hidden />
+        <select name="select_equipment2" class="form-control kt-select select2-equipments"></select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="BookPZO" class="label"></label>
+        <input asp-for="BookPZO" class="form-control" />
+    </div>
+    <div class="col-lg-12">
+        <label asp-for="SeatPZC" class="label"></label>
+        <input asp-for="SeatPZC" class="form-control" />
+    </div>
+    <div class="col-lg-12">
+        <label asp-for="BookPZF" class="label"></label>
+        <input asp-for="BookPZF" class="form-control" />
+    </div>
+    <div class="col-lg-12">
+        <label asp-for="SeatPZF" class="label"></label>
+        <input asp-for="SeatPZF" class="form-control" />
+    </div>
+
+</div>
+
+<div class="form-group">
+    <label asp-for="File" class="label">Archivo:</label>
+    <div class="custom-file custom-file-pdf">
+        <input asp-for="File" type="file" class="custom-file-input" />
+        <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+    </div>
+</div>
+
+<div class="form-group">
+        <label asp-for="VideoMirror" class="label">Video Espejo:</label>
+        <div class="custom-file custom-video-mirror">
+            <input asp-for="VideoMirror" type="file"  class="custom-file-input videoFileMirror" />
+            <label class="custom-file-label" for="videoFileMirror">Escoge un archivo</label>
+        </div>
+    </div>
+<div class="form-group">
+        <label asp-for="VideoMonkeyBall" class="label">Video Bola/Mandril:</label>
+        <div class="custom-file custom-video-monkey">
+            <input asp-for="VideoMonkeyBall" type="file"  class="custom-file-input videoFileMonkey" />
+            <label class="custom-file-label" for="videoFileMonkey">Escoge un archivo</label>
+        </div>
+    </div>
+<div class="form-group">
+        <label asp-for="VideoZoom" class="label">Video Cámara Zoom:</label>
+        <div class="custom-file custom-video-zoom">
+            <input asp-for="VideoZoom" type="file"  class="custom-file-input videoFileZoom" />
+            <label class="custom-file-label" for="videoFileZoom">Escoge un archivo</label>
+        </div>
+    </div>

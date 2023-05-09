@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.Warehouse.Techos.TechoListPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Lista de Techos">
+    <ContentPage.Content>
+        <AbsoluteLayout
+            x:Name="layout"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding TechoListViewModel}"
+            Padding="8">
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional">
+                <Label
+                        Text="Proyecto "></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Projects}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedProject}" />
+                </StackLayout>
+
+                <Label
+                        Text="Título de Presupuesto "></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding BudgetTittles}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedBudget}" />
+                </StackLayout>
+
+                <Label
+                        Text="Fórmulas "></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Formulas}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedFormula}" />
+                </StackLayout>
+
+                <Label
+                        Text="Frente "></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding WorkFronts}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedWorkFront}" />
+                </StackLayout>
+
+                <Label
+                        Text="Familia "></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Families}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedFamily}" />
+                </StackLayout>
+
+                <Label
+                        Text="Grupo "></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Groups}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedGroup}" />
+                </StackLayout>
+
+
+
+
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Button
+                        Command="{Binding LoadBluePrintsCommand}"
+                        Text="Buscar"/>
+                </StackLayout>
+
+                <!--<Label
+                    Text="Lista de Planos"
+                    FontSize="Medium"
+                    FontAttributes="Bold"></Label>
+
+                <ScrollView
+                    Padding="0,0,0,80">
+                    <ListView
+                        SelectionMode="None"
+                        IsRefreshing="{Binding IsRefreshing}"
+                        HasUnevenRows="True"
+                        ItemsSource="{Binding BPList}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        -->
+                <!--<MenuItem Text="Ver" 
+                                                  Command="{Binding Path=BindingContext.ViewBluePrintsCommand, Source={x:Reference layout}}"
+                                                  CommandParameter="{Binding .}"/>-->
+                <!--
+                                        
+                                        <MenuItem Text="Plano Adjunto" 
+                                                  Command="{Binding Path=BindingContext.PdfBluePrintsCommand, Source={x:Reference layout}}"
+                                                  CommandParameter="{Binding .}"/>
+
+                                        <MenuItem Text="Carta Adjunto" 
+                                                  Command="{Binding Path=BindingContext.PdfLetterCommand, Source={x:Reference layout}}"
+                                                  CommandParameter="{Binding .}"/>
+                                        -->
+                <!--<MenuItem Text="Editar" />-->
+                <!--
+                                    </ViewCell.ContextActions>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout
+                                            Grid.Column="0"
+                                            VerticalOptions="Center"
+                                            Orientation="Vertical">
+                                            <Label
+                                                FontSize="Medium"
+                                                FontAttributes="Bold"
+                                                Text="{Binding Code}">
+                                            </Label>
+                                            <Label
+                                                FontSize="Large"
+                                                FontAttributes="Bold"
+                                                Text="{Binding TechnicalVersionDescription}">
+                                            </Label>
+                                        </StackLayout>
+                                        
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>-->
+
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

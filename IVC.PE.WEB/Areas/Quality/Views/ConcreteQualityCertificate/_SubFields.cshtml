@@ -1,0 +1,49 @@
+﻿@model ConcreteQualityCertificateDetailViewModel
+
+<div data-repeater-item class="form-group row align-items-center">
+    <div class="col-md-4">
+        <div class="kt-form__group--inline">
+            <div class="kt-form__label">
+                <label asp-for="SewerBoxId"></label>
+            </div>
+            <div class="kt-form__control">
+                <select asp-for="SewerBoxId" class="form-control kt-select2 select2-sewer-boxes" required></select>
+            </div>
+        </div>
+        <div class="d-md-none kt-margin-b-10"></div>
+    </div>
+    <div class="col-md-4">
+        <div class="kt-form__group--inline">
+            <div class="kt-form__label">
+                <label asp-for="Segment" class="kt-label m-label--single"></label>
+            </div>
+            <div class="kt-form__control">
+                <select asp-for="Segment" class="form-control kt-select2 select2-segments" required>
+                    @foreach (var item in ConstantHelpers.Certificate.ConcreteQuality.Segment.VALUES)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="d-md-none kt-margin-b-10"></div>
+    </div>
+    <div class="col-md-3">
+        <div class="kt-form__group--inline">
+            <div class="kt-form__label">
+                <label asp-for="SegmentNumber" class="kt-label m-label--single"></label>
+            </div>
+            <div class="kt-form__control">
+                <input asp-for="SegmentNumber" type="number" class="form-control input-numbers" value="1" required>
+            </div>
+        </div>
+        <div class="d-md-none kt-margin-b-10"></div>
+    </div>
+    <div class="col-md-1">
+        <label>&emsp;</label>
+        <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold btn-icon">
+            <i class="la la-trash-o"></i>
+        </a>
+    </div>
+</div>
+

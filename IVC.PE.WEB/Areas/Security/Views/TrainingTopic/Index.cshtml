@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Temas";
+    ViewBag.SubTitle = "Listado de Temas";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.Security.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    <button type="button" class="btn btn-brand btn-elevate btn-icon-sm" data-toggle="modal" data-target="#add_modal">
+                        <i class="la la-plus"></i>
+                        Nuevo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label class="col-form-label">Categor&iacute;as</label>
+                <select id="training_category_filter" class="form-control kt-select2 select2-training-categories">
+                    <option>Todos</option>
+                </select>
+            </div>
+        </div>
+        <table class="table table-striped table-bordered table-hover table-checkable datatable" id="topics_datatable" role="grid"></table>
+    </div>
+</div>
+
+<partial name="_CreateModal" />
+<partial name="_EditModal" />
+<partial name="_FilesModal" />
+<partial name="_PreviewModal" />
+
+@section Scripts {
+    <script src="~/js/areas/security/training-topic/index.js"></script>
+}

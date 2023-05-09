@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Estructura de Trabajo";
+    ViewBag.SubTitle = "Listado de Elementos";
+}
+
+@section Styles {
+    <link href="~/lib/jstree/dist/themes/default/style.min.css" rel="stylesheet" />
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div id="menu_container"></div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jstree/dist/jstree.min.js"></script>
+    <script src="~/js/areas/admin/work-area-structure/index.js"></script>
+}

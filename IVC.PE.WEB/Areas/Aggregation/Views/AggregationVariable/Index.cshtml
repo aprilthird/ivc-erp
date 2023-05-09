@@ -1,0 +1,166 @@
+﻿
+@{
+    ViewBag.Title = "Variables";
+    ViewBag.ProviderTypes = "Tipos de Proveedor";
+    ViewBag.Providers = "Proveedores";
+    ViewBag.StockTypes = "Tipos de Materiales";
+    ViewBag.Stocks = "Materiales";
+    ViewBag.Entries = "Partidas";
+    ViewBag.Prices = "Preciarios";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.Aggregation.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.ProviderTypes
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    <button type="button" class="btn btn-primary" id="copy_btn" data-toggle="modal" data-target="#variables_import_modal">
+                        <span>
+                            <i class="la la-upload"></i>
+                            <span>Importar</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <table class="table table-striped table-bordered table-hover table-checkable" id="providerTypes_datatable" role="grid" width="100%"></table>
+    </div>
+</div>
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.Providers
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <table class="table table-striped table-bordered table-hover table-checkable" id="providers_datatable" role="grid" width="100%"></table>
+    </div>
+</div>
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.StockTypes
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <table class="table table-striped table-bordered table-hover table-checkable" id="stockTypes_datatable" role="grid" width="100%"></table>
+    </div>
+</div>
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.Stocks
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <table class="table table-striped table-bordered table-hover table-checkable" id="stocks_datatable" role="grid" width="100%"></table>
+    </div>
+</div>
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.Entries
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <table class="table table-striped table-bordered table-hover table-checkable" id="entries_datatable" role="grid" width="100%"></table>
+    </div>
+</div>
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.Prices
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <table class="table table-striped table-bordered table-hover table-checkable" id="prices_datatable" role="grid" width="100%"></table>
+    </div>
+</div>
+
+@if (canEdit)
+{
+    <partial name="_VariableImportModal" />
+}
+
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/aggregation/agreggation-variable/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/aggregation/agreggation-variable/index.js"></script>
+    }
+}
+

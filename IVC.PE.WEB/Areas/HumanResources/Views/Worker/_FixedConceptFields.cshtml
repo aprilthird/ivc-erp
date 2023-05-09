@@ -1,0 +1,17 @@
+﻿@model WorkerFixedConceptViewModel
+
+<input asp-for="Id" hidden />
+<input asp-for="WorkerId" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="PayrollConceptId" class="label"></label>
+        <select asp-for="PayrollConceptId" class="form-control kt-select2 select2-concepts" required></select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="FixedValue" class="label"></label>
+        <input asp-for="FixedValue" class="form-control" value="0" />
+    </div>
+</div> 

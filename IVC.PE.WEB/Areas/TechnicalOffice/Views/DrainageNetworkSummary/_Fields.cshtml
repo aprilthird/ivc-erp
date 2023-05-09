@@ -1,0 +1,143 @@
+﻿@model SewerLineViewModel
+
+<input asp-for="Id" hidden />
+
+<h6 class="text-primary font-weight-bold text-uppercase">Ubicaci&oacute;n</h6>
+<div class="form-group row">
+    <div class="col-lg-3">
+        <label asp-for="SewerGroupId" class="label"></label>
+        <select asp-for="SewerGroupId" class="form-control kt-select2 select2-sewer-groups"></select>
+    </div>
+    <div class="col-lg-9">
+        <label asp-for="QualificationZoneId" class="label"></label>
+        <select asp-for="QualificationZoneId" class="form-control kt-select2 select2-qualification-zones"></select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-9">
+        <label asp-for="Address" class="label"></label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="DrainageArea" class="label"></label>
+        <input asp-for="DrainageArea" class="form-control" />
+    </div>
+</div>
+<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div>
+<h6 class="text-primary font-weight-bold text-uppercase">Buz&oacute;n Inicial (Aguas Arriba)</h6>
+<div class="form-group row">
+    <div class="col-lg-3">
+        <label asp-for="InitialSewerBoxCode" class="label"></label>
+        <input asp-for="InitialSewerBoxCode" class="form-control" />
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="InitialSewerDrainageArea" class="label"></label>
+        <input asp-for="InitialSewerDrainageArea" class="form-control" />
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="InitialSewerBoxTerrainType" class="label"></label>
+        <select asp-for="InitialSewerBoxTerrainType" class="form-control kt-select2 select2-terrain-types">
+            @foreach (var item in ConstantHelpers.Terrain.Type.VALUES)
+            {
+            <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="InitialSewerBoxType" class="label"></label>
+        <select asp-for="InitialSewerBoxType" class="form-control kt-select2 select2-sewer-box-types">
+            @foreach (var item in ConstantHelpers.Sewer.Box.Type.VALUES)
+            {
+            <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="WaterUpCover" class="label"></label>
+        <input asp-for="WaterUpCover" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="WaterUpOutput" class="label"></label>
+        <input asp-for="WaterUpOutput" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="WaterUpBottom" class="label"></label>
+        <input asp-for="WaterUpBottom" class="form-control" />
+    </div>
+</div>
+<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div>
+<h6 class="text-primary font-weight-bold text-uppercase">Buz&oacute;n Final (Aguas Abajo)</h6>
+<div class="form-group row">
+    <div class="col-lg-3">
+        <label asp-for="FinalSewerBoxCode" class="label"></label>
+        <input asp-for="FinalSewerBoxCode" class="form-control" />
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="FinalSewerDrainageArea" class="label"></label>
+        <input asp-for="FinalSewerDrainageArea" class="form-control" />
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="FinalSewerBoxTerrainType" class="label"></label>
+        <select asp-for="FinalSewerBoxTerrainType" class="form-control kt-select2 select2-terrain-types">
+            @foreach (var item in ConstantHelpers.Terrain.Type.VALUES)
+            {
+            <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="FinalSewerBoxType" class="label"></label>
+        <select asp-for="FinalSewerBoxType" class="form-control kt-select2 select2-sewer-box-types">
+            @foreach (var item in ConstantHelpers.Sewer.Box.Type.VALUES)
+            {
+            <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="DownstreamCover" class="label"></label>
+        <input asp-for="DownstreamCover" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="DownstreamInput" class="label"></label>
+        <input asp-for="DownstreamInput" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="DownstreamBottom" class="label"></label>
+        <input asp-for="DownstreamBottom" class="form-control" />
+    </div>
+</div>
+<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div>
+<h6 class="text-primary font-weight-bold text-uppercase">Tramo</h6>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="HorizontalDistanceOnAxis" class="label"></label>
+        <input asp-for="HorizontalDistanceOnAxis" class="form-control" />
+    </div>
+    <div class="col-lg-2">
+        <label asp-for="NominalDiameter" class="label"></label>
+        <input asp-for="NominalDiameter" class="form-control" value="200" />
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="PipelineType" class="label"></label>
+        <select asp-for="PipelineType" class="form-control kt-select2 select2-pipeline-types">
+            @foreach (var item in ConstantHelpers.Pipeline.Type.VALUES)
+            {
+            <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="TerrainType" class="label"></label>
+        <select asp-for="TerrainType" class="form-control kt-select2 select2-terrain-types">
+            @foreach (var item in ConstantHelpers.Terrain.Type.VALUES)
+            {
+            <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>

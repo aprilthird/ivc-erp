@@ -1,0 +1,81 @@
+﻿@model IVC.PE.WEB.Areas.Finance.ViewModels.BondLoadViewModel.BondLoadViewModel
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <!--<div class="col-lg-12">
+          <label asp-for="ProjectId" class="label"></label>
+          <select asp-for="ProjectId" class="form-control kt-select select2-projects" data-placeholder="Proyecto"></select>
+      </div>-->
+
+    <div class="col-lg-12">
+        <label asp-for="BondGuarantorId" class="label"></label>
+        <select asp-for="BondGuarantorId" class="form-control kt-select select2-guarantors" data-placeholder="Garantes"></select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="BudgetTitleId" class="label"></label>
+        <select asp-for="BudgetTitleId" class="form-control kt-select select2-budgetType" data-placeholder="Tipo de Presupuesto"></select>
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="BondTypeId" class="label"></label>
+        <select asp-for="BondTypeId" class="form-control kt-select select2-bondType" data-placeholder="Tipo de Fianza"></select>
+    </div>
+
+
+    <div class="col-lg-6">
+        <label asp-for="BankId" class="label"></label>
+        <select asp-for="BankId" class="form-control kt-select select2-banks" data-placeholder="Entidad Financiera"></select>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="EmployeeId" class="label"></label>
+        <select asp-for="EmployeeId" class="form-control kt-select select2-employees" data-placeholder="Encargado"></select>
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="BondNumber" class="label"></label>
+        <input asp-for="BondNumber" class="form-control" required />
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="BondRenovationId" class="label"></label>
+        <select asp-for="BondRenovationId" class="form-control kt-select select2-renovations" data-placeholder="Renovaciones"></select>
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="PenAmmount" class="label"></label>
+        <input asp-for="PenAmmount" class="form-control" required />
+    </div>
+
+
+    <div class="col-lg-12">
+        <label asp-for="UsdAmmount" class="label"></label>
+        <input asp-for="UsdAmmount" class="form-control" required />
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="daysLimitTerm" class="label"></label>
+        <input asp-for="daysLimitTerm" class="form-control" required />
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="CreateDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="CreateDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-lg-12">
+        <label asp-for="guaranteeDesc" class="label"></label>
+        <input asp-for="guaranteeDesc" class="form-control" required />
+    </div>
+
+</div>

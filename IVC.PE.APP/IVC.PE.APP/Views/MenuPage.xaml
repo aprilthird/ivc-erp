@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.MenuPage"
+             xmlns:imgs="clr-namespace:IVC.PE.APP.Resources"
+             BackgroundColor="Black"
+         	 BindingContext="{Binding Main, Source={StaticResource Locator}}"
+         	 Title="Menu">
+    <ContentPage.Content>
+        <StackLayout
+            Padding="10">
+            <Image
+                HeightRequest="100"
+                Source="{imgs:ImageResource IVC.PE.APP.Resources.Images.logo_ivc.png}"/>
+            <StackLayout
+                Orientation="Horizontal">
+                <Label
+                Text="&#xf015;"
+                FontSize="Large"
+                TextColor="White" 
+                FontFamily="FontAwesome"/>
+                <Label
+                    Text="Dashboard"
+                    FontSize="Large"
+                    TextColor="White">
+                </Label>
+            </StackLayout>
+            <ListView
+                BackgroundColor="Transparent"
+                ItemsSource="{Binding Menus}"
+                IsGroupingEnabled="True"
+                GroupDisplayBinding="{Binding Name}"
+                HasUnevenRows="True"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="40,10">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectMenuCommand}"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    Grid.Column="0"
+                                    FontAttributes="Bold"
+                                    VerticalOptions="Center"
+                                    TextColor="White"
+                                    Text="{Binding Icon}"
+                                    FontSize="Large"
+                                    FontFamily="FontAwesome"
+                                    HorizontalTextAlignment="Center"/>
+                                <Label
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    VerticalOptions="Center"
+                                    TextColor="White"
+                                    Text="{Binding Title}"
+                                    FontSize="Medium"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label
+                                Text="{Binding Name}"
+                                FontSize="Large"
+                                TextColor="White" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+            </ListView>
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="End">
+                <Label
+                Text="&#xf2f5;"
+                FontSize="Large"
+                TextColor="White" 
+                FontFamily="FontAwesome"/>
+                <Label
+                    Text="Cerrar Sesión"
+                    FontSize="Large"
+                    TextColor="White">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LogOutCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

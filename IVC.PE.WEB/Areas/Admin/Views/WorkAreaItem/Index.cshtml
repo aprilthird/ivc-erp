@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Elementos de Trabajo";
+    ViewBag.SubTitle = "Listado de Elementos";
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    <button type="button" class="btn btn-brand btn-elevate btn-icon-sm" data-toggle="modal" data-target="#add_modal">
+                        <i class="la la-plus"></i>
+                        Nuevo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label class="col-form-label">&Aacute;reas de Trabajo</label>
+                <select id="work_area_filter" class="form-control kt-select2 select2-work-areas">
+                    <option>Todos</option>
+                </select>
+            </div>
+        </div>
+        <table class="table table-striped table-bordered table-hover table-checkable datatable" id="items_datatable" role="grid"></table>
+    </div>
+</div>
+
+<partial name="_CreateModal" />
+<partial name="_EditModal" />
+
+@section Scripts {
+    <script src="~/js/areas/admin/work-area-item/index.js"></script>
+}

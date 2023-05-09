@@ -1,0 +1,58 @@
+﻿@model SewerManifoldFor24ThirdPartViewModel
+
+<input asp-for="Id" hidden />
+<input asp-for="SewerManifoldFor24SecondPartId" hidden />
+
+<h5>VERIFICACIÓN DE ACCIONES TOMADAS</h5>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="ActionTaken" class="label"></label>
+        <input asp-for="ActionTaken" hidden />
+        <select name="select_taken" class="form-control kt-select select2-taken">
+            @foreach (var item in ConstantHelpers.SewerManifoldFor24.ActionTaken.NAMES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+
+<h5>DERIVA A UNA ACCIÓN CORRECTIVA/PREVENTIVA (OPORTUNIDAD DE MEJORA)</h5>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="PreventiveCorrectiveAction" class="label"></label>
+        <input asp-for="PreventiveCorrectiveAction" hidden />
+        <select name="select_action" class="form-control kt-select select2-action">
+            <option value="true">Sí</option>
+            <option value="false">No</option>
+        </select>
+    </div>
+</div>
+
+<h5>FECHA DE CIERRE</h5>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="ClosingDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="ClosingDate" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h5>ADJUNTAR PDF DEL FOR-24</h5>
+
+<div class="form-group">
+    <label asp-for="File" class="label">Archivo:</label>
+    <div class="custom-file">
+        <input asp-for="File" type="file" class="custom-file-input" />
+        <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+    </div>
+</div>

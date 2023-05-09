@@ -1,0 +1,82 @@
+﻿@model FoldingF7ViewModel
+
+<input asp-for="Id" hidden />
+
+<input asp-for="ProductionDailyPartId" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="Date" class="label"></label>
+        <div class="input-group">
+            <input asp-for="Date" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <label class="label">Tramo</label>
+        <input id="Tramo" class="form-control" disabled="disabled" />
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="ExcavatedLength" class="label"></label>
+        <input asp-for="ExcavatedLength" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label class="label">Saldo por Ejecutar</label>
+        <input id="Excavated" class="form-control" disabled="disabled" />
+    </div>
+    <div class="col-lg-4">
+        <label class="label">Total</label>
+        <input id="ExcavatedTotal" class="form-control" disabled="disabled" />
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="InstalledLength" class="label"></label>
+        <input asp-for="InstalledLength" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label class="label">Saldo por Ejecutar</label>
+        <input id="Installed" class="form-control" disabled="disabled" />
+    </div>
+    <div class="col-lg-4">
+        <label class="label">Total</label>
+        <input id="InstalledTotal" class="form-control" disabled="disabled" />
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="RefilledLength" class="label"></label>
+        <input asp-for="RefilledLength" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label class="label">Saldo por Ejecutar</label>
+        <input id="Refilled" class="form-control" disabled="disabled" />
+    </div>
+    <div class="col-lg-4">
+        <label class="label">Total</label>
+        <input id="RefilledTotal" class="form-control" disabled="disabled" />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="GranularBaseLength" class="label"></label>
+        <input asp-for="GranularBaseLength" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label class="label">Saldo por Ejecutar</label>
+        <input id="GranularBase" class="form-control" disabled="disabled" />
+    </div>
+    <div class="col-lg-4">
+        <label class="label">Total</label>
+        <input id="GranularBaseTotal" class="form-control" disabled="disabled" />
+    </div>
+</div>

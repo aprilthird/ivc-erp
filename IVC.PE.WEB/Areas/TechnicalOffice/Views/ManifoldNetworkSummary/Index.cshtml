@@ -1,0 +1,225 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title">
+                Listado de Tramos
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <ul class="nav nav-tabs nav-fill" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#tab_project">
+                    <i class="la la-folder-open"></i>
+                    Proyecto
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab_review">
+                    <i class="la la-refresh"></i>
+                    Replanteo
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab_execution">
+                    <i class="la la-expeditedssl"></i>
+                    Ejecución
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_project" role="tabpanel">
+                <table class="table table-striped table-bordered table-hover table-checkable datatable" id="project_datatable" role="grid">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="text-align: center;">Dirección</th>
+                            <th colspan="9" style="text-align: center;">BZ (i) Aguas Arriba</th>
+                            <th colspan="9" style="text-align: center;">BZ (j) Aguas Abajo</th>
+                            <th colspan="11" style="text-align: center;">Tramos</th>
+                            <th colspan="4" style="text-align: center;">Tipo de Pavimento</th>
+                        </tr>
+                        <tr>
+                            <th>Nº</th>
+                            <th>Cota Tapa</th>
+                            <th>Cota Llegada</th>
+                            <th>Cota Fondo</th>
+                            <th>h BZ</th>
+                            <th>TT</th>
+                            <th>Tipo de Buz&oacute;n</th>
+                            <th>Di&aacute;metro</th>
+                            <th>Espesor</th>
+                            <th>Nº</th>
+                            <th>Cota Tapa</th>
+                            <th>Cota Llegada</th>
+                            <th>Cota Fondo</th>
+                            <th>h BZ</th>
+                            <th>TT</th>
+                            <th>Tipo de Buz&oacute;n</th>
+                            <th>Di&aacute;metro</th>
+                            <th>Espesor</th>
+                            <th>Nombre</th>
+                            <th>h Zanja</th>
+                            <th>%</th>
+                            <th>DN (mm)</th>
+                            <th>Tipo de Tuber&iacute;a</th>
+                            <th>Clase</th>
+                            <th>Long. Entre Ejes H</th>
+                            <th>Long. Entre Ejes I</th>
+                            <th>Long. Tuber&iacute;a Instalada</th>
+                            <th>TT</th>
+                            <th>Long. Excavada</th>
+                            <th>Asfalto 2" (m&sup2;)</th>
+                            <th>Asfalto 3" (m&sup2;)</th>
+                            <th>Asfalto 3" Mixto(m&sup2;)</th>
+                            <th>Ancho</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="tab-pane" id="tab_review" role="tabpanel">
+                <table class="table table-striped table-bordered table-hover table-checkable datatable" id="review_datatable" role="grid">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="text-align: center;">Dirección</th>
+                            <th colspan="9" style="text-align: center;">BZ (i) Aguas Arriba</th>
+                            <th colspan="9" style="text-align: center;">BZ (j) Aguas Abajo</th>
+                            <th colspan="11" style="text-align: center;">Tramos</th>
+                            <th colspan="4" style="text-align: center;">Tipo de Pavimento</th>
+                            <th colspan="2" style="text-align: center;">Solic. y Aprob. Replanteo</th>
+                        </tr>
+                        <tr>
+                            <th>Nº</th>
+                            <th>Cota Tapa</th>
+                            <th>Cota Llegada</th>
+                            <th>Cota Fondo</th>
+                            <th>h BZ</th>
+                            <th>TT</th>
+                            <th>Tipo de Buz&oacute;n</th>
+                            <th>Di&aacute;metro</th>
+                            <th>Espesor</th>
+                            <th>Nº</th>
+                            <th>Cota Tapa</th>
+                            <th>Cota Llegada</th>
+                            <th>Cota Fondo</th>
+                            <th>h BZ</th>
+                            <th>TT</th>
+                            <th>Tipo de Buz&oacute;n</th>
+                            <th>Di&aacute;metro</th>
+                            <th>Espesor</th>
+                            <th>Nombre</th>
+                            <th>h Zanja</th>
+                            <th>%</th>
+                            <th>DN (mm)</th>
+                            <th>Tipo de Tuber&iacute;a</th>
+                            <th>Clase</th>
+                            <th>Long. Entre Ejes H</th>
+                            <th>Long. Entre Ejes I</th>
+                            <th>Long. Tuber&iacute;a Instalada</th>
+                            <th>TT</th>
+                            <th>Long. Excavada</th>
+                            <th>Asfalto 2" (m&sup2;)</th>
+                            <th>Asfalto 3" (m&sup3;)</th>
+                            <th>Asfalto 3" Mixto(m&sup3;)</th>
+                            <th>Ancho</th>
+                            <th>Cartas Solicitud</th>
+                            <th>Cartas Aprobación</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="tab-pane" id="tab_execution" role="tabpanel">
+                <div class="tab-pane" id="tab_review" role="tabpanel">
+                    <table class="table table-striped table-bordered table-hover table-checkable datatable" id="execution_datatable" role="grid">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">Informaci&oacute;n</th>
+                                <th colspan="3" style="text-align: center;">Ubicaci&oacute;n</th>
+                                <th colspan="9" style="text-align: center;">BZ (i) Aguas Arriba</th>
+                                <th colspan="9" style="text-align: center;">BZ (j) Aguas Abajo</th>
+                                <th colspan="16" style="text-align: center;">Tramos</th>
+                                <th colspan="2" style="text-align: center;">Procesos EO</th>
+                                <th colspan="3" style="text-align: center;">Procesos Calidad</th>
+                                <th colspan="4" style="text-align: center;">Videos de Pruebas</th>
+                            </tr>
+                            <tr>
+                                <th rowspan="2" style="text-align: center;">Jefe de Frente</th>
+                                <th rowspan="2" style="text-align: center;">Frente</th>
+                                <th rowspan="2" style="text-align: center;">Cuadrilla</th>
+                                <th rowspan="2" style="text-align: center;">Dirección</th>
+                                <th rowspan="2" style="text-align: center;">Nº</th>
+                                <th rowspan="2" style="text-align: center;">Cota Tapa</th>
+                                <th rowspan="2" style="text-align: center;">Cota Llegada</th>
+                                <th rowspan="2" style="text-align: center;">Cota Fondo</th>
+                                <th rowspan="2" style="text-align: center;">h BZ</th>
+                                <th rowspan="2" style="text-align: center;">TT</th>
+                                <th rowspan="2" style="text-align: center;">Tipo de Buz&oacute;n</th>
+                                <th rowspan="2" style="text-align: center;">Di&acute;metro</th>
+                                <th rowspan="2" style="text-align: center;">Espesor</th>
+                                <th rowspan="2" style="text-align: center;">Nº</th>
+                                <th rowspan="2" style="text-align: center;">Cota Tapa</th>
+                                <th rowspan="2" style="text-align: center;">Cota Llegada</th>
+                                <th rowspan="2" style="text-align: center;">Cota Fondo</th>
+                                <th rowspan="2" style="text-align: center;">h BZ</th>
+                                <th rowspan="2" style="text-align: center;">TT</th>
+                                <th rowspan="2" style="text-align: center;">Tipo de Buz&oacute;n</th>
+                                <th rowspan="2" style="text-align: center;">Di&aacute;metro</th>
+                                <th rowspan="2" style="text-align: center;">Espesor</th>
+                                <th rowspan="2" style="text-align: center;">Nombre</th>
+                                <th rowspan="2" style="text-align: center;">h Zanja</th>
+                                <th rowspan="2" style="text-align: center;">%</th>
+                                <th rowspan="2" style="text-align: center;">DN (mm)</th>
+                                <th rowspan="2" style="text-align: center;">Tipo de Tuber&iacute;a</th>
+                                <th rowspan="2" style="text-align: center;">Clase</th>
+                                <th rowspan="2" style="text-align: center;">Long. Entre Ejes H</th>
+                                <th rowspan="2" style="text-align: center;">Long. Entre Ejes I</th>
+                                <th rowspan="2" style="text-align: center;">Long. Tuber&iacute;a Instalada</th>
+                                <th rowspan="2" style="text-align: center;">Long. Excavaci&oacute;n</th>
+                                <th colspan="3" style="text-align: center;">Tipo de Terreno (%)</th>
+                                <th colspan="3" style="text-align: center;">Long. Excavaci&oacute;n</th>
+                                <th rowspan="2" style="text-align: center;">For-37A</th>
+                                <th rowspan="2" style="text-align: center;">For-47</th>
+                                <th rowspan="2" style="text-align: center;">For-01</th>
+                                <th rowspan="2" style="text-align: center;">For-05</th>
+                                <th rowspan="2" style="text-align: center;">For-29</th>
+                                <th rowspan="2" style="text-align: center;">Espejo</th>
+                                <th rowspan="2" style="text-align: center;">Bola/Mandril</th>
+                                <th rowspan="2" style="text-align: center;">Cámara Zoom</th>
+                                <th rowspan="2" style="text-align: center;">Fotos</th>
+                            </tr>
+                            <tr>
+                                <th style="text-align: center;">N</th>
+                                <th style="text-align: center;">SR</th>
+                                <th style="text-align: center;">R</th>
+                                <th style="text-align: center;">N</th>
+                                <th style="text-align: center;">SR</th>
+                                <th style="text-align: center;">R</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<partial name="_VideoModal" />
+<partial name="_ReviewLetterPdfModal" />
+<partial name="_ForPdfModal" />
+
+@section Scripts {
+    <script src="~/js/areas/technical-office/manifold-network-summary/index.js"></script>
+}

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.TechnicalOffice.ErpManuals.ErpManualListPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Lista de Manuales ERP">
+    <ContentPage.Content>
+        <AbsoluteLayout
+            x:Name="layout"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding ErpManualListViewModel}"
+            Padding="8">
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional">
+               
+                <Label
+                        Text="Módulos "></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Modules}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedModule}" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Entry
+                         HorizontalOptions="FillAndExpand"
+                       Placeholder = "Nombre"
+                        Text="{Binding Name , Mode=TwoWay}"
+                        />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+
+                    <Button
+                        Command="{Binding LoadErpManualsCommand}"
+                        Text="Buscar"/>
+                </StackLayout>
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

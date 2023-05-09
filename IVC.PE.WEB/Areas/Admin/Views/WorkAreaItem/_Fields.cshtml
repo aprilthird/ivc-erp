@@ -1,0 +1,48 @@
+﻿@model WorkAreaItemViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="WorkAreaId" class="label"></label>
+        <select asp-for="WorkAreaId" class="form-control kt-select select2-work-areas"></select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="Name" class="label"></label>
+        <input asp-for="Name" class="form-control" required />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="ParentId" class="label"></label>
+        <select asp-for="ParentId" class="form-control kt-select select2-work-items"></select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <div class="kt-checkbox-list">
+            <label class="kt-checkbox kt-checkbox--bold kt-checkbox--brand">
+                <input asp-for="IsItemGroup" type="checkbox"> ¿Agrupar&aacute; otros elementos?
+                <span></span>
+            </label>
+        </div>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="Controller" class="label"></label>
+        <input asp-for="Controller" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="Action" class="label"></label>
+        <input asp-for="Action" class="form-control" />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="RoleId" class="label"></label>
+        <select asp-for="RoleId" class="form-control kt-select select2-roles"></select>
+    </div>
+</div>

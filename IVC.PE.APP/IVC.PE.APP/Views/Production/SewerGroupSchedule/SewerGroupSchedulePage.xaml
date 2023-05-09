@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.Production.SewerGroupSchedule.SewerGroupSchedulePage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Programaciones">
+    <ContentPage.Content>
+        <StackLayout
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding SewerGroupScheduleViewModel}">
+            <Button
+                Command="{Binding DailyScheduleCommand}"
+                BackgroundColor="#00284A"
+                CornerRadius="30"
+                Text="&#xf773; Diaria"
+                FontFamily="FontAwesome"
+                FontSize="30"
+                TextColor="White">
+            </Button>
+            <Button
+                BackgroundColor="#00284A"
+                CornerRadius="30"
+                Text="&#xf773; Semanal"
+                FontFamily="FontAwesome"
+                FontSize="30"
+                TextColor="White">
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

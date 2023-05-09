@@ -1,0 +1,12 @@
+﻿@model SupplierViewModel
+
+@Html.HiddenFor(model => model.Id)
+<input asp-for="FileCount" hidden value="0" />
+<div class="form-group">
+    <label asp-for="RUC" class="label"></label>
+    <input asp-for="RUC" class="form-control" required />
+</div>
+<div class="form-group">
+    <label asp-for="BusinessName" class="label"></label>
+    <input asp-for="BusinessName" class="form-control" required />
+</div>

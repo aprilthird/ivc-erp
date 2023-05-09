@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.Warehouse.FieldRequests.FieldRequestCreatePage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Generación Pedido de Campo">
+    <ContentPage.Content>
+        <ScrollView
+                    Padding="0,0,0,80">
+            <AbsoluteLayout
+            x:Name="layout"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding FieldRequestCreateViewModel}"
+            Padding="8">
+
+                <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional">
+
+                <Label
+                        Text="Proyecto"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Projects}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedProject}" />
+                </StackLayout>
+
+                <Label
+                        Text="Presupuesto"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding BudgetTittles}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedBudget}" />
+                </StackLayout>
+
+                <Label
+                        Text="Fórmulas"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Formulas}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedFormula}" />
+                </StackLayout>
+
+                <Label
+                        Text="Frente"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding WorkFronts}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedWorkFront}" />
+                </StackLayout>
+
+
+                <Label
+                        Text="Cuadrilla"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Sewers}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedSewerGroup}" />
+                </StackLayout>
+                
+
+
+
+
+
+                <!--<Label
+                Text="Fecha de Entrega"></Label>
+                <DatePicker 
+                Date="{Binding SelectedDate}"
+                Format="dd/MM/yyyy"/>-->
+
+                <Label
+                        Text="Familias"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Families}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedFamily}" />
+                </StackLayout>
+
+
+                <Label
+                        Text="Observaciones"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Entry
+                         HorizontalOptions="FillAndExpand"
+                       Placeholder = "Observaciones"
+                        Text="{Binding Ob , Mode=TwoWay}"
+                        />
+                </StackLayout>
+
+                <Label
+                        Text="Orden de Trabajo"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Entry
+                         HorizontalOptions="FillAndExpand"
+                       Placeholder = "Orden de Trabajo"
+                        Text="{Binding Ot , Mode=TwoWay}"
+                        />
+                </StackLayout>
+
+
+
+
+
+
+
+
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Button
+                        Command="{Binding ToSaveCommand}"
+                        Text="Generar"/>
+                </StackLayout>
+
+
+
+            </StackLayout>
+  
+        </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.Logistic.PreRequests.OptionSelectorPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Generación Pre-requerimiento">
+    <ContentPage.Content>
+        <AbsoluteLayout
+            x:Name="layout"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding OptionSelectorViewModel}"
+            Padding="8">
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional">
+
+
+
+
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Button
+                        Command="{Binding LoadListCommand}"
+                        Text="Listar"/>
+
+                    <Button
+                        Command="{Binding LoadCreateCommand}"
+                        Text="Generar"/>
+                    
+                </StackLayout>
+
+
+
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

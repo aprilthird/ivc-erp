@@ -1,0 +1,35 @@
+﻿@model WorkbookViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="Number" class="label"></label>
+        <input asp-for="Number" class="form-control" required />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="Name" class="label"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="Range" class="label"></label>
+        <input asp-for="Range" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="Term" class="label"></label>
+        <input asp-for="Term" class="form-control" />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="File" class="label"></label>
+        <div class="custom-file">
+            <input asp-for="File" type="file" class="custom-file-input" />
+            <label class="custom-file-label" for="pdfFile">Escoge un archivo</label>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+﻿<div class="modal fade" id="add_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-xxl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nuevas Guías Valorizadas</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="add_alert" class="alert alert-danger alert-dismissible fade d-none" role="alert">
+                    <span id="add_alert_text"></span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label class="col-form-label">Familia</label>
+                        <select id="supply_family_add" class="form-control kt-select2 select2-supply-families">
+                            <option>Todos</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="col-form-label">Grupo</label>
+                        <select id="supply_group_add" class="form-control kt-select2 select2-supply-groups">
+                            <option>Todos</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="col-form-label">Proveedor</label>
+                        <select id="provider_add" class="form-control kt-select2 select2-providers">
+                            <option>Todos</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="kt-portlet__head-toolbar">
+                    <div class="kt-portlet__head-wrapper">
+                        <div class="kt-portlet__head-actions">
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" id="search">
+                                <!-- data-target="#add_item_modal" -->
+                                <span><i class="la la-search"></i><span>Buscar</span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label class="col-form-label">Año</label>
+                        <select id="year_add" class="form-control kt-select2 select2-years">
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="col-form-label">Mes</label>
+                        <select id="month_add" class="form-control kt-select2 select2-months">
+                            @foreach (var item in ConstantHelpers.Months.VALUES)
+                            {
+                                <option value="@item.Key">@item.Value</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <table class="table table-striped table-bordered table-hover table-checkable datatable" id="add_datatable" role="grid"></table>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <i class="la la-close"></i>
+                        Cerrar
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="save">
+                        <i class="la la-save"></i>
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

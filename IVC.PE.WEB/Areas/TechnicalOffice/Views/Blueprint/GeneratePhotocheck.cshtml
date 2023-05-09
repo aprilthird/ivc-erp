@@ -1,0 +1,93 @@
+﻿@model BlueprintFoldingViewModel 
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style scoped>
+        body {
+            font-family: Poppins, Helvetica, sans-serif;
+            font-size: 8px;
+            background-color: #fff;
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .row {
+            width: 100%;
+        }
+
+        .col-lg-12 {
+            width: 100%;
+        }
+
+        .col-lg-11 {
+            width: 91.63%;
+        }
+
+        .col-lg-10 {
+            width: 83.33%;
+        }
+
+        .col-lg-8 {
+            width: 66.64%;
+        }
+
+        .col-lg-6 {
+            width: 49.48%;
+        }
+
+        .col-lg-5 {
+            width: 41.65%;
+        }
+
+        .col-lg-3 {
+            width: 24.99%;
+        }
+
+        .col-lg-4 {
+            width: 33.32%;
+        }
+
+        .col-lg-2 {
+            width: 16.66%;
+        }
+
+        .col-lg-1 {
+            width: 8.33%;
+        }
+    </style>
+</head>
+<body>
+    <table class="center" border="1" style="table-layout:auto; width: 140mm; height: 50mm; border-collapse: collapse;">
+        <tr>
+            <!--Parte frontal del fotocheck-->
+            <td colspan="6" class="col-lg-">
+                <table class="center" style="table-layout: fixed; width: 120mm; height: 40mm; max-height: 40mm;">
+
+                    
+                    <tr style="height: 35mm;">
+                        <td colspan="4" class="col-lg-4">
+                            <label class="label" style="font-size: 25px;"><b>@Model.Code</b></label><br />
+                        </td>
+                        <td colspan="8" class="col-lg-8">
+                            @if (ViewBag.QRCodeImage != null)
+                            {
+                                <img src="@ViewBag.QRCodeImage" alt="" style="height:40mm; width:55mm; display: block; margin-left: 100px; margin-right: 100px;" />
+                            }
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <!--Parte posterior del fotocheck-->
+            
+        </tr>
+    </table>
+</body>
+</html>

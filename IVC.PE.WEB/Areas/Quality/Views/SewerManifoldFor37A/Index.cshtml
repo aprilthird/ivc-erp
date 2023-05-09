@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "For-37A";
+    ViewBag.SubTitle = "Registro de Soldadura por Termofusión y Electrofusión en Tubería HDPE";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.Quality.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    @if (canEdit)
+                    {
+                        <div class="btn-group" role="group" airal-label="Button group with nested dropdown">
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add_modal"><span><i class="la la-plus"></i><span>Nuevo</span></span></button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label class="col-form-label">Cantidad Total Termofusiones</label>
+                <input id="total_termofusiones" class="form-control" disabled="disabled" />
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Cantidad Total Electrofusiones Tub.</label>
+                <input id="total_electrofusiones_tub" class="form-control" disabled="disabled" />
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Cantidad Total Electrofusiones Pas.</label>
+                <input id="total_electrofusiones_pas" class="form-control" disabled="disabled" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label class="col-form-label">Cuadrillas</label>
+                <select id="sewergroup_filter" class="form-control kt-select2 select2-sewergroup-filter">
+                    <option>Todos</option>
+                </select>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_project" role="tabpanel">
+                <table class="table table-striped table-bordered table-hover table-chekable dataTable" id="for37As_datatable" role="grid">
+                    <thead>
+                        <!--14-->
+                        <tr>
+                            <th colspan="3" style="text-align:center;">Ubicación</th>
+                            <th colspan="12" style="text-align:center;">TRAMOS</th>
+                        </tr>
+                        <tr>
+                            <th rowspan="2" style="text-align:center;"># Protocolo</th>
+                            <th rowspan="2" style="text-align:center;">CUADRILLA</th>
+                            <th rowspan="2" style="text-align:center;">DIRECCIÓN</th>
+                            <th rowspan="2" style="text-align:center;">Nombre</th>
+                            <th rowspan="2" style="text-align:center;">Long. Tuberia Instalda</th>
+                            <th colspan="3" style="text-align:center;">Pegas de tuberias</th>
+                            <th colspan="2" style="text-align:center;">Fechas</th>
+                            <th colspan="4" style="text-align:center;">Lote de Tuberias</th>
+                            <th rowspan="2" style="text-align:center;">Folding</th>
+                            <th rowspan="2" style="text-align:center;">Opciones</th>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;"># Termofusiones</td>
+                            <td style="text-align:center;"># Electrofusiones Tub.</td>
+                            <td style="text-align:center;"># Electrofusiones Pas.</td>
+                            <td style="text-align:center;">Inicio Electrofusión</td>
+                            <td style="text-align:center;">Fin de Electrofusión</td>
+                            <td style="text-align:center;">1</td>
+                            <td style="text-align:center;">2</td>
+                            <td style="text-align:center;">3</td>
+                            <td style="text-align:center;">4</td>
+                        </tr>
+
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (canEdit)
+{
+    <partial name="_CreateModal" />
+    <partial name="_EditModal" />
+    <partial name="_CreateFoldingModal" />
+    <partial name="_EditFoldingModal" />
+}
+<partial name="_DetailModal" />
+<partial name="_PdfModal" />
+
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/quality/sewer-manifold-for37A/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/quality/sewer-manifold-for37A/index.js"></script>
+    }
+}
+

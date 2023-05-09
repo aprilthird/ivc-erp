@@ -1,0 +1,32 @@
+﻿@model TrainingSessionViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="TrainingCategoryId" class="label"></label>
+        <select asp-for="TrainingCategoryId" class="form-control kt-select select2-categories"></select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="TrainingTopicId" class="label"></label>
+        <select asp-for="TrainingTopicId" class="form-control kt-select select2-topics"></select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="UserId" class="label"></label>
+        <select asp-for="UserId" class="form-control kt-select select2-users"></select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="SessionDate" class="label"></label>
+        <input asp-for="SessionDate" class="form-control" required />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="WorkFrontId" class="label"></label>
+        <select asp-for="WorkFrontId" class="form-control kt-select select2-workfronts"></select>
+    </div>
+</div>

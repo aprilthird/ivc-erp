@@ -1,0 +1,33 @@
+﻿@model FoldingFor37AViewModel
+
+<input asp-for="Id" hidden />
+
+<input asp-for="SewerManifoldFor37AId" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="WeldingType" class="label"></label>
+        <input asp-for="WeldingType" hidden />
+        <select name="select_welding" class="form-control kt-select select2-welding" data-placeholder="Tipo de Soldadura">
+            @foreach (var item in ConstantHelpers.Welding.Type.NAMES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="MeetingNumber" class="label"></label>
+        <input asp-for="MeetingNumber" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="Date" class="label"></label>
+        <div class="input-group">
+            <input asp-for="Date" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.Security.Racs.RacsLiftPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Levantamiento de RACS">
+    <ContentPage.Content>
+        <AbsoluteLayout 
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding RacsLiftViewModel}"
+            Padding="8">
+            <ScrollView
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional"
+                Padding="0,0,0,80">
+                <StackLayout>
+                    <Label Text="Código RACS"/>
+                    <Entry
+                        IsEnabled="False"
+                        Placeholder="RACS-"
+                        Text="{Binding RacsToLift.Code}"/>
+                    
+                    <Label
+                        Text="Foto de la Observación" 
+                        FontSize="Medium"
+                        VerticalOptions="Center"/>
+                    <Image
+                        Source="{Binding PhotoStream}"
+                        MinimumHeightRequest="250"
+                        BackgroundColor="LightGray"/>
+                    
+                    <!-- Grupo: Levantamiento de RACS -->
+                    <Label 
+                        Text="Levantamiento de RACS"
+                        HorizontalTextAlignment="Center" 
+                        FontAttributes="Bold" 
+                        FontSize="Title"/>
+                    <Editor
+                        Placeholder="Levantamiento de observaciones"
+                        AutoSize="TextChanges"
+                        Text="{Binding RacsToLift.LiftingObservations}"/>
+
+                    <Label
+                            Text="Foto de Conformidad" 
+                            FontSize="Medium"
+                            VerticalOptions="Center"/>
+                    <Button
+                            Command="{Binding AddLiftPhotoCommand}"
+                            HorizontalOptions="EndAndExpand"
+                            BackgroundColor="#00284A"
+                            Text="&#xf030;"
+                            FontFamily="FontAwesome"
+                            TextColor="White" />
+                    <Image
+                        Source="{Binding LiftPhotoStream}"
+                        MinimumHeightRequest="250"
+                        BackgroundColor="LightGray" />
+                </StackLayout>
+            </ScrollView>
+            <Button
+                Command="{Binding SaveRacsLiftCommand}"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds=".98,.98,50,50"
+                BackgroundColor="#00284A"
+                CornerRadius="30"
+                Text="&#xf560;"
+                FontFamily="FontAwesome"
+                FontSize="30"
+                TextColor="White">
+            </Button>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

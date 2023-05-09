@@ -1,0 +1,32 @@
+﻿@model EquipmentProviderFoldingViewModel
+
+<input asp-for="Id" hidden />
+
+<input asp-for="EquipmentProviderId" hidden/>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="EquipmentMachineryTypeId" class="label"></label>
+        <input asp-for="EquipmentMachineryTypeId" hidden />
+        <select name="select_machinery" class="form-control kt-select select2-machinerys" data-placeholder="Tipo de Equipo">
+        </select>
+    </div>
+    <div class="col-lg-6 soft_group">
+        <label asp-for="EquipmentMachineryTypeSoftId" class="label"></label>
+        <input asp-for="EquipmentMachineryTypeSoftId" hidden />
+        <select name="select_machinery_type_soft" class="form-control kt-select select2-softs" data-placeholder="Tipo de Equipo Menor">
+        </select>
+    </div>
+    <div class="col-lg-6 type_group" hidden>
+        <label asp-for="EquipmentMachineryTypeTypeId" class="label"></label>
+        <input asp-for="EquipmentMachineryTypeTypeId" hidden />
+        <select name="select_machinery_type_type" class="form-control kt-select select2-machineries" data-placeholder="Tipo de Maquinaria">
+        </select>
+    </div>
+    <div class="col-lg-6 transport_group" hidden>
+        <label asp-for="EquipmentMachineryTypeTransportId" class="label"></label>
+        <input asp-for="EquipmentMachineryTypeTransportId" hidden />
+        <select name="select_machinery_type_transport" class="form-control kt-select select2-transports" data-placeholder="Tipo de Transporte">
+        </select>
+    </div>
+</div>

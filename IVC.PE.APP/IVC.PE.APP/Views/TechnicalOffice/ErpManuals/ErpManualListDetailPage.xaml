@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.TechnicalOffice.ErpManuals.ErpManualListDetailPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Lista de Manuales ERP">
+    <ContentPage.Content>
+        <AbsoluteLayout
+            x:Name="layout"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding ErpManualListDetailViewModel}"
+            Padding="8">
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional">
+
+                <Label
+                    Text="Lista de Manuales ERP"
+                    FontSize="Medium"
+                    FontAttributes="Bold"></Label>
+
+                <ScrollView
+                    Padding="0,0,0,80">
+                    <ListView
+                        SelectionMode="None"
+                        HasUnevenRows="True"
+                        ItemsSource="{Binding BPList}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        <MenuItem Text="Manual Adjunto" 
+                                                  Command="{Binding Path=BindingContext.PdfErpManualsCommand, Source={x:Reference layout}}"
+                                                  CommandParameter="{Binding .}"/>
+
+
+                                    </ViewCell.ContextActions>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout
+                                            Grid.Column="0"
+                                            VerticalOptions="Center"
+                                            Orientation="Vertical">
+                                            <Label
+                                                FontSize="Medium"
+                                                FontAttributes="Bold"
+                                                Text="{Binding AreaModuleDescription}">
+                                            </Label>
+                                            <Label
+                                                FontSize="Large"
+                                                FontAttributes="Bold"
+                                                Text="{Binding Name}">
+                                            </Label>
+                                        </StackLayout>
+
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>
+
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

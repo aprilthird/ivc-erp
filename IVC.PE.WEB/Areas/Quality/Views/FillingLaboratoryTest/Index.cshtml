@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Pruebas de Laboratorio de Relleno";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.Quality.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title">
+                Listado de Pruebas
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" id="btn-massive-load">
+                        <span>
+                            <i class="la la-file-excel-o"></i>
+                            <span>Formato Carga Masiva</span>
+                        </span>
+                    </button>
+                    <button type="button" class="btn btn-secondary btn-export"><span><i class="la la-download"></i><span>Exportar</span></span></button>
+                    @if (canEdit)
+                    {
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Importar
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
+                                <a class="dropdown-item" href="javascript;" data-toggle="modal" data-target="#import_data_modal">Datos</a>
+                                <a class="dropdown-item" href="javascript;" data-toggle="modal" data-target="#import_files_modal">Archivos</a>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add_modal"><span><i class="la la-plus"></i><span>Nuevo</span></span></button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label class="col-form-label">Material</label>
+                <select id="material_type_filter" class="form-control kt-select2 select2-material-types">
+                    <option>Todos</option>
+                    @foreach (var item in ConstantHelpers.Certificate.FillingLaboratory.MaterialType.VALUES)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Procedencia</label>
+                <select id="origin_type_filter" class="form-control kt-select2 select2-origin-types">
+                    <option>Todas</option>
+                </select>
+            </div>
+            <div class="col-md-1">
+                <label class="col-form-label">Archivo</label>
+                <input id="has_file" type="checkbox" class="form-control" />
+            </div>
+        </div>
+        <table class="table table-striped table-bordered table-hover table-checkable datatable" id="filling_laboratory_test_datatable" role="grid"></table>
+    </div>
+</div>
+
+@if (canEdit)
+{
+    <partial name="_CreateModal" />
+    <partial name="_ImportDataModal" />
+    <partial name="_ImportFilesModal" />
+    <partial name="_EditModal" />
+}
+
+<partial name="_PdfModal" />
+
+@section Scripts {
+    <script src="~/lib/jquery-file-download/jquery.fileDownload.min.js"></script>
+    @if (canEdit)
+    {
+        <script src="~/js/areas/quality/filling-laboratory-test/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/quality/filling-laboratory-test/readonly-index.js"></script>
+    }
+}

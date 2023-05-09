@@ -1,0 +1,17 @@
+﻿@model SpecialityViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+
+    <div class="col-lg-6">
+        <label asp-for="Formulas" class="label"></label>
+        <select asp-for="Formulas" class="select2-formulas" multiple style="visibility: hidden;" />
+        <select name="select_formulas" class="form-control kt-select2 select2-formulas" multiple data-placeholder="Fórmulas"></select>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="Description" class="label"></label>
+        <input asp-for="Description" class="form-control" required />
+    </div>
+</div>

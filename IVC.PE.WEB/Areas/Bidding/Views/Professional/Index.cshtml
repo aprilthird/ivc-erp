@@ -1,0 +1,88 @@
+﻿
+
+@{
+    ViewBag.Title = "Licitaciones";
+    ViewBag.SubTitle = "Profesionales";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.Bidding.PARTIAL_ACCESS);
+}
+
+@section Styles {
+    <link href="https://taitems.github.io/jQuery.Gantt/css/style.css" rel="stylesheet" />
+    <style>
+        .spacer {
+            font-size: 36px;
+            font-weight: bold;
+        }
+    </style>
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    @if (canEdit)
+                    {
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add_modal"><span><i class="la la-plus"></i><span>Nuevo</span></span></button>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" id="btn-sheduler" data-target="#sheduler_modal">
+                            <span>
+                                <i class="la la-calendar"></i>
+                                <span>Linea de Experiencia</span>
+                            </span>
+                        </button>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+            <div class="col-md-2">
+                <label class="col-form-label">Profesión</label>
+                <select id="profe_filter" name="select_profe_filter" class="form-control kt-select select2-profe_filters" data-placeholder="Profesión">
+                    <option>Todos</option>
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <label class="col-form-label">Cargo</label>
+                <select id="position_filter" name="select_position_filter" class="form-control kt-select select2-position_filters" data-placeholder="Cargo">
+                    <option>Todos</option>
+                </select>
+            </div>
+        </div>
+        <table class="table table-striped table-bordered table-hover table-checkable datatable" id="professional_datatable" role="grid"></table>
+    </div>
+</div>
+
+@if (canEdit)
+{
+    <partial name="_CreateModal" />
+    <partial name="_EditModal" />
+    <partial name="_CreateFoldingModal" />
+    <partial name="_EditFoldingModal" />
+}
+<partial name="_Sheduler" />
+<partial name="_DetailModal" />
+<partial name="_PdfModal" />
+
+@section Scripts {
+    @if (canEdit)
+    {<script src="https://taitems.github.io/jQuery.Gantt/js/jquery.fn.gantt.js"></script>
+        <script src="~/js/areas/bidding/professionals/index.js"></script>
+    }
+    else
+    {<script src="https://taitems.github.io/jQuery.Gantt/js/jquery.fn.gantt.js"></script>
+        <script src="~/js/areas/bidding/professionals/index.js"></script>
+    }
+}

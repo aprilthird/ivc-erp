@@ -1,0 +1,88 @@
+﻿@model SewerGroupPeriodViewModel
+
+<input asp-for="Id" hidden />
+<input asp-for="SewerGroupId" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="WorkFrontId" class="label"></label>
+        <select asp-for="WorkFrontId" class="form-control kt-select2 select2-work-fronts" data-placeholder="Frente"></select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="WorkFrontHeadId" class="label"></label>
+        <select asp-for="WorkFrontHeadId" class="form-control kt-select2 select2-work-front-heads" required data-placeholder="Jefe de Frente"></select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="WorkComponent" class="label"></label>
+        <select asp-for="WorkComponent" class="form-control kt-select2 select2-work-components">
+            @foreach (var item in ConstantHelpers.Sewer.Group.WorkComponent.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="WorkStructure" class="label"></label>
+        <select asp-for="WorkStructure" class="form-control kt-select2 select2-work-structures">
+            @foreach (var item in ConstantHelpers.Sewer.Group.WorkStructure.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="Destination" class="label"></label>
+        <select asp-for="Destination" class="form-control kt-select2 select2-destinations" required>
+            @foreach (var item in ConstantHelpers.Sewer.Group.Destination.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="ProviderId" class="label"></label>
+        <select asp-for="ProviderId" class="form-control kt-select2 select2-providers"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="ProjectCollaboratorId" class="label"></label>
+        <select asp-for="ProjectCollaboratorId" class="form-control kt-select2 select2-project-collaborators"></select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="ForemanId" class="label"></label>
+        <select asp-for="ForemanId" class="form-control kt-select2 select2-workers"></select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="DateStart" class="label"></label>
+        <div class="input-group">
+            <input asp-for="DateStart" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="DateEnd" class="label"></label>
+        <div class="input-group">
+            <input asp-for="DateEnd" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

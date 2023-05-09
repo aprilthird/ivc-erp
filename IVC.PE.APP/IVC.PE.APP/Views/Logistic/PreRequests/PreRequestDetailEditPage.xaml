@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.Logistic.PreRequests.PreRequestDetailEditPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Editar Item">
+    <ContentPage.Content>
+        <AbsoluteLayout
+            x:Name="layout"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding PreRequestDetailEditViewModel}"
+            Padding="8">
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional">
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Button
+                        Command="{Binding ChangeEnableCommand}"
+                        Text="Ingreso Manual"
+                        IsVisible="{Binding IsSupplyVisible}"/>
+                    <Button
+                        Command="{Binding ChangeEnableCommand}"
+                        Text="Deshacer Ingreso Manual"
+                        IsVisible="{Binding IsManualVisible}"/>
+                </StackLayout>
+
+
+                <Label
+                        Text="Para ser usado en:(Frente)"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Fronts}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedFront}" />
+                </StackLayout>
+
+                <Label
+                        Text="Insumos"
+                    IsVisible="{Binding IsSupplyVisible}"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Supplies}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedSupply}"
+                        IsVisible="{Binding IsSupplyVisible}"/>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Entry
+                         HorizontalOptions="FillAndExpand"
+                       Placeholder = "Ingreso Insumo Manual"
+                        Text="{Binding ManualEntrySupply , Mode=TwoWay}"
+                        IsVisible="{Binding IsManualVisible}"
+                        />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Entry
+                         HorizontalOptions="FillAndExpand"
+                       Placeholder = "Ingreso Unidad Manual"
+                        Text="{Binding ManualEntryUnit , Mode=TwoWay}"
+                        IsVisible="{Binding IsManualVisible}"
+                        />
+                </StackLayout>
+
+                <Label
+                        Text="Metrado"></Label>
+
+                <StackLayout Orientation="Horizontal">
+                    <Entry
+                         HorizontalOptions="FillAndExpand"
+                       Placeholder = "Metrado"
+                        Text="{Binding Measure , Mode=TwoWay}"
+                        />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Entry
+                         HorizontalOptions="FillAndExpand"
+                       Placeholder = "Observaciones"
+                        Text="{Binding Observations , Mode=TwoWay}"
+                        />
+                </StackLayout>
+
+
+            </StackLayout>
+
+            <Button
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds=".98,.98,50,50"
+                BackgroundColor="#00284A"
+                Command="{Binding ToSaveCommand}"
+                CornerRadius="30"
+                Text="&#xf0c7;"
+                FontFamily="FontAwesome"
+                FontSize="30"
+                TextColor="White">
+            </Button>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

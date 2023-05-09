@@ -1,0 +1,563 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<!--Begin::Row-->
+<div class="row">
+    <div class="col-lg-6 col-xl-4 order-lg-1 order-xl-1">
+        <!--begin:: Widgets/Workers Week Count-->
+        <div class="kt-portlet kt-portlet--fit kt-portlet--head-noborder kt-portlet--height-fluid-half">
+            <div class="kt-portlet__head kt-portlet__space-x">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">
+                        Mano de Obra
+                    </h3>
+                </div>
+                <div class="kt-portlet__head-toolbar">
+                    <div class="dropdown dropdown-inline">
+                        <a class="btn btn-clean btn-hover-light-primary btn-sm btn-icon" data-toggle="modal" data-target="#workers_filter_modal">
+                            <i class="fa fa-filter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="kt-portlet__body kt-portlet__body--fluid">
+                <div class="kt-widget20">
+                    <div class="kt-widget20__content kt-portlet__space-x">
+                        <span id="kt_chart_workers_week_count_filter" class="kt-widget20__number kt-font-brand"></span>
+                        <span id="kt_chart_workers_week_count_count" class="kt-widget20__number kt-font-brand"></span>
+                        <span id="kt_chart_workers_week_count_week" class="kt-widget20__desc">Cargando...</span>
+                    </div>
+                    <div class="kt-widget20__chart" style="min-height:130px;">
+                        <canvas id="kt_chart_workers_week_count"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end:: Widgets/Workers Week Count-->      <div class="kt-space-20"></div>
+        <!--begin:: Widgets/RACS Daily Count-->
+        <div class="kt-portlet kt-portlet--fit kt-portlet--head-noborder kt-portlet--height-fluid-half">
+            <div class="kt-portlet__head kt-portlet__space-x">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">
+                        RACS
+                    </h3>
+                </div>
+            </div>
+            <div class="kt-portlet__body kt-portlet__body--fluid">
+                <div class="kt-widget20">
+                    <div class="kt-widget20__content kt-portlet__space-x">
+                        <span id="kt_chart_racs_daily_count_count" class="kt-widget20__number kt-font-danger"></span>
+                        <span id="kt_chart_racs_daily_count_day" class="kt-widget20__desc">Cargando...</span>
+                    </div>
+                    <div class="kt-widget20__chart" style="min-height:130px;">
+                        <canvas id="kt_chart_racs_daily_count"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end:: Widgets/RACS Daily Count-->
+    </div>
+    <div class="col-lg-6 col-xl-4 order-lg-1 order-xl-1">
+        <!--begin:: Widgets/Workers Week Count-->
+        <div class="kt-portlet kt-portlet--fit kt-portlet--head-noborder kt-portlet--height-fluid-half">
+            <div class="kt-portlet__head kt-portlet__space-x">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">
+                        Horas Trabajadas por Semana
+                    </h3>
+                </div>
+            </div>
+            <div class="kt-portlet__body kt-portlet__body--fluid">
+                <div class="kt-widget20">
+                    <div class="kt-widget20__content kt-portlet__space-x">
+                        <span id="kt_chart_hours_filter" class="kt-widget20__number kt-font-brand"></span>
+                        <span id="kt_chart_hours_title" class="kt-widget20__number kt-font-brand"></span>
+                        <span id="kt_chart_hours_subtitle" class="kt-widget20__desc">Cargando...</span>
+                    </div>
+                    <div class="kt-widget20__chart" style="min-height:130px;">
+                        <canvas id="kt_chart_hours"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end:: Widgets/Workers Week Count-->      <div class="kt-space-20"></div>
+        <!--begin:: Widgets/RACS Daily Count-->
+        <div class="kt-portlet kt-portlet--fit kt-portlet--head-noborder kt-portlet--height-fluid-half">
+            <div class="kt-portlet__head kt-portlet__space-x">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">
+                        Cartas Enviadas y Recibidas
+                    </h3>
+                </div>
+            </div>
+            <div class="kt-portlet__body kt-portlet__body--fluid">
+                <div class="kt-widget20">
+                    <div class="kt-widget20__chart" style="min-height:130px;">
+                        <canvas id="kt_chart_letters"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end:: Widgets/RACS Daily Count-->
+    </div>
+    <div class="col-lg-6 col-xl-4 order-lg-1 order-xl-1">
+        <!--begin:: Widgets/Workers Week Count-->
+        <div class="kt-portlet kt-portlet--fit kt-portlet--head-noborder kt-portlet--height-fluid-half">
+            <div class="kt-portlet__head kt-portlet__space-x">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">
+                        Costo Mano de Obra por Semana
+                    </h3>
+                </div>
+            </div>
+            <div class="kt-portlet__body kt-portlet__body--fluid">
+                <div class="kt-widget20">
+                    <div class="kt-widget20__content kt-portlet__space-x">
+                        <span id="kt_chart_costs_filter" class="kt-widget20__number kt-font-brand"></span>
+                        <span id="kt_chart_costs_title" class="kt-widget20__number kt-font-brand"></span>
+                        <span id="kt_chart_costs_subtitle" class="kt-widget20__desc">Cargando...</span>
+                    </div>
+                    <div class="kt-widget20__chart" style="min-height:130px;">
+                        <canvas id="kt_chart_costs"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end:: Widgets/Workers Week Count-->      <div class="kt-space-20"></div>
+        <!--begin:: Widgets/RACS Daily Count-->
+        <div class="kt-portlet kt-portlet--fit kt-portlet--head-noborder kt-portlet--height-fluid-half">
+            <div class="kt-portlet__head kt-portlet__space-x">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">
+                        Cartas Fianza Activas
+                    </h3>
+                </div>
+            </div>
+            <div class="kt-portlet__body kt-portlet__body--fluid">
+                <div class="kt-widget20">
+                    <div class="kt-widget20__content kt-portlet__space-x">
+                        <span id="kt_chart_bonds_title" class="kt-widget20__number kt-font-brand"></span>
+                        <span id="kt_chart_bonds_subtitle" class="kt-widget20__desc">Cargando...</span>
+                    </div>
+                    <div class="kt-widget20__chart" style="min-height:130px;">
+                        <canvas id="kt_chart_bonds"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end:: Widgets/RACS Daily Count-->
+    </div>
+</div>
+<!--End::Row-->
+<!--Begin::Row-->
+<div class="row">
+    <div class="col-xl-4 col-lg-6 order-lg-3 order-xl-1">
+        <!--begin:: Widgets/New Users-->
+        <div class="kt-portlet kt-portlet--tabs kt-portlet--height-fluid">
+            <div class="kt-portlet__head">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">
+                        Gestión RRHH
+                    </h3>
+                </div>
+                <div class="kt-portlet__head-toolbar">
+                    <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-brand" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#kt_widget4_tab1_content" role="tab">
+                                Pendientes
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="kt-portlet__body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="kt_widget4_tab1_content">
+                        <div id="pendingAuths" class="kt-widget4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end:: Widgets/New Users-->
+    </div>
+    <!--
+    <div class="col-xl-4 col-lg-6 order-lg-3 order-xl-1">
+        <!--begin:: Widgets/Tasks ->
+        <div class="kt-portlet kt-portlet--tabs kt-portlet--height-fluid">
+            <div class="kt-portlet__head">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">
+                        Tareas
+                    </h3>
+                </div>
+                <div class="kt-portlet__head-toolbar">
+                    <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-brand" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#kt_widget2_tab1_content" role="tab">
+                                Hoy
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#kt_widget2_tab2_content" role="tab">
+                                Mes
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#kt_widget2_tab3_content" role="tab">
+                                Todo
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="kt-portlet__body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="kt_widget2_tab1_content">
+                        <div class="kt-widget2" id="pending_tasks_1">
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="kt_widget2_tab2_content">
+                        <div class="kt-widget2" id="pending_tasks_2">
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="kt_widget2_tab3_content">
+                        <div class="kt-widget2" id="pending_tasks_3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end:: Widgets/Tasks ->
+    </div>
+    -->
+    <div class="col-xl-4 col-lg-6 order-lg-3 order-xl-1">
+        <div class="kt-portlet kt-portlet--tabs kt-portlet--height-fluid">
+            <div class="kt-portlet__head">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">
+                        Requerimientos (Pendientes de Aprobación)
+                    </h3>
+                </div>
+            </div>
+            <div class="kt-portlet__body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="kt_widget2_tab1_content">
+                        <div class="kt-widget2" id="pending_requests">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 order-lg-3 order-xl-1">
+        <div class="kt-portlet kt-portlet--tabs kt-portlet--height-fluid">
+            <div class="kt-portlet__head">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">
+                        Órdenes (Pendientes de Aprobación)
+                    </h3>
+                </div>
+            </div>
+            <div class="kt-portlet__body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="kt_widget2_tab1_content">
+                        <div class="kt-widget2" id="pending_orders">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::Row-->
+
+<div class="row">
+    <div class="col-lg-6 col-xl-12 order-lg-1 order-xl-1">
+        <!--begin:: Widgets/Workers Week Count-->
+        <div class="kt-portlet kt-portlet--fit kt-portlet--head-noborder kt-portlet--height-fluid-half">
+            <div class="kt-portlet__head kt-portlet__space-x">
+
+
+                <div class="kt-portlet__body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div id="scq2Dashboard" class="col-lg-12">
+                                <div id="scq2Chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="kt-portlet__body kt-portlet__body--fluid">
+                <div class="kt-widget20">
+                    <div class="kt-widget20__content kt-portlet__space-x">
+
+                    </div>
+                    <div class="kt-widget20__chart" style="height:130px;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end:: Widgets/Workers Week Count-->      <div class="kt-space-20"></div>
+        <!--begin:: Widgets/RACS Daily Count-->
+        <div class="kt-portlet kt-portlet--fit kt-portlet--head-noborder kt-portlet--height-fluid-half">
+            <div class="kt-portlet__head kt-portlet__space-x">
+            </div>
+            <div class="kt-portlet__body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div id="scqDashboard" class="col-lg-12">
+                            <div id="scqChart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end:: Widgets/RACS Daily Count-->
+    </div>
+</div>
+
+
+<partial name="_WorkersFilterModal" />
+<partial name="_RequestModal" />
+<partial name="_OrderModal" />
+
+@section Scripts {
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="~/assets/js/pages/dashboard.js"></script>
+    <script>
+        $(function () {
+            function getElement(name, datetime, url) {
+                return $(`<div class="kt-widget2__item kt-widget2__item--primary">
+                                                        <div class="kt-widget2__checkbox">
+                                                            <label class="kt-checkbox kt-checkbox--solid kt-checkbox--single">
+                                                                <input type="checkbox">
+                                                                <span></span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="kt-widget2__info">
+                                                            <a href="#" class="kt-widget2__title">
+                                                                ${name}
+                                                            </a>
+                                                            <a href="#" class="kt-widget2__username">
+                                                                Registrada el ${datetime}
+                                                            </a>
+                                                        </div>
+                                                        <div class="kt-widget2__actions">
+                                                            <a href="${url}" class="btn btn-clean btn-sm btn-icon btn-icon-md">
+                                                                <i class="fa fa-arrow-right"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>`);
+            }
+
+            function getRequest(name, datetime, id) {
+                return $(`<div class="kt-widget2__item kt-widget2__item--primary">
+                                                        <div class="kt-widget2__checkbox">
+                                                        </div>
+                                                        <div class="kt-widget2__info">
+                                                            <a href="#" class="kt-widget2__title">
+                                                                ${name}
+                                                            </a>
+                                                            <a href="#" class="kt-widget2__username">
+                                                                Registrada el ${datetime}
+                                                            </a>
+                                                        </div>
+                                                        <div class="kt-widget2__actions">
+                                                            <a data-id="${id}" class="btn btn-clean btn-sm btn-icon btn-excel" title="Descargar Excel">
+                                                                <i class="la la-file-excel-o"></i>
+                                                            </a>
+                                                            <a data-id="${id}" data-name="${name}" class="btn btn-clean btn-sm btn-icon btn-cancel" title="Anular">
+                                                                <i class="la la-times-circle"></i>
+                                                            </a>
+                                                            <a data-id="${id}" class="btn btn-clean btn-sm btn-icon btn-send" title="Enviar Observación" >
+                                                                <i class="la la-comment"></i>
+                                                            </a>
+                                                            <a data-id="${id}" data-name="${name}" class="btn btn-clean btn-sm btn-icon btn-approved" title="Aprobar">
+                                                                <i class="la la-check-circle"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>`);
+            }
+
+            function getOrder(name, datetime, id) {
+                return $(`<div class="kt-widget2__item kt-widget2__item--primary">
+                                                        <div class="kt-widget2__checkbox">
+                                                        </div>
+                                                        <div class="kt-widget2__info">
+                                                            <a href="#" class="kt-widget2__title">
+                                                                ${name}
+                                                            </a>
+                                                            <a href="#" class="kt-widget2__username">
+                                                                Registrada el ${datetime}
+                                                            </a>
+                                                        </div>
+                                                        <div class="kt-widget2__actions">
+                                                            <a data-id="${id}" class="btn btn-clean btn-sm btn-icon btn-excel" title="Descargar Excel">
+                                                                <i class="la la-file-excel-o"></i>
+                                                            </a>
+                                                            <a data-id="${id}" data-name="${name}" class="btn btn-clean btn-sm btn-icon btn-cancel" title="Anular">
+                                                                <i class="la la-times-circle"></i>
+                                                            </a>
+                                                            <a data-id="${id}" class="btn btn-clean btn-sm btn-icon btn-send" title="Enviar Observación" >
+                                                                <i class="la la-comment"></i>
+                                                            </a>
+                                                            <a data-id="${id}" data-name="${name}" class="btn btn-clean btn-sm btn-icon btn-approved" title="Aprobar">
+                                                                <i class="la la-check-circle"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>`);
+            }
+
+            function loadPendingTasks(containerSelector, term) {
+                _app.loader.showOnElement(containerSelector);
+                $.ajax({
+                    url: _app.parseUrl(`/tareas-pendientes?term=${term}`)
+                }).done(function (result) {
+                    $.each(result, function (i, item) {
+                        let element = getElement(item.name, item.dateTimeString, item.url);
+                        $(containerSelector).append(element);
+                    });
+                    _app.loader.hideOnElement(containerSelector);
+                });
+            }
+
+            $("#send_form").validate({
+                submitHandler: function (formElement, e) {
+                    e.preventDefault();
+                    let data = $(formElement).serialize();
+                    let $btn = $(formElement).find("button[type='submit']");
+                    $btn.addLoader();
+                    $(formElement).find("input, select").prop("disabled", true);
+                    $.ajax({
+                        url: _app.parseUrl(`/enviar-obs/{id}`),
+                        method: "post",
+                        data: data
+                    })
+                        .always(function () {
+                            $btn.removeLoader();
+                            $(formElement).find("input, select").prop("disabled", false);
+                        })
+                        .done(function (result) {
+                            _app.show.notification.add.success();
+                            $("#send_modal").modal("hide");
+                            $.ajax({
+                                url: _app.parseUrl('/requerimientos-pendientes'),
+                                dataSrc: ""
+                            }).done(function (result) {
+                                $("#pending_requests").empty();
+                                $.each(result, function (i, item) {
+                                    let element = getRequest(item.correlativeCodeStr, item.reviewDate, item.id);
+                                    $("#pending_requests").append(element);
+                                });
+                            });
+                        })
+                        .fail(function (error) {
+                            _app.show.notification.add.error();
+                        });
+                }
+            });
+
+            $("#send_modal").on("hidden.bs.modal",
+                function () {
+                    $("#send_form").resetForm();
+                });
+
+            $("#send_order_form").validate({
+                submitHandler: function (formElement, e) {
+                    e.preventDefault();
+                    let data = $(formElement).serialize();
+                    let $btn = $(formElement).find("button[type='submit']");
+                    $btn.addLoader();
+                    $(formElement).find("input, select").prop("disabled", true);
+                    $.ajax({
+                        url: _app.parseUrl(`/enviar-obs-order/{id}`),
+                        method: "post",
+                        data: data
+                    })
+                        .always(function () {
+                            $btn.removeLoader();
+                            $(formElement).find("input, select").prop("disabled", false);
+                        })
+                        .done(function (result) {
+                            _app.show.notification.add.success();
+                            $("#send_order_modal").modal("hide");
+                            $.ajax({
+                                url: _app.parseUrl('/ordenes-pendientes'),
+                                dataSrc: ""
+                            }).done(function (result) {
+                                $("#pending_orders").empty();
+                                $.each(result, function (i, item) {
+                                    let element = getOrder(item.correlativeCodeStr, item.reviewDate, item.id);
+                                    $("#pending_orders").append(element);
+                                });
+                            });
+                        })
+                        .fail(function (error) {
+                            _app.show.notification.add.error();
+                        });
+                }
+            });
+
+            $("#send_order_modal").on("hidden.bs.modal",
+                function () {
+                    $("#send_order_form").resetForm();
+                });
+
+            loadPendingTasks("#pending_tasks_1", 1);
+            loadPendingTasks("#pending_tasks_2", 2);
+            loadPendingTasks("#pending_tasks_3");
+        });
+
+        $(document).ready(function () {
+            pendingAuth();
+        });
+
+        // Gestion RRHH
+        function pendingAuth() {
+            $.ajax({
+                url: _app.parseUrl('/autorizaciones-pendientes'),
+                dataSrc: ""
+            }).done(function (result) {
+                $("#pendingAuths").html(result);
+            });
+        };
+
+        function sendAuth(id) {
+            //let $btn = $(this);
+            //let id = $btn.data("id");
+            console.log(id);
+            $.ajax({
+                url: _app.parseUrl(`/recursos-humanos/tareo-semanal/actualizar-autorizacion/${id}`),
+                method: "put"
+            }).done(function () {
+                $("#pendingAuths").empty();
+                pendingAuth();
+                Swal.fire({
+                    type: "success",
+                    title: "Aprobación registrada",
+                    text: "La aprobación ha sida registrada",
+                    confirmButtonText: "Excelente"
+                });
+            }).fail(function () {
+                Swal.fire({
+                    type: "error",
+                    title: "Aprobación fallida",
+                    text: "La aprobación no ha sida registrada",
+                    confirmButtonText: "Entendido"
+                });
+            });
+
+            /*$("#BtnPayrollAuth").on("click", function () {
+
+            });*/
+        };
+    </script>
+}

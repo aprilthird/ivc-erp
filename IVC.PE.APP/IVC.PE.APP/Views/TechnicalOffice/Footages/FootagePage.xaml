@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.TechnicalOffice.Footages.FootagePage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Metrados">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding FootageViewModel}"
+            Padding="8">
+            <Button
+                Command="{Binding SewerBoxFootagePageCommand}"
+                BackgroundColor="#00284A"
+                CornerRadius="30"
+                Text="&#xf773; Buzones"
+                FontFamily="FontAwesome"
+                FontSize="30"
+                TextColor="White">
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

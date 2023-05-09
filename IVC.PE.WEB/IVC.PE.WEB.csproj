@@ -1,0 +1,119 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-IVC.PE.WEB-96F54393-B84C-419B-B871-F9C11D21C8BE</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="%2a%2a\**" />
+    <Compile Remove="wwwroot\js\areas\admin\project-budget\**" />
+    <Content Remove="%2a%2a\**" />
+    <Content Remove="wwwroot\js\areas\admin\project-budget\**" />
+    <EmbeddedResource Remove="%2a%2a\**" />
+    <EmbeddedResource Remove="wwwroot\js\areas\admin\project-budget\**" />
+    <None Remove="%2a%2a\**" />
+    <None Remove="wwwroot\js\areas\admin\project-budget\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="%2a%2a/%2a.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Areas\Quality\Views\SewerManifoldFor47\_DetailModal.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="%2a%2a/%2a.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="%2a%2a/%2a" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.95.3" />
+    <PackageReference Include="Cronos" Version="0.7.0" />
+    <PackageReference Include="EFCore.BulkExtensions" Version="3.1.0" />
+    <PackageReference Include="FreeSpire.PDF" Version="7.8.9" />
+    <PackageReference Include="MailKit" Version="2.6.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.0.96" />
+    <PackageReference Include="QRCoder" Version="1.4.1" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.80.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1" />
+    <PackageReference Include="TimeZoneConverter" Version="3.2.0" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="Areas\Finance\Views\BondGuarantor\Index.cshtml" />
+    <None Include="Areas\Finance\Views\BondGuarantor\_CreateModal.cshtml" />
+    <None Include="Areas\Finance\Views\BondGuarantor\_EditModal.cshtml" />
+    <None Include="Areas\Finance\Views\BondGuarantor\_Fields.cshtml" />
+    <None Include="Areas\Finance\Views\BondLoad\Index.cshtml" />
+    <None Include="Areas\Finance\Views\BondLoad\_CreateModal.cshtml" />
+    <None Include="Areas\Finance\Views\BondLoad\_EditModal.cshtml" />
+    <None Include="Areas\Finance\Views\BondLoad\_Fields.cshtml" />
+    <None Include="Areas\Finance\Views\BondType\Index.cshtml" />
+    <None Include="Areas\Finance\Views\BondType\_CreateModal.cshtml" />
+    <None Include="Areas\Finance\Views\BondType\_EditModal.cshtml" />
+    <None Include="Areas\Finance\Views\BondType\_Fields.cshtml" />
+    <None Include="Areas\Finance\Views\_ViewImports.cshtml" />
+    <None Include="Areas\Finance\Views\_ViewStart.cshtml" />
+    <None Include="wwwroot\js\areas\human-resources\worker-daily-task\index.js" />
+    <None Include="wwwroot\js\areas\human-resources\worker-weekly-task\index.js" />
+    <None Include="wwwroot\js\areas\human-resources\worker\index.js" />
+    <None Include="wwwroot\js\areas\human-resources\worker\index_new_realease.js" />
+    <None Include="wwwroot\js\areas\human-resources\worker\index_old.js" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\IVC.PE.BINDINGRESOURCES\IVC.PE.BINDINGRESOURCES.csproj" />
+    <ProjectReference Include="..\IVC.PE.CORE\IVC.PE.CORE.csproj" />
+    <ProjectReference Include="..\IVC.PE.DATA\IVC.PE.DATA.csproj" />
+    <ProjectReference Include="..\IVC.PE.ENTITIES\IVC.PE.ENTITIES.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Views\WorkArea\" />
+    <Folder Include="Areas\Security\ViewModels\TrainingControlViewModels\" />
+    <Folder Include="Authorization\" />
+    <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="wwwroot\js\areas\admin\work-structure\" />
+    <Folder Include="wwwroot\js\areas\admin\permissions\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Content Update="wwwroot\js\areas\human-resources\email-confirmation\index.js">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>

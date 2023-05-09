@@ -1,0 +1,131 @@
+﻿@{
+    ViewBag.Title = "For-05";
+    ViewBag.SubTitle = "Registro de Resultados de Densidad de Campo y Certificados de Laboratorio";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.Quality.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    @if (canEdit)
+                    {
+                    <div class="btn-group" role="group" airal-label="Button group with nested dropdown">
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" id="btn-massive-load">
+                            <span>
+                                <i class="la la-file-excel-o"></i>
+                                <span>Formato Carga Masiva</span>
+                            </span>
+                        </button>
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="la la-arrow-up"></i>Importar
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
+                                <a class="dropdown-item" href="javascript;" data-toggle="modal" data-target="#import_data_modal">Datos</a>
+                                <a class="dropdown-item" href="javascript;" data-toggle="modal" data-target="#import_files_modal">Archivos PDF's</a>
+                            </div>
+                        </div>
+                        <!--<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#import_data_modal"><span><i class="la la-arrow-up"></i><span>Importar</span></span></button>
+    -->
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add_modal"><span><i class="la la-plus"></i><span>Nuevo</span></span></button>
+                        <!--<button type="button" class="btn btn-secondary" data-toggle="modal" id="btn-massive-delete">
+        <span>
+            <i class="la la-trash-o"></i>
+            <span>Borrar Todo</span>
+        </span>
+    </button>-->
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label class="col-form-label">Cuadrilla</label>
+                <select id="SewerGroup" class="form-control kt-select2 select2-sewergroups">
+                    <option>Todos</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label class="col-form-label">Cantidad Registros</label>
+                <input id="TotalRegister" class="form-control" disabled="disabled" />
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Long. Excavación con For-05 (ml)</label>
+                <input id="LengthFor05" class="form-control" disabled="disabled" />
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Cantidad de Pruebas</label>
+                <input id="TotalTest" class="form-control" disabled="disabled" />
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Porcentaje con For05</label>
+                <input id="PercentageFor05" class="form-control" disabled="disabled" />
+            </div>
+        </div>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_project" role="tabpanel">
+                    <table class="table table-striped table-bordered table-hover table-chekable dataTable" id="for05s_datatable" role="grid">
+                        <thead>
+                            <tr>
+                                <th>N° Certificado</th>
+                                <th>Cuadrilla</th>
+                                <th>Tramo</th>
+                                <th>Direccion</th>
+                                <th>Long. Excavación</th>
+                                <th>H. Zanja (m)</th>
+                                <th>H. Relleno (m)</th>
+                                <th># Total Capas Teorica</th>
+                                <th># Total Capas Verificadas</th>
+                                <th># Pruebas</th>
+                                <th>Fecha de ensayo</th>
+                                <th>Estado</th>
+                                <th>Fecha de envío</th>
+                                <th>Folding</th>
+                                <th>Opciones</th>
+                            </tr>
+
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@if (canEdit)
+{
+    <partial name="_CreateModal" />
+    <partial name="_EditModal" />
+    <partial name="_CreateFoldingModal" />
+    <partial name="_EditFoldingModal" />
+
+}
+<partial name="_DetailModal" />
+<partial name="_PdfModal" />
+<partial name="_ImportDataModal" />
+<partial name="_ImportFilesModal" />
+
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/quality/sewer-manifold-for05/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/quality/sewer-manifold-for05/index.js"></script>
+    }
+}

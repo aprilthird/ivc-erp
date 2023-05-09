@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Seguridad";
+    ViewBag.SubTitle = "Listado de Trabajadores";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.Security.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label class="col-form-label">Categor&iacute;a</label>
+                <select id="category_filter" class="form-control kt-select select2-categories">
+                    <option>Todas</option>
+                    @foreach (var item in ConstantHelpers.Worker.Category.VALUES)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Origen</label>
+                <select id="origin_filter" class="form-control kt-select select2-categories">
+                    <option>Todas</option>
+                    @foreach (var item in ConstantHelpers.Worker.Origin.VALUES)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Procedencia</label>
+                <select id="workgroup_filter" class="form-control kt-select select2-categories">
+                    <option>Todas</option>
+                    @foreach (var item in ConstantHelpers.Worker.Workgroup.VALUES)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label class="col-form-label">Estado</label>
+                <select id="status_filter" class="form-control kt-select select2-categories">
+                    <option>Todos</option>
+                    <option selected value="activo">Activos</option>
+                    <option value="cesado">Cesados</option>
+                </select>
+            </div>
+        </div>
+        <table class="table table-striped table-bordered table-hover table-checkable datatable" id="workers_datatable" role="grid"></table>
+    </div>
+</div>
+
+<partial name="_DetailModal" />
+
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/security/training-control/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/security/training-control/index.js"></script>
+    }
+}

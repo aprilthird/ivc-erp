@@ -1,0 +1,154 @@
+﻿@using System.Collections.Generic
+@using System.Linq
+@using Microsoft.AspNetCore.Http
+@model LoginViewModel
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+    ViewBag.Title = "Iniciar Sesión";
+    Layout = "_NotAuthenticatedLayout";
+}
+
+<h2>@ViewData["Title"]</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <section>
+                <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                    <h4>Use a local account to log in.</h4>
+                    <hr />
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label asp-for="RememberMe">
+                                <input asp-for="RememberMe" />
+                                @Html.DisplayNameFor(m => m.RememberMe)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default">Log in</button>
+                    </div>
+                    <div class="form-group">
+                        <p>
+                            <a asp-action="ForgotPassword">Forgot your password?</a>
+                        </p>
+                        <p>
+                            <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">Register as a new user?</a>
+                        </p>
+                    </div>
+                </form>
+            </section>
+        </div>
+        <div class="col-md-6 col-md-offset-2">
+            <section>
+                <h4>Use another service to log in.</h4>
+                <hr />
+                @{
+                    var loginProviders = (await SignInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+                    if (loginProviders.Count == 0)
+                    {
+                        <div>
+                            <p>
+                                There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                                for details on setting up this ASP.NET application to support logging in via external services.
+                            </p>
+                        </div>
+                    }
+                    else
+                    {
+                        <form asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+                            <div>
+                                <p>
+                                    @foreach (var provider in loginProviders)
+                                    {
+                                        <button type="submit" class="btn btn-default" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.Name</button>
+                                    }
+                                </p>
+                            </div>
+                        </form>
+                    }
+                }
+            </section>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-10 col-md-8 col-lg-6 col-xl-4 mx-auto">
+            <form id="login_form" class="form-signin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                <hr />
+                <div id="signin_errors" class="alert alert-danger" style="display: @(!ViewData.ModelState.IsValid ? "block" : "none")">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                </div>
+                <div class="form-group">
+                    <input asp-for="Email" class="form-control" required />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="Password" class="form-control" required />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-block btn-dark">
+                        <i class="fa fa-sign-in"></i>
+                        Ingresar
+                    </button>
+                </div>
+                <div class="form-group text-center">
+                    <p>
+                        <a class="special-link" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">Registrarse</a>
+                    </p>
+                    <p>
+                        <a class="special-link" asp-action="ForgotPassword">¿Olvidaste tu contrase&ntilde;a?</a>
+                    </p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            let submitted = false;
+            let laddaBtn = Ladda.create($("#login_form button[type='submit']")[0]);
+            var form = $("#login_form").validate({
+                messages: {
+                    UserName: "El campo 'Usuario' es obligatorio.",
+                    Password: "El campo 'Contraseña' es obligatorio."
+                },
+                submitHandler: function (formElement, e) {
+                    $("#signin_errors").hide();
+                    laddaBtn.start();
+                    e.preventDefault();
+                    formElement.submit();
+                },
+                showErrors: function (errorMap, errorList) {
+                    if (submitted) {
+                        var summary = "El formulario presenta los siguientes errores: <br/><ul>";
+                        $.each(errorList, function (i) { summary += "<li id='" + errorList[i].element.id + "_Error'>" + this.message + " " + "</li>"; });
+                        summary += "</ul>"
+                        $("#signin_errors").html(summary);
+                        $("#signin_errors").show();
+                        submitted = false;
+                    }
+                },
+                invalidHandler: function (form, validator) {
+                    submitted = true;
+                },
+                success: function (label, elem) {
+                    $(`#${elem.id}_Error`).html("");
+                }
+            });
+        });
+    </script>
+}

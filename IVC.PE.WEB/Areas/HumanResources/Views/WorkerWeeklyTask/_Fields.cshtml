@@ -1,0 +1,108 @@
+﻿@model WorkerDailyTaskViewModel
+
+<input asp-for="Id" hidden />
+<input asp-for="ProjectId" hidden />
+<input asp-for="Date" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="WorkerId" class="label"></label>
+        <input asp-for="WorkerId" hidden />
+        <select name="select_worker" class="form-control kt-select2 select2-workers" required  disabled="disabled"></select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="ProjectPhaseId" class="label"></label>
+        <input asp-for="ProjectPhaseId" hidden />
+        <select name="select_phase" class="form-control kt-select2 select2-phases"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="SewerGroupId" class="label"></label>
+        <input asp-for="SewerGroupId" hidden />
+        <select name="select-sewer-group" class="form-control kt-select2 select2-sewer-groups" required></select>
+    </div>
+
+</div>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="HoursNormal" class="label"></label>
+        <input asp-for="HoursNormal" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="Hours60Percent" class="label"></label>
+        <input asp-for="Hours60Percent" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="Hours100Percent" class="label"></label>
+        <input asp-for="Hours100Percent" class="form-control" />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-3">
+        <label asp-for="HoursMedicalRest" class="label"></label>
+        <input asp-for="HoursMedicalRest" class="form-control" />
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="HoursHoliday" class="label"></label>
+        <input asp-for="HoursHoliday" class="form-control" />
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="HoursPaidLeave" class="label"></label>
+        <input asp-for="HoursPaidLeave" class="form-control" />
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="HoursPaternityLeave" class="label"></label>
+        <input asp-for="HoursPaternityLeave" class="form-control" />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-3">
+        <label asp-for="MedicalLeave" class="label"></label>
+        <select asp-for="MedicalLeave" class="form-control kt-select2">
+            <option value="false" selected>No</option>
+            <option value="true">Si</option>
+        </select>
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="UnPaidLeave" class="label"></label>
+        <select asp-for="UnPaidLeave" class="form-control kt-select2">
+            <option value="false" selected>No</option>
+            <option value="true">Si</option>
+        </select>
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="LaborSuspension" class="label"></label>
+        <select asp-for="LaborSuspension" class="form-control kt-select2">
+            <option value="false" selected>No</option>
+            <option value="true">Si</option>
+        </select>
+    </div>
+    <div class="col-lg-3">
+        <label asp-for="NonAttendance" class="label"></label>
+        <select asp-for="NonAttendance" class="form-control kt-select2">
+            <option value="false" selected>No</option>
+            <option value="true">Si</option>
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-3">
+        <label asp-for="IsCeased" class="label"></label>
+        <select asp-for="IsCeased" class="form-control kt-select2">
+            <option value="false" selected>No</option>
+            <option value="true">Si</option>
+        </select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="CeasedDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="CeasedDate" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

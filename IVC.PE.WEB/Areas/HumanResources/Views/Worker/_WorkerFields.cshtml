@@ -1,0 +1,160 @@
+﻿@model WorkerViewModel
+
+<input asp-for="Id" hidden />
+<input asp-for="WorkPeriodId" hidden />
+
+@*<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="WorkPeriod.ProjectId" class="label"></label>
+        <select asp-for="WorkPeriod.ProjectId" class="form-control kt-select2 select2-projects" required></select>
+    </div>
+</div>*@
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="Name" class="label"></label>
+        <input asp-for="Name" class="form-control" required />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="PaternalSurname" class="label"></label>
+        <input asp-for="PaternalSurname" class="form-control" required />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="MaternalSurname" class="label"></label>
+        <input asp-for="MaternalSurname" class="form-control" required />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="Email" class="label"></label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="PhoneNumber" class="label"></label>
+        <input asp-for="PhoneNumber" class="form-control" />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="DocumentType" class="label"></label>
+        <select asp-for="DocumentType" class="form-control kt-select2 select2-document-types" required>
+            @foreach (var item in ConstantHelpers.DocumentType.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="Document" class="label"></label>
+        <input asp-for="Document" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="Gender" class="label"></label>
+        <select asp-for="Gender" class="form-control kt-select2 select2-genders" required>
+            @foreach (var item in ConstantHelpers.Worker.Gender.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="WorkPeriod.EntryDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="WorkPeriod.EntryDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="WorkPeriod.Category" class="label"></label>
+        <select asp-for="WorkPeriod.Category" class="form-control kt-select2 select2-categories" required>
+            @foreach (var item in ConstantHelpers.Worker.Category.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="BirthDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="BirthDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="WorkPeriod.WorkerPositionId" class="label"></label>
+        <select asp-for="WorkPeriod.WorkerPositionId" class="form-control kt-select2 select2-work-positions"></select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="WorkPeriod.Origin" class="label"></label>
+        <select asp-for="WorkPeriod.Origin" class="form-control kt-select2 select2-origins" required>
+            @foreach (var item in ConstantHelpers.Worker.Origin.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="WorkPeriod.Workgroup" class="label"></label>
+        <select asp-for="WorkPeriod.Workgroup" class="form-control kt-select2 select2-workgroups" required>
+            @foreach (var item in ConstantHelpers.Worker.Workgroup.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="WorkPeriod.PensionFundAdministratorId" class="label"></label>
+        <select asp-for="WorkPeriod.PensionFundAdministratorId" class="form-control kt-select2 select2-pension-fund-administrators" required></select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="WorkPeriod.PensionFundUniqueIdentificationCode" class="label"></label>
+        <input asp-for="WorkPeriod.PensionFundUniqueIdentificationCode" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="WorkPeriod.NumberOfChildren" class="label"></label>
+        <input asp-for="WorkPeriod.NumberOfChildren" class="form-control" value="0"/>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="WorkPeriod.JudicialRetentionFixedAmmount" class="label"></label>
+        <input asp-for="WorkPeriod.JudicialRetentionFixedAmmount" class="form-control" value="0"/>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="WorkPeriod.JudicialRetentionPercentRate" class="label"></label>
+        <input asp-for="WorkPeriod.JudicialRetentionPercentRate" class="form-control" value="0"/>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="BankId" class="label"></label>
+        <select asp-for="BankId" class="form-control kt-select2 select2-banks">
+        </select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="BankAccount" class="label"></label>
+        <input asp-for="BankAccount" class="form-control"/>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="PhotoFile" class="label"></label>
+        <div class="custom-file">
+            <input asp-for="PhotoFile" type="file" class="custom-file-input" />
+            <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,136 @@
+﻿@model WorkerViewModel 
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style scoped>
+        body {
+            font-family: Poppins, Helvetica, sans-serif;
+            font-size: 8px;
+            background-color: #fff;
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .row {
+            width: 100%;
+        }
+
+        .col-lg-12 {
+            width: 100%;
+        }
+
+        .col-lg-11 {
+            width: 91.63%;
+        }
+
+        .col-lg-10 {
+            width: 83.33%;
+        }
+
+        .col-lg-8 {
+            width: 66.64%;
+        }
+
+        .col-lg-6 {
+            width: 49.48%;
+        }
+
+        .col-lg-5 {
+            width: 41.65%;
+        }
+
+        .col-lg-3 {
+            width: 24.99%;
+        }
+
+        .col-lg-4 {
+            width: 33.32%;
+        }
+
+        .col-lg-2 {
+            width: 16.66%;
+        }
+
+        .col-lg-1 {
+            width: 8.33%;
+        }
+    </style>
+</head>
+<body>
+    <table class="center" border="1" style="table-layout:fixed; width: 108mm; height: 84mm; border-collapse: collapse;">
+        <tr>
+            <!--Parte frontal del fotocheck-->
+            <td colspan="6" class="col-lg-6">
+                <table class="center" style="table-layout: fixed; width: 54mm; height: 84mm; max-height: 84mm;">
+                    <tr style="height: 21mm;">
+                        @if (Model.LogoUrl != null)
+                        {
+                            <td colspan="12" class="center col-lg-12">
+                                <img src="@Model.LogoUrl" style="height: 20mm; display: block; margin-left: auto; margin-right: auto;" />
+                            </td>
+                        }
+                        else
+                        {
+                            <td colspan="12" class="center col-lg-12">
+                                <img src="~/media/logo-ivc.png" style="height: 20mm; display: block; margin-left: auto; margin-right: auto;" />
+                            </td>
+                        }
+                    </tr>
+                    <tr style="height: 28mm;">
+                        @if (Model.PhotoUrl != null)
+                        {
+                            <td colspan="12" class="center col-lg-12">
+                                <img src="@Model.PhotoUrl" style="height: 27mm; width: 30mm; display: block; margin-left: auto; margin-right: auto;" />
+                            </td>
+                        }
+                        else
+                        {
+                            <td colspan="12" class="center col-lg-12">
+                                <img src="~/media/default_profile_img.png" style="height: 20mm; display: block; margin-left: auto; margin-right: auto;" />
+                            </td>
+                        }
+                        
+                    </tr>
+                    <tr style="height: 35mm;">
+                        <td colspan="4" class="col-lg-4">
+                            <label class="label" style="font-size: 10px;"><b>@Model.PaternalSurname</b></label><br />
+                            <label class="label" style="font-size: 10px;"><b>@Model.MaternalSurname</b></label><br />
+                            <label class="label" style="font-size: 10px;"><b>@Model.Name</b></label><br />
+                            <label class="label" style="font-size: 8px;">@Model.DocumentTypeStr @Model.Document</label><br />
+                            <label class="label" style="font-size: 10px;"><b>@Model.CategoryStr</b></label>
+                        </td>
+                        <td colspan="8" class="col-lg-8">
+                            @if (ViewBag.QRCodeImage != null)
+                            {
+                                <img src="@ViewBag.QRCodeImage" alt="" style="height:34.4mm; width:34.4mm; display: block; margin-left: auto; margin-right: auto;" />
+                            }
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <!--Parte posterior del fotocheck-->
+            <td colspan="6" class="col-lg-6">
+                <table class="center" style="width: 54mm; max-width: 54mm; height: 84mm;">
+                    <tr>
+                        <td colspan="12" class="col-lg-12" style="text-align: center;">
+                            <label class="label" style="font-size: 10px;"><b>Este fotocheck es personal e intransferible.</b></label><br /><br /><br />
+                            <label class="label" style="font-size: 10px;">En caso de pérdida, comunicarse al siguiente teléfono:</label><br />
+                            <label class="label" style="font-size: 10px;">@Model.ProjectPhoneNumber</label><br /><br /><br />
+                            <label class="label" style="font-size: 10px;">O devolverlo en:</label><br />
+                            <label class="label" style="font-size: 10px;"><b>@Model.ProjectAddress</b></label><br />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

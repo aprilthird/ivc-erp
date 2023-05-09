@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Certificados de Densidad de Compatación";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.Quality.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title">
+                Listado de Tramos
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                    <button type="button" class="btn btn-secondary btn-export"><span><i class="la la-download"></i><span>Exportar</span></span></button>
+                    @if (canEdit)
+                    {
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Importar
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
+                                <a class="dropdown-item" href="javascript;" data-toggle="modal" data-target="#import_data_modal">Datos</a>
+                                <a class="dropdown-item" href="javascript;" data-toggle="modal" data-target="#import_files_modal">Archivos</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label class="col-form-label">Frente</label>
+                <select id="work_front_filter" class="form-control kt-select2 select2-work-fronts">
+                    <option>Todos</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Cuadrilla</label>
+                <select id="sewer_group_filter" class="form-control kt-select2 select2-sewer-groups">
+                    <option>Todas</option>
+                </select>
+            </div>
+            <div class="col-md-1">
+                <label class="col-form-label">Certificado</label>
+                <input id="has_certificate" type="checkbox" class="form-control" />
+            </div>
+        </div>
+        <table class="table table-striped table-bordered table-hover table-checkable datatable" id="sewer_line_datatable" role="grid"></table>
+    </div>
+</div>
+
+@if (canEdit)
+{
+    <partial name="_CreateModal" />
+    <partial name="_ImportDataModal" />
+    <partial name="_ImportFilesModal" />
+    @*<partial name="_EditModal" />*@
+}
+
+<partial name="_PdfModal" />
+
+@section Scripts {
+    <script src="~/lib/jquery-file-download/jquery.fileDownload.min.js"></script>
+    @if (canEdit)
+    {
+        <script src="~/js/areas/quality/compaction-density-certificate/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/quality/compaction-density-certificate/readonly-index.js"></script>
+    }
+}

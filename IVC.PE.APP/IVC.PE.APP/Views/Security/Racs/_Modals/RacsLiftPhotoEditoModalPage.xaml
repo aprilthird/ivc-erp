@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Pad="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             xmlns:padview="clr-namespace:IVC.PE.APP.Behaviors"
+             x:Class="IVC.PE.APP.Views.Security.Racs._Modals.RacsLiftPhotoEditoModalPage">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <Image
+                x:Name="imagebackground"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                Aspect="AspectFill"
+                BackgroundColor="Red"
+                Source="{Binding SelectedImage}"/>
+            <Pad:SignaturePadView
+                x:Name="signaturepad"
+                AbsoluteLayout.LayoutBounds="0,0.1,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                BackgroundColor="Transparent"
+                ClearText=""
+                ClearTextColor="Transparent"
+                StrokeColor="Red"
+                StrokeWidth="5">
+                <Pad:SignaturePadView.Behaviors>
+                    <padview:ScratchView />
+                </Pad:SignaturePadView.Behaviors>
+            </Pad:SignaturePadView>
+            <StackLayout
+                Orientation="Horizontal"
+                AbsoluteLayout.LayoutBounds="0,1,1,0.1"
+                AbsoluteLayout.LayoutFlags="All">
+                <Button
+                    x:Name="clearButton"
+                    Clicked="ClearButton_Clicked"
+                    Margin="20,10"
+                    BackgroundColor="LightGray"
+                    Text="&#xf12d; Borrar"
+                    FontFamily="FontAwesome"
+                    TextColor="Black"/>
+                <Button
+                    x:Name="saveButton"
+                    Clicked="SaveButton_Clicked"
+                    Margin="20,10"
+                    BackgroundColor="#00284A"
+                    Text="&#xf030; Guardar"
+                    FontFamily="FontAwesome"
+                    TextColor="White"/>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

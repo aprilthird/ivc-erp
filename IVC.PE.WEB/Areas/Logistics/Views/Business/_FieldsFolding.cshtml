@@ -1,0 +1,46 @@
+﻿@model BusinessLegalAgentFoldingViewModel
+
+<input asp-for="Id" hidden />
+
+<input asp-for="BusinessId" hidden/>
+
+    <div class="form-group row">
+        <div class="col-lg-4">
+            <label asp-for="LegalAgent" class="label"></label>
+            <input asp-for="LegalAgent" class="form-control" />
+        </div>
+
+        <div class="col-lg-2">
+            <label asp-for="IsActive" class="label"></label>
+            <input asp-for="IsActive" hidden />
+            <select name="select_isactive" class="form-control kt-select select2-isactive" required>
+                <option value="false" selected>No</option>
+                <option value="true">Sí</option>
+            </select>
+        </div>
+
+        <div class="col-lg-3">
+            <label asp-for="FromDate" class="label"></label>
+            <div class="input-group">
+                <input asp-for="FromDate" class="form-control datepicker" />
+                <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2">
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <label asp-for="ToDate" class="label"></label>
+            <div class="input-group">
+                <input asp-for="ToDate" class="form-control datepicker" />
+                <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2">
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>

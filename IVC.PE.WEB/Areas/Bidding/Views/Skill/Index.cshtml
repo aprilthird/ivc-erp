@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "Habilidades";
+    ViewBag.SubTitle = "Listado de Habilidades";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.Bidding.PARTIAL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    @if (canEdit)
+                    {
+                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add_modal"><span><i class="la la-plus"></i><span>Nuevo</span></span></button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+
+        <div class="form-group row">
+            @*<div class="col-md-3">
+                    <label class="col-form-label">Proyecto</label>
+                    <select id="project_filter" class="form-control kt-select2 select2-projects">
+                        <option>Todos</option>
+                    </select>
+                </div>*@
+            @*<div class="col-md-3">
+                    <label class="col-form-label">Tipo de Fianza</label>
+                    <select id="supply_family_filter" class="form-control kt-select2 select2-bondType">
+                        <option>Todos</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-form-label">Título de Presupuesto</label>
+                    <select id="supply_group_filter" class="form-control kt-select2 select2-budgetType">
+                        <option>Todos</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-form-label">Entidad Bancaria</label>
+                    <select id="bank_filter" class="form-control kt-select2 select2-banks">
+                        <option>Todos</option>
+                    </select>
+                </div>*@
+        </div>
+        <table class="table table-striped table-bordered table-hover table-checkable datatable" id="skills_datatable" role="grid"></table>
+    </div>
+</div>
+
+@if (canEdit)
+{
+    <partial name="_CreateModal" />
+    <partial name="_CreateRenovationModal" />
+    <partial name="_EditRenovationModal" />
+    <partial name="_EditModal" />
+}
+<partial name="_DetailModal" />
+<partial name="_ExcelOptModal" />
+<partial name="_PdfModal" />
+
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/bidding/skills/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/bidding/skills/index.js"></script>
+    }
+}

@@ -1,0 +1,90 @@
+﻿@model SewerGroupScheduleActivityFullViewModel
+
+<input asp-for="Id" hidden />
+<input asp-for="SewerGroupScheduleId" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="SewerManifoldId" class="label"></label>
+        <input asp-for="SewerManifoldId" hidden />
+        <select name="select_sewer_manifold" class="form-control kt-select select2-sewer-manifolds" data-placeholder="Tramos">
+        </select>
+    </div>
+    <div class="col-lg-2">
+        <button id="searchSewerManifoldBtn" type="button" class="btn btn-secondary">Buscar</button>
+    </div>
+    <div class="col-lg-10">
+        <table style="width: 100%; text-align: center;">
+            <tr>
+                <th><b>Longitud Mínima de Instalación</b></th>
+            </tr>
+            <tr>
+                <td><span name="min_inst_long"></span></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <table style="width: 100%; text-align: center;">
+            <tr>
+                <td><b>Long. Excav.</b></td>
+                <td><b>Long. Instal.</b></td>
+                <td><b>Tipo de Terreno</b></td>
+                <td><b># Capas</b></td>
+                <td><b>H Zanja</b></td>
+                <td><b>Long. Relleno</b></td>
+                <td><b>H Buzón i</b></td>
+                <td><b>Tipo de Terreno i</b></td>
+                <td><b>H Buzón j</b></td>
+                <td><b>Tipo de Terreno j</b></td>
+            </tr>
+            <tr>
+                <td><span name="sm_digging"></span></td>
+                <td><span name="sm_installing"></span></td>
+                <td><span name="sm_terrain_type"></span></td>
+                <td><span name="sm_layers"></span></td>
+                <td><span name="sm_height"></span></td>
+                <td><span name="sm_filling"></span></td>
+                <td><span name="sm_height_i"></span></td>
+                <td><span name="sm_terrain_type_i"></span></td>
+                <td><span name="sm_height_j"></span></td>
+                <td><span name="sm_terrain_type_j"></span></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="ProjectFormulaActivityId" class="label"></label>
+        <input asp-for="ProjectFormulaActivityId" hidden />
+        <select name="select_activity" class="form-control kt-select select2-activities" data-placeholder="Actividades">
+        </select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="FootageMonday" class="label"></label>
+        <input asp-for="FootageMonday" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="FootageTuesday" class="label"></label>
+        <input asp-for="FootageTuesday" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="FootageWednesday" class="label"></label>
+        <input asp-for="FootageWednesday" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="FootageThrusday" class="label"></label>
+        <input asp-for="FootageThrusday" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="FootageFriday" class="label"></label>
+        <input asp-for="FootageFriday" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="FootageSaturday" class="label"></label>
+        <input asp-for="FootageSaturday" class="form-control" />
+    </div>
+</div>

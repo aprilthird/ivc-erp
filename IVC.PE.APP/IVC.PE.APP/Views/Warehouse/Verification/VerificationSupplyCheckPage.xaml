@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.Warehouse.Verification.VerificationSupplyCheckPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Consultar QR">
+    <ContentPage.Content>
+
+        <AbsoluteLayout
+            x:Name="layout"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding VerificationSupplyCheckViewModel}"
+            Padding="8">
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional">
+
+
+                <Button
+                HorizontalOptions="FillAndExpand"
+                Command="{Binding CaptureQrCommand}"
+                Text="Capturar Código QR"/>
+
+                <ScrollView
+                    Padding="0,0,0,80">
+                    <ListView
+                        SelectionMode="None"
+                        HasUnevenRows="True"
+                        ItemsSource="{Binding BPList}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout
+                                            Grid.Column="0"
+                                            VerticalOptions="Center"
+                                            Orientation="Vertical">
+
+
+
+
+                                            <Label
+                                                FontSize="Medium"
+                                                FontAttributes="Bold"
+                                                Text="{Binding Description}">
+                                            </Label>
+
+                                            <Label
+                                                FontSize="Medium"
+                                                FontAttributes="Bold"
+                                                Text="{Binding CorrelativeCodeStr}">
+                                            </Label>
+
+                                            <Label
+                                                FontSize="Medium"
+                                                FontAttributes="Bold"
+                                                Text="{Binding IvcCode}">
+                                            </Label>
+
+                                            <Label
+                                                FontSize="Medium"
+                                                FontAttributes="Bold"
+                                                Text="{Binding Tradename}">
+                                            </Label>
+
+                                            <Label
+                                                FontSize="Medium"
+                                                FontAttributes="Bold"
+                                                Text="{Binding DeliveryDateStr}">
+                                            </Label>
+
+                                            <Label
+                                                FontSize="Medium"
+                                                FontAttributes="Bold"
+                                                Text="{Binding RemissionGuide}">
+                                            </Label>
+
+                                            <Label
+                                                FontSize="Medium"
+                                                FontAttributes="Bold"
+                                                Text="{Binding Measure}">
+                                            </Label>
+
+                                            <Label
+                                                FontSize="Medium"
+                                                FontAttributes="Bold"
+                                                Text="{Binding Sums}">
+                                            </Label>
+                                            <!--<Label
+                                                FontSize="Large"
+                                                FontAttributes="Bold"
+                                                Text="{Binding ProjectAbbreviation}">
+                                            </Label>-->
+                                        </StackLayout>
+
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>
+
+            </StackLayout>
+
+        </AbsoluteLayout>
+
+    </ContentPage.Content>
+</ContentPage>

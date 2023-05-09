@@ -1,0 +1,42 @@
+﻿@model ProviderFileViewModel
+
+<div data-repeater-item class="form-group row align-items-center">
+    <input asp-for="Id" hidden />
+    <div class="col-md-2">
+        <div class="kt-form__group--inline">
+            <div class="kt-form__label">
+                <label asp-for="Type"></label>
+            </div>
+            <div class="kt-form__control">
+                <select asp-for="Type" class="form-control kt-select2 select2-file-types" required>
+                    @foreach(var item in ConstantHelpers.Provider.FileType.VALUES)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="d-md-none kt-margin-b-10"></div>
+    </div>
+    <div class="col-md-4">
+        <div class="kt-form__group--inline">
+            <div class="kt-form__label">
+                <label asp-for="File" class="kt-label m-label--single"></label>
+            </div>
+            <div class="kt-form__control">
+                <div class="custom-file">
+                    <input asp-for="File" type="file" class="custom-file-input" required />
+                    <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+                </div>
+            </div>
+        </div>
+        <div class="d-md-none kt-margin-b-10"></div>
+    </div>
+    <div class="col-md-1">
+        <label>&emsp;</label>
+        <label>&emsp;</label>
+        <a href="javascript:;" data-repeater-delete class="btn-sm btn btn-label-danger btn-bold btn-icon">
+            <i class="la la-trash-o"></i>
+        </a>
+    </div>
+</div>

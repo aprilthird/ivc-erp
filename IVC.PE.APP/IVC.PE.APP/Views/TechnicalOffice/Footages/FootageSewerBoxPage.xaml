@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.TechnicalOffice.Footages.FootageSewerBoxPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Metrados - Buzones">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+                VerticalOptions="FillAndExpand" 
+                HorizontalOptions="FillAndExpand"
+                BindingContext="{Binding FootageSewerBoxViewModel}"
+                Padding="8">
+                <Label Text="Tipo"/>
+                <Picker
+                    ItemsSource="{Binding SewerBoxTypes}"
+                    ItemDisplayBinding="{Binding Text}"
+                    SelectedItem="{Binding SewerBoxTypeSelected}"/>
+                <Label Text="Altura"/>
+                <Picker
+                    ItemsSource="{Binding SewerBoxRanges}"
+                    ItemDisplayBinding="{Binding Text}"
+                    SelectedItem="{Binding SewerBoxRangeSelected}"/>
+                <Button
+                    Command="{Binding SewerBoxSearchCommand}"
+                    BackgroundColor="#00284A"
+                    Text="&#xf002; Buscar"
+                    FontFamily="FontAwesome"
+                    TextColor="White">
+                </Button>
+                <ListView
+                    IsRefreshing="{Binding IsRefreshing}"
+                    IsGroupingEnabled="True"
+                    ItemsSource="{Binding FootageSewerBoxItems}"
+                    GroupDisplayBinding="{Binding Name}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label
+                                        Grid.Column="0"
+                                        Text="{Binding TypeStr}">
+                                    </Label>
+                                    <Label
+                                        Grid.Column="1"
+                                        Text="{Binding RealFootage}"
+                                        HorizontalTextAlignment="End">
+                                    </Label>
+                                    <Label
+                                        Grid.Column="2"
+                                        Text="{Binding TechnicalRecordFootage}"
+                                        HorizontalTextAlignment="End">
+                                    </Label>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Label
+                                Text="{Binding Name}"
+                                FontSize="Large" />
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.GroupHeaderTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

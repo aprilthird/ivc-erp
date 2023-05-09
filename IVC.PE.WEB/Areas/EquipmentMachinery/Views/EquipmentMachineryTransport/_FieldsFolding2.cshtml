@@ -1,0 +1,46 @@
+﻿@model EquipmentMachineryTransportSOATFoldingViewModel
+
+<input asp-for="Id" hidden />
+
+<input asp-for="EquipmentMachineryTransportId" hidden />
+
+<div class="form-group row">
+
+    <div class="col-lg-12">
+        <label asp-for="ResponsiblesSoat" class="label" hidden></label>
+        <input asp-for="ResponsiblesSoat" hidden />
+        @*<select name="select_users" class="form-control kt-select select2-users" multiple data-placeholder="Encargado"></select>*@
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="StartDateSoat" class="label"></label>
+        <div class="input-group">
+            <input asp-for="StartDateSoat" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="EndDateSoat" class="label"></label>
+        <div class="input-group">
+            <input asp-for="EndDateSoat" class="form-control datepicker"/>
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="SoatFile" class="label"></label>
+        <div class="custom-file">
+            <input asp-for="SoatFile" type="file" class="custom-file-input" />
+            <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "Presupuestos CD";
+    ViewBag.SubTitle = "Presupuestos Venta";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.Quality.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    @if (canEdit)
+                    {
+                    <div class="btn-group" role="group" airal-label="Button group with nested dropdown">
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" id="btn-calculate-neto">
+                            <span>
+                                <i class="la la-calculator"></i>
+                                <span>Calcular Neto</span>
+                            </span>
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" id="btn-massive-load">
+                            <span>
+                                <i class="la la-file-excel-o"></i>
+                                <span>Formato Carga Masiva</span>
+                            </span>
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#import_data_modal">
+                            <span>
+                                <i class="la la-arrow-up"></i>
+                                <span>Importar Carga Masiva</span>
+                            </span>
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" id="btn-delete-by-filters">
+                            <span>
+                                <i class="la la la-trash-o"></i>
+                                <span>Borrar Por Filtro</span>
+                            </span>
+                        </button>
+                        <!--<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add_modal"><span><i class="la la-plus"></i><span>Nuevo</span></span></button>
+    <button type="button" class="btn btn-secondary" data-toggle="modal" id="btn-massive-delete">
+        <span>
+            <i class="la la-trash-o"></i>
+            <span>Borrar Todo</span>
+        </span>
+    </button>-->
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label class="col-form-label">Tipo</label>
+                <select id="budget_type_filter" class="form-control kt-select2 select2-budgettype-filter">
+                    <option>Todos</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Agrupación</label>
+                <select id="budget_group_filter" class="form-control kt-select2 select2-budgetgroup-filter">
+                    <option value=0>Todos</option>
+                    @foreach (var item in ConstantHelpers.Budget.Group.VALUES)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Títulos de Presupuestos</label>
+                <select id="budget_title_filter" class="form-control kt-select2 select2-budgettitle-filter">
+                    <option>Todos</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Formulas</label>
+                <select id="project_formula_filter" class="form-control kt-select2 select2-projectformula-filter">
+                    <option>Todos</option>
+                </select>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_project" role="tabpanel">
+                <table class="table table-striped table-bordered table-hover table-chekable dataTable" id="budgets_datatable" role="grid">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="text-align:center;">Item</th>
+                            <th rowspan="2" style="text-align:center;">Descripción</th>
+                            <th rowspan="2" style="text-align:center;">Und.</th>
+                            <th rowspan="2" style="text-align:center;">Metrado</th>
+                            <th colspan="4" style="text-align:center;">CONTRACTUAL</th>
+                            <th rowspan="2" style="text-align:center;">Precio Unitario</th>
+                            <th rowspan="2" style="text-align:center;">Parcial</th>
+                            <th colspan="2" style="text-align:center;">COLABORADOR</th>
+                            <th rowspan="2" style="text-align:center;">Opciones</th>
+                        </tr>
+                        <tr>
+                            <th>MO</th>
+                            <th>EQ</th>
+                            <th>S/C</th>
+                            <th>MAT.</th>
+                            <th>MO</th>
+                            <th>EQ</th>
+                        </tr>
+
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (canEdit)
+{
+    <partial name="_CreateModal" />
+    <partial name="_EditModal" />
+}
+<partial name="_ImportDataModal" />
+
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/technical-office/budget/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/technical-office/budget/index.js"></script>
+    }
+}

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.TechnicalOffice.TechnicalSpecs.TechnicalSpecPdfPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Vista Especificación Técnica">
+    <ContentPage.Content>
+        <StackLayout
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding TechnicalSpecPdfViewModel}">
+            <WebView
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                Source="{Binding PdfUrl}" />
+            <Button
+                BackgroundColor="#00284A"
+                Command="{Binding DownloadPdfCommand}"
+                Text="Descargar"
+                FontSize="30"
+                TextColor="White">
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

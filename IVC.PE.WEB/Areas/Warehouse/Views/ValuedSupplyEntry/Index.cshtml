@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Guías Valorizadas";
+    ViewBag.SubTitle = "Listado de Guías Valorizadas";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.Warehouse.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        @if (canEdit)
+                        {
+                            <button id="add_button" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#option_add_modal">
+                                <span>
+                                    <i class="la la-plus"></i>
+                                    <span>Nuevo</span>
+                                </span>
+                            </button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label class="col-form-label">Familia</label>
+                <select id="supply_family_filter" class="form-control kt-select2 select2-supply-families">
+                    <option>Todos</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Grupo</label>
+                <select id="supply_group_filter" class="form-control kt-select2 select2-supply-groups">
+                    <option>Todos</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Proveedor</label>
+                <select id="provider_filter" class="form-control kt-select2 select2-providers">
+                    <option>Todos</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label class="col-form-label">Año</label>
+                <select id="year_filter" class="form-control kt-select2 select2-years">
+                    <option>Todos</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Mes</label>
+                <select id="month_filter" class="form-control kt-select2 select2-months">
+                    <option>Todos</option>
+                    @foreach (var item in ConstantHelpers.Months.VALUES)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label" style="float:right;">Parcial (S/)</label>
+                <input id="total_parcial" class="form-control" style="text-align:right" disabled="disabled" />
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label" style="float:right;">Parcial (USD)</label>
+                <input id="total_dolar_parcial" class="form-control" style="text-align:right" disabled="disabled" />
+            </div>
+        </div>
+        <table class="table table-striped table-bordered table-hover table-checkable datatable" id="main_datatable" role="grid"></table>
+    </div>
+</div>
+
+@if (canEdit)
+{
+    <partial name="_CreateModal" />
+    <partial name="_CreateOptionsModal" />
+    <partial name="_CreatePartialModal" />
+    <partial name="_DetailModal" />
+    <partial name="_ItemsModal" />
+    <partial name="_PdfModal" />
+}
+
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/warehouse/valued-supply-entry/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/warehouse/valued-supply-entry/index.js"></script>
+    }
+}

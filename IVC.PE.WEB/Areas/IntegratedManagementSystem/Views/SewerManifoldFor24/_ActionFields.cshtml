@@ -1,0 +1,22 @@
+﻿@model For24SecondPartActionViewModel
+
+<input asp-for="Id" hidden />
+<input asp-for="SewerManifoldFor24SecondPartId" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="ActionName" class="label"></label>
+        <input asp-for="ActionName" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="Date" class="label"></label>
+        <div class="input-group">
+            <input asp-for="Date" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

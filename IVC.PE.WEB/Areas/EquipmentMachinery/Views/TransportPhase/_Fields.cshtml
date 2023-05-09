@@ -1,0 +1,11 @@
+﻿@model TransportPhaseViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-6 worker_group">
+        <label asp-for="ProjectPhaseId" class="label"></label>
+        <input asp-for="ProjectPhaseId" hidden />
+        <select name="select_phase" class="form-control kt-select select2-phases"></select>
+    </div>
+</div>

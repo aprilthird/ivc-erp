@@ -1,0 +1,33 @@
+﻿<div class="modal fade" id="answers_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-modal="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Archivo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <h6>Respuestas: </h6>
+                    <div class="col-lg-4">
+                        <select id="select_letanswer" class="form-control kt-select select2-letanswers" data-placeholder="Respuestas"></select>
+                    </div>
+                    <div class="col-lg-2">
+                        <a id="btn_LoadAnsPdf" href="#" class="btn btn-icon btn-primary btn-sm mr-2">
+                            <i class="flaticon-eye"></i>
+                        </a>
+                    </div>
+                </div>
+                <div id="anwers_pdf_views" style="width: 100%; height: 600px;"></div>
+                @*<iframe id="ans_frame" src="" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="width: 100%; height: 600px;">
+                </iframe>*@
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <i class="la la-close"></i>
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

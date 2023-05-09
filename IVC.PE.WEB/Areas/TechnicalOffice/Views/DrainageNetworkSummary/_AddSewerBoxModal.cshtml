@@ -1,0 +1,74 @@
+﻿@model AddSewerBoxViewModel
+
+<div class="modal fade" id="add_sewer_box_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-modal="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nuevo Buz&oacute;n</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <form id="add_sewer_box_form" class="form form-horizontal" role="form">
+                <div class="modal-body">
+                    <div id="add_sewer_box_alert" class="alert alert-danger alert-dismissible fade d-none" role="alert">
+                        <span id="add_sewer_box_alert_text"></span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <h6 class="text-primary font-weight-bold text-uppercase">Buz&oacute;n</h6>
+                    <input asp-for="Id" hidden />
+                    <div class="form-group row">
+                        <div class="col-lg-4">
+                            <label asp-for="Code" class="label"></label>
+                            <input asp-for="Code" class="form-control" required />
+                        </div>
+                        <div class="col-lg-8">
+                            <label asp-for="DrainageArea" class="label"></label>
+                            <input asp-for="DrainageArea" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-4">
+                            <label asp-for="Cover" class="label"></label>
+                            <input asp-for="Cover" class="form-control" />
+                        </div>
+                        <div class="col-lg-4">
+                            <label asp-for="InputOutput" class="label"></label>
+                            <input asp-for="InputOutput" class="form-control" />
+                        </div>
+                        <div class="col-lg-4">
+                            <label asp-for="Bottom" class="label"></label>
+                            <input asp-for="Bottom" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <label asp-for="HorizontalDistanceOnAxis" class="label"></label>
+                            <input asp-for="HorizontalDistanceOnAxis" class="form-control" />
+                        </div>
+                        <div class="col-lg-6">
+                            <label asp-for="TerrainType" class="label"></label>
+                            <select asp-for="TerrainType" class="form-control kt-select2 select2-terrain-types">
+                                @foreach (var item in ConstantHelpers.Terrain.Type.VALUES)
+                                {
+                                    <option value="@item.Key">@item.Value</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <i class="la la-close"></i>
+                        Cerrar
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="la la-save"></i>
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

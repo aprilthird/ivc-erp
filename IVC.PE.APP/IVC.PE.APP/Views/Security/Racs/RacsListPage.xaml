@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.Security.Racs.RacsListPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Lista de RACS">
+    <ContentPage.Content>
+        <AbsoluteLayout
+            x:Name="layout"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding RacsListViewModel}"
+            Padding="8">
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional">
+                <Label
+                        Text="Proyecto "></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Projects}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedProject}" />
+                </StackLayout>
+                <Label
+                        Text="Fecha "></Label>
+                <StackLayout Orientation="Horizontal">
+                    <DatePicker 
+                    Date="{Binding SelectedDate}"
+                    Format="dd/MM/yyyy"/>
+                    <Button
+                        Command="{Binding LoadRacsCommand}"
+                        Text="Buscar"/>
+                </StackLayout>
+
+                <Label
+                    Text="Lista de RACS"
+                    FontSize="Medium"
+                    FontAttributes="Bold"></Label>
+                
+                <ScrollView
+                    Padding="0,0,0,80">
+                    <ListView
+                        SelectionMode="None"
+                        IsRefreshing="{Binding IsRefreshing}"
+                        HasUnevenRows="True"
+                        ItemsSource="{Binding RacsList}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        <!--<MenuItem Text="Ver" 
+                                                  Command="{Binding Path=BindingContext.ViewRacsCommand, Source={x:Reference layout}}"
+                                                  CommandParameter="{Binding .}"/>-->
+                                        <MenuItem Text="Levantar" 
+                                                  Command="{Binding Path=BindingContext.LiftRacsCommand, Source={x:Reference layout}}"
+                                                  CommandParameter="{Binding .}"/>
+                                        <MenuItem Text="Compartir" 
+                                                  Command="{Binding Path=BindingContext.ShareRacsCommand, Source={x:Reference layout}}"
+                                                  CommandParameter="{Binding .}"/>
+                                        <MenuItem Text="PDF" 
+                                                  Command="{Binding Path=BindingContext.PdfRacsCommand, Source={x:Reference layout}}"
+                                                  CommandParameter="{Binding .}"/>
+                                        <MenuItem Text="Editar" />
+                                    </ViewCell.ContextActions>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout
+                                            Grid.Column="0"
+                                            VerticalOptions="Center"
+                                            Orientation="Vertical">
+                                            <Label
+                                                FontSize="Small"
+                                                Text="{Binding ReportDate}">
+                                            </Label>
+                                            <Label
+                                                FontSize="Medium"
+                                                FontAttributes="Bold"
+                                                Text="{Binding ReportUser}"/>
+                                            <Label
+                                                FontSize="Large"
+                                                FontAttributes="Bold"
+                                                Text="{Binding Code}">
+                                            </Label>
+                                            <Label
+                                                FontSize="Medium"
+                                                Text="{Binding SewerGroupCode}"/>
+                                        </StackLayout>
+                                        <StackLayout
+                                            Grid.Column="1"
+                                            VerticalOptions="Center"
+                                            Orientation="Vertical">
+                                            <Label
+                                                VerticalOptions="Start"
+                                                Text="Estado" />
+                                            <Label
+                                                HorizontalTextAlignment="Center"
+                                                FontSize="Large"
+                                                FontFamily="FontAwesome"
+                                                Text="{Binding StatusStr}">
+                                            </Label>
+                                        </StackLayout>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>
+                
+            </StackLayout>
+            <Button
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds=".98,.98,50,50"
+                BackgroundColor="#00284A"
+                Command="{Binding AddRacsCommand}"
+                CornerRadius="30"
+                Text="&#xf067;"
+                FontFamily="FontAwesome"
+                FontSize="30"
+                TextColor="White">
+            </Button>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,33 @@
+﻿@model WorkerDailyTaskCopyDayViewModel
+<input asp-for="ProjectId" hidden />
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="WorkFrontHeadId" class="col-form-label"></label>
+        <select asp-for="WorkFrontHeadId" class="form-control kt-select2 select2-work-front-heads">
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="FromDay" class="col-form-label"></label>
+        <div class="input-group">
+            <input asp-for="FromDay" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="ToDay" class="col-form-label"></label>
+        <div class="input-group">
+            <input asp-for="ToDay" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

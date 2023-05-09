@@ -1,0 +1,71 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!-- begin:: Header Topbar -->
+    <div class="kt-header__topbar">
+        @*@if (User.HasMultipleProjects())
+        {*@
+            <!--begin: User Bar -->
+            <div class="kt-header__topbar-item">
+                <div class="kt-header__topbar-wrapper">
+                    <div class="kt-header__topbar-filter">
+                        <div class="row">
+                            <label class="col-3 text-right col-form-label">Centro de Costo:</label>
+                            <div class="col-9">
+                                <select id="project_general_filter" class="kt-select2">
+                                    @foreach(var item in User.GetProjects())
+                                    {
+                                        <option value="@item.Id">@item.Abbreviation</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*}*@
+            
+            @if (SignInManager.IsSignedIn(User))
+        {
+            <!--begin: User Bar -->
+            <div class="kt-header__topbar-item kt-header__topbar-item--user">
+                <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="0px,0px">
+                    <div class="kt-header__topbar-user">
+                        <span class="kt-header__topbar-welcome kt-hidden-mobile">Hola,</span>
+                        <span class="kt-header__topbar-username kt-hidden-mobile">@User.Identity.Name</span>
+                        <img class="kt-hidden" alt="Pic" src="~/assets/media/users/300_25.jpg" />
+                        <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
+                        <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">S</span>
+                    </div>
+                </div>
+
+                <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-xl">
+                    <!--begin: Navigation -->
+                    <div class="kt-notification">
+                        <a href="custom/apps/user/profile-1/personal-information.html" class="kt-notification__item">
+                            <div class="kt-notification__item-icon">
+                                <i class="flaticon2-calendar-3 kt-font-success"></i>
+                            </div>
+                            <div class="kt-notification__item-details">
+                                <div class="kt-notification__item-title kt-font-bold">
+                                    Mi Perfil
+                                </div>
+                                <div class="kt-notification__item-time">
+                                    Ajustes
+                                </div>
+                            </div>
+                        </a>
+                        <div class="kt-notification__custom kt-space-between">
+                            <form class="form-inline" asp-controller="Account" asp-action="Logout">
+                                <button type="submit" class="btn btn-label btn-label-brand btn-sm btn-bold">Cerrar Sesi&oacute;n</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!--end: Navigation -->
+                </div>
+            </div>
+ <!--end: User Bar -->
+        }
+        </div>
+        <!-- end:: Header Topbar -->

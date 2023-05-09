@@ -1,0 +1,50 @@
+﻿<div class="modal fade" id="file_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-modal="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Archivo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <h6>Respuestas: </h6>
+                    <div class="col-lg-6">
+                        <select id="select_files" class="form-control kt-select select2-files" data-placeholder="Archivos"></select>
+                    </div>
+                    <div class="col-lg-2">
+                        <a id="btn_LoadFile" href="#" class="btn btn-icon btn-primary btn-sm mr-2">
+                            <i class="flaticon-eye"></i>
+                        </a>
+                    </div>
+                </div>
+                <br />
+                <div id="files_pdf" style="width: 100%; height: 600px;" hidden></div>
+                <iframe id="gdocs_frame" src="" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="width: 100%; height: 600px;" hidden>
+                </iframe>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <br />
+                        <a id="btn_downloadFile" href="#" class="btn btn-icon btn-info btn-sm mr-2">
+                            <i class="flaticon-download"></i>
+                        </a>
+                        @*<a id="btn_qr" href="#" class="btn btn-icon btn-info btn-sm mr-2">
+                            <i class="fa fa-qrcode"></i>
+                        </a>*@
+                    </div>
+                    <div class="col-lg-4 mr-auto">
+                        <a id="btn_deleteFile" href="#" class="btn btn-icon btn-danger btn-sm mr-2">
+                            <i class="flaticon2-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <i class="la la-close"></i>
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

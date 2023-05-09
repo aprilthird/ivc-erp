@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Fases de Equipos Maquinaria";
+    ViewBag.SubTitle = "Listado de Fases de Equipos Maquinaria";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.EquipmentMachinery.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+
+
+                    @if (canEdit)
+                    {
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" id="btn-massive-load">
+                            <span>
+                                <i class="la la-file-excel-o"></i>
+                                <span>Formato Carga Masiva</span>
+                            </span>
+                        </button>
+
+                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+
+                            <div class="btn-group" role="group">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="la la-arrow-up"></i>Importar
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
+                                    <a class="dropdown-item" href="javascript;" data-toggle="modal" data-target="#import_data_modal">Datos</a>
+                                </div>
+                            </div>
+
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add_modal"><span><i class="la la-plus"></i><span>Nuevo</span></span></button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <table class="table table-striped table-bordered table-hover table-checkable datatable" id="main_datatable" role="grid"></table>
+    </div>
+</div>
+
+@if (canEdit)
+{
+    <partial name="_CreateModal" />
+    <partial name="_EditModal" />
+}
+<partial name="_ImportDataModal" />
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/equipment-machinery/machinery-phase/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/equipment-machinery/machinery-phase/index.js"></script>
+    }
+}

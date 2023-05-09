@@ -1,0 +1,155 @@
+﻿@model IVC.PE.WEB.Areas.Bidding.ViewModels.ProfessionalsViewModels.ProfessionalViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="ProfessionId" class="label"></label>
+        <input asp-for="ProfessionId" hidden />
+        <select name="select_profession" class="form-control kt-select select2-professions" data-placeholder="Profesion"></select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="Name" class="label"></label>
+        <input asp-for="Name" class="form-control"/>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="PaternalSurname" class="label"></label>
+        <input asp-for="PaternalSurname" class="form-control"/>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="MaternalSurname" class="label"></label>
+        <input asp-for="MaternalSurname" class="form-control"/>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="Email" class="label"></label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="PhoneNumber" class="label"></label>
+        <input asp-for="PhoneNumber" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="CIPNumber" class="label"></label>
+        <input asp-for="CIPNumber" class="form-control" />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="Address" class="label"></label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="University" class="label"></label>
+        <input asp-for="University" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="Nacionality" class="label"></label>
+        <input asp-for="Nacionality" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="Document" class="label"></label>
+        <input asp-for="Document" class="form-control" />
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="BirthDateStr" class="label"></label>
+        <div class="input-group">
+            <input asp-for="BirthDateStr" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="CipDateStr" class="label"></label>
+        <div class="input-group">
+            <input asp-for="CipDateStr" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="StartTitleStr" class="label"></label>
+        <div class="input-group">
+            <input asp-for="StartTitleStr" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="CertiAdult" class="label"></label>
+        <input asp-for="CertiAdult" hidden />
+        <select name="select_certiadult" class="form-control kt-select select2-certiadults" required>
+            <option value="false" selected>No</option>
+            <option value="true">Sí</option>
+        </select>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="ValidationSunedu" class="label"></label>
+        <input asp-for="ValidationSunedu" hidden />
+        <select name="select_validation" class="form-control kt-select select2-validations" required>
+            <option value="false" selected>No</option>
+            <option value="true">Sí</option>
+        </select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="FileTitle" class="label"></label>
+        <div class="custom-file custom-file-title">
+            <input asp-for="FileTitle" type="file" class="custom-file-input customFile" />
+            <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+        </div>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="FileDni" class="label"></label>
+        <div class="custom-file custom-file-dni">
+            <input asp-for="FileDni" type="file" class="custom-file-input customFile2" />
+            <label class="custom-file-label" for="customFile2">Escoge un archivo</label>
+        </div>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="FileCip" class="label"></label>
+        <div class="custom-file custom-file-cip">
+            <input asp-for="FileCip" type="file" class="custom-file-input customFile3" />
+            <label class="custom-file-label" for="customFile3">Escoge un archivo</label>
+        </div>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="FileCerti" class="label"></label>
+        <div class="custom-file custom-file-certi">
+            <input asp-for="FileCerti" type="file" class="custom-file-input customFile4" />
+            <label class="custom-file-label" for="customFile4">Escoge un archivo</label>
+        </div>
+    </div>
+ </div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="FileCapacitation" class="label"></label>
+        <div class="custom-file custom-file-capacitation">
+            <input asp-for="FileCapacitation" type="file" class="custom-file-input customFile5" />
+            <label class="custom-file-label" for="customFile5">Escoge un archivo</label>
+        </div>
+    </div>
+</div>
+

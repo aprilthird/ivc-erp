@@ -1,0 +1,827 @@
+﻿@model WorkerInvoiceViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style scoped>
+        body {
+            font-family: Poppins, Helvetica, sans-serif;
+            font-size: 8px;
+            background-color: #fff;
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .row {
+            width: 100%;
+        }
+
+        .col-lg-12 {
+            width: 100%;
+        }
+
+        .col-lg-11 {
+            width: 91.63%;
+        }
+
+        .col-lg-10 {
+            width: 83.33%;
+        }
+
+        .col-lg-8 {
+            width: 66.64%;
+        }
+
+        .col-lg-6 {
+            width: 49.48%;
+        }
+
+        .col-lg-5 {
+            width: 41.65%;
+        }
+
+        .col-lg-3 {
+            width: 24.99%;
+        }
+
+        .col-lg-4 {
+            width: 33.32%;
+        }
+
+        .col-lg-2 {
+            width: 16.66%;
+        }
+
+        .col-lg-1 {
+            width: 8.33%;
+        }
+    </style>
+</head>
+<body>
+    <table class="center" style="width:100%; max-width: 297mm; height:100%; max-height:210mm; border-collapse: collapse;">
+        @*Cabecera del Reporte*@
+        <tr>
+            <td colspan="6" class="col-lg-6">
+                <table border="1" class="center" style="width: 100%; border-collapse: collapse;">
+                    @*Cabecera del Reporte*@
+                    <tr>
+                        <td colspan="3" class="col-lg-3">
+                            <img src="@Model.WorkerInfo.ProjectLogoUrl" style="width: 50%;" />
+                        </td>
+                        <td colspan="6" class="col-lg-6" style="text-align:center;">
+                            <label class="label"><b>@Model.WorkerInfo.CompanyName</b></label><br />
+                            <label class="label">BOLETA DE PAGO DEL TRABAJADOR</label>
+                        </td>
+                        <td colspan="3" class="col-lg-3">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="12" class="col-lg-12">
+                            <label class="label"><b>DATOS DE LA EMPRESA</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>Razón Social</b></label>
+                        </td>
+                        <td colspan="10" class="col-lg-10">
+                            <label class="label">@Model.WorkerInfo.CompanyName</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>R.U.C.</b></label>
+                        </td>
+                        <td colspan="10" class="col-lg-10">
+                            <label class="label">@Model.WorkerInfo.CompanyRuc</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>Obra</b></label>
+                        </td>
+                        <td colspan="10" class="col-lg-10">
+                            <label class="label">
+                                @Model.WorkerInfo.ProjectName
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="12" class="col-lg-12">
+                            <label class="label"><b>DATOS DEL TRABAJADOR</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>Nombres</b></label>
+                        </td>
+                        <td colspan="10" class="col-lg-10">
+                            <label class="label">
+                                @Model.WorkerInfo.PaternalSurname @Model.WorkerInfo.MaternalSurname @Model.WorkerInfo.Name
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>Categoría</b></label>
+                        </td>
+                        <td colspan="4" class="col-lg-4">
+                            <label class="label">
+                                @Model.WorkerInfo.CategoryStr
+                            </label>
+                        </td>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>Fecha de Cese</b></label>
+                        </td>
+                        <td colspan="4" class="col-lg-4">
+                            <label class="label">
+                                @Model.WorkerInfo.CeaseDateStr
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>Fecha de Ingreso</b></label>
+                        </td>
+                        <td colspan="4" class="col-lg-4">
+                            <label class="label">
+                                @Model.WorkerInfo.EntryDateStr
+                            </label>
+                        </td>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>AFP</b></label>
+                        </td>
+                        <td colspan="4" class="col-lg-4">
+                            <label class="label">
+                                @Model.WorkerInfo.PensionName
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>DNI</b></label>
+                        </td>
+                        <td colspan="4" class="col-lg-4">
+                            <label class="label">
+                                @Model.WorkerInfo.Document
+                            </label>
+                        </td>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>CUSSP</b></label>
+                        </td>
+                        <td colspan="4" class="col-lg-4">
+                            <label class="label">
+                                @Model.WorkerInfo.PensionCussp
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="12" class="col-lg-12">
+                            <table style="width:100%; border-collapse: collapse;">
+                                <tr>
+                                    <td colspan="3" class="col-lg-4">
+                                        <label class="label"><b>Régimen Laboral:</b> CONSTRUCCION CIVIL</label>
+                                    </td>
+                                    <td colspan="3" class="col-lg-3">
+                                        <label class="label"><b>Dias no Laborados:</b> 0</label>
+                                    </td>
+                                    <td colspan="3" class="col-lg-3">
+                                        <label class="label"><b>Dias subsidiados:</b> 0</label>
+                                    </td>
+                                    <td colspan="3" class="col-lg-2">
+                                        <label class="label"><b>Sobretiempo:</b> 0</label>
+                                    </td>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="col-lg-6" style="text-align: center;">
+                            <label class="label"><b>REMUNERACIONES</b></label>
+                        </td>
+                        <td colspan="6" class="col-lg-6" style="text-align: center;">
+                            <label class="label"><b>DESCUENTOS Y APORTES</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="col-lg-6">
+                            <label class="label"><b>Mes de:</b> @Model.MonthYear<br /> @Model.WeekRange</label>
+                        </td>
+                        <td colspan="6" rowspan="2" class="col-lg-6" style="vertical-align: top;">
+                            <table style="width:100%; border-collapse: collapse;">
+                                <tr>
+                                    <td colspan="5" class="col-lg-5">
+                                    </td>
+                                    <td colspan="3" class="col-lg-3" style="text-align: center;">
+                                        <label class="label"><b>DESCUENTO<br /> TRABAJADOR</b></label>
+                                    </td>
+                                    <td colspan="3" class="col-lg-3" style="text-align: center;">
+                                        <label class="label"><b>APORTE<br /> EMPLEADOR</b></label>
+                                    </td>
+                                    <td colspan="1" class="col-lg-1">
+                                    </td>
+                                </tr>
+                                @foreach (var dis in Model.DiscountConcepts)
+                                {
+                                    <tr>
+                                        <td colspan="5" class="col-lg-5">
+                                            <label class="label">@dis.ShortDescription</label>
+                                        </td>
+                                        <td colspan="3" class="col-lg-3" style="text-align: right;">
+                                            <label class="label">@dis.ValueStr</label>
+                                        </td>
+                                        <td colspan="3" class="col-lg-3">
+                                        </td>
+                                        <td colspan="1" class="col-lg-1">
+                                        </td>
+                                    </tr>
+                                }
+                                @foreach (var con in Model.ContributionConcepts)
+                                {
+                                    <tr>
+                                        <td colspan="5" class="col-lg-5">
+                                            <label class="label">@con.ShortDescription</label>
+                                        </td>
+                                        <td colspan="3" class="col-lg-3">
+                                        </td>
+                                        <td colspan="3" class="col-lg-3" style="text-align: right;">
+                                            <label class="label">@con.ValueStr</label>
+                                        </td>
+                                        <td colspan="1" class="col-lg-1">
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </td>
+                    </tr>
+                    @{
+                        var workedDays = Model.DailyConcepts.FirstOrDefault(x => x.Code == "E12")?.ValueStr 
+                            ?? Model.DailyConcepts.FirstOrDefault(x => x.Code == "E08")?.ValueStr;
+                    }
+                    <tr>
+                        <td colspan="6" rowspan="2" class="col-lg-6">
+                            <table style="width:100%; border-collapse: collapse;">
+                                <tr>
+                                    <td colspan="12" class="col-lg-12" style="border-bottom: 0.5px solid;">
+                                        <table style="width:100%; border-collapse: collapse;">
+                                            <tr>
+                                                <td colspan="3" class="col-lg-3">
+                                                    <label class="label">Días Laborados</label>
+                                                </td>
+                                                <td colspan="2" class="col-lg-2" style="text-align: right;">
+                                                    @*<label class="label">@Model.DailyConcepts.First(x => x.Code == "E08").ValueStr d</label>*@
+                                                    <label class="label">@workedDays d</label>
+                                                </td>
+                                                <td colspan="1" class="col-lg-1">
+                                                </td>
+                                                <td colspan="3" class="col-lg-3">
+                                                    <label class="label">Horas Laboradas</label>
+                                                </td>
+                                                <td colspan="2" class="col-lg-2" style="text-align: right;">
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E01")?.ValueStr hrs</label>
+                                                </td>
+                                                <td colspan="1" class="col-lg-1">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                @foreach (var inc in Model.IncomeConcepts)
+                                {
+                                    <tr>
+                                        <td colspan="5" class="col-lg-5">
+                                            <label class="label">@inc.ShortDescription</label>
+                                        </td>
+                                        <td colspan="3" class="col-lg-3" style="text-align: right;">
+                                            @switch (inc.Code)
+                                            {
+                                                case "R01":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E01")?.ValueStr hrs</label>
+                                                    break;
+                                                case "R02":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E02")?.ValueStr hrs</label>
+                                                    break;
+                                                case "R04":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E05")?.ValueStr hrs</label>
+                                                    break;
+                                                case "R05":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E03")?.ValueStr hrs</label>
+                                                    break;
+                                                case "R06":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E04")?.ValueStr hrs</label>
+                                                    break;
+                                                case "R07":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E06")?.ValueStr hrs</label>
+                                                    break;
+                                                case "R08":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E07")?.ValueStr hrs</label>
+                                                    break;
+                                                case "R09":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E12")?.ValueStr d</label>
+                                                    break;
+                                                case "R10":
+                                                    <label class="label">@workedDays d</label>
+                                                    @*<label class="label">@Model.DailyConcepts.First(x => x.Code == "E09").ValueStr d</label>*@
+                                                    break;
+                                                case "R12":
+                                                    <label class="label">@workedDays d</label>
+                                                    @*<label class="label">@Model.DailyConcepts.First(x => x.Code == "E10").ValueStr d</label>*@
+                                                    break;
+                                                case "R13":
+                                                    <label class="label">@workedDays d</label>
+                                                    @*<label class="label">@Model.DailyConcepts.First(x => x.Code == "E11").ValueStr d</label>*@
+                                                    break;
+                                                case "R14":
+                                                    <label class="label">@Model.WorkerInfo.CategoryBucStr</label>
+                                                    break;
+                                                case "R15":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E19")?.ValueStr hrs</label>
+                                                    break;
+                                                case "R16":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E13")?.ValueStr d</label>
+                                                    break;
+                                                case "R17":
+                                                    <label class="label">@((Model.DailyConcepts.FirstOrDefault(x => x.Code == "E06")?.Value + Model.DailyConcepts.FirstOrDefault(x => x.Code == "E07")?.Value)?.ToString("0.00")) hrs</label>
+                                                    break;
+                                                default:
+                                                    <label class="label"></label>
+                                                    break;
+                                            }
+                                        </td>
+                                        <td colspan="3" class="col-lg-3" style="text-align: right;">
+                                            <label class="label">@inc.ValueStr</label>
+                                        </td>
+                                        <td colspan="1" class="col-lg-1">
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="col-lg-6" style="height: 20px;">
+                            <table style="width:100%; border-collapse: collapse;">
+                                <tr>
+                                    <td colspan="5" class="col-lg-5">
+                                        <label class="label"><b>TOTAL DSCTS Y APORTES</b></label>
+                                    </td>
+                                    <td colspan="3" class="col-lg-3" style="text-align: right;">
+                                        <label class="label">@Model.TotalConcepts.FirstOrDefault(x => x.Code == "T02")?.ValueStr</label>
+                                    </td>
+                                    <td colspan="3" class="col-lg-3" style="text-align: right;">
+                                        <label class="label">@Model.TotalConcepts.FirstOrDefault(x => x.Code == "T03")?.ValueStr</label>
+                                    </td>
+                                    <td colspan="1" class="col-lg-1">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="col-lg-6">
+                            <table style="width:100%; border-collapse: collapse;">
+                                <tr>
+                                    <td colspan="8" class="col-lg-8">
+                                        <label class="label"><b>TOTAL HABER S/.</b></label>
+                                    </td>
+                                    <td colspan="3" class="col-lg-3" style="text-align: right;">
+                                        <label class="label">@Model.TotalConcepts.FirstOrDefault(x => x.Code == "T01")?.ValueStr</label>
+                                    </td>
+                                    <td colspan="1" class="col-lg-1">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td colspan="6" class="col-lg-6">
+                            <table style="width:100%; border-collapse: collapse;">
+                                <tr>
+                                    <td colspan="8" class="col-lg-8">
+                                        <label class="label"><b>NETO RECIBIDO S/.</b></label>
+                                    </td>
+                                    <td colspan="3" class="col-lg-3" style="text-align: right; font-size: 15px;">
+                                        <label class="label"><b>@Model.TotalConcepts.FirstOrDefault(x => x.Code == "T05")?.ValueStr</b></label>
+                                    </td>
+                                    <td colspan="1" class="col-lg-1">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+
+            <td colspan="6" class="col-lg-6">
+                <table border="1" class="center" style="width: 100%; border-collapse: collapse;">
+                    @*Cabecera del Reporte*@
+                    <tr>
+                        <td colspan="3" class="col-lg-3">
+                            <img src="@Model.WorkerInfo.ProjectLogoUrl" style="width: 50%;" />
+                        </td>
+                        <td colspan="6" class="col-lg-6" style="text-align:center;">
+                            <label class="label"><b>@Model.WorkerInfo.CompanyName</b></label><br />
+                            <label class="label">BOLETA DE PAGO DEL TRABAJADOR</label>
+                        </td>
+                        <td colspan="3" class="col-lg-3">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="12" class="col-lg-12">
+                            <label class="label"><b>DATOS DE LA EMPRESA</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>Razón Social</b></label>
+                        </td>
+                        <td colspan="10" class="col-lg-10">
+                            <label class="label">@Model.WorkerInfo.CompanyName</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>R.U.C.</b></label>
+                        </td>
+                        <td colspan="10" class="col-lg-10">
+                            <label class="label">@Model.WorkerInfo.CompanyRuc</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>Obra</b></label>
+                        </td>
+                        <td colspan="10" class="col-lg-10">
+                            <label class="label">
+                                @Model.WorkerInfo.ProjectName
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="12" class="col-lg-12">
+                            <label class="label"><b>DATOS DEL TRABAJADOR</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>Nombres</b></label>
+                        </td>
+                        <td colspan="10" class="col-lg-10">
+                            <label class="label">
+                                @Model.WorkerInfo.PaternalSurname @Model.WorkerInfo.MaternalSurname @Model.WorkerInfo.Name
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>Categoría</b></label>
+                        </td>
+                        <td colspan="4" class="col-lg-4">
+                            <label class="label">
+                                @Model.WorkerInfo.CategoryStr
+                            </label>
+                        </td>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>Fecha de Cese</b></label>
+                        </td>
+                        <td colspan="4" class="col-lg-4">
+                            <label class="label">
+                                @Model.WorkerInfo.CeaseDateStr
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>Fecha de Ingreso</b></label>
+                        </td>
+                        <td colspan="4" class="col-lg-4">
+                            <label class="label">
+                                @Model.WorkerInfo.EntryDateStr
+                            </label>
+                        </td>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>AFP</b></label>
+                        </td>
+                        <td colspan="4" class="col-lg-4">
+                            <label class="label">
+                                @Model.WorkerInfo.PensionName
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>DNI</b></label>
+                        </td>
+                        <td colspan="4" class="col-lg-4">
+                            <label class="label">
+                                @Model.WorkerInfo.Document
+                            </label>
+                        </td>
+                        <td colspan="2" class="col-lg-2">
+                            <label class="label"><b>CUSSP</b></label>
+                        </td>
+                        <td colspan="4" class="col-lg-4">
+                            <label class="label">
+                                @Model.WorkerInfo.PensionCussp
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="12" class="col-lg-12">
+                            <table style="width:100%; border-collapse: collapse;">
+                                <tr>
+                                    <td colspan="3" class="col-lg-4">
+                                        <label class="label"><b>Régimen Laboral:</b> CONSTRUCCION CIVIL</label>
+                                    </td>
+                                    <td colspan="3" class="col-lg-3">
+                                        <label class="label"><b>Dias no Laborados:</b> 0</label>
+                                    </td>
+                                    <td colspan="3" class="col-lg-3">
+                                        <label class="label"><b>Dias subsidiados:</b> 0</label>
+                                    </td>
+                                    <td colspan="3" class="col-lg-2">
+                                        <label class="label"><b>Sobretiempo:</b> 0</label>
+                                    </td>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="col-lg-6" style="text-align: center;">
+                            <label class="label"><b>REMUNERACIONES</b></label>
+                        </td>
+                        <td colspan="6" class="col-lg-6" style="text-align: center;">
+                            <label class="label"><b>DESCUENTOS Y APORTES</b></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="col-lg-6">
+                            <label class="label"><b>Mes de:</b> @Model.MonthYear<br /> @Model.WeekRange</label>
+                        </td>
+                        <td colspan="6" rowspan="2" class="col-lg-6" style="vertical-align: top;">
+                            <table style="width:100%; border-collapse: collapse;">
+                                <tr>
+                                    <td colspan="5" class="col-lg-5">
+                                    </td>
+                                    <td colspan="3" class="col-lg-3" style="text-align: center;">
+                                        <label class="label"><b>DESCUENTO<br /> TRABAJADOR</b></label>
+                                    </td>
+                                    <td colspan="3" class="col-lg-3" style="text-align: center;">
+                                        <label class="label"><b>APORTE<br /> EMPLEADOR</b></label>
+                                    </td>
+                                    <td colspan="1" class="col-lg-1">
+                                    </td>
+                                </tr>
+                                @foreach (var dis in Model.DiscountConcepts)
+                                {
+                                    <tr>
+                                        <td colspan="5" class="col-lg-5">
+                                            <label class="label">@dis.ShortDescription</label>
+                                        </td>
+                                        <td colspan="3" class="col-lg-3" style="text-align: right;">
+                                            <label class="label">@dis.ValueStr</label>
+                                        </td>
+                                        <td colspan="3" class="col-lg-3">
+                                        </td>
+                                        <td colspan="1" class="col-lg-1">
+                                        </td>
+                                    </tr>
+                                }
+                                @foreach (var con in Model.ContributionConcepts)
+                                {
+                                    <tr>
+                                        <td colspan="5" class="col-lg-5">
+                                            <label class="label">@con.ShortDescription</label>
+                                        </td>
+                                        <td colspan="3" class="col-lg-3">
+                                        </td>
+                                        <td colspan="3" class="col-lg-3" style="text-align: right;">
+                                            <label class="label">@con.ValueStr</label>
+                                        </td>
+                                        <td colspan="1" class="col-lg-1">
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" rowspan="2" class="col-lg-6">
+                            <table style="width:100%; border-collapse: collapse;">
+                                <tr>
+                                    <td colspan="12" class="col-lg-12" style="border-bottom: 0.5px solid;">
+                                        <table style="width:100%; border-collapse: collapse;">
+                                            <tr>
+                                                <td colspan="3" class="col-lg-3">
+                                                    <label class="label">Días Laborados</label>
+                                                </td>
+                                                <td colspan="2" class="col-lg-2" style="text-align: right;">
+                                                    @*<label class="label">@Model.DailyConcepts.First(x => x.Code == "E08").ValueStr d</label>*@
+                                                    <label class="label">@workedDays d</label>
+                                                </td>
+                                                <td colspan="1" class="col-lg-1">
+                                                </td>
+                                                <td colspan="3" class="col-lg-3">
+                                                    <label class="label">Horas Laboradas</label>
+                                                </td>
+                                                <td colspan="2" class="col-lg-2" style="text-align: right;">
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E01")?.ValueStr hrs</label>
+                                                </td>
+                                                <td colspan="1" class="col-lg-1">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                @foreach (var inc in Model.IncomeConcepts)
+                                {
+                                    <tr>
+                                        <td colspan="5" class="col-lg-5">
+                                            <label class="label">@inc.ShortDescription</label>
+                                        </td>
+                                        <td colspan="3" class="col-lg-3" style="text-align: right;">
+                                            @switch (inc.Code)
+                                            {
+                                                case "R01":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E01")?.ValueStr hrs</label>
+                                                    break;
+                                                case "R02":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E02")?.ValueStr hrs</label>
+                                                    break;
+                                                case "R04":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E05")?.ValueStr hrs</label>
+                                                    break;
+                                                case "R05":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E03")?.ValueStr hrs</label>
+                                                    break;
+                                                case "R06":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E04")?.ValueStr hrs</label>
+                                                    break;
+                                                case "R07":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E06")?.ValueStr hrs</label>
+                                                    break;
+                                                case "R08":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E07")?.ValueStr hrs</label>
+                                                    break;
+                                                case "R09":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E12")?.ValueStr d</label>
+                                                    break;
+                                                case "R10":
+                                                    <label class="label">@workedDays d</label>
+                                                    @*<label class="label">@Model.DailyConcepts.First(x => x.Code == "E09").ValueStr d</label>*@
+                                                    break;
+                                                case "R12":
+                                                    <label class="label">@workedDays d</label>
+                                                    @*<label class="label">@Model.DailyConcepts.First(x => x.Code == "E10").ValueStr d</label>*@
+                                                    break;
+                                                case "R13":
+                                                    <label class="label">@workedDays d</label>
+                                                    @*<label class="label">@Model.DailyConcepts.First(x => x.Code == "E11").ValueStr d</label>*@
+                                                    break;
+                                                case "R14":
+                                                    <label class="label">@Model.WorkerInfo.CategoryBucStr</label>
+                                                    break;
+                                                case "R15":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E19")?.ValueStr hrs</label>
+                                                    break;
+                                                case "R16":
+                                                    <label class="label">@Model.DailyConcepts.FirstOrDefault(x => x.Code == "E13")?.ValueStr d</label>
+                                                    break;
+                                                case "R17":
+                                                    <label class="label">@((Model.DailyConcepts.FirstOrDefault(x => x.Code == "E06")?.Value + Model.DailyConcepts.FirstOrDefault(x => x.Code == "E07")?.Value)?.ToString("0.00")) hrs</label>
+                                                    break;
+                                                default:
+                                                    <label class="label"></label>
+                                                    break;
+                                            }
+                                        </td>
+                                        <td colspan="3" class="col-lg-3" style="text-align: right;">
+                                            <label class="label">@inc.ValueStr</label>
+                                        </td>
+                                        <td colspan="1" class="col-lg-1">
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="col-lg-6" style="height: 20px;">
+                            <table style="width:100%; border-collapse: collapse;">
+                                <tr>
+                                    <td colspan="5" class="col-lg-5">
+                                        <label class="label"><b>TOTAL DSCTS Y APORTES</b></label>
+                                    </td>
+                                    <td colspan="3" class="col-lg-3" style="text-align: right;">
+                                        <label class="label">@Model.TotalConcepts.FirstOrDefault(x => x.Code == "T02")?.ValueStr</label>
+                                    </td>
+                                    <td colspan="3" class="col-lg-3" style="text-align: right;">
+                                        <label class="label">@Model.TotalConcepts.FirstOrDefault(x => x.Code == "T03")?.ValueStr</label>
+                                    </td>
+                                    <td colspan="1" class="col-lg-1">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="col-lg-6">
+                            <table style="width:100%; border-collapse: collapse;">
+                                <tr>
+                                    <td colspan="8" class="col-lg-8">
+                                        <label class="label"><b>TOTAL HABER S/.</b></label>
+                                    </td>
+                                    <td colspan="3" class="col-lg-3" style="text-align: right;">
+                                        <label class="label">@Model.TotalConcepts.FirstOrDefault(x => x.Code == "T01")?.ValueStr</label>
+                                    </td>
+                                    <td colspan="1" class="col-lg-1">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td colspan="6" class="col-lg-6">
+                            <table style="width:100%; border-collapse: collapse;">
+                                <tr>
+                                    <td colspan="8" class="col-lg-8">
+                                        <label class="label"><b>NETO RECIBIDO S/.</b></label>
+                                    </td>
+                                    <td colspan="3" class="col-lg-3" style="text-align: right; font-size: 15px;">
+                                        <label class="label"><b>@Model.TotalConcepts.FirstOrDefault(x => x.Code == "T05")?.ValueStr</b></label>
+                                    </td>
+                                    <td colspan="1" class="col-lg-1">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" class="col-lg-6">
+                <table class="center" style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td colspan="1" class="col-lg-1">
+                        </td>
+                        <td colspan="3" class="col-lg-4">
+                            <img src="@Model.WorkerInfo.ProjectInvoiceSignatureUrl" style="width:60%;" />
+                        </td>
+                        <td colspan="2" class="col-lg-2">
+                        </td>
+                        <td colspan="3" class="col-lg-4">
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" class="col-lg-1">
+                        </td>
+                        <td colspan="3" class="col-lg-4">
+                            <label class="label">Firma y Sello del Empleador</label>
+                        </td>
+                        <td colspan="2" class="col-lg-2">
+                        </td>
+                        <td colspan="3" class="col-lg-4">
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td colspan="6" class="col-lg-6">
+                <table class="center" style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td colspan="1" class="col-lg-1">
+                        </td>
+                        <td colspan="3" class="col-lg-4">
+                            <img src="@Model.WorkerInfo.ProjectInvoiceSignatureUrl" style="width:60%;" />
+                        </td>
+                        <td colspan="2" class="col-lg-2">
+                        </td>
+                        <td colspan="3" class="col-lg-4">
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" class="col-lg-1">
+                        </td>
+                        <td colspan="3" class="col-lg-4">
+                            <label class="label">Firma y Sello del Empleador</label>
+                        </td>
+                        <td colspan="2" class="col-lg-2">
+                        </td>
+                        <td colspan="3" class="col-lg-4">
+                        </td>
+                        <td colspan="1" class="col-lg-1">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

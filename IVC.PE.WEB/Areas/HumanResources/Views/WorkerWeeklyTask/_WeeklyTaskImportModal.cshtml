@@ -1,0 +1,42 @@
+﻿@model WorkerWeeklyTaskImportViewModel
+<div class="modal fade" id="weekly_task_import_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-modal="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Importar Tareo Semanal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <form id="weekly_task_import_form" class="form form-horizontal" role="form">
+                <div class="modal-body">
+                    <div id="weekly_task_import_alert" class="alert alert-danger alert-dismissible fade d-none" role="alert">
+                        <span id="weekly_task_import_alert_text"></span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <input asp-for="WeekId" hidden />
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <label asp-for="File" class="col-form-label"></label>
+                            <div class="custom-file">
+                                <input asp-for="File" class="custom-file-input" name="file" required>
+                                <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <i class="la la-close"></i>
+                        Cerrar
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="la la-save"></i>
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

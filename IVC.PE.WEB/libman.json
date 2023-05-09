@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "defaultDestination": "wwwroot/lib/",
+  "libraries": [
+    {
+      "provider": "cdnjs",
+      "library": "pace@1.2.4",
+      "destination": "wwwroot/lib/pace"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "jquery.fileDownload@1.4.2",
+      "destination": "wwwroot/lib/jquery-file-download"
+    }
+  ]
+}

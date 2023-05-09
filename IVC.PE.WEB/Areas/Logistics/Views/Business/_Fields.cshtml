@@ -1,0 +1,143 @@
+﻿@model IVC.PE.WEB.Areas.Logistics.ViewModels.BusinessViewModels.BusinessViewModel
+
+<input asp-for="Id" hidden />
+
+<h6 class="text-primary font-weight-bold text-uppercase">Datos Generales</h6>
+<div class="form-group row">
+    <div class="col-lg-5">
+        <label asp-for="BusinessName" class="label"></label>
+        <input asp-for="BusinessName" class="form-control" required />
+    </div>
+    <div class="col-lg-5">
+        <label asp-for="Tradename" class="label"></label>
+        <input asp-for="Tradename" class="form-control" />
+    </div>
+    <div class="col-lg-2">
+        <label asp-for="RUC" class="label"></label>
+        <input asp-for="RUC" class="form-control" required />
+    </div>
+
+    <div class="col-lg-5">
+        <label asp-for="Address" class="label"></label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+
+    <div class="col-lg-3">
+        <label asp-for="PhoneNumber" class="label"></label>
+        <input asp-for="PhoneNumber" class="form-control" />
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="CreateDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="CreateDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h6 class="text-primary font-weight-bold text-uppercase">Tipo de Sociedad</h6>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="Type" class="label"></label>
+        <input asp-for="Type" hidden />
+        <select name="select_type" class="form-control kt-select select2-types" data-placeholder="Tipo">
+            @foreach (var item in ConstantHelpers.Biddings.TYPE)
+            {
+
+                <option value="@item.Key">@item.Value</option>
+
+            }
+        </select>
+    </div>    
+</div>
+<div class="form-group row con-group" hidden>
+    <div class="col-lg-6">
+        <label asp-for="BusinessConsortium1" class="label"></label>
+        <input asp-for="BusinessConsortium1" hidden />
+        <select name="select_business1" class="form-control kt-select select2-businesses" data-placeholder="Empresa">
+            <option>Ninguna</option>
+        </select>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="BusinessConsortium2" class="label"></label>
+        <input asp-for="BusinessConsortium2" hidden />
+        <select name="select_business2" class="form-control kt-select select2-businesses" data-placeholder="Empresa">
+            <option>Ninguna</option>
+        </select>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="BusinessConsortium3" class="label"></label>
+        <input asp-for="BusinessConsortium3" hidden />
+        <select name="select_business3" class="form-control kt-select select2-businesses" data-placeholder="Empresa">
+            <option>Ninguna</option>
+        </select>
+    </div>
+
+
+    <div class="col-lg-6">
+        <label asp-for="BusinessConsortium4" class="label"></label>
+        <input asp-for="BusinessConsortium4" hidden />
+        <select name="select_business4" class="form-control kt-select select2-businesses" data-placeholder="Empresa">
+            <option>Ninguna</option>
+        </select>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="BusinessConsortium5" class="label"></label>
+        <input asp-for="BusinessConsortium5" hidden>
+        <select name="select_business5" class="form-control kt-select select2-businesses" data-placeholder="Empresa">
+            <option>Ninguna</option>
+        </select>
+    </div>
+
+
+
+
+
+
+
+
+</div>
+
+
+<h6 class="text-primary font-weight-bold text-uppercase">Contacto</h6>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="CollectionAreaContactName" class="label"></label>
+        <input asp-for="CollectionAreaContactName" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="CollectionAreaEmail" class="label"></label>
+        <input asp-for="CollectionAreaEmail" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="CollectionAreaPhoneNumber" class="label"></label>
+        <input asp-for="CollectionAreaPhoneNumber" class="form-control" />
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="FileRuc" class="label"></label>
+        <div class="custom-file custom-file-title">
+            <input asp-for="FileRuc" type="file" class="custom-file-input customFile" />
+            <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+        </div>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="FileTestimony" class="label"></label>
+        <div class="custom-file custom-file-dni">
+            <input asp-for="FileTestimony" type="file" class="custom-file-input customFile2" />
+            <label class="custom-file-label" for="customFile2">Escoge un archivo</label>
+        </div>
+    </div>
+</div>

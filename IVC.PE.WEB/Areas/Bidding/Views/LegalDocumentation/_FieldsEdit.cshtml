@@ -1,0 +1,23 @@
+﻿@model LegalDocumentationViewModel
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    @*<div class="col-lg-12">
+            <label asp-for="ProjectId" class="label"></label>
+            <input asp-for="ProjectId" hidden />
+            <select name="select_project" class="form-control kt-select select2-projects" data-placeholder="Garantes"></select>
+        </div>*@
+
+    <div class="col-lg-4">
+        <label asp-for="BusinessId" class="label"></label>
+        <input asp-for="BusinessId" hidden />
+        <select name="select_business" class="form-control kt-select select2-businesses" data-placeholder="Entidades"></select>
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="LegalDocumentationTypeId" class="label"></label>
+        <input asp-for="LegalDocumentationTypeId" hidden />
+        <select name="select_legaldoctype" class="form-control kt-select select2-legaldocType" data-placeholder="Tipo de Documento"></select>
+    </div>
+
+</div>

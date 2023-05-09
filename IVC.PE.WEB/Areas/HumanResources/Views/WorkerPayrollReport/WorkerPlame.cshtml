@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "Reportes para Declaración de PLAME";
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.Title
+            </h3>
+        </div>
+    </div>
+
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+            <div class="col-lg-2">
+                <label class="label">Año</label>
+                <input id="year_filter" class="form-control" value="@DateTime.Now.Year" required />
+            </div>
+            <div class="col-lg-4">
+                <label class="label">Seleccione Semana</label>
+                <select id="month_filter" class="form-control kt-select2 select2-months" required>
+                    <option value="1" selected>Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Setiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-lg-12">
+                <a id="plameFiles" href="#" class="btn btn-outline-info">
+                    <i class="flaticon2-list"></i> Generar Archivos Plame
+                </a>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-lg-12">
+                <a id="plameSummary" href="#" class="btn btn-outline-success">
+                    <i class="flaticon2-list"></i> Generar Excel Resumen Plame
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/areas/human-resources/worker-payroll-report/plame.js"></script>
+}

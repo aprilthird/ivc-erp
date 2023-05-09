@@ -1,0 +1,49 @@
+﻿@model ProviderCatalogViewModel
+
+<input asp-for="Id" hidden/>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="SupplyFamilyId" class="label"></label>
+        <input asp-for="SupplyFamilyId" hidden />
+        <select name="select_family" class="form-control kt-select select2-familys"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="SupplyGroupId" class="label"></label>
+        <input asp-for="SupplyGroupId" hidden />
+        <select name="select_group" class="form-control kt-select select2-groups"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="SpecialityId" class="label"></label>
+        <input asp-for="SpecialityId" hidden />
+
+        <select name="select_spec" class="form-control kt-select select2-specs">
+            <option value="">Ninguno</option>
+        </select>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="ProviderId" class="label"></label>
+        <input asp-for="ProviderId" hidden />
+
+        <select name="select_provider" class="form-control kt-select select2-providers">
+            <option value="">Ninguno</option>
+        </select>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="Name" class="label"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+
+
+</div>
+
+<div class="form-group">
+    <label asp-for="File" class="label">Archivo:</label>
+    <div class="custom-file">
+        <input asp-for="File" type="file" class="custom-file-input" />
+        <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+    </div>
+</div>

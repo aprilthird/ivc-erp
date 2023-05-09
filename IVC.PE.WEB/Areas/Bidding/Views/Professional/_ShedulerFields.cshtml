@@ -1,0 +1,16 @@
+﻿@model ShedulerProExpViewModel
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="ProfessionalId" class="label"></label>
+        <input asp-for="ProfessionalId" hidden />
+        <select name="select_profe" class="form-control kt-select select2-profes" data-placeholder="Profesionales"></select>
+    </div>
+
+    <div class="col-lg-4">
+        <label asp-for="PositionId" class="label"></label>
+        <input asp-for="PositionId" hidden />
+        <select name="select_position" class="form-control kt-select select2-positions" data-placeholder="Cargos"></select>
+    </div>
+
+</div>

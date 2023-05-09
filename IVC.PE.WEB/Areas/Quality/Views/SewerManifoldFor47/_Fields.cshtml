@@ -1,0 +1,118 @@
+﻿@model SewerManifoldFor47ViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="SewerManifoldId" class="label"></label>
+        <input asp-for="SewerManifoldId" hidden />
+        <select name="select_manifold" class="form-control kt-select select2-manifolds"></select>
+    </div>
+    <div class="col-lg-4">
+        <button id="SearchSelectManifold" type="button" class="search-manifold btn btn-secondary">Buscar</button>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <div class="col-lg-12">
+            <h6>BZ (i) - <span id="bzi"></span></h6>
+        </div>
+        <div class="col-lg-12">
+            <label asp-for="SewerManifold.SewerBoxStart.TerrainType" class="label">Tipo de Terreno Real</label>
+            <input asp-for="SewerManifold.SewerBoxStart.TerrainType" hidden />
+            <select name="select_starttt" class="form-control kt-select select2-tts" data-placeholder="Tipo de Terreno">
+                @foreach (var item in ConstantHelpers.Terrain.Type.VALUES)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="col-lg-12">
+            <h6>BZ (j) - <span id="bzj"></span></h6>
+        </div>
+        <div class="col-lg-12">
+            <label asp-for="SewerManifold.SewerBoxEnd.TerrainType" class="label">Tipo de Terreno Real</label>
+            <input asp-for="SewerManifold.SewerBoxEnd.TerrainType" hidden />
+            <select name="select_endtt" class="form-control kt-select select2-tts" data-placeholder="Tipo de Terreno">
+                @foreach (var item in ConstantHelpers.Terrain.Type.VALUES)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <h6>Tramo - Tipo de Terreno</h6>
+    </div>
+    <div class="col-lg-6">
+        <div class="col-lg-12">
+            <label asp-for="SewerManifold.TerrainType" class="label"></label>
+            <select name="select_tt" class="form-control kt-select select2-tts" data-placeholder="Tipo de Terreno" disabled="disabled">
+                @foreach (var item in ConstantHelpers.Terrain.Type.VALUES)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="col-lg-12">
+            <label asp-for="SewerManifold.LengthOfDigging" class="label"></label>
+            <input asp-for="SewerManifold.LengthOfDigging" class="form-control" disabled="disabled" />
+        </div>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <h6>Tramo - Excavación por Tipo de Terreno (Real)</h6>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="LengthOfDiggingN" class="label">Normal (%)</label>
+        <input asp-for="LengthOfDiggingN" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="LengthOfDiggingSR" class="label">Semirrocoso (%)</label>
+        <input asp-for="LengthOfDiggingSR" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="LengthOfDiggingR" class="label">Rocoso (%)</label>
+        <input asp-for="LengthOfDiggingR" class="form-control" />
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="WorkBookRegistryDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="WorkBookRegistryDate" class="form-control datepicker" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="WorkBookNumber" class="label"></label>
+        <input asp-for="WorkBookNumber" class="form-control" />
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="WorkBookSeat" class="label"></label>
+        <input asp-for="WorkBookSeat" class="form-control" />
+    </div>
+</div>
+
+<div class="form-group">
+    <label asp-for="File" class="label">Archivo:</label>
+    <div class="custom-file">
+        <input asp-for="File" type="file" class="custom-file-input" />
+        <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+    </div>
+</div>

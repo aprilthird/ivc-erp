@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "For-47";
+    ViewBag.SubTitle = "Protocolo por cambio de tipo de terreno";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.Quality.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    @if (canEdit)
+                    {
+                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add_modal"><span><i class="la la-plus"></i><span>Nuevo</span></span></button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_project" role="tabpanel">
+                <table class="table table-striped table-bordered table-hover table-checkable datatable" id="for47s_datatable" role="grid">
+                    <thead>
+                        <!--24-->
+                        <tr>
+                            <th colspan="3" style="text-align:center;">Ubicación</th>
+                            <th colspan="3" style="text-align:center;">BZ (i) Aguas Arriba</th>
+                            <th colspan="3" style="text-align:center;">BZ (j) Aguas Abajo</th>
+                            <th colspan="14" style="text-align:center;">TRAMOS</th>
+                        </tr>
+                        <tr>
+                            <th rowspan="3" style="text-align:center;"># Protocolo</th>
+                            <th rowspan="3" style="text-align:center;">Cuadrilla</th>
+                            <th rowspan="3" style="text-align:center;">Dirección</th>
+                            <th rowspan="3" style="text-align:center;">Nº</th>
+                            <th rowspan="2" colspan="2" style="text-align:center;">TT</th>
+                            <th rowspan="3" style="text-align:center;">Nº</th>
+                            <th rowspan="2" colspan="2" style="text-align:center;">TT</th>
+                            <th rowspan="3" style="text-align:center;">Nombre</th>
+                            <th colspan="3" style="text-align:center;">Tipo de Terreno (ml)</th>
+                            <th colspan="3" style="text-align:center;">Tipo de Terreno (%)</th>
+                            <th rowspan="3" style="text-align:center;">Long. Excav. For-01(ml)</th>
+                            <th colspan="3" style="text-align:center;">Tipo de Terreno (ml)</th>
+                            <th style="text-align:center;">FECHAS</th>
+                            <th colspan="2" style="text-align:center;">Cuaderno de Obra</th>
+                            <th rowspan="3" style="text-align:center;">Opciones</th>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="text-align:center;">Proyecto</td>
+                            <td colspan="3" style="text-align:center;">Real</td>
+                            <td colspan="3" style="text-align:center;">Real</td>
+                            <th rowspan="2" style="text-align:center;">Anotación en cuaderno de Obra</th>
+                            <th rowspan="2" style="text-align:center;">Libro</th>
+                            <th rowspan="2" style="text-align:center;">Asiento</th>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;">Proyecto</td>
+                            <td style="text-align:center;">Real</td>
+                            <td style="text-align:center;">Proyecto</td>
+                            <td style="text-align:center;">Real</td>
+                            <td style="text-align:center;">N</td>
+                            <td style="text-align:center;">SR</td>
+                            <td style="text-align:center;">R</td>
+                            <td style="text-align:center;">N</td>
+                            <td style="text-align:center;">SR</td>
+                            <td style="text-align:center;">R</td>
+                            <td style="text-align:center;">N</td>
+                            <td style="text-align:center;">SR</td>
+                            <td style="text-align:center;">R</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (canEdit)
+{
+    <partial name="_CreateModal" />
+    <partial name="_EditModal" /> 
+}
+<partial name="_PdfModal" />
+
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/quality/sewer-manifold-for47/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/quality/sewer-manifold-for47/index.js"></script>
+    }
+}

@@ -1,0 +1,127 @@
+﻿@model EquipmentMachPartFoldingViewModel
+
+<input asp-for="Id" hidden />
+
+<input asp-for="EquipmentMachPartId" hidden />
+
+<div class="col-md-6">
+    <div class="kt-form__group--inline">
+        <div class="kt-form__label">
+            <label asp-for="EquipmentMachineryOperatorId" class="kt-label m-label--single"></label>
+        </div>
+        <div class="kt-form__control">
+            <select asp-for="EquipmentMachineryOperatorId" class="form-control kt-select2 select2-operators"></select>
+        </div>
+    </div>
+    <div class="d-md-none kt-margin-b-10"></div>
+</div>
+
+<div class="col-md-6">
+    <div class="kt-form__group--inline">
+        <div class="kt-form__label">
+            <label asp-for="UserId" class="kt-label m-label--single"></label>
+        </div>
+        <div class="kt-form__control">
+            <select asp-for="UserId" class="form-control kt-select2 select2-users">
+            </select>
+        </div>
+    </div>
+    <div class="d-md-none kt-margin-b-10"></div>
+</div>
+
+
+<div class="col-md-2">
+    <div class="kt-form__group--inline">
+        <div class="kt-form__label">
+            <label asp-for="PartNumber" class="kt-label m-label--single"></label>
+        </div>
+        <div class="kt-form__control">
+            <input asp-for="PartNumber" class="form-control" />
+        </div>
+    </div>
+    <div class="d-md-none kt-margin-b-10"></div>
+</div>
+
+<div class="col-lg-6">
+    <label asp-for="PartDate" class="label"></label>
+    <div class="input-group">
+        <input asp-for="PartDate" class="form-control datepicker" required />
+        <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2">
+                <i class="fa fa-calendar"></i>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-3">
+    <div class="kt-form__group--inline">
+        <div class="kt-form__label">
+            <label asp-for="InitHorometer" class="kt-label m-label--single"></label>
+        </div>
+        <div class="kt-form__control">
+            <input asp-for="InitHorometer" class="form-control" />
+        </div>
+    </div>
+    <div class="d-md-none kt-margin-b-10"></div>
+</div>
+
+<div class="col-md-3">
+    <div class="kt-form__group--inline">
+        <div class="kt-form__label">
+            <label asp-for="EndHorometer" class="kt-label m-label--single"></label>
+        </div>
+        <div class="kt-form__control">
+            <input asp-for="EndHorometer" class="form-control" />
+        </div>
+    </div>
+    <div class="d-md-none kt-margin-b-10"></div>
+</div>
+
+<div class="col-md-6">
+    <div class="kt-form__group--inline">
+        <div class="kt-form__label">
+            <label asp-for="EquipmentMachineryTypeTypeActivityId" class="kt-label m-label--single"></label>
+        </div>
+        <div class="kt-form__control">
+            <select asp-for="EquipmentMachineryTypeTypeActivityId" class="form-control kt-select2 select2-activities"></select>
+        </div>
+    </div>
+    <div class="d-md-none kt-margin-b-10"></div>
+</div>
+
+<div class="col-md-3">
+    <div class="kt-form__group--inline">
+        <div class="kt-form__label">
+            <label asp-for="Specific" class="kt-label m-label--single"></label>
+        </div>
+        <div class="kt-form__control">
+            <input asp-for="Specific" class="form-control" />
+        </div>
+    </div>
+    <div class="d-md-none kt-margin-b-10"></div>
+</div>
+
+<div class="col-md-6">
+    <div class="kt-form__group--inline">
+        <div class="kt-form__label">
+            <label asp-for="SewerGroupId" class="kt-label m-label--single"></label>
+        </div>
+        <div class="kt-form__control">
+            <select asp-for="SewerGroupId" class="form-control kt-select2 select2-sewers"></select>
+        </div>
+    </div>
+    <div class="d-md-none kt-margin-b-10"></div>
+</div>
+
+<div class="col-md-6">
+    <div class="kt-form__group--inline">
+        <div class="kt-form__label">
+            <label asp-for="MachineryPhaseId" class="kt-label m-label--single"></label>
+        </div>
+        <div class="kt-form__control">
+            <select asp-for="MachineryPhaseId" class="form-control kt-select2 select2-phases"></select>
+        </div>
+    </div>
+    <div class="d-md-none kt-margin-b-10"></div>
+</div>

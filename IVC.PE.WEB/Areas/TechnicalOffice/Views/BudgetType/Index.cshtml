@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Tipos Presupuesto";
+    ViewBag.SubTitle = "Tipos Presupuesto";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.TechnicalOffice.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    @if (canEdit)
+                    {
+                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add_modal"><span><i class="la la-plus"></i><span>Nuevo</span></span></button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_project" role="tabpanel">
+                <table class="table table-striped table-bordered table-hover table-checkable datatable" id="budgettypes_datatable" role="grid">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (canEdit)
+{
+    <partial name="_CreateModal" />
+    <partial name="_EditModal" />
+}
+
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/technical-office/budget-type/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/technical-office/budget-type/index.js"></script>
+    }
+}

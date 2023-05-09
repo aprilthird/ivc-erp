@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.TechnicalOffice.MixDesigns.MixDesignListPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Lista de Diseños de Mezcla">
+    <ContentPage.Content>
+        <AbsoluteLayout
+            x:Name="layout"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding MixDesignListViewModel}"
+            Padding="8">
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional">
+                <Label
+                        Text="Proyecto "></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Projects}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedProject}" />
+                </StackLayout>
+
+
+
+                <Label
+                        Text="Tipos de Cemento"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Cements}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedCement}" />
+                </StackLayout>
+
+                <Label
+                        Text="Tipo de Agregado"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Aggs}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedAgg}" />
+                </StackLayout>
+
+                <Label
+                        Text="Uso de Concreto"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding Concretes}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedConcrete}" />
+                </StackLayout>
+
+                <Label
+                        Text="Tipo de Diseño"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Picker
+                        HorizontalOptions="FillAndExpand"
+                        ItemsSource="{Binding DesignTypes}"
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedItem="{Binding SelectedDesign}" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Entry
+                         HorizontalOptions="FillAndExpand"
+                       Placeholder = "Nombre"
+                        Text="{Binding Name , Mode=TwoWay}"
+                        />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Button
+                        Command="{Binding LoadMixDesignsCommand}"
+                        Text="Buscar"/>
+                </StackLayout>
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,51 @@
+﻿@model RdpItemViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12 row">
+        <div class="col-lg-12">
+            <label asp-for="ProjectPhaseId" class="label"></label>
+            <input asp-for="ProjectPhaseId" hidden />
+            <select name="select_projectphase" class="form-control kt-select select2-projectphases" data-placeholder="Fases"></select>
+        </div>
+    </div>
+    <div class="col-lg-12 row">
+        <div class="col-lg-6">
+            <label asp-for="ItemGroup" class="label"></label>
+            <input asp-for="ItemGroup" hidden />
+            <select name="select_itemgroup" class="form-control kt-select select2-itemgroups" data-placeholder="Grupo">
+                @foreach (var item in ConstantHelpers.Productions.RDPs.GROUPS)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </select>
+        </div>
+        <div class="col-lg-6">
+            <label asp-for="ItemPhaseCode" class="label"></label>
+            <input asp-for="ItemPhaseCode" class="form-control" />
+        </div>
+    </div>
+    <div class="col-lg-12 row">
+        <div class="col-lg-8">
+            <label asp-for="ItemDescription" class="label"></label>
+            <input asp-for="ItemDescription" class="form-control" />
+        </div>
+        <div class="col-lg-4">
+            <label asp-for="ItemUnit" class="label"></label>
+            <input asp-for="ItemUnit" class="form-control" />
+        </div>
+    </div>
+
+    <div class="col-lg-12 row">
+        <div class="col-lg-6">
+            <label asp-for="ItemContractualAmmount" class="label"></label>
+            <input asp-for="ItemContractualAmmount" class="form-control" />
+        </div>
+        <div class="col-lg-6">
+            <label asp-for="ItemStakeOutAmmount" class="label"></label>
+            <input asp-for="ItemStakeOutAmmount" class="form-control" />
+        </div>
+    </div>
+
+</div>

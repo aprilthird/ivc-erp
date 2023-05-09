@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.HrWorker.Attendance.WorkerAttendanceCheckPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Registrar Asistencia">
+    <ContentPage.Content>
+        <AbsoluteLayout
+            x:Name="layout"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding WorkerAttendanceCheckViewModel}"
+            Padding="8">            
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional">
+                <Button
+                    Text="Capturar Códigos"
+                    Command="{Binding CaptureQrCommand}"/>
+                <Label
+                    Text="Códigos Leídos"></Label>
+                <ScrollView
+                    Padding="0,0,0,80">
+                    <ListView
+                        SelectionMode="None"
+                        HasUnevenRows="True"
+                        ItemsSource="{Binding Workers}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout
+                                            Grid.Column="0"
+                                            VerticalOptions="Center"
+                                            Orientation="Vertical">
+                                            <Label
+                                                FontSize="Small"
+                                                Text="{Binding Document}">
+                                            </Label>
+                                            <Label
+                                                FontAttributes="Bold"
+                                                Text="{Binding WorkerFullName}">
+                                            </Label>
+                                            <Label
+                                                FontSize="Small"
+                                                Text="{Binding CategoryStr}">
+                                            </Label>
+                                        </StackLayout>
+                                        <StackLayout
+                                            Grid.Column="1"
+                                            VerticalOptions="Center"
+                                            Orientation="Vertical">
+                                            <Label
+                                                Text="{Binding SewerGroupCode}">
+                                            </Label>
+                                            <Label
+                                                Text="{Binding ProjectPhaseCode}">
+                                            </Label>
+                                        </StackLayout>
+                                        <StackLayout
+                                            Grid.Column="2"
+                                            VerticalOptions="Center"
+                                            Orientation="Vertical">
+                                            <Label
+                                                VerticalOptions="Start"
+                                                Text="¿Asistió?" />
+                                            <Label
+                                                HorizontalTextAlignment="Center"
+                                                FontSize="Large"
+                                                FontFamily="FontAwesome"
+                                                Text="{Binding AttendedIcon}"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>
+
+            </StackLayout>
+            <Button
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds=".98,.98,50,50"
+                BackgroundColor="#00284A"
+                Command="{Binding SaveAttendanceCommand}"
+                CornerRadius="30"
+                Text="&#xf0c7;"
+                FontFamily="FontAwesome"
+                FontSize="30"
+                TextColor="White"
+                IsEnabled="{Binding IsEnabled}">
+            </Button>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

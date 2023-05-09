@@ -1,0 +1,30 @@
+﻿@model ErpManualViewModel
+
+<input asp-for="Id" hidden />
+
+<div class="form-group row">
+
+    <div class="col-lg-6">
+        <label asp-for="AreaModuleId" class="label"></label>
+        <input asp-for="AreaModuleId" hidden />
+
+        <select name="select_module" class="form-control kt-select select2-modules">
+            
+        </select>
+    </div>
+
+
+    <div class="col-lg-6">
+        <label asp-for="Name" class="label"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+</div>
+
+<div class="form-group">
+    <label asp-for="File" class="label">Archivo:</label>
+    <div class="custom-file">
+        <input asp-for="File" type="file" class="custom-file-input" />
+        <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+    </div>
+</div>

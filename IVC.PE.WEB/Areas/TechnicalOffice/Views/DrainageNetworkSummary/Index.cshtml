@@ -1,0 +1,196 @@
+﻿
+@{
+    ViewData["Title"] = "Consolidado de Líneas de Redes de Alcantarillado";
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title">
+                Listado de Tramos
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <button type="button" class="btn btn-secondary btn-export"><span><i class="la la-download"></i><span>Exportar</span></span></button>
+                        @if (User.IsInAnyRole(ConstantHelpers.Permission.TechnicalOffice.FULL_ACCESS))
+                        {
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#import_modal"><span><i class="la la-upload"></i><span>Importar</span></span></button>
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#add_modal"><span><i class="la la-plus"></i><span>Nuevo</span></span></button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <ul class="nav nav-tabs nav-fill" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#tab_contractual">
+                    <i class="la la-folder-open"></i>
+                    Proyecto
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab_staking">
+                    <i class="la la-refresh"></i>
+                    Replanteo
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab_real">
+                    <i class="la la-expeditedssl"></i>
+                    Protocolo
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_contractual" role="tabpanel">
+                <table class="table table-striped table-bordered table-hover table-checkable datatable" id="contractual_datatable" role="grid">
+                    <thead>
+                        <tr>
+                            <th class="text-center" colspan="6">Ubicaci&oacute;n</th>
+                            <th class="text-center" colspan="10">BZ (i) Aguas Arriba</th>
+                            <th class="text-center" colspan="10">BZ (j) Aguas Abajo</th>
+                            <th class="text-center" colspan="11">Tramo</th>
+                            @if (User.IsInAnyRole(ConstantHelpers.Permission.TechnicalOffice.FULL_ACCESS))
+                            {
+                                <th rowspan="2"></th>
+                            }
+                        </tr>
+                        <tr>
+                            @for (int i = 0; i < 37; ++i)
+                            {
+                                <th></th>
+                            }
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="tab-pane" id="tab_staking" role="tabpanel">
+                <table class="table table-striped- table-bordered table-hover table-checkable datatable" id="staking_datatable" role="grid">
+                    <thead>
+                        <tr>
+                            <th class="text-center" colspan="6">Ubicaci&oacute;n</th>
+                            <th class="text-center" colspan="10">BZ (i) Aguas Arriba</th>
+                            <th class="text-center" colspan="10">BZ (j) Aguas Abajo</th>
+                            @if (User.IsInAnyRole(ConstantHelpers.Permission.TechnicalOffice.FULL_ACCESS))
+                            {
+                                <th class="text-center" colspan="12">Tramo</th>
+                                <th rowspan="2"></th>
+                            }
+                            else
+                            {
+                                <th class="text-center" colspan="11">Tramo</th>
+                            }
+                        </tr>
+                        <tr>
+                            @if (User.IsInAnyRole(ConstantHelpers.Permission.TechnicalOffice.FULL_ACCESS))
+                            {
+                                @for (int i = 0; i < 38; ++i)
+                                {
+                                    <th></th>
+                                }
+                            }
+                            else
+                            {
+                                @for (int i = 0; i < 37; ++i)
+                                {
+                                    <th></th>
+                                }
+                            }
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="tab-pane" id="tab_real" role="tabpanel">
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label class="col-form-label">Frente</label>
+                        <select id="work_front_filter" class="form-control kt-select2 select2-work-fronts">
+                            <option>Todos</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="col-form-label">Cuadrilla</label>
+                        <select id="sewer_group_filter" class="form-control kt-select2 select2-sewer-groups">
+                            <option>Todas</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="col-form-label">Tipo Terreno</label>
+                        <select id="terrain_type_filter" class="form-control kt-select2 select2-terrain-types">
+                            <option>Todos</option>
+                            @foreach (var item in ConstantHelpers.Terrain.Type.VALUES)
+                            {
+                                <option value="@item.Key">@item.Value</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-1">
+                        <label class="col-form-label">For 47</label>
+                        <input id="has_for_47_filter" type="checkbox" class="form-control" />
+                    </div>
+                </div>
+                <table class="table table-striped- table-bordered table-hover table-checkable datatable" id="real_datatable" role="grid">
+                    <thead>
+                        <tr>
+                            <th class="text-center" colspan="6">Ubicaci&oacute;n</th>
+                            <th class="text-center" colspan="10">BZ (i) Aguas Arriba</th>
+                            <th class="text-center" colspan="10">BZ (j) Aguas Abajo</th>
+                            <th class="text-center" colspan="16">Tramo</th>
+                            @if (User.IsInAnyRole(ConstantHelpers.Permission.TechnicalOffice.FULL_ACCESS))
+                            {
+                                <th rowspan="3"></th>
+                            }
+                        </tr>
+                        <tr>
+                            @for (var i = 0; i < 34; ++i)
+                            {
+                                <th rowspan="2"></th>
+                            }
+                            <th class="text-center" colspan="3">Tipo de Terreno (%)</th>
+                            <th rowspan="2"></th>
+                            <th class="text-center" colspan="3">Long. de Excavaci&oacute;n</th>
+                            @if (User.IsInAnyRole(ConstantHelpers.Permission.TechnicalOffice.FULL_ACCESS))
+                            {
+                                <th rowspan="2">Revisado</th>
+                            }
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (User.IsInAnyRole(ConstantHelpers.Permission.TechnicalOffice.FULL_ACCESS))
+{
+    <partial name="_CreateModal" />
+    <partial name="_EditModal" />
+    <partial name="_ImportModal" />
+    <partial name="_For47Modal" />
+    <partial name="_AddSewerBoxModal" />
+}
+
+@section Scripts {
+    <script src="~/lib/jquery-file-download/jquery.fileDownload.min.js"></script>
+    @if (User.IsInAnyRole(ConstantHelpers.Permission.TechnicalOffice.FULL_ACCESS))
+    {
+        <script src="~/js/areas/technical-office/drainage-network-summary/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/technical-office/drainage-network-summary/readonly-index.js"></script>
+    }
+}

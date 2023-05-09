@@ -1,0 +1,84 @@
+﻿@model RequestItemViewModel
+
+<input asp-for="Id" hidden />
+<input asp-for="RequestId" hidden />
+
+<div class="form-group row">
+    <div class="col-md-6">
+        <label class="kt-label m-label--single">Grupos</label>
+        <select class="form-control kt-select2 select2-supply-groups">
+        </select>
+    </div>
+
+
+    <div class="col-md-6">
+        <label class="kt-label m-label--single">Para ser usado en: (Frente)</label>
+        <select asp-for="WorkFrontId" id="work_front_filter" class="form-control kt-select2 select2-work-fronts">
+            <option>--Seleccione un Frente--</option>
+        </select>
+    </div>
+</div>
+    <!--
+    <div class="col-md-3">
+        <div class="kt-form__group--inline">
+            <div class="kt-form__label">
+                <label asp-for="UsedFor" class="kt-label m-label--single"></label>
+            </div>
+            <div class="kt-form__control">
+                <input asp-for="UsedFor" class="form-control" />
+            </div>
+        </div>
+        <div class="d-md-none kt-margin-b-10"></div>
+    </div>
+    -->
+<div class="form-group row">
+    <div class="col-md-12">
+        <div class="kt-form__group--inline">
+            <div class="kt-form__label">
+                <label asp-for="SupplyId" class="kt-label m-label--single"></label>
+            </div>
+            <div class="kt-form__control">
+                <select asp-for="SupplyId" class="form-control kt-select2 select2-supplies"></select>
+            </div>
+        </div>
+        <div class="d-md-none kt-margin-b-10"></div>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-md-2">
+        <div class="kt-form__group--inline">
+            <div class="kt-form__label">
+                <label asp-for="MeasureUnit" class="kt-label m-label--single"></label>
+            </div>
+            <div class="kt-form__control">
+                <input asp-for="MeasureUnit" class="form-control" disabled="disabled" />
+            </div>
+        </div>
+        <div class="d-md-none kt-margin-b-10"></div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="kt-form__group--inline">
+            <div class="kt-form__label">
+                <label asp-for="Measure" class="kt-label m-label--single">Metrado <span id="limite" style="color: red; font-size: 12px"></span></label>
+            </div>
+            <div class="kt-form__control">
+                <input asp-for="Measure" class="form-control" />
+            </div>
+        </div>
+        <div class="d-md-none kt-margin-b-10"></div>
+    </div>
+
+    <div class="col-md-7">
+        <div class="kt-form__group--inline">
+            <div class="kt-form__label">
+                <label asp-for="Observations" class="kt-label m-label--single"></label>
+            </div>
+            <div class="kt-form__control">
+                <input asp-for="Observations" class="form-control" />
+            </div>
+        </div>
+        <div class="d-md-none kt-margin-b-10"></div>
+    </div>
+</div>

@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "Obreros";
+    ViewBag.SubTitle = "Listado de Obreros";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.HumanResources.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <button id="btnTregistro" type="button" class="btn btn-primary font-weight-bold dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span><i class="la la-upload"></i><span>T-Registro</span></span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnTregistro">
+                            <a id="btnTregUps" class="dropdown-item" data-toggle="modal" data-target="#treg_up_modal">Altas</a>
+                            <a id="btnTregDowns" class="dropdown-item" data-toggle="modal" data-target="#treg_down_modal">Bajas</a>
+                        </div>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <button id="btnImport" type="button" class="btn btn-info font-weight-bold dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span><i class="la la-upload"></i><span>Importar</span></span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnImport">
+                            <a id="btnNewImport" class="dropdown-item" data-toggle="modal" data-target="#import_new_entry_modal">Nuevos</a>
+                            <a id="btnReImport" class="dropdown-item" data-toggle="modal" data-target="#import_re_entry_modal">Reingresos</a>
+                            <a id="btnCeaseImport" class="dropdown-item" data-toggle="modal" data-target="#import_cease_modal">Ceses</a>
+                            <a id="btnUpdateImport" class="dropdown-item" data-toggle="modal" data-target="#import_update_modal">Actualizar</a>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#worker_add_modal">
+                            <span><i class="la la-plus"></i><span>Nuevo</span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label class="col-form-label">Categor&iacute;a</label>
+                <select id="category_filter" class="form-control kt-select select2-categories">
+                    <option>Todas</option>
+                    @foreach (var item in ConstantHelpers.Worker.Category.VALUES)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Origen</label>
+                <select id="origin_filter" class="form-control kt-select select2-categories">
+                    <option>Todas</option>
+                    @foreach (var item in ConstantHelpers.Worker.Origin.VALUES)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Procedencia</label>
+                <select id="workgroup_filter" class="form-control kt-select select2-categories">
+                    <option>Todas</option>
+                    @foreach (var item in ConstantHelpers.Worker.Workgroup.VALUES)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label class="col-form-label">Estado</label>
+                <select id="status_filter" class="form-control kt-select select2-categories">
+                    <option>Todos</option>
+                    <option selected value="activo">Activos</option>
+                    <option value="cesado">Cesados</option>
+                </select>
+            </div>
+        </div>
+        <table class="table table-striped table-bordered table-hover table-checkable datatable" id="worker_datatable" role="grid"></table>
+    </div>
+</div>
+
+@if (canEdit)
+{
+    <partial name="_WorkerCreateModal" />
+    <partial name="_WorkerEditModal" />
+    <partial name="_WorkerCeaseModal" />
+    <partial name="_WorkerNewEntryModal" />
+    <partial name="_PeriodCreateModal" />
+    <partial name="_PeriodEditModal" />
+    <partial name="_ImportNewEntryModal" />
+    <partial name="_ImportReEntryModal" />
+    <partial name="_ImportCeaseModal" />
+    <partial name="_ImportUpdateModal" />
+    <partial name="_FixedConceptModal" />
+    <partial name="_FixedconceptCreateModal" />
+    <partial name="_FixedconceptEditModal" />
+    <partial name="_TRegistroUpModal" />
+    <partial name="_TRegistroDownModal" />
+}
+
+<partial name="_PeriodModal" />
+
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/human-resources/worker/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/human-resources/worker/readonly-index.js"></script>
+    }
+}

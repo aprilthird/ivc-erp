@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Atención de Órdenes";
+    ViewBag.SubTitle = "Listado Atención de Órdenes";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.Logistics.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label class="col-form-label">Tipo de Solicitud</label>
+                <select id="type_filter" class="form-control kt-select2 select2-type-filter">
+                    <option>Todos</option>
+                    @foreach (var item in ConstantHelpers.Logistics.RequestOrder.Type.VALUES)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Proveedor</label>
+                <select id="provider_filter" class="form-control kt-select2 select2-provider-filter">
+                    <option>Todos</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Estado de Atención</label>
+                <select id="attention-status_filter" class="form-control kt-select2 select2-attention-status-filter">
+                    <option>Todos</option>
+                    @foreach (var item in ConstantHelpers.Logistics.RequestOrder.AttentionStatus.VALUES)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <table class="table table-striped table-bordered table-hover table-checkable datatable" id="main_datatable" role="grid"></table>
+    </div>
+</div>
+
+<partial name="_DetailModal" />
+<partial name="_ItemModal" />
+<partial name="_PdfModal" />
+<partial name="_ClosureModal" />
+<partial name="_ClosureReadModal" />
+
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/logistics/order-attention/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/logistics/order-attention/index.js"></script>
+    }
+}

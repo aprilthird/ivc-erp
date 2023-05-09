@@ -1,0 +1,25 @@
+﻿@model IVC.PE.WEB.Areas.Bidding.ViewModels.BusinessResponsibleViewModels.BusinessResponsibleViewModel
+
+<div class="form-group row">
+
+    <div class="col-lg-12">
+        <label asp-for="BusinessId" class="label"></label>
+        <input asp-for="BusinessId" hidden />
+        <select name="select_business" class="form-control kt-select select2-businesses" data-placeholder="Proyecto"></select>
+    </div>
+
+    <div class="col-lg-12">
+        <label asp-for="Responsibles" class="label"></label>
+        <input asp-for="Responsibles" multiple hidden />
+        <select name="select_users" class="form-control kt-select select2-users" multiple data-placeholder="Encargado"></select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="SendEmail" class="label"></label>
+        <input asp-for="SendEmail" hidden />
+        <select name="select_sendEmail" class="form-control kt-select select2-sendEmail" required>
+            <option value="false" selected>No</option>
+            <option value="true">Sí</option>
+        </select>
+    </div>
+
+</div>

@@ -1,0 +1,300 @@
+﻿@{
+    ViewBag.Title = "Metrados Replanteo Por Partidas";
+    ViewBag.SubTitle = "Metrados Replanteo Por Partidas";
+    var canEdit = User.IsInAnyRole(ConstantHelpers.Permission.TechnicalOffice.FULL_ACCESS);
+}
+
+<div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="flaticon-list-2"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                @ViewBag.SubTitle
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    @if (canEdit)
+                    {
+                        <div class="btn-group" role="group" airal-label="Button group with nested dropdown">
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" id="btn-massive-load">
+                                <span>
+                                    <i class="la la-file-excel-o"></i>
+                                    <span>Formato Carga Masiva</span>
+                                </span>
+                            </button>
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#import_data_modal">
+                                <span>
+                                    <i class="la la-arrow-up"></i>
+                                    <span>Importar Carga Masiva</span>
+                                </span>
+                            </button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="form-group row">
+            <div class="col-md-3">
+                <label class="col-form-label">Jefe de Frente</label>
+                <select id="work_front_head_filter" class="form-control kt-select2 select2-workfronthead-filter">
+                    <option>Todos</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Títulos de Presupuestos</label>
+                <select id="budget_title_filter" class="form-control kt-select2 select2-budgettitle-filter">
+                    <option>Todos</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Frente de Trabajo</label>
+                <select id="work_front_filter" class="form-control kt-select2 select2-workfront-filter">
+                    <option>Todos</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="col-form-label">Cuadrilla</label>
+                <select id="sewer_group_filter" class="form-control kt-select2 select2-sewergroup-filter">
+                    <option>Todos</option>
+                </select>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_project" role="tabpanel">
+                <table class="table table-striped table-bordered table-hover table-chekable dataTable" id="metereds_datatable" role="grid">
+                    <thead>
+                        <tr>
+                            <th rowspan="3" style="text-align:center;">Item</th>
+                            <th rowspan="3" style="text-align:center;">Descripción</th>
+                            <th rowspan="3" style="text-align:center;">Und.</th>
+                            <th rowspan="3" style="text-align:center;">Metrado Neto</th>
+                            <th rowspan="3" style="text-align:center;">P. U.</th>
+                            <th rowspan="3" style="text-align:center;">Parcial</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 01</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 02</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 03</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 04</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 05</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 06</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 07</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 08</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 09</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 10</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 11</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 12</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 13</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 14</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 15</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 16</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 17</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 18</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 19</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 20</th>
+                            <th colspan="4" style="text-align:center;">FRENTE 21</th>
+                            <th rowspan="3" style="text-align:center;">Metrado Acumulado</th>
+                            <th rowspan="3" style="text-align:center;">Monto Acumulado</th>
+                            <th rowspan="3" style="text-align:center;">Opciones</th>
+                        </tr>
+                        <tr>
+                            <!--FRENTE 01-->
+                            <th colspan="2" style="text-align:center;">F5/6_C01</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C01A</th>
+                            <!--FRENTE 02-->
+                            <th colspan="2" style="text-align:center;">F5/6_C02</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C02A</th>
+                            <!--FRENTE 03-->
+                            <th colspan="2" style="text-align:center;">F5/6_C03</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C03A</th>
+                            <!--FRENTE 04-->
+                            <th colspan="2" style="text-align:center;">F5/6_C04</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C04A</th>
+                            <!--FRENTE 05-->
+                            <th colspan="2" style="text-align:center;">F5/6_C05</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C05A</th>
+                            <!--FRENTE 06-->
+                            <th colspan="2" style="text-align:center;">F5/6_C06</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C06A</th>
+                            <!--FRENTE 07-->
+                            <th colspan="2" style="text-align:center;">F5/6_C07</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C07A</th>
+                            <!--FRENTE 08-->
+                            <th colspan="2" style="text-align:center;">F5/6_C08</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C08A</th>
+                            <!--FRENTE 09-->
+                            <th colspan="2" style="text-align:center;">F5/6_C09</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C09A</th>
+                            <!--FRENTE 10-->
+                            <th colspan="2" style="text-align:center;">F5/6_C10</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C10A</th>
+                            <!--FRENTE 11-->
+                            <th colspan="2" style="text-align:center;">F5/6_C11</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C11A</th>
+                            <!--FRENTE 12-->
+                            <th colspan="2" style="text-align:center;">F5/6_C12</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C12A</th>
+                            <!--FRENTE 13-->
+                            <th colspan="2" style="text-align:center;">F5/6_C13</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C13A</th>
+                            <!--FRENTE 14-->
+                            <th colspan="2" style="text-align:center;">F5/6_C14</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C14A</th>
+                            <!--FRENTE 15-->
+                            <th colspan="2" style="text-align:center;">F5/6_C15</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C15A</th>
+                            <!--FRENTE 16-->
+                            <th colspan="2" style="text-align:center;">F5/6_C16</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C16A</th>
+                            <!--FRENTE 17-->
+                            <th colspan="2" style="text-align:center;">F5/6_C17</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C17A</th>
+                            <!--FRENTE 18-->
+                            <th colspan="2" style="text-align:center;">F5/6_C18</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C18A</th>
+                            <!--FRENTE 19-->
+                            <th colspan="2" style="text-align:center;">F5/6_C19</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C19A</th>
+                            <!--FRENTE 20-->
+                            <th colspan="2" style="text-align:center;">F5/6_C20</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C20A</th>
+                            <!--FRENTE 21-->
+                            <th colspan="2" style="text-align:center;">F5/6_C21</th>
+                            <th colspan="2" style="text-align:center;">F5/6_C21A</th>
+                        </tr>
+                        <tr>
+                            <!--FRENTE 01-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 02-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 03-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 04-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 05-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 06-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 07-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 08-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 09-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 10-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 11-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 12-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 13-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 14-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 15-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 16-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 17-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 18-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 19-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 20-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <!--FRENTE 21-->
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                            <th>Metrado</th>
+                            <th>Monto</th>
+                        </tr>
+
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (canEdit)
+{
+    <partial name="_CreateModal" />
+    <partial name="_EditModal" />
+}
+<partial name="_ImportDataModal" />
+
+@section Scripts {
+    @if (canEdit)
+    {
+        <script src="~/js/areas/technical-office/metereds-restated-by-partida/index.js"></script>
+    }
+    else
+    {
+        <script src="~/js/areas/technical-office/metereds-restated-by-partida/index.js"></script>
+    }
+}

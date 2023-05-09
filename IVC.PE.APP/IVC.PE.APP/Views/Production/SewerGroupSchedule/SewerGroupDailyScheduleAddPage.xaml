@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IVC.PE.APP.Views.Production.SewerGroupSchedule.SewerGroupDailyScheduleAddPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Nueva Programación Diaria">
+    <ContentPage.Content>
+        <AbsoluteLayout
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"
+            BindingContext="{Binding SewerGroupDailyScheduleAddViewModel}"
+            Padding="8">
+            <ScrollView
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="SizeProportional"
+                Padding="0,0,0,80">
+                <StackLayout>
+                    <Label Text="Fecha"/>
+                    <DatePicker 
+                        Date="{Binding SelectedDate}"
+                        IsEnabled="{Binding IsEnabled}"
+                        Format="dd/MM/yyyy"/>
+
+                    <Label Text="Cuadrilla"/>
+                    <Picker
+                        SelectedItem="{Binding SelectedSewerGroup}"
+                        ItemsSource="{Binding SewerGroups}"
+                        ItemDisplayBinding="{Binding Text}"
+                        IsEnabled="{Binding IsEnabled}"/>
+
+                    <Label Text="Ubicación"/>
+                    <Picker
+                        SelectedItem="{Binding SelectedProjectHabilitation}"
+                        ItemsSource="{Binding SewerGroups}"
+                        ItemDisplayBinding="{Binding Text}"
+                        IsEnabled="{Binding IsEnabled}"/>
+
+                    <Label Text="Actividades" />
+                    <Button
+                        Command="{Binding AddDailyScheduleActivityCommand}"
+                        HorizontalOptions="EndAndExpand"
+                        BackgroundColor="#00284A"
+                        Text="&#xf5b7;"
+                        FontFamily="FontAwesome"
+                        TextColor="White"
+                        IsEnabled="{Binding IsEnabled}">
+                    </Button>
+                    
+                </StackLayout>
+            </ScrollView>
+            <Button
+                Command="{Binding SaveDailyScheduleCommand}"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds=".98,.98,50,50"
+                BackgroundColor="#00284A"
+                CornerRadius="30"
+                Text="&#xf0c7;"
+                FontFamily="FontAwesome"
+                FontSize="30"
+                TextColor="White"
+                IsEnabled="{Binding IsEnabled}">
+            </Button>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

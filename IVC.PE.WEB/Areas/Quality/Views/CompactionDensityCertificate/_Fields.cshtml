@@ -1,0 +1,62 @@
+﻿@model CompactionDensityCertificateViewModel
+
+<input asp-for="Id" hidden />
+<input asp-for="SewerLineId" hidden />
+
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="SerialNumber" class="label"></label>
+        <input asp-for="SerialNumber" class="form-control" required />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-4">
+        <label asp-for="ExecutionDate" class="label"></label>
+        <div class="input-group">
+            <input asp-for="ExecutionDate" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="MaterialType" class="label"></label>
+        <select asp-for="MaterialType" class="form-control kt-select2 select2-material-types" required>
+            @foreach (var item in ConstantHelpers.Certificate.FillingLaboratory.MaterialType.VALUES)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="QuarryId" class="label"></label>
+        <select asp-for="QuarryId" class="form-control kt-select2 select2-quarries" required></select>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-lg-12">
+        <label asp-for="File" class="label"></label>
+        <div class="custom-file">
+            <input asp-for="File" type="file" class="custom-file-input" required>
+            <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+        </div>
+    </div>
+</div>
+<div id="kt_repeater_1">
+    <div class="form-group form-group-last row" id="kt_repeater_1">
+        <label class="col-lg-1 col-form-label">Capas:</label>
+        <div data-repeater-list="Details" class="col-lg-11">
+            <partial name="_SubFields" />
+        </div>
+    </div>
+    <div class="form-group form-group-last row">
+        <label class="col-lg-1 col-form-label"></label>
+        @*<div class="col-lg-4">
+            <a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
+                <i class="la la-plus"></i> Agregar
+            </a>
+        </div>*@
+    </div>
+</div>

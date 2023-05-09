@@ -1,0 +1,64 @@
+﻿@model MixDesignViewModel
+
+<input asp-for="Id" hidden/>
+
+<div class="form-group row">
+    <div class="col-lg-6">
+        <label asp-for="DesignTypeId" class="label"></label>
+        <input asp-for="DesignTypeId" hidden />
+        <select name="select_design" class="form-control kt-select select2-designs"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="CementTypeId" class="label"></label>
+        <input asp-for="CementTypeId" hidden />
+        <select name="select_cement" class="form-control kt-select select2-cements"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="AggregateTypeId" class="label"></label>
+        <input asp-for="AggregateTypeId" hidden />
+        <select name="select_agg" class="form-control kt-select select2-aggs"></select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="ConcreteUseId" class="label"></label>
+        <input asp-for="ConcreteUseId" hidden />
+        <select name="select_concrete" class="form-control kt-select select2-concretes"></select>
+    </div>
+
+    <div class="col-lg-6">
+        <label asp-for="Additive" class="label"></label>
+        <input asp-for="Additive" hidden />
+        <select name="select_additive" class="form-control kt-select select2-additives" required>
+            <option value="false" selected>No</option>
+            <option value="true">Sí</option>
+        </select>
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="Name" class="label"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="col-lg-6">
+        <label asp-for="DesignDateStr" class="label"></label>
+        <div class="input-group">
+            <input asp-for="DesignDateStr" class="form-control datepicker" required />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <label asp-for="TechnicalVersionId" class="label"></label>
+        <input asp-for="TechnicalVersionId" hidden />
+        <select name="select_version" class="form-control kt-select select2-versions"></select>
+    </div>
+
+</div>
+
+<div class="form-group">
+    <label asp-for="File" class="label">Archivo:</label>
+    <div class="custom-file">
+        <input asp-for="File" type="file" class="custom-file-input" />
+        <label class="custom-file-label" for="customFile">Escoge un archivo</label>
+    </div>
+</div>
